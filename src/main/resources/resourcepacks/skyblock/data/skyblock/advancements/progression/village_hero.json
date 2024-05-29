@@ -1,0 +1,19 @@
+{
+  "parent": "skyblock:progression/cure_zombie_villager",
+  "display": {
+    "icon": {
+      "id": "minecraft:villager_spawn_egg"
+    },
+    "title": {
+      "translate": "Big Hero 6"
+    },
+    "description": {
+      "translate": "Obtain the Hero of the Village effect by defeating a raid"
+    }
+  },
+  "criteria": {
+    "hero_of_the_village": {
+      "trigger": "minecraft:hero_of_the_village"
+    }
+  }
+}

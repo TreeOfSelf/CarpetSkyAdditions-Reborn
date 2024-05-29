@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "building",
+  "ingredient": {
+    "item": "minecraft:andesite"
+  },
+  "result": {
+    "id": "minecraft:tuff"
+  },
+  "experience": 0.1,
+  "cookingtime": 100
+}

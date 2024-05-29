@@ -1,0 +1,95 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:gunpowder",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              },
+              "add": false
+            },
+            {
+              "function": "minecraft:looting_enchant",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:tag",
+              "name": "skyblock:creeper_drop_music_discs_ancient_city",
+              "expand": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "structure": "minecraft:ancient_city"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:tag",
+              "name": "skyblock:creeper_drop_music_discs_bastion",
+              "expand": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "structure": "minecraft:bastion_remnant"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:tag",
+              "name": "skyblock:creeper_drop_music_discs_stronghold",
+              "expand": true,
+              "conditions": [
+                {
+                  "condition": "minecraft:location_check",
+                  "predicate": {
+                    "structure": "minecraft:stronghold"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "minecraft:tag",
+              "name": "minecraft:creeper_drop_music_discs",
+              "expand": true
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:entity_properties",
+          "entity": "killer",
+          "predicate": {
+            "type": "#minecraft:skeletons"
+          }
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:entities/creeper"
+}

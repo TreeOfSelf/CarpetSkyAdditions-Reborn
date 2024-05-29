@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "ore",
+  "pattern": [
+    " X ",
+    "XNX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:gold_ingot"
+    },
+    "N": {
+      "item": "minecraft:netherrack"
+    }
+  },
+  "result": {
+    "id": "minecraft:nether_gold_ore"
+  }
+}

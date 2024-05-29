@@ -1,0 +1,24 @@
+{
+  "parent": "skyblock:progression/emerald",
+  "display": {
+    "icon": {
+      "id": "minecraft:villager_spawn_egg"
+    },
+    "title": {
+      "translate": "Thank You, Come Again"
+    },
+    "description": {
+      "translate": "Make your first of many trades with a Wandering Trader"
+    }
+  },
+  "criteria": {
+    "trade_with_wandering_trader": {
+      "trigger": "minecraft:villager_trade",
+      "conditions": {
+        "villager": {
+          "type": "minecraft:wandering_trader"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "ore",
+  "pattern": [
+    " X ",
+    "XDX",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:diamond"
+    },
+    "D": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "result": {
+    "id": "minecraft:deepslate_diamond_ore"
+  }
+}

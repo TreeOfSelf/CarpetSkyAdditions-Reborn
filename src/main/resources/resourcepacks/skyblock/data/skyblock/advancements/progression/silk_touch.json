@@ -1,0 +1,38 @@
+{
+  "parent": "skyblock:progression/kill_zombie",
+  "display": {
+    "icon": {
+      "id": "minecraft:golden_shovel",
+      "components": {
+        "minecraft:enchantments": {
+          "minecraft:silk_touch": 0
+        }
+      }
+    },
+    "title": {
+      "translate": "Easier than Endermen"
+    },
+    "description": {
+      "translate": "Get a Silk Touch tool so you can move Grass Blocks easier"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "has_silk_touch_tool": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:enchantments": [
+                {
+                  "enchantment": "minecraft:silk_touch"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}
