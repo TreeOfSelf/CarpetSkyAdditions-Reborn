@@ -2,7 +2,7 @@
   "parent": "skyblock:progression/all_saplings",
   "display": {
     "icon": {
-      "id": "minecraft:pumpkin"
+      "id": "minecraft:tube_coral_block"
     },
     "title": {
       "translate": "Day Trader"
@@ -13,6 +13,18 @@
     "frame": "challenge"
   },
   "criteria": {
+    "has_beetroot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:beetroot_seeds"
+            ]
+          }
+        ]
+      }
+    },
     "has_pumpkin": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -182,6 +194,18 @@
         ]
       }
     },
+    "has_oak_sapling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
     "has_spruce_sapling": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -218,6 +242,18 @@
         ]
       }
     },
+    "has_pink_petals": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pink_petals"
+            ]
+          }
+        ]
+      }
+    },
     "has_acacia_sapling": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -249,18 +285,6 @@
           {
             "items": [
               "minecraft:mangrove_propagule"
-            ]
-          }
-        ]
-      }
-    },
-    "has_cherry_sapling": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:cherry_sapling"
             ]
           }
         ]

@@ -26,6 +26,10 @@ public class WanderingTraderHelper {
                                         new VillagerTrades.ItemsForEmeralds(Items.ROSE_BUSH, 1, 1, 12, 1),
                                         new VillagerTrades.ItemsForEmeralds(Items.PEONY, 1, 1, 12, 1));
                 }
+                Collections.addAll(
+                    tier1Trades,
+                new VillagerTrades.ItemsForEmeralds(Items.PINK_PETALS, 1, 16, 12, 1)
+                );
 
                 if (SkyAdditionsSettings.lavaFromWanderingTrader) {
                         tier2Trades.add( new VillagerTrades.ItemsAndEmeraldsToItems(Items.BUCKET, 1, 16, Items.LAVA_BUCKET, 1, 1, 1, 1));

@@ -8,7 +8,7 @@
       "translate": "The First of Many"
     },
     "description": {
-      "translate": "Get your first Oak Log"
+      "translate": "Get your first Log"
     }
   },
   "criteria": {
@@ -17,9 +17,7 @@
       "conditions": {
         "items": [
           {
-            "items": [
-              "minecraft:oak_log"
-            ]
+            "items": "#minecraft:logs"
           }
         ]
       }
