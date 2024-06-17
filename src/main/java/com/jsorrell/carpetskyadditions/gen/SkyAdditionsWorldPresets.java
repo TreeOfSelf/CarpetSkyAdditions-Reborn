@@ -9,6 +9,6 @@ public class SkyAdditionsWorldPresets {
     public static final ResourceKey<WorldPreset> SKYBLOCK = preset("skyblock");
 
     private static ResourceKey<WorldPreset> preset(String path) {
-        return ResourceKey.create(Registries.WORLD_PRESET, new SkyAdditionsResourceLocation(path));
+        return ResourceKey.create(Registries.WORLD_PRESET, new SkyAdditionsResourceLocation(path).getResourceLocation());
     }
 }

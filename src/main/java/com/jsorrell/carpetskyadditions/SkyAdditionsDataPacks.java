@@ -14,7 +14,7 @@ public class SkyAdditionsDataPacks {
     public static void register() {
         // Add the embedded datapacks as an option on the create world screen
         if (!ResourceManagerHelper.registerBuiltinResourcePack(
-                new SkyAdditionsResourceLocation("skyblock"),
+                new SkyAdditionsResourceLocation("skyblock").getResourceLocation(),
                 SkyAdditionsExtension.MOD_CONTAINER,
                 Component.translatable("datapack.carpetskyadditions.skyblock"),
                 ResourcePackActivationType.NORMAL)) {
@@ -22,7 +22,7 @@ public class SkyAdditionsDataPacks {
         }
 
         if (!ResourceManagerHelper.registerBuiltinResourcePack(
-                new SkyAdditionsResourceLocation("skyblock_acacia"),
+                new SkyAdditionsResourceLocation("skyblock_acacia").getResourceLocation(),
                 SkyAdditionsExtension.MOD_CONTAINER,
                 Component.translatable("datapack.carpetskyadditions.acacia"),
                 ResourcePackActivationType.NORMAL)) {

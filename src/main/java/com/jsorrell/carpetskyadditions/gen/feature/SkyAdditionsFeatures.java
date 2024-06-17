@@ -17,11 +17,11 @@ public abstract class SkyAdditionsFeatures {
     public static void registerAll() {
         Registry.register(
                 BuiltInRegistries.FEATURE,
-                new SkyAdditionsResourceLocation("locatable_structure"),
+                new SkyAdditionsResourceLocation("locatable_structure").getResourceLocation(),
                 LOCATABLE_STRUCTURE);
         Registry.register(
-                BuiltInRegistries.FEATURE, new SkyAdditionsResourceLocation("spawn_platform"), SPAWN_PLATFORM);
+                BuiltInRegistries.FEATURE, new SkyAdditionsResourceLocation("spawn_platform").getResourceLocation(), SPAWN_PLATFORM);
         Registry.register(
-                BuiltInRegistries.FEATURE, new SkyAdditionsResourceLocation("end_gateway_island"), GATEWAY_ISLAND);
+                BuiltInRegistries.FEATURE, new SkyAdditionsResourceLocation("end_gateway_island").getResourceLocation(), GATEWAY_ISLAND);
     }
 }

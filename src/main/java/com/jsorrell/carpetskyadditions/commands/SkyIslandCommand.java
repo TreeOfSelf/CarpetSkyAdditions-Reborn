@@ -72,7 +72,7 @@ public class SkyIslandCommand {
         int x = chunkPos.getMiddleBlockX();
         int z = chunkPos.getMiddleBlockZ();
         ChunkAccess chunk = source.getLevel().getChunk(chunkPos.x, chunkPos.z, ChunkStatus.EMPTY);
-        if (chunk.getStatus() != ChunkStatus.FULL) {
+        if (chunk.getPersistedStatus() != ChunkStatus.FULL) {
             throw ISLAND_NOT_CREATED.create();
         }
 
@@ -116,7 +116,7 @@ public class SkyIslandCommand {
                 .mapToObj(i -> ImmutablePair.of(i, SkyIslandPositionContainer.getChunk(i)))
                 .filter(i -> {
                     ChunkAccess chunk = source.getLevel().getChunk(i.right.x, i.right.z, ChunkStatus.EMPTY);
-                    return chunk.getStatus() == ChunkStatus.EMPTY;
+                    return chunk.getPersistedStatus() == ChunkStatus.EMPTY;
                 })
                 .findFirst();
         if (islandOpt.isEmpty()) {
@@ -163,10 +163,10 @@ public class SkyIslandCommand {
         ChunkAccess chunk = source.getLevel().getChunk(chunkPos.x, chunkPos.z, ChunkStatus.EMPTY);
         int y;
         Supplier<Integer> spawnHeight = () -> chunk.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z) + 1;
-        if (chunk.getStatus() != ChunkStatus.FULL || (y = spawnHeight.get()) <= chunk.getMinBuildHeight()) {
+        if (chunk.getPersistedStatus() != ChunkStatus.FULL || (y = spawnHeight.get()) <= chunk.getMinBuildHeight()) {
             throw ISLAND_NOT_CREATED.create();
         }
-        player.teleportToWithTicket(x + 0.5, y, z + 0.5);
+        player.teleportTo(x + 0.5, y, z + 0.5);
         if (!player.isFallFlying()) {
             player.setDeltaMovement(player.getDeltaMovement().multiply(1.0, 0.0, 1.0));
             player.setOnGround(true);

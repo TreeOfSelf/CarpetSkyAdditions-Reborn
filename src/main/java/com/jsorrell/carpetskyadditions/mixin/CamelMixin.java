@@ -47,7 +47,7 @@ public abstract class CamelMixin extends AbstractHorse implements CamelInterface
         return TraderCamelHelper.isTraderCamel(asCamel());
     }
 
-    @Override
+    /*@Override
     public boolean canBeLeashed(Player player) {
         boolean normallyCanBeLeashed = super.canBeLeashed(player);
         boolean canBeLeashed = normallyCanBeLeashed && !isTraderCamel();
@@ -64,7 +64,7 @@ public abstract class CamelMixin extends AbstractHorse implements CamelInterface
             }
         }
         return canBeLeashed;
-    }
+    }*/
 
     @Inject(method = "canAddPassenger", at = @At("HEAD"), cancellable = true)
     public void canAddPassengerToTraderCamel(Entity passenger, CallbackInfoReturnable<Boolean> cir) {

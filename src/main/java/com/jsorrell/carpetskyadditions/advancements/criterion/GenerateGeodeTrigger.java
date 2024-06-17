@@ -13,7 +13,7 @@ import net.minecraft.util.ExtraCodecs;
 
 public class GenerateGeodeTrigger extends SimpleCriterionTrigger<GenerateGeodeTrigger.Conditions> {
 
-    static final ResourceLocation ID = new SkyAdditionsResourceLocation("generate_geode");
+    static final ResourceLocation ID = new SkyAdditionsResourceLocation("generate_geode").getResourceLocation();
 
     @Override
     public Codec<GenerateGeodeTrigger.Conditions> codec() {

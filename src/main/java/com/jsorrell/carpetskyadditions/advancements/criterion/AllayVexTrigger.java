@@ -13,7 +13,7 @@ import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.level.storage.loot.LootContext;
 
 public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Conditions> {
-    static final ResourceLocation ID = new SkyAdditionsResourceLocation("allay_vex");
+    static final ResourceLocation ID = new SkyAdditionsResourceLocation("allay_vex").getResourceLocation();
 
     public void trigger(ServerPlayer player, Vex vex, Allay allay) {
         LootContext vexLootContext = EntityPredicate.createContext(player, vex);

@@ -2,11 +2,14 @@ package com.jsorrell.carpetskyadditions.mixin;
 
 import static com.jsorrell.carpetskyadditions.helpers.SkyAdditionsEnchantmentHelper.SWIFT_SNEAK_ENCHANTABLE_TAG;
 
+import com.google.common.collect.Lists;
 import com.jsorrell.carpetskyadditions.helpers.SkyAdditionsEnchantmentHelper;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Stream;
 
+import net.minecraft.core.Holder;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,18 +30,19 @@ public class EnchantmentHelperMixin {
         method = "getAvailableEnchantmentResults",
         at = @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/world/item/enchantment/Enchantment;isDiscoverable()Z"
+            target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z"
         ),
         locals = LocalCapture.CAPTURE_FAILSOFT
     )
-    private static void forceAllowSwiftSneak(FeatureFlagSet featureFlagSet, int i, ItemStack itemStack, boolean bl, CallbackInfoReturnable<List<EnchantmentInstance>> cir, List list, boolean bl2, Iterator var6, Enchantment enchantment) {
+    private static void forceAllowSwiftSneak(int i, ItemStack itemStack, Stream<Holder<Enchantment>> stream, CallbackInfoReturnable<List<EnchantmentInstance>> cir) {
 
         if (itemStack.getTags().findAny().isPresent() && itemStack.getTags().anyMatch(tag -> tag.equals(SWIFT_SNEAK_ENCHANTABLE_TAG))) {
-            if (Enchantments.SWIFT_SNEAK.canEnchant(itemStack.getItem().getDefaultInstance()) || itemStack.is(Items.BOOK)) {
+            if ( /*Enchantments.SWIFT_SNEAK.canEnchant(itemStack.getItem().getDefaultInstance()) ||itemStack.is(Items.BOOK)*/ true) {
                 for (int level = 3; 1 <= level; --level) {
                     if (SkyAdditionsEnchantmentHelper.getSwiftSneakMinCost(level) <= i
                             && i <= SkyAdditionsEnchantmentHelper.getSwiftSneakMaxCost(level)) {
-                        list.add(new EnchantmentInstance(Enchantments.SWIFT_SNEAK, level));
+                        List<EnchantmentInstance> list = Lists.newArrayList();
+                        list.add(new EnchantmentInstance((Holder<Enchantment>) Enchantments.SWIFT_SNEAK, level));
                         break;
                     }
                 }

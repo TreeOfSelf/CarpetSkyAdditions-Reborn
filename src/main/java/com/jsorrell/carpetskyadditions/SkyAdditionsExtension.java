@@ -66,7 +66,7 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
 
         Registry.register(
             BuiltInRegistries.CHUNK_GENERATOR,
-            new SkyAdditionsResourceLocation("skyblock"),
+            new SkyAdditionsResourceLocation("skyblock").getResourceLocation(),
             SkyBlockChunkGenerator.CODEC
         );
 

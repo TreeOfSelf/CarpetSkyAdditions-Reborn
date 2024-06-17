@@ -19,7 +19,7 @@ public class SkyAdditionsLootItemConditions {
             String registryName, MapCodec<? extends LootItemCondition> codec) {
         return Registry.register(
                 BuiltInRegistries.LOOT_CONDITION_TYPE,
-                new SkyAdditionsResourceLocation(registryName),
+                new SkyAdditionsResourceLocation(registryName).getResourceLocation(),
                 new LootItemConditionType(codec));
     }
 

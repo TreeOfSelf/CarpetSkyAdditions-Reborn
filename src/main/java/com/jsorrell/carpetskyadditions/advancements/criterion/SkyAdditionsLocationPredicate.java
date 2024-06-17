@@ -62,7 +62,7 @@ public record SkyAdditionsLocationPredicate(
         private boolean doDesertPyramidCheck(ServerLevel level, BlockPos blueTerracottaPos, boolean sendDebugMessage) {
                 StructureTemplate template = level.getServer()
                                 .getStructureManager()
-                                .get(new SkyAdditionsResourceLocation("desert_pyramid"))
+                                .get(new SkyAdditionsResourceLocation("desert_pyramid").getResourceLocation())
                                 .orElseThrow();
                 BlockPos centerOffset = new BlockPos(
                                 template.getSize().getX() / 2, 0, template.getSize().getZ() / 2);

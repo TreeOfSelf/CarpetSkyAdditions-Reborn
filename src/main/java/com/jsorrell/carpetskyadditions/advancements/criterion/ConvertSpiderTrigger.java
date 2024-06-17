@@ -14,7 +14,7 @@ import net.minecraft.world.entity.monster.Spider;
 import net.minecraft.world.level.storage.loot.LootContext;
 
 public class ConvertSpiderTrigger extends SimpleCriterionTrigger<ConvertSpiderTrigger.Conditions> {
-    static final ResourceLocation ID = new SkyAdditionsResourceLocation("convert_spider");
+    static final ResourceLocation ID = new SkyAdditionsResourceLocation("convert_spider").getResourceLocation();
 
 
     public void trigger(ServerPlayer player, Spider spider, CaveSpider caveSpider) {

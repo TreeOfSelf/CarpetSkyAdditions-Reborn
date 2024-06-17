@@ -9,6 +9,6 @@ public class SkyAdditionsBiomeTags {
     public static final TagKey<Biome> WANDERING_TRADER_SPAWNS_ON_CAMEL = create("wandering_trader_spawns_on_camel");
 
     private static TagKey<Biome> create(String name) {
-        return TagKey.create(Registries.BIOME, new SkyAdditionsResourceLocation(name));
+        return TagKey.create(Registries.BIOME, new SkyAdditionsResourceLocation(name).getResourceLocation());
     }
 }

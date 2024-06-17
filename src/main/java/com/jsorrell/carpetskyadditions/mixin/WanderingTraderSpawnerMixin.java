@@ -8,6 +8,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -112,7 +113,7 @@ public abstract class WanderingTraderSpawnerMixin {
                     serverLevelData.setWanderingTraderId(wanderingTrader.getUUID());
                     wanderingTrader.setDespawnDelay(48000);
 
-                    traderCamel.equipSaddle(null);
+                    traderCamel.equipSaddle(null, SoundSource.AMBIENT);
                     wanderingTrader.moveTo(
                             traderCamel.getX(), traderCamel.getY(), traderCamel.getZ(), traderCamel.getYRot(), 0.0F);
                     wanderingTrader.startRiding(traderCamel, true);

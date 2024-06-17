@@ -2,6 +2,7 @@ package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -53,8 +54,8 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
     }
 
     @Override
-    protected void dropCustomDeathLoot(DamageSource damageSource, int looting, boolean hitByPlayer) {
-        super.dropCustomDeathLoot(damageSource, looting, hitByPlayer);
+    protected void dropCustomDeathLoot(ServerLevel serverLevel, DamageSource damageSource, boolean bl) {
+        super.dropCustomDeathLoot(serverLevel, damageSource, bl);
         if (SkyAdditionsSettings.renewableDragonHeads) {
             if (damageSource.getEntity() instanceof Creeper killerCreeper) {
                 if (killerCreeper.canDropMobsSkull()) {

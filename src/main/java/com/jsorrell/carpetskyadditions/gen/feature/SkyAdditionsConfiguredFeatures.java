@@ -11,6 +11,6 @@ public abstract class SkyAdditionsConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> GATEWAY_ISLAND = feature("end_gateway_island");
 
     private static ResourceKey<ConfiguredFeature<?, ?>> feature(String path) {
-        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new SkyAdditionsResourceLocation(path));
+        return ResourceKey.create(Registries.CONFIGURED_FEATURE, new SkyAdditionsResourceLocation(path).getResourceLocation());
     }
 }

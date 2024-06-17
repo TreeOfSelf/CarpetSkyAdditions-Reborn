@@ -6,10 +6,12 @@ import static com.jsorrell.carpetskyadditions.helpers.SkyAdditionsEnchantmentHel
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.ByteTag;
 import net.minecraft.network.chat.Component;
@@ -19,6 +21,7 @@ import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.EnchantmentMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.phys.AABB;
@@ -43,9 +46,9 @@ public class EnchantmentMenuMixin {
         @At(
             value = "INVOKE",
             target =
-                "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;selectEnchantment(Lnet/minecraft/world/flag/FeatureFlagSet;Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/item/ItemStack;IZ)Ljava/util/List;"))
+                "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;selectEnchantment(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/item/ItemStack;ILjava/util/stream/Stream;)Ljava/util/List;"))
     private List<EnchantmentInstance> addSwiftSneak(
-        FeatureFlagSet featureFlagSet, RandomSource randomSource, ItemStack itemStack, int i, boolean bl, Operation<List<EnchantmentInstance>> original) {
+        RandomSource randomSource, ItemStack itemStack, int i, Stream<Holder<Enchantment>> stream, Operation<List<EnchantmentInstance>> original) {
         if (SkyAdditionsSettings.renewableSwiftSneak) {
             boolean hasWardenNearby = access.evaluate((world, blockPos) -> {
                     AABB box = new AABB(blockPos).inflate(MAX_WARDEN_DISTANCE_FOR_SWIFT_SNEAK);
@@ -64,6 +67,6 @@ public class EnchantmentMenuMixin {
                 itemStack.set(DataComponents.CUSTOM_NAME, Component.literal(SWIFT_SNEAK_ENCHANTABLE_TAG));
             }
         }
-        return EnchantmentHelper.selectEnchantment(featureFlagSet, randomSource, itemStack, i, false);
+        return EnchantmentHelper.selectEnchantment( randomSource, itemStack, i, stream);
     }
 }
