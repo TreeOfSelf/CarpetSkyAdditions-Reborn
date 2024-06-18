@@ -6,6 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "minecraft:arrow",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -15,14 +16,14 @@
               }
             },
             {
-              "function": "minecraft:looting_enchant",
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "min": 0,
                 "max": 1
-              }
+              },
+              "options": "minecraft:looting"
             }
-          ],
-          "name": "minecraft:arrow"
+          ]
         }
       ]
     },
@@ -31,6 +32,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "minecraft:bone",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -40,14 +42,9 @@
               }
             },
             {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "min": 0,
-                "max": 1
-              }
+              "function": "minecraft:looting_enchant"
             }
-          ],
-          "name": "minecraft:bone"
+          ]
         }
       ]
     },
@@ -65,23 +62,23 @@
         },
         {
           "condition": "minecraft:entity_properties",
+          "entity": "this",
           "predicate": {
             "vehicle": {
               "type": "minecraft:spider"
             }
-          },
-          "entity": "this"
+          }
         },
         {
-          "condition": "inverted",
+          "condition": "minecraft:inverted",
           "term": {
             "condition": "minecraft:entity_properties",
+            "entity": "this",
             "predicate": {
               "vehicle": {
                 "nbt": "{Health:0f}"
               }
-            },
-            "entity": "this"
+            }
           }
         }
       ]

@@ -6,6 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "minecraft:string",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -15,14 +16,14 @@
               }
             },
             {
-              "function": "minecraft:looting_enchant",
-              "count": {
+              "function": "minecraft:enchant_with_levels",
+              "levels": {
                 "min": 0,
                 "max": 1
-              }
+              },
+              "options": "minecraft:looting"
             }
-          ],
-          "name": "minecraft:string"
+          ]
         }
       ]
     },
@@ -31,6 +32,7 @@
       "entries": [
         {
           "type": "minecraft:item",
+          "name": "minecraft:spider_eye",
           "functions": [
             {
               "function": "minecraft:set_count",
@@ -40,14 +42,9 @@
               }
             },
             {
-              "function": "minecraft:looting_enchant",
-              "count": {
-                "min": 0,
-                "max": 1
-              }
+              "function": "minecraft:looting_enchant"
             }
-          ],
-          "name": "minecraft:spider_eye"
+          ]
         }
       ],
       "conditions": [
@@ -58,7 +55,7 @@
     },
     {
       "rolls": 1,
-      "bonus_rolls": 0.0,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -71,23 +68,23 @@
         },
         {
           "condition": "minecraft:entity_properties",
+          "entity": "this",
           "predicate": {
             "passenger": {
               "type": "#minecraft:skeletons"
             }
-          },
-          "entity": "this"
+          }
         },
         {
-          "condition": "inverted",
+          "condition": "minecraft:inverted",
           "term": {
             "condition": "minecraft:entity_properties",
+            "entity": "this",
             "predicate": {
               "passenger": {
                 "nbt": "{Health:0f}"
               }
-            },
-            "entity": "this"
+            }
           }
         }
       ]
