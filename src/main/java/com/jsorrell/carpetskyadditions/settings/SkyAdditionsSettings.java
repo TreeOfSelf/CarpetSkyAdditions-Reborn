@@ -26,6 +26,9 @@ public class SkyAdditionsSettings {
     public static boolean generateEndPortals = true;
 
     @Rule(categories = GENERATION)
+    public static boolean generateTrialChambers = true;
+
+    @Rule(categories = GENERATION)
     public static boolean generateSilverfishSpawners = true;
 
     @Rule(categories = GENERATION)

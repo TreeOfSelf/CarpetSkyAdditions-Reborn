@@ -1,17 +1,35 @@
 package com.jsorrell.carpetskyadditions.gen;
 
 import java.util.Objects;
+
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.util.random.SimpleWeightedRandomList;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.Zombie;
+import net.minecraft.world.entity.monster.ZombieVillager;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.SpawnData;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
+import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
+import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerConfig;
+import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerData;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
 public class SkyBlockStructures {
     protected record StructureOrientation(Rotation rotation, Mirror mirror) {
@@ -73,10 +91,10 @@ public class SkyBlockStructures {
             return new BlockPos.MutableBlockPos(applyXTransform(x, z), applyYTransform(y), applyZTransform(x, z));
         }
 
-        protected void addBlock(ServerLevelAccessor level, BlockState block, int x, int y, int z, BoundingBox bounds) {
+        protected BlockPos.MutableBlockPos addBlock(ServerLevelAccessor level, BlockState block, int x, int y, int z, BoundingBox bounds) {
             BlockPos.MutableBlockPos blockPos = offsetPos(x, y, z);
             if (!bounds.isInside(blockPos)) {
-                return;
+                return blockPos;
             }
             if (mirror != Mirror.NONE) {
                 block = block.mirror(mirror);
@@ -85,6 +103,7 @@ public class SkyBlockStructures {
                 block = block.rotate(rotation);
             }
             level.setBlock(blockPos, block, Block.UPDATE_CLIENTS);
+            return blockPos;
         }
 
         protected void fillBlocks(
@@ -170,6 +189,112 @@ public class SkyBlockStructures {
                     8,
                     20,
                     bounds);
+        }
+    }
+
+
+    public static class TrialChamber extends SkyBlockStructure {
+        public TrialChamber(StructurePiece piece){
+            super(piece);
+        }
+
+        private EntityType<?>[] entityTypes = {
+            EntityType.BREEZE,
+            EntityType.SLIME,
+            EntityType.ZOMBIE,
+            EntityType.HUSK,
+            EntityType.SKELETON,
+            EntityType.BOGGED,
+            EntityType.STRAY,
+            EntityType.SPIDER,
+            EntityType.CAVE_SPIDER,
+            EntityType.SILVERFISH
+            // Add more entity types as needed
+        };
+        @Override
+        public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
+
+            if (random.nextInt(20) == 1) {
+                addBlock(
+                    level,
+                    Blocks.VAULT.defaultBlockState(),
+                    random.nextInt(5) - random.nextInt(5),
+                    random.nextInt(5) - random.nextInt(5),
+                    random.nextInt(5) - random.nextInt(5),
+                    bounds);
+            }
+
+            if (random.nextInt(30) == 1) {
+                addBlock(
+                    level,
+                    Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS, true),
+                    random.nextInt(5) - random.nextInt(5),
+                    random.nextInt(5) - random.nextInt(5),
+                    random.nextInt(5) - random.nextInt(5),
+                    bounds);
+            }
+
+            if (random.nextInt(10) == 1) {
+                BlockPos.MutableBlockPos trialSpawnerPos = addBlock(
+                    level,
+                    Blocks.TRIAL_SPAWNER.defaultBlockState(),
+                    random.nextInt(5) - random.nextInt(5),
+                    random.nextInt(5) - random.nextInt(5),
+                    random.nextInt(5) - random.nextInt(5),
+                    bounds);
+
+
+                level.getServer().submit(() -> {
+                    BlockEntity tileEntity = level.getBlockEntity(trialSpawnerPos);
+                    if (tileEntity instanceof TrialSpawnerBlockEntity) {
+                        TrialSpawnerBlockEntity spawner = (TrialSpawnerBlockEntity) tileEntity;
+                        int index = random.nextInt(entityTypes.length);
+                        spawner.setEntityId(entityTypes[index], random);
+                        spawner.markUpdated();
+                        spawner.setChanged();
+                    }
+                });
+
+            }
+        }
+    }
+
+    public static class TrialChamberEntrance extends SkyBlockStructure {
+        public TrialChamberEntrance(StructurePiece piece){
+            super(piece);
+        }
+
+
+        @Override
+        public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
+            addBlock(
+                level,
+                Blocks.VAULT.defaultBlockState(),
+                10,
+                8,
+                20,
+                bounds);
+
+        }
+    }
+
+
+    public static class TrialChamberAtrium extends SkyBlockStructure {
+        public TrialChamberAtrium(StructurePiece piece){
+            super(piece);
+        }
+
+
+        @Override
+        public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
+            addBlock(
+                level,
+                Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS,true),
+                10,
+                8,
+                20,
+                bounds);
+
         }
     }
 

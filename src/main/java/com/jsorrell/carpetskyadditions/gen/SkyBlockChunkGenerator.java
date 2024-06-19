@@ -17,6 +17,7 @@ import net.minecraft.CrashReport;
 import net.minecraft.ReportedException;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.data.worldgen.TrialChambersStructurePools;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
@@ -32,10 +33,7 @@ import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.levelgen.*;
 import net.minecraft.world.level.levelgen.blending.Blender;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.structure.BoundingBox;
-import net.minecraft.world.level.levelgen.structure.PoolElementStructurePiece;
-import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.levelgen.structure.*;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
 import net.minecraft.world.level.levelgen.structure.pools.SinglePoolElement;
 import net.minecraft.world.level.levelgen.structure.pools.StructureTemplatePool;
@@ -154,8 +152,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                             }
                                         });
                             } else if (structure instanceof JigsawStructure) {
-                                Holder<StructureTemplatePool> startPool =
-                                        ((JigsawStructureAccessor) structure).getStartPool();
+                                Holder<StructureTemplatePool> startPool = ((JigsawStructureAccessor) structure).getStartPool();
                                 // Bastion Remnants
                                 if (SkyAdditionsSettings.generateMagmaCubeSpawners
                                         && startPool.is(ResourceLocation.withDefaultNamespace("bastion/starts"))) {
@@ -220,6 +217,62 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                                 }
                                             });
                                 }
+                                //Trial Chambers
+                                else if (SkyAdditionsSettings.generateTrialChambers && startPool.is(ResourceLocation.withDefaultNamespace("trial_chambers/chamber/end"))){
+                                    level.setCurrentlyGenerating(structureNameSupplier);
+                                    structureManager
+                                        .startsForStructure(sectionPos, structure)
+                                        .forEach(structureStart -> {
+                                            for (StructurePiece piece : structureStart.getPieces()) {
+                                                if (piece.isCloseToChunk(chunkPos, 0)
+                                                    && piece instanceof PoolElementStructurePiece poolPiece) {
+                                                    if (poolPiece.getElement()
+                                                        instanceof SinglePoolElement singlePoolElement) {
+                                                        ResourceLocation pieceId = ((SinglePoolElementAccessor)
+                                                            singlePoolElement)
+                                                            .getTemplate()
+                                                            .left()
+                                                            .orElseThrow(AssertionError::new);
+                                                        if (pieceId.getNamespace()
+                                                            .equals("minecraft")
+                                                            && pieceId.getPath()
+                                                            .startsWith(
+                                                                "trial_chambers/corridor/entrance")) {
+                                                            new SkyBlockStructures.TrialChamberEntrance(piece)
+                                                                .generate(
+                                                                    level,
+                                                                    ChunkGeneratorAccessor.getWritableArea(
+                                                                        chunk),
+                                                                    random);
+                                                        }else if (pieceId.getNamespace()
+                                                            .equals("minecraft")
+                                                            && pieceId.getPath()
+                                                            .startsWith(
+                                                                "trial_chambers/corridor/atrium")) {
+                                                            new SkyBlockStructures.TrialChamberAtrium(piece)
+                                                                .generate(
+                                                                    level,
+                                                                    ChunkGeneratorAccessor.getWritableArea(
+                                                                        chunk),
+                                                                    random);
+                                                        }else if (pieceId.getNamespace()
+                                                            .equals("minecraft")
+                                                            && pieceId.getPath()
+                                                            .startsWith(
+                                                                "trial_chambers")) {
+                                                            new SkyBlockStructures.TrialChamber(piece)
+                                                                .generate(
+                                                                    level,
+                                                                    ChunkGeneratorAccessor.getWritableArea(
+                                                                        chunk),
+                                                                    random);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        });
+                                }
+
                             }
                         } catch (Exception e) {
                             CrashReport crashReport = CrashReport.forThrowable(e, "Feature placement");
