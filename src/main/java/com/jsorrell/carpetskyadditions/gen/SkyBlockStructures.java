@@ -214,7 +214,7 @@ public class SkyBlockStructures {
         @Override
         public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
 
-            if (random.nextInt(20) == 1) {
+            if (random.nextInt(25) == 1) {
                 addBlock(
                     level,
                     Blocks.VAULT.defaultBlockState(),
@@ -234,7 +234,7 @@ public class SkyBlockStructures {
                     bounds);
             }
 
-            if (random.nextInt(10) == 1) {
+            if (random.nextInt(16) == 1) {
                 BlockPos.MutableBlockPos trialSpawnerPos = addBlock(
                     level,
                     Blocks.TRIAL_SPAWNER.defaultBlockState(),
@@ -270,9 +270,9 @@ public class SkyBlockStructures {
             addBlock(
                 level,
                 Blocks.VAULT.defaultBlockState(),
-                10,
-                8,
-                20,
+                random.nextInt(5) - random.nextInt(5),
+                random.nextInt(5) - random.nextInt(5),
+                random.nextInt(5) - random.nextInt(5),
                 bounds);
 
         }
@@ -290,9 +290,9 @@ public class SkyBlockStructures {
             addBlock(
                 level,
                 Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS,true),
-                10,
-                8,
-                20,
+                random.nextInt(5) - random.nextInt(5),
+                random.nextInt(5) - random.nextInt(5),
+                random.nextInt(5) - random.nextInt(5),
                 bounds);
 
         }
