@@ -1,8 +1,4 @@
 {
-  "parent": "skyblock:challenges/root",
-  "rewards": {
-    "function": "skyblock:advancement_rewards/ward_armor_trim_smithing_template"
-  },
   "display": {
     "icon": {
       "id": "minecraft:netherite_chestplate",
@@ -20,15 +16,11 @@
     },
     "frame": "challenge"
   },
+  "parent": "skyblock:challenges/root",
   "criteria": {
     "warden_hit": {
       "trigger": "minecraft:entity_hurt_player",
       "conditions": {
-        "damage": {
-          "source_entity": {
-            "type": "warden"
-          }
-        },
         "player": [
           {
             "condition": "minecraft:entity_properties",
@@ -39,45 +31,53 @@
                   "items": [
                     "minecraft:netherite_helmet"
                   ],
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:protection",
-                      "levels": 4
-                    }
-                  ]
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "enchantments": "minecraft:protection",
+                        "levels": 4
+                      }
+                    ]
+                  }
                 },
                 "chest": {
                   "items": [
                     "minecraft:netherite_chestplate"
                   ],
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:protection",
-                      "levels": 4
-                    }
-                  ]
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "enchantments": "minecraft:protection",
+                        "levels": 4
+                      }
+                    ]
+                  }
                 },
                 "legs": {
                   "items": [
                     "minecraft:netherite_leggings"
                   ],
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:protection",
-                      "levels": 4
-                    }
-                  ]
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "enchantments": "minecraft:protection",
+                        "levels": 4
+                      }
+                    ]
+                  }
                 },
                 "feet": {
                   "items": [
                     "minecraft:netherite_boots"
                   ],
-                  "enchantments": [
-                    {
-                      "enchantment": "minecraft:protection",
-                      "levels": 4
-                    }
-                  ]
+                  "predicates": {
+                    "minecraft:enchantments": [
+                      {
+                        "enchantments": "minecraft:protection",
+                        "levels": 4
+                      }
+                    ]
+                  }
                 }
               },
               "effects": {
@@ -89,8 +89,16 @@
               }
             }
           }
-        ]
+        ],
+        "damage": {
+          "source_entity": {
+            "type": "minecraft:warden"
+          }
+        }
       }
     }
+  },
+  "rewards": {
+    "function": "skyblock:advancement_rewards/ward_armor_trim_smithing_template"
   }
 }

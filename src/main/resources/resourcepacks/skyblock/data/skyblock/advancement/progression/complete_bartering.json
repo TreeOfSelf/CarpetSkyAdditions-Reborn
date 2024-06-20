@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/quartz",
   "display": {
     "icon": {
       "id": "minecraft:gilded_blackstone"
@@ -12,6 +11,7 @@
     },
     "frame": "challenge"
   },
+  "parent": "skyblock:progression/quartz",
   "criteria": {
     "has_blackstone": {
       "trigger": "minecraft:inventory_changed",
@@ -66,11 +66,16 @@
       "conditions": {
         "items": [
           {
-            "enchantments": [
-              {
-                "enchantment": "minecraft:soul_speed"
-              }
-            ]
+            "predicates": {
+              "minecraft:enchantments": [
+                {
+                  "enchantments": "minecraft:soul_speed",
+                  "levels": {
+                    "min": 1
+                  }
+                }
+              ]
+            }
           }
         ]
       }
@@ -80,11 +85,16 @@
       "conditions": {
         "items": [
           {
-            "stored_enchantments": [
-              {
-                "enchantment": "minecraft:soul_speed"
-              }
-            ]
+            "predicates": {
+              "minecraft:stored_enchantments": [
+                {
+                  "enchantments": "minecraft:soul_speed",
+                  "levels": {
+                    "min": 1
+                  }
+                }
+              ]
+            }
           }
         ]
       }
