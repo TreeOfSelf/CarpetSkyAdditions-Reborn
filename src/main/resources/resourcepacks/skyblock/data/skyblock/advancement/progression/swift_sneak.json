@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/diamond",
   "display": {
     "icon": {
       "id": "minecraft:netherite_leggings",
@@ -17,6 +16,7 @@
     },
     "frame": "challenge"
   },
+  "parent": "skyblock:progression/diamond",
   "criteria": {
     "has_swift_sneak": {
       "trigger": "minecraft:inventory_changed",
@@ -26,7 +26,11 @@
             "predicates": {
               "minecraft:enchantments": [
                 {
-                  "enchantment": "minecraft:swift_sneak"
+                  "enchantments": "minecraft:swift_sneak",
+                  "levels": {
+                    "min": 1,
+                    "max": 100
+                  }
                 }
               ]
             }

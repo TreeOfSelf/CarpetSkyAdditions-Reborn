@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/kill_zombie",
   "display": {
     "icon": {
       "id": "minecraft:golden_shovel",
@@ -17,6 +16,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/kill_zombie",
   "criteria": {
     "has_silk_touch_tool": {
       "trigger": "minecraft:inventory_changed",
@@ -26,7 +26,11 @@
             "predicates": {
               "minecraft:enchantments": [
                 {
-                  "enchantment": "minecraft:silk_touch"
+                  "enchantments": "minecraft:silk_touch",
+                  "levels": {
+                    "min": 1,
+                    "max": 100
+                  }
                 }
               ]
             }
