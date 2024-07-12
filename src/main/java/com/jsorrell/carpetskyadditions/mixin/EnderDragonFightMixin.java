@@ -10,6 +10,7 @@ import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import net.minecraft.world.level.levelgen.Heightmap;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
@@ -55,9 +56,8 @@ public class EnderDragonFightMixin {
             // On top of bedrock pillar
             BlockPos shulkerPosition = portalLocation.offset(0, 4, 0);
             if (previouslyKilled && level.getBlockState(shulkerPosition).isAir()) {
-                Shulker shulker =
-                        EntityType.SHULKER.create(level);
-                if (shulker != null && level.noCollision(shulker)) {
+                Shulker shulker = EntityType.SHULKER.create(level, null, shulkerPosition, MobSpawnType.EVENT, true, false);
+                if (level.noCollision(shulker)) {
                     level.addFreshEntity(shulker);
                 }
             }
