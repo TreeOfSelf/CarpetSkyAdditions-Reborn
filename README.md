@@ -1,4 +1,6 @@
-# Carpet Sky Additions
+# Carpet Sky Additions Reborn
+
+This is a mod to holdover til the official Carpet Sky Additions is released
 
 
 Carpet Sky Additions is a module for [fabric-carpet](https://github.com/gnembon/fabric-carpet)
