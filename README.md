@@ -1,7 +1,7 @@
 # Carpet Sky Additions Reborn
 
 This is a mod to holdover til the official Carpet Sky Additions is released
-
+[View the original mod here](https://github.com/jsorrell/CarpetSkyAdditions/issues)
 
 Carpet Sky Additions is a module for [fabric-carpet](https://github.com/gnembon/fabric-carpet)
 originally based on [skyrising/skyblock](https://github.com/skyrising/skyblock).
