@@ -95,12 +95,12 @@ public class SkyIslandCommand {
     // Then try taking the spawn platform's config and using the platformConfig value if it is of type "spawn_platform"
     // Otherwise, just generate the spawn_platform configured feature
     private static ConfiguredFeature<?, ?> getIslandFeature(Registry<ConfiguredFeature<?, ?>> cfr) {
-        ConfiguredFeature<?, ?> skyIslandCF = cfr.get(SkyAdditionsConfiguredFeatures.SKY_ISLAND);
+        ConfiguredFeature<?, ?> skyIslandCF = cfr.get(SkyAdditionsConfiguredFeatures.SKY_ISLAND).get().value();
         if (skyIslandCF != null) {
             return skyIslandCF;
         }
 
-        ConfiguredFeature<?, ?> spawnPlatformCF = cfr.getOrThrow(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM);
+        ConfiguredFeature<?, ?> spawnPlatformCF = cfr.getOrThrow(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).value();
         // try to get the platform out
         if (spawnPlatformCF.feature().equals(SkyAdditionsFeatures.SPAWN_PLATFORM)) {
             SpawnPlatformFeatureConfiguration config = (SpawnPlatformFeatureConfiguration) spawnPlatformCF.config();
@@ -131,7 +131,7 @@ public class SkyIslandCommand {
         // Load the target area
         source.getLevel().getChunkSource().addRegionTicket(TicketType.UNKNOWN, chunkPos, 2, chunkPos);
         Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry =
-                source.getServer().registryAccess().registryOrThrow(Registries.CONFIGURED_FEATURE);
+                source.getServer().registryAccess().get(Registries.CONFIGURED_FEATURE).get().value();
         ConfiguredFeature<?, ?> skyIslandFeature = getIslandFeature(configuredFeatureRegistry);
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
         random.setLargeFeatureSeed(source.getLevel().getSeed(), chunkPos.x, chunkPos.z);
@@ -163,7 +163,7 @@ public class SkyIslandCommand {
         ChunkAccess chunk = source.getLevel().getChunk(chunkPos.x, chunkPos.z, ChunkStatus.EMPTY);
         int y;
         Supplier<Integer> spawnHeight = () -> chunk.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z) + 1;
-        if (chunk.getPersistedStatus() != ChunkStatus.FULL || (y = spawnHeight.get()) <= chunk.getMinBuildHeight()) {
+        if (chunk.getPersistedStatus() != ChunkStatus.FULL || (y = spawnHeight.get()) <= chunk.getMinY()) {
             throw ISLAND_NOT_CREATED.create();
         }
         player.teleportTo(x + 0.5, y, z + 0.5);

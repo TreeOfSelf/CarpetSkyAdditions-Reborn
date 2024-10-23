@@ -8,7 +8,9 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.ConversionParams;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.monster.CaveSpider;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Spider;
@@ -42,18 +44,18 @@ public abstract class SpiderMixin extends Monster {
                     handStack.shrink(1);
                 }
 
-                CaveSpider caveSpider = convertTo(EntityType.CAVE_SPIDER, true);
-                if (caveSpider == null) {
-                    return InteractionResult.SUCCESS;
-                }
+                CaveSpider spawnedSpider = asSpider().convertTo(EntityType.CAVE_SPIDER, ConversionParams.single(asSpider(), true, true), caveSpider -> {
+
+                });
+
 
                 // Copy status effects
-                getActiveEffects().forEach(caveSpider::addEffect);
+                getActiveEffects().forEach(spawnedSpider::addEffect);
                 // Add particles
-                caveSpider.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
+                spawnedSpider.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
 
                 if (player instanceof ServerPlayer serverPlayer) {
-                    SkyAdditionsCriteriaTriggers.CONVERT_SPIDER.trigger(serverPlayer, asSpider(), caveSpider);
+                    SkyAdditionsCriteriaTriggers.CONVERT_SPIDER.trigger(serverPlayer, asSpider(), spawnedSpider);
                 }
                 playSound(
                         SoundEvents.ZOMBIE_VILLAGER_CURE, 1.0f + random.nextFloat(), random.nextFloat() * 0.7f + 0.3f);

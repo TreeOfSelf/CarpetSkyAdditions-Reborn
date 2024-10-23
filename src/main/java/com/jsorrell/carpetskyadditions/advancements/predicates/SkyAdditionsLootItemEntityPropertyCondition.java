@@ -9,10 +9,9 @@ import java.util.Optional;
 import java.util.Set;
 
 import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.util.ExtraCodecs;
+import net.minecraft.util.context.ContextKey;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParam;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
@@ -34,13 +33,14 @@ public record SkyAdditionsLootItemEntityPropertyCondition(Optional<EntityPredica
     }
 
     @Override
-    public Set<LootContextParam<?>> getReferencedContextParams() {
-        return ImmutableSet.of(LootContextParams.ORIGIN, this.entityTarget.getParam());
+    public Set<ContextKey<?>> getReferencedContextParams() {
+        return Set.of();
     }
 
+
     public boolean test(LootContext lootContext) {
-        Entity entity = lootContext.getParamOrNull(entityTarget.getParam());
-        Vec3 origin = lootContext.getParamOrNull(LootContextParams.ORIGIN);
+        Entity entity = lootContext.getParameter(entityTarget.getParam());
+        Vec3 origin = lootContext.getParameter(LootContextParams.ORIGIN);
         return !this.predicate.isEmpty() && ((EntityPredicate)this.predicate.get()).matches(lootContext.getLevel(), origin, entity);
     }
 

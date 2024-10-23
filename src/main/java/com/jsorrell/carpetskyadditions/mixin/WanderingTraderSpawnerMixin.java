@@ -12,8 +12,8 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.npc.WanderingTrader;
@@ -28,7 +28,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -106,9 +105,9 @@ public abstract class WanderingTraderSpawnerMixin {
                 return;
             }
 
-            Camel traderCamel = EntityType.CAMEL.spawn(serverLevel, spawnPos, MobSpawnType.EVENT);
+            Camel traderCamel = EntityType.CAMEL.spawn(serverLevel, spawnPos, EntitySpawnReason.EVENT);
             if (traderCamel != null) {
-                WanderingTrader wanderingTrader = EntityType.WANDERING_TRADER.create(serverLevel);
+                WanderingTrader wanderingTrader = EntityType.WANDERING_TRADER.create(serverLevel, EntitySpawnReason.EVENT);
                 if (wanderingTrader != null) {
                     serverLevelData.setWanderingTraderId(wanderingTrader.getUUID());
                     wanderingTrader.setDespawnDelay(48000);

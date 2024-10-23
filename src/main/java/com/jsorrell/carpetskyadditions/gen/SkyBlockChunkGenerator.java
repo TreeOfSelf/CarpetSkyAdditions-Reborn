@@ -75,21 +75,15 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
 
     @Override
     public void applyCarvers(
-            WorldGenRegion level,
-            long seed,
-            RandomState random,
-            BiomeManager biomeManager,
-            StructureManager structureManager,
-            ChunkAccess chunk,
-            GenerationStep.Carving step) {}
+        WorldGenRegion worldGenRegion, long l, RandomState randomState, BiomeManager biomeManager, StructureManager structureManager, ChunkAccess chunkAccess) {}
 
     @Override
     public void applyBiomeDecoration(WorldGenLevel level, ChunkAccess chunk, StructureManager structureManager) {
         ChunkPos chunkPos = chunk.getPos();
-        SectionPos sectionPos = SectionPos.of(chunkPos, level.getMinSection());
+        SectionPos sectionPos = SectionPos.of(chunkPos, level.getMinSectionY());
         BlockPos minChunkPos = sectionPos.origin();
 
-        Registry<Structure> structureRegistry = level.registryAccess().registryOrThrow(Registries.STRUCTURE);
+        Registry<Structure> structureRegistry = level.registryAccess().get(Registries.STRUCTURE).get().value();
         Map<Integer, List<Structure>> structuresPerStep = structureRegistry.stream()
                 .collect(Collectors.groupingBy(
                         structureType -> structureType.step().ordinal()));
@@ -111,7 +105,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
 
         int numFeatures = featuresPerStep.size();
         try {
-            Registry<PlacedFeature> placedFeatures = level.registryAccess().registryOrThrow(Registries.PLACED_FEATURE);
+            Registry<PlacedFeature> placedFeatures = level.registryAccess().get(Registries.PLACED_FEATURE).get().value();
             int numSteps = Math.max(GenerationStep.Decoration.values().length, numFeatures);
             for (int genStep = 0; genStep < numSteps; ++genStep) {
                 int structureInStep = 0;
@@ -342,7 +336,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
     public int getBaseHeightInEquivalentNoiseWorld(int x, int z, Heightmap.Types heightmap, WorldGenLevel level) {
         RandomState randomState = RandomState.create(
                 generatorSettings().value(),
-                level.registryAccess().registryOrThrow(Registries.NOISE).asLookup(),
+                level.registryAccess().get(Registries.NOISE).get().value(),
                 level.getSeed());
         return super.getBaseHeight(x, z, heightmap, level, randomState);
     }

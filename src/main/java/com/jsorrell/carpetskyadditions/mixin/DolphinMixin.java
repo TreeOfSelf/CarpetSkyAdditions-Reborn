@@ -4,6 +4,7 @@ import com.jsorrell.carpetskyadditions.helpers.DolphinFindHeartGoal;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.animal.AgeableWaterCreature;
 import net.minecraft.world.entity.animal.Dolphin;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.level.Level;
@@ -12,14 +13,14 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 @Mixin(Dolphin.class)
-public abstract class DolphinMixin extends WaterAnimal {
-    protected DolphinMixin(EntityType<? extends WaterAnimal> entityType, Level level) {
+public abstract class DolphinMixin extends AgeableWaterCreature {
+    protected DolphinMixin(EntityType<? extends AgeableWaterCreature> entityType, Level level) {
         super(entityType, level);
     }
 
     @SuppressWarnings("ConstantConditions")
     private Dolphin asDolphin() {
-        if ((WaterAnimal) this instanceof Dolphin dolphin) {
+        if ((AgeableWaterCreature) this instanceof Dolphin dolphin) {
             return dolphin;
         } else {
             throw new AssertionError("Not dolphin");

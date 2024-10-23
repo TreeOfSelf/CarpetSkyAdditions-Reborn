@@ -46,7 +46,7 @@ public abstract class CoralSpreader {
     private static List<Block> getPossibleConversions(ServerLevel level, BlockPos pos, RandomSource random) {
         // Find all coral blocks within a 3x3
         Multiset<Block> blockMap = HashMultiset.create(BuiltInRegistries.BLOCK
-                .getTag(BlockTags.CORAL_BLOCKS)
+                .get(BlockTags.CORAL_BLOCKS)
                 .orElseThrow()
                 .size());
         BlockPos.betweenClosedStream(-1, -1, -1, 1, 1, 1)

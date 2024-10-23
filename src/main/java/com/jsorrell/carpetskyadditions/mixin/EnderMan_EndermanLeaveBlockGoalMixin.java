@@ -53,7 +53,7 @@ public abstract class EnderMan_EndermanLeaveBlockGoalMixin {
         if (heldBlock instanceof DoublePlantBlock || heldBlock instanceof DoorBlock) {
             BlockPos placePosTop = placePosBottom.above();
             BlockState placeStateTop = world.getBlockState(placePosTop);
-            if (placePosTop.getY() < world.getMaxBuildHeight()
+            if (placePosTop.getY() < world.getMaxY()
                     && placeStateBottom.isAir()
                     && placeStateTop.isAir()
                     && !belowPosState.isAir()

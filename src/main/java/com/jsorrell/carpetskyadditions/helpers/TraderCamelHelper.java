@@ -137,11 +137,12 @@ public class TraderCamelHelper {
             brain.addActivity(
                     Activity.CORE,
                     0,
-                    ImmutableList.of(
-                            new Swim(0.8F),
-                            new CamelAi.CamelPanic(4.0F),
-                            new LookAtTargetSink(45, 90),
-                            new MoveToTargetSink()));
+                ImmutableList.of(
+                    new Swim<>(0.8F),
+                    new CamelAi.CamelPanic(4.0F),
+                    new LookAtTargetSink(45, 90),
+                    new MoveToTargetSink()
+                ));
         }
     }
 }

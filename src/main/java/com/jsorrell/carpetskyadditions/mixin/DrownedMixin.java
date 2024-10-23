@@ -1,10 +1,9 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.monster.Drowned;
 import net.minecraft.world.entity.monster.Zombie;
@@ -25,7 +24,7 @@ public class DrownedMixin extends Zombie {
 
     @Inject(method = "finalizeSpawn", at = @At("TAIL"))
     private void holdSnifferEgg(
-        ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
+        ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, EntitySpawnReason entitySpawnReason, SpawnGroupData spawnGroupData, CallbackInfoReturnable<SpawnGroupData> cir) {
         if (SkyAdditionsSettings.sniffersFromDrowneds
                 && getItemBySlot(EquipmentSlot.OFFHAND).isEmpty()
                 && random.nextFloat() < 0.01F) {

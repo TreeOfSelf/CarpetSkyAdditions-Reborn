@@ -12,6 +12,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.GameEventTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.ConversionParams;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.monster.Vex;
@@ -58,26 +59,28 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
     }
 
     protected void convertToAllay() {
-        Allay allay = vex.convertTo(EntityType.ALLAY, false);
-        if (allay != null) {
-            float pitch =
+        Allay spawnedAllay = vex.convertTo(EntityType.ALLAY, ConversionParams.single(vex, true, true), allay -> {
+            if (allay != null) {
+                float pitch =
                     2.6f + (vex.level().random.nextFloat() - vex.level().random.nextFloat()) * 0.8f;
-            vex.level()
+                vex.level()
                     .playSound(
-                            null,
-                            vex.position().x(),
-                            vex.position().y(),
-                            vex.position().z(),
-                            SoundEvents.ZOMBIE_VILLAGER_CURE,
-                            SoundSource.HOSTILE,
-                            0.5f,
-                            pitch);
+                        null,
+                        vex.position().x(),
+                        vex.position().y(),
+                        vex.position().z(),
+                        SoundEvents.ZOMBIE_VILLAGER_CURE,
+                        SoundSource.HOSTILE,
+                        0.5f,
+                        pitch);
 
-            AABB criteriaTriggerBox = vex.getBoundingBox().inflate(20, 10, 20);
-            vex.level()
+                AABB criteriaTriggerBox = vex.getBoundingBox().inflate(20, 10, 20);
+                vex.level()
                     .getEntitiesOfClass(ServerPlayer.class, criteriaTriggerBox)
                     .forEach(p -> SkyAdditionsCriteriaTriggers.ALLAY_VEX.trigger(p, vex, allay));
-        }
+            }
+        });
+
     }
 
     public int getNote(int noteNum) {

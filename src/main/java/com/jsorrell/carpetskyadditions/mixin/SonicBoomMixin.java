@@ -20,7 +20,7 @@ public class SonicBoomMixin {
         if (SkyAdditionsSettings.renewableEchoShards) {
             if (target instanceof Dolphin || target instanceof Bat) {
                 if (target.isDeadOrDying()) {
-                    target.spawnAtLocation(Items.ECHO_SHARD);
+                    target.spawnAtLocation(level, Items.ECHO_SHARD);
                 }
             }
         }

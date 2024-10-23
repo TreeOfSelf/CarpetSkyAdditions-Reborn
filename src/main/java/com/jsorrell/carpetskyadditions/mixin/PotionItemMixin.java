@@ -45,7 +45,7 @@ public class PotionItemMixin {
                                     ItemUtils.createFilledResult(
                                             itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
                     playerEntity.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
-                    cir.setReturnValue(InteractionResult.sidedSuccess(level.isClientSide));
+                    cir.setReturnValue(InteractionResult.SUCCESS);
                 }
             }
         }

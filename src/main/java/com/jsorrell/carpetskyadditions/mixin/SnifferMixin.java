@@ -168,7 +168,7 @@ public abstract class SnifferMixin extends Animal {
         Optional<ResourceKey<LootTable>> archLootTable = getLootTable(diggedBlockPos);
         if (SkyAdditionsSettings.doSuspiciousSniffers
             && archLootTable.isPresent()
-            && level().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)
+            && level().getServer().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)
             && level().getRandom().nextFloat() < 0.1) {
             Block susBlock = level().getBlockState(diggedBlockPos).is(Blocks.SAND)
                 ? Blocks.SUSPICIOUS_SAND

@@ -31,7 +31,7 @@ public class LightningConverter {
         if (!(SkyAdditionsSettings.lightningElectrifiesVines && hitBlock.is(Blocks.GLOWSTONE))) return;
 
         for (Direction dir : Direction.values()) {
-            BlockPos adjacentBlockPos = hitBlockPos.offset(dir.getNormal());
+            BlockPos adjacentBlockPos = hitBlockPos.offset(dir.getUnitVec3i());
             BlockState adjacentBlock = level.getBlockState(adjacentBlockPos);
             Direction opDir = dir.getOpposite();
             if (adjacentBlock.is(Blocks.VINE) && adjacentBlock.getValue(VineBlock.getPropertyForFace(opDir))) {

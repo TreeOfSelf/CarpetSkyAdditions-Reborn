@@ -43,7 +43,7 @@ public record SkyAdditionsLocationCheck(Optional<SkyAdditionsLocationPredicate> 
         }
 
         public boolean test(LootContext lootContext) {
-                Vec3 origin = lootContext.getParamOrNull(LootContextParams.ORIGIN);
+                Vec3 origin = lootContext.getParameter(LootContextParams.ORIGIN);
                 return origin != null
                                 && (predicate.isPresent() && predicate.get().matches(
                                                 lootContext.getLevel(),

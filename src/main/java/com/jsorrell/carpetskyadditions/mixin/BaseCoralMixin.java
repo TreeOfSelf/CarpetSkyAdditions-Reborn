@@ -8,6 +8,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.BaseCoralFanBlock;
 import net.minecraft.world.level.block.BaseCoralPlantBlock;
 import net.minecraft.world.level.block.BaseCoralPlantTypeBlock;
@@ -37,17 +39,14 @@ public abstract class BaseCoralMixin extends BaseCoralPlantTypeBlock {
     }
 
     @Override
-    public BlockState updateShape(
-            BlockState state,
-            Direction direction,
-            BlockState neighborState,
-            LevelAccessor level,
-            BlockPos pos,
-            BlockPos neighborPos) {
+    protected BlockState updateShape(BlockState state, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos pos, Direction direction, BlockPos neighborPos, BlockState neighborState, RandomSource randomSource) {
+
         if (SkyAdditionsSettings.coralErosion && !isCoralFan()) {
-            level.scheduleTick(pos, this, DeadCoralToSandHelper.getSandDropDelay(level.getRandom()));
+
+            scheduledTickAccess.scheduleTick(pos, this, DeadCoralToSandHelper.getSandDropDelay(randomSource));
         }
-        return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
+
+        return super.updateShape( state,  levelReader,  scheduledTickAccess,  pos,  direction,  neighborPos,  neighborState,  randomSource);
     }
 
     @Override

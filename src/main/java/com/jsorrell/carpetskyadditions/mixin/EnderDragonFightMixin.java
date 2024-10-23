@@ -4,13 +4,12 @@ import com.jsorrell.carpetskyadditions.gen.SkyBlockChunkGenerator;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.level.dimension.end.EndDragonFight;
 import net.minecraft.world.level.levelgen.Heightmap;
-import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Final;
@@ -56,7 +55,7 @@ public class EnderDragonFightMixin {
             // On top of bedrock pillar
             BlockPos shulkerPosition = portalLocation.offset(0, 4, 0);
             if (previouslyKilled && level.getBlockState(shulkerPosition).isAir()) {
-                Shulker shulker = EntityType.SHULKER.create(level, null, shulkerPosition, MobSpawnType.EVENT, true, false);
+                Shulker shulker = EntityType.SHULKER.create(level, null, shulkerPosition, EntitySpawnReason.EVENT, true, false);
                 if (level.noCollision(shulker)) {
                     level.addFreshEntity(shulker);
                 }

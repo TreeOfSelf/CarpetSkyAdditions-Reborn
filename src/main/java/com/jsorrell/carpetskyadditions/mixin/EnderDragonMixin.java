@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(EnderDragon.class)
 public abstract class EnderDragonMixin extends Mob implements Enemy {
@@ -40,16 +41,17 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
     }
 
     @Inject(
-            method = "tickDeath",
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lnet/minecraft/world/entity/ExperienceOrb;award(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/phys/Vec3;I)V",
-                            ordinal = 1))
-    protected void dropDragonHead(CallbackInfo ci) {
+        method = "tickDeath",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/world/entity/ExperienceOrb;award(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/phys/Vec3;I)V",
+            ordinal = 1
+        ),
+        locals = LocalCapture.CAPTURE_FAILHARD
+    )
+    protected void dropDragonHead(CallbackInfo ci, int i, ServerLevel serverLevel, Level var3) {
         if (SkyAdditionsSettings.renewableDragonHeads && shouldDropHead) {
-            spawnAtLocation(Items.DRAGON_HEAD);
+            spawnAtLocation(serverLevel, Items.DRAGON_HEAD);
         }
     }
 

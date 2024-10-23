@@ -64,9 +64,8 @@ public abstract class MinecraftServerMixin {
         if (config.autoEnableDefaultSettings
                 && registries
                                 .compositeAccess()
-                                .registryOrThrow(Registries.LEVEL_STEM)
-                                .getOrThrow(LevelStem.OVERWORLD)
-                                .generator()
+                                .get(Registries.LEVEL_STEM).get().value()
+                                .getOrThrow(LevelStem.OVERWORLD).value().generator()
                         instanceof SkyBlockChunkGenerator
                 && !worldData.overworldData().isInitialized()) {
             try {
@@ -106,8 +105,8 @@ public abstract class MinecraftServerMixin {
         random.setLargeFeatureSeed(level.getSeed(), spawnChunk.x, spawnChunk.z);
 
         Holder.Reference<ConfiguredFeature<?, ?>> spawnPlatformFeature = level.registryAccess()
-                .registryOrThrow(Registries.CONFIGURED_FEATURE)
-                .getHolderOrThrow(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM);
+                .get(Registries.CONFIGURED_FEATURE).get().value()
+                .get(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).get();
 
         if (!spawnPlatformFeature.value().place(level, chunkGenerator, random, worldSpawn)) {
             SkyAdditionsSettings.LOG.error("Couldn't generate spawn platform");
