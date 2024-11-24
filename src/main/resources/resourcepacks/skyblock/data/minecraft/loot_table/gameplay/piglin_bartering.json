@@ -10,7 +10,9 @@
           "weight": 5,
           "functions": [
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_randomly",
+              "options": "minecraft:soul_speed",
+              "only_compatible": true
             }
           ]
         },
@@ -20,7 +22,9 @@
           "weight": 8,
           "functions": [
             {
-              "function": "minecraft:enchant_randomly"
+              "function": "minecraft:enchant_randomly",
+              "options": "minecraft:soul_speed",
+              "only_compatible": true
             }
           ]
         },
