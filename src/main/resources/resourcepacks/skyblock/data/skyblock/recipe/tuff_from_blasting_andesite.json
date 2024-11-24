@@ -1,9 +1,7 @@
 {
   "type": "minecraft:blasting",
   "category": "building",
-  "ingredient": {
-    "item": "minecraft:andesite"
-  },
+  "ingredient": "minecraft:andesite",
   "result": {
     "id": "minecraft:tuff"
   },

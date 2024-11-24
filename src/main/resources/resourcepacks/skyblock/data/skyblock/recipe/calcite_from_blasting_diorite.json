@@ -1,9 +1,7 @@
 {
   "type": "minecraft:blasting",
   "category": "building",
-  "ingredient": {
-    "item": "minecraft:diorite"
-  },
+  "ingredient": "minecraft:diorite",
   "result": {
     "id": "minecraft:calcite"
   },

@@ -8,12 +8,8 @@
     " X "
   ],
   "key": {
-    "X": {
-      "item": "minecraft:diamond"
-    },
-    "S": {
-      "item": "minecraft:stone"
-    }
+    "X": "minecraft:diamond",
+    "S": "minecraft:stone"
   },
   "result": {
     "id": "minecraft:diamond_ore"

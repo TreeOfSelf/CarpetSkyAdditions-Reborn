@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "food",
   "ingredients": [
-    {
-      "item": "minecraft:sweet_berries"
-    },
-    {
-      "item": "minecraft:glow_ink_sac"
-    }
+    "minecraft:sweet_berries",
+    "minecraft:glow_ink_sac"
   ],
   "result": {
     "id": "minecraft:glow_berries"

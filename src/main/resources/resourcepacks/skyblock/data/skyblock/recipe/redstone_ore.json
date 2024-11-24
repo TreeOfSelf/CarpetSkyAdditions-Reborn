@@ -8,12 +8,8 @@
     " X "
   ],
   "key": {
-    "X": {
-      "item": "minecraft:redstone_block"
-    },
-    "S": {
-      "item": "minecraft:stone"
-    }
+    "X": "minecraft:redstone_block",
+    "S": "minecraft:stone"
   },
   "result": {
     "id": "minecraft:redstone_ore"
