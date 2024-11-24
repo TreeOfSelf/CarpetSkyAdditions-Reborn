@@ -50,7 +50,7 @@ public abstract class MinecraftServerMixin {
 
     @Inject(method = "loadLevel", at = @At("HEAD"))
     private void fixSettingsFile(CallbackInfo ci) {
-        Path worldSavePath = getWorldPath(LevelResource.ROOT);
+        /*Path worldSavePath = getWorldPath(LevelResource.ROOT);
         // Fix existing settings
         try {
             Fixers.fixSettings(worldSavePath);
@@ -73,7 +73,7 @@ public abstract class MinecraftServerMixin {
             } catch (IOException e) {
                 SkyAdditionsSettings.LOG.error("Failed write default configs", e);
             }
-        }
+        }*/
     }
 
     @Inject(

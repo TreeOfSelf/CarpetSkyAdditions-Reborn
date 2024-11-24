@@ -13,11 +13,11 @@ import org.spongepowered.asm.mixin.injection.Slice;
 
 @Mixin(Blocks.class)
 public abstract class BlocksMixin {
-    @WrapOperation(
+    /*@WrapOperation(
             method = "<clinit>",
             slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=calcite")),
             at = @At(value = "NEW", args = "class=net/minecraft/world/level/block/Block", ordinal = 0))
     private static Block registerCustomCalcite(BlockBehaviour.Properties properties, Operation<Block> original) {
         return new CoralSpreader.CustomCalciteBlock(properties);
-    }
+    }*/
 }

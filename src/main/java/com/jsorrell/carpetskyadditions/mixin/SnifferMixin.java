@@ -143,7 +143,7 @@ public abstract class SnifferMixin extends Animal {
         @At(
             value = "INVOKE",
             target =
-                "Lnet/minecraft/server/ReloadableServerRegistries$Holder;getLootTable(Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/world/level/storage/loot/LootTable;"),
+                "Lnet/minecraft/world/entity/animal/sniffer/Sniffer;dropFromGiftLootTable(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/resources/ResourceKey;Ljava/util/function/BiConsumer;)Z"),
         cancellable = true)
     private void dropIronAndSusify(CallbackInfo ci) {
         BlockPos diggedBlockPos = getHeadBlock().below();

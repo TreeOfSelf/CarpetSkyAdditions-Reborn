@@ -4,7 +4,10 @@ import com.jsorrell.carpetskyadditions.helpers.DeadCoralToSandHelper;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ScheduledTickAccess;
 import net.minecraft.world.level.block.BaseCoralFanBlock;
 import net.minecraft.world.level.block.BaseCoralWallFanBlock;
 import net.minecraft.world.level.block.CoralWallFanBlock;
@@ -28,15 +31,10 @@ public class BaseCoralWallFanBlockMixin extends BaseCoralFanBlock {
 
     @Inject(method = "updateShape", at = @At(value = "HEAD"))
     private void scheduleTickOnBlockUpdate(
-            BlockState state,
-            Direction direction,
-            BlockState neighborState,
-            LevelAccessor level,
-            BlockPos pos,
-            BlockPos neighborPos,
+        BlockState blockState, LevelReader levelReader, ScheduledTickAccess scheduledTickAccess, BlockPos blockPos, Direction direction, BlockPos blockPos2, BlockState blockState2, RandomSource randomSource,
             CallbackInfoReturnable<BlockState> cir) {
         if (SkyAdditionsSettings.coralErosion && !isCoralWallFan()) {
-            level.scheduleTick(pos, this, DeadCoralToSandHelper.getSandDropDelay(level.getRandom()));
+            scheduledTickAccess.scheduleTick(blockPos, this, DeadCoralToSandHelper.getSandDropDelay(randomSource));
         }
     }
 }

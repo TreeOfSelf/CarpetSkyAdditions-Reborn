@@ -4,6 +4,7 @@ import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriter
 import com.jsorrell.carpetskyadditions.helpers.GeodeGenerator;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -22,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(LavaFluid.class)
 public class LavaFluidMixin {
     @Inject(method = "randomTick", locals = LocalCapture.CAPTURE_FAILSOFT, at = @At(value = "HEAD"))
-    private void tryCreateGeode(Level level, BlockPos pos, FluidState state, RandomSource random, CallbackInfo ci) {
+    private void tryCreateGeode(ServerLevel level, BlockPos pos, FluidState fluidState, RandomSource random, CallbackInfo ci) {
         if (SkyAdditionsSettings.renewableBuddingAmethysts) {
             if (random.nextInt(GeodeGenerator.CONVERSION_RATE) == 0) {
                 if (GeodeGenerator.checkGeodeFormation(level, pos)) {

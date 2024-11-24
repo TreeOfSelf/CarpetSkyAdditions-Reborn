@@ -2,6 +2,7 @@ package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.helpers.DeepslateConversionHelper;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
@@ -27,7 +28,7 @@ public abstract class ThrownPotionMixin extends ThrowableItemProjectile {
     @Shadow
     protected abstract boolean isLingering();
 
-    public ThrownPotionMixin(EntityType<? extends ThrowableItemProjectile> entityType, Level level) {
+    public ThrownPotionMixin(EntityType<? extends ThrownPotion> entityType, Level level) {
         super(entityType, level);
     }
 
@@ -36,10 +37,9 @@ public abstract class ThrownPotionMixin extends ThrowableItemProjectile {
         at =
         @At(
             value = "INVOKE",
-            target =
-                "Lnet/minecraft/world/item/alchemy/PotionContents;getAllEffects()Ljava/lang/Iterable;"),
+            target ="Lnet/minecraft/world/item/alchemy/PotionContents;getAllEffects()Ljava/lang/Iterable;"),
         locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void onThickPotionCollision(HitResult result, CallbackInfo ci, ItemStack itemStack, PotionContents potionContents) {
+    private void onThickPotionCollision(HitResult result, CallbackInfo ci, @Local ItemStack itemStack, @Local PotionContents potionContents) {
         if (SkyAdditionsSettings.renewableDeepslateFromSplash) {
             if (potionContents.equals(DeepslateConversionHelper.CONVERSION_POTION)) {
                 Vec3 hitPos = result.getType() == HitResult.Type.BLOCK ? result.getLocation() : position();
