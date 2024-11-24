@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/the_nether",
   "display": {
     "icon": {
       "id": "minecraft:coal"
@@ -11,6 +10,7 @@
       "translate": "Kill a Wither Skeleton for Coal"
     }
   },
+  "parent": "skyblock:progression/the_nether",
   "criteria": {
     "has_coal": {
       "trigger": "minecraft:inventory_changed",

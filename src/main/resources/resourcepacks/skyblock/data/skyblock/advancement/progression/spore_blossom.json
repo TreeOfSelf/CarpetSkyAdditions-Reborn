@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/moss_block",
   "display": {
     "icon": {
       "id": "minecraft:spore_blossom"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/moss_block",
   "criteria": {
     "has_spore_blossom": {
       "trigger": "minecraft:inventory_changed",

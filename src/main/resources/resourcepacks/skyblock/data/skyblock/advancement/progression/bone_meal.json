@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/kill_skeleton",
   "display": {
     "icon": {
       "id": "minecraft:bone_meal"
@@ -11,6 +10,7 @@
       "translate": "Craft Bone Meal from Bones to grow trees faster"
     }
   },
+  "parent": "skyblock:progression/kill_skeleton",
   "criteria": {
     "has_bone_meal": {
       "trigger": "minecraft:inventory_changed",

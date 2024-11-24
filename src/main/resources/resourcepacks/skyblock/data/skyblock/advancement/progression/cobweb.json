@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/go_down",
   "display": {
     "icon": {
       "id": "minecraft:cobweb"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/go_down",
   "criteria": {
     "has_cobweb": {
       "trigger": "minecraft:inventory_changed",

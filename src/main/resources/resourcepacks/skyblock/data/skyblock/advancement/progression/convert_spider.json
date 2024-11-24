@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/zombie_crop",
   "display": {
     "icon": {
       "id": "minecraft:poisonous_potato"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/zombie_crop",
   "criteria": {
     "convert_spider": {
       "trigger": "carpetskyadditions:convert_spider"

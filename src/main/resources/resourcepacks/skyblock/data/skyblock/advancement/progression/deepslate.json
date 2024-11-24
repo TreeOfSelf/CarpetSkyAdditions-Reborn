@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/cobblestone",
   "display": {
     "icon": {
       "id": "minecraft:deepslate"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/cobblestone",
   "criteria": {
     "has_deepslate": {
       "trigger": "minecraft:inventory_changed",

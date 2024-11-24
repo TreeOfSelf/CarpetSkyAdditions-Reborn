@@ -1,26 +1,25 @@
 {
-  "parent": "skyblock:progression/quartz",
   "display": {
     "icon": {
-      "id": "minecraft:tuff"
+      "id": "minecraft:ancient_debris"
     },
     "title": {
-      "translate": "Cooking Stone in a Stone Oven"
+      "translate": "Brutiful"
     },
     "description": {
-      "translate": "Blast Diorite or Andesite to get Calcite or Tuff"
+      "translate": "Get Ancient Debris from a Piglin Brute in a Bastion Remnant"
     },
-    "frame": "goal"
+    "frame": "challenge"
   },
+  "parent": "skyblock:progression/the_nether",
   "criteria": {
-    "has_blasted_rock": {
+    "ancient_debris": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:calcite",
-              "minecraft:tuff"
+              "minecraft:ancient_debris"
             ]
           }
         ]

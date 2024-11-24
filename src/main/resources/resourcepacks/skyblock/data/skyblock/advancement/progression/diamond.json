@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/coal",
   "display": {
     "icon": {
       "id": "minecraft:diamond"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/coal",
   "criteria": {
     "has_diamond": {
       "trigger": "minecraft:inventory_changed",

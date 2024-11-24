@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/water_bucket",
   "display": {
     "icon": {
       "id": "minecraft:cocoa_beans"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/water_bucket",
   "criteria": {
     "has_cocoa_beans": {
       "trigger": "minecraft:inventory_changed",

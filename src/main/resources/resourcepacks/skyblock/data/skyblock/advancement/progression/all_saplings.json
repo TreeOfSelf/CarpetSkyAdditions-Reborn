@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/wandering_trader",
   "display": {
     "icon": {
       "id": "minecraft:jungle_sapling"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/wandering_trader",
   "criteria": {
     "oak": {
       "trigger": "minecraft:inventory_changed",

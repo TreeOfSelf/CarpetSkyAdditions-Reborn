@@ -4,7 +4,7 @@
       "id": "minecraft:golden_shovel",
       "components": {
         "minecraft:enchantments": {
-          "minecraft:silk_touch": 0
+          "minecraft:silk_touch": 1
         }
       }
     },

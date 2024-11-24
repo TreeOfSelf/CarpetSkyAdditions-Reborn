@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/the_nether",
   "display": {
     "icon": {
       "id": "minecraft:ancient_debris"
@@ -12,6 +11,7 @@
     },
     "frame": "challenge"
   },
+  "parent": "skyblock:progression/the_nether",
   "criteria": {
     "ancient_debris": {
       "trigger": "minecraft:inventory_changed",

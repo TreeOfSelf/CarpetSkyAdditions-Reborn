@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/generate_suspicious_loot_table",
   "display": {
     "icon": {
       "id": "minecraft:wayfinder_armor_trim_smithing_template"
@@ -12,6 +11,7 @@
     },
     "frame": "challenge"
   },
+  "parent": "skyblock:progression/generate_suspicious_loot_table",
   "criteria": {
     "angler_pottery_sherd": {
       "trigger": "minecraft:inventory_changed",

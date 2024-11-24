@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/iron_ingot",
   "display": {
     "icon": {
       "id": "minecraft:cauldron"
@@ -11,6 +10,7 @@
       "translate": "Craft a Cauldron to catch rain"
     }
   },
+  "parent": "skyblock:progression/iron_ingot",
   "criteria": {
     "has_cauldron": {
       "trigger": "minecraft:inventory_changed",

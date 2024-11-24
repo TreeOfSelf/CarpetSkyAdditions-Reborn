@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/zombie_crop",
   "display": {
     "icon": {
       "id": "minecraft:porkchop"
@@ -11,6 +10,7 @@
       "translate": "Breed the first of many Pigs"
     }
   },
+  "parent": "skyblock:progression/zombie_crop",
   "criteria": {
     "bred_pigs": {
       "trigger": "minecraft:bred_animals",

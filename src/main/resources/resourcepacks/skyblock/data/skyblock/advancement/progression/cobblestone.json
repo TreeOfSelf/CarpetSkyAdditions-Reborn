@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/lava_bucket",
   "display": {
     "icon": {
       "id": "minecraft:cobblestone"
@@ -11,6 +10,7 @@
       "translate": "Build a Cobblestone generator"
     }
   },
+  "parent": "skyblock:progression/lava_bucket",
   "criteria": {
     "has_stone": {
       "trigger": "minecraft:inventory_changed",

@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/sand",
   "display": {
     "icon": {
       "id": "minecraft:dead_bush"
@@ -12,6 +11,7 @@
     },
     "frame": "goal"
   },
+  "parent": "skyblock:progression/sand",
   "criteria": {
     "has_dead_bush": {
       "trigger": "minecraft:inventory_changed",

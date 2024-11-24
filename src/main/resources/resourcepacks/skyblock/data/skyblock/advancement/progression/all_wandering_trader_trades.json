@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/all_saplings",
   "display": {
     "icon": {
       "id": "minecraft:tube_coral_block"
@@ -12,6 +11,7 @@
     },
     "frame": "challenge"
   },
+  "parent": "skyblock:progression/all_saplings",
   "criteria": {
     "has_beetroot": {
       "trigger": "minecraft:inventory_changed",
