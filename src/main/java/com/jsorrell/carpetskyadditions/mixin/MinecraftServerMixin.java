@@ -105,8 +105,8 @@ public abstract class MinecraftServerMixin {
         random.setLargeFeatureSeed(level.getSeed(), spawnChunk.x, spawnChunk.z);
 
         Holder.Reference<ConfiguredFeature<?, ?>> spawnPlatformFeature = level.registryAccess()
-                .get(Registries.CONFIGURED_FEATURE).get().value()
-                .get(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).get();
+                .lookupOrThrow(Registries.CONFIGURED_FEATURE)
+            .get(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).get();
 
         if (!spawnPlatformFeature.value().place(level, chunkGenerator, random, worldSpawn)) {
             SkyAdditionsSettings.LOG.error("Couldn't generate spawn platform");

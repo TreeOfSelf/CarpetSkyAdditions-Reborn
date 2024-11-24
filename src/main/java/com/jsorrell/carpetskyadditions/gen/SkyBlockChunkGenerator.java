@@ -82,8 +82,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
         ChunkPos chunkPos = chunk.getPos();
         SectionPos sectionPos = SectionPos.of(chunkPos, level.getMinSectionY());
         BlockPos minChunkPos = sectionPos.origin();
-
-        Registry<Structure> structureRegistry = level.registryAccess().get(Registries.STRUCTURE).get().value();
+        Registry<Structure> structureRegistry = level.registryAccess().lookupOrThrow(Registries.STRUCTURE);
         Map<Integer, List<Structure>> structuresPerStep = structureRegistry.stream()
                 .collect(Collectors.groupingBy(
                         structureType -> structureType.step().ordinal()));
@@ -105,7 +104,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
 
         int numFeatures = featuresPerStep.size();
         try {
-            Registry<PlacedFeature> placedFeatures = level.registryAccess().get(Registries.PLACED_FEATURE).get().value();
+            Registry<PlacedFeature> placedFeatures = level.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE);
             int numSteps = Math.max(GenerationStep.Decoration.values().length, numFeatures);
             for (int genStep = 0; genStep < numSteps; ++genStep) {
                 int structureInStep = 0;

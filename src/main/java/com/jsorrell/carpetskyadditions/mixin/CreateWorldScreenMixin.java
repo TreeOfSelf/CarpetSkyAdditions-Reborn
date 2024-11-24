@@ -53,7 +53,7 @@ public class CreateWorldScreenMixin {
         return config.defaultToSkyBlockWorld ? SkyAdditionsWorldPresets.SKYBLOCK : WorldPresets.NORMAL;
     }
 
-    /*
+
     @WrapOperation(
             method = "openFresh(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V",
             at =
@@ -62,17 +62,18 @@ public class CreateWorldScreenMixin {
                             target =
                                     "Lnet/minecraft/client/gui/screens/worldselection/CreateWorldScreen;openCreateWorldScreen(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Ljava/util/function/Function;Lnet/minecraft/client/gui/screens/worldselection/WorldCreationContextMapper;Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V"))
     private static void setDefaultWorldGenSettings(Minecraft minecraft, Screen screen, Function<WorldLoader.DataLoadContext, WorldGenSettings> function, WorldCreationContextMapper worldCreationContextMapper, ResourceKey<WorldPreset> resourceKey, CreateWorldCallback createWorldCallback, Operation<Void> original) {
-        SkyAdditionsConfig config =
+        /*SkyAdditionsConfig config =
                 AutoConfig.getConfigHolder(SkyAdditionsConfig.class).get();
         if (config.defaultToSkyBlockWorld) {
-            return drm.get(Registries.WORLD_PRESET).get().value()
+
+                return drm.get(Registries.WORLD_PRESET).get().value()
                     .get(SkyAdditionsWorldPresets.SKYBLOCK).get().value()
                     .createWorldDimensions();
         } else {
             return WorldPresets.createNormalWorldDimensions(drm);
-        }
+        }*/
     }
-*/
+
 
     @ModifyArg(
             method = "openCreateWorldScreen",
