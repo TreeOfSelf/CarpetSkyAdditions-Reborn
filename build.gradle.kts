@@ -62,6 +62,7 @@ dependencies {
     "fabric-registry-sync-v0",
     "fabric-resource-loader-v0",
     "fabric-transitive-access-wideners-v1",
+    "fabric-lifecycle-events-v1",
   ).forEach { modImplementation(fabricApi.module(it, versions.fabricApi)) }
 
   modImplementation("me.shedaniel.cloth", "cloth-config-fabric", versions.clothConfig) {
