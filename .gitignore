@@ -16,6 +16,7 @@ classes/
 bin/
 .classpath
 .project
+*.code-workspace
 
 # fabric
 run/
