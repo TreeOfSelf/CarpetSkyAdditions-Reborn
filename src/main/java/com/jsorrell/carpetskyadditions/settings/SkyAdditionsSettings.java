@@ -8,6 +8,9 @@ import carpet.api.settings.Rule;
 import carpet.api.settings.Validator;
 import carpet.api.settings.Validators;
 import com.jsorrell.carpetskyadditions.SkyAdditionsExtension;
+
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 import net.minecraft.commands.CommandSourceStack;
 import org.slf4j.Logger;
@@ -297,4 +300,36 @@ public class SkyAdditionsSettings {
             strict = false,
             validators = POSITIVE_NUMBER.class)
     public static int wanderingTraderSpawnRate = 24000;
+
+    /**
+     * Returns a map of all rules and their default values for dynamic application.
+     */
+    public static Map<String, Object> getRules() {
+        Map<String, Object> rules = new HashMap<>();
+        rules.put("coralErosion", true);
+        rules.put("allayableVexes", true);
+        rules.put("renewableDragonHeads", true);
+        rules.put("suspiciousSniffers", true);
+        rules.put("tallFlowersFromWanderingTrader", true);
+        rules.put("spreadingSmallDripleaves", true);
+        rules.put("spreadingCoral", true);
+        rules.put("shulkerSpawnsOnDragonKill", true);
+        rules.put("renewableSwiftSneak", true);
+        rules.put("traderCamels", true);
+        rules.put("renewableDeepslate", true);
+        rules.put("renewableNetherrack", true);
+        rules.put("lightningElectrifiesVines", true);
+        rules.put("renewableEchoShards", true);
+        rules.put("foxesSpawnWithSweetBerriesChance", 0.2);
+        rules.put("saplingsDieOnSand", true);
+        rules.put("renewableHeartsOfTheSea", true);
+        rules.put("renewableDiamonds", true);
+        rules.put("rammingWart", true);
+        rules.put("hugeMushroomsSpreadMycelium", true);
+        rules.put("renewableBuddingAmethysts", true);
+        rules.put("poisonousPotatoesConvertSpiders", true);
+        rules.put("sniffersFromDrowneds", true);
+        rules.put("gatewaysSpawnChorus", true);
+        return rules;
+    }
 }
