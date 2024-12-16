@@ -248,6 +248,7 @@ public class SkyBlockStructures {
                     BlockEntity tileEntity = level.getBlockEntity(trialSpawnerPos);
                     if (tileEntity instanceof TrialSpawnerBlockEntity) {
                         TrialSpawnerBlockEntity spawner = (TrialSpawnerBlockEntity) tileEntity;
+                        spawner.setLevel(level.getLevel());
                         int index = random.nextInt(entityTypes.length);
                         spawner.setEntityId(entityTypes[index], random);
                         spawner.markUpdated();
@@ -316,6 +317,7 @@ public class SkyBlockStructures {
                 level.setBlock(spawnerAbsolutePos, Blocks.SPAWNER.defaultBlockState(), Block.UPDATE_CLIENTS);
                 BlockEntity blockEntity = level.getBlockEntity(spawnerAbsolutePos);
                 if (blockEntity instanceof SpawnerBlockEntity spawnerEntity) {
+                    spawnerEntity.setLevel(level.getLevel());
                     spawnerEntity.setEntityId(spawnerType, random);
                 }
             }
