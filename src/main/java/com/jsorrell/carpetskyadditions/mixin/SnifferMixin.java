@@ -5,9 +5,9 @@ import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Stream;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.GlobalPos;
-import net.minecraft.core.HolderSet;
+
+import net.minecraft.core.*;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
@@ -39,64 +39,30 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+
 @Mixin(Sniffer.class)
 public abstract class SnifferMixin extends Animal {
-
-    @Unique
-    private static ResourceKey<LootTable> getRandomBuiltInLootTable(Random random) {
-        // Get all built-in loot tables as a list
-        List<ResourceKey<LootTable>> builtInLootTables = Lists.newArrayList(
-            BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY,
-            BuiltInLootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY,
-            BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY,
-            BuiltInLootTables.DESERT_WELL_ARCHAEOLOGY,
-            BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_COMMON,
-            BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_RARE
-        );
-        int randomIndex = random.nextInt(builtInLootTables.size());
-        return builtInLootTables.get(randomIndex);
-    }
-
-
-    private static Random r = new Random();
     // Desert wells are features (not structures) and don't have stored bounding boxes. They're not shown by minihud.
     // We use their loot tables by giving desert pyramids a chance to have desert well loot tables.
     @Unique
-    private static final Map<Block, Map<ResourceKey<Structure>, ResourceKey<LootTable>>>
-
-    /*
-    RARE SHIT TAKEN OUT RN
-    LOOT_MAP =
-    Map.of(
-    Blocks.SAND,
-    Map.of(
-    BuiltinStructures.DESERT_PYRAMID,
-    r -> r.nextFloat() < 0.2
-    ? BuiltInLootTables.DESERT_WELL_ARCHAEOLOGY
-    : BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY,
-    BuiltinStructures.OCEAN_RUIN_WARM, r -> BuiltInLootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY),
-    Blocks.GRAVEL,
-    Map.of(
-    BuiltinStructures.OCEAN_RUIN_COLD,
-    r -> BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY,
-    BuiltinStructures.TRAIL_RUINS,
-    r -> r.nextFloat() < 0.2
-    ? BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_RARE
-    : BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_COMMON));
-     */
-
-        LOOT_MAP =
+    private static final Map<Block, Map<ResourceKey<Structure>, Function<RandomSource, ResourceKey<LootTable>>>>
+        LOOT_MAP = Map.of(
+        Blocks.SAND,
         Map.of(
-            Blocks.SAND,
-            Map.of(
-            BuiltinStructures.DESERT_PYRAMID, BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY,
-            BuiltinStructures.OCEAN_RUIN_WARM,BuiltInLootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY),
-            Blocks.GRAVEL,
-            Map.of(
+            BuiltinStructures.DESERT_PYRAMID,
+            r -> r.nextFloat() < 0.2
+                ? BuiltInLootTables.DESERT_WELL_ARCHAEOLOGY
+                : BuiltInLootTables.DESERT_PYRAMID_ARCHAEOLOGY,
+            BuiltinStructures.OCEAN_RUIN_WARM,
+            r -> BuiltInLootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY),
+        Blocks.GRAVEL,
+        Map.of(
             BuiltinStructures.OCEAN_RUIN_COLD,
-            BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY,
-            BuiltinStructures.TRAIL_RUINS, BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_COMMON)
-        );
+            r -> BuiltInLootTables.OCEAN_RUIN_COLD_ARCHAEOLOGY,
+            BuiltinStructures.TRAIL_RUINS,
+            r -> r.nextFloat() < 0.2
+                ? BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_RARE
+                : BuiltInLootTables.TRAIL_RUINS_ARCHAEOLOGY_COMMON));
 
     protected SnifferMixin(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
@@ -109,16 +75,17 @@ public abstract class SnifferMixin extends Animal {
     protected abstract Stream<GlobalPos> getExploredPositions();
 
     @Unique
-    private Optional<ResourceKey<LootTable>> getLootTable(BlockPos diggedBlockPos) {
+    private Optional<Function<RandomSource, ResourceKey<LootTable>>> getLootTable(BlockPos diggedBlockPos) {
         BlockState diggedBlockState = level().getBlockState(diggedBlockPos);
-        Map<ResourceKey<Structure>, ResourceKey<LootTable>> map =
+        Map<ResourceKey<Structure>, Function<RandomSource, ResourceKey<LootTable>>> map =
             LOOT_MAP.get(diggedBlockState.getBlock());
         if (map == null) return Optional.empty();
+        Registry<Structure> structureRegistry = level().registryAccess().lookupOrThrow(Registries.STRUCTURE);
         return map.entrySet().stream()
             .map(e -> {
                 if (((ServerLevel) level())
                     .structureManager()
-                    .getStructureWithPieceAt(diggedBlockPos, (HolderSet<Structure>) e.getKey())
+                    .getStructureWithPieceAt(diggedBlockPos, structureRegistry.getValue(e.getKey()))
                     .isValid()) {
                     return e.getValue();
                 }
@@ -165,7 +132,7 @@ public abstract class SnifferMixin extends Animal {
         }
 
         // Try to do conversion
-        Optional<ResourceKey<LootTable>> archLootTable = getLootTable(diggedBlockPos);
+        Optional<Function<RandomSource, ResourceKey<LootTable>>> archLootTable = getLootTable(diggedBlockPos);
         if (SkyAdditionsSettings.doSuspiciousSniffers
             && archLootTable.isPresent()
             && level().getServer().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)
@@ -174,9 +141,9 @@ public abstract class SnifferMixin extends Animal {
                 ? Blocks.SUSPICIOUS_SAND
                 : Blocks.SUSPICIOUS_GRAVEL;
             level().setBlockAndUpdate(diggedBlockPos, susBlock.defaultBlockState());
+            ResourceKey<LootTable> lootTable = archLootTable.get().apply(level().getRandom());
             level().getBlockEntity(diggedBlockPos, BlockEntityType.BRUSHABLE_BLOCK)
-                // e.setLootTable(lootTable) but idk so put random shit
-                .ifPresent(e -> e.setLootTable(getRandomBuiltInLootTable(r), level().random.nextLong()));
+                .ifPresent(e -> e.setLootTable(lootTable, level().random.nextLong()));
         }
         ci.cancel();
     }

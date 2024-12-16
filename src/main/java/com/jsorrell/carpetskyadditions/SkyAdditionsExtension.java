@@ -16,6 +16,7 @@ import com.jsorrell.carpetskyadditions.helpers.PiglinBruteSpawnPredicate;
 import com.jsorrell.carpetskyadditions.helpers.SkyAdditionsMinecartComparatorLogic;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.jsorrell.carpetskyadditions.settings.SkyBlockDefaults;
+import com.jsorrell.carpetskyadditions.util.SkyAdditionsDataComponents;
 import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
 import com.mojang.brigadier.CommandDispatcher;
 import java.io.IOException;
@@ -32,12 +33,15 @@ import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
 
 public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
+    public static MinecraftServer minecraftServer;
+
     public static final String MOD_ID = "carpetskyadditions";
     public static final ModContainer MOD_CONTAINER =
             FabricLoader.getInstance().getModContainer(MOD_ID).orElseThrow();
@@ -79,12 +83,14 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
         SkyAdditionsFeatures.registerAll();
         SkyAdditionsCriteriaTriggers.registerAll();
         SkyAdditionsLootItemConditions.bootstrap();
+        SkyAdditionsDataComponents.bootstrap();
         MinecartComparatorLogicRegistry.register(EntityType.MINECART, new SkyAdditionsMinecartComparatorLogic());
         SkyAdditionsDataPacks.register();
     }
 
     private void onServerStarted(net.minecraft.server.MinecraftServer server) {
         SkyAdditionsSettings.LOG.info("Server started. Processing configuration files and settings.");
+        minecraftServer = server;
 
         // Write default configuration files
         try {

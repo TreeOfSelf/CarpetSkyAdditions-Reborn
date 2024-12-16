@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import com.jsorrell.carpetskyadditions.util.SkyAdditionsDataComponents;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.core.Direction;
@@ -39,8 +40,7 @@ public class EnchantmentMenuMixin {
     @Final
     private ContainerLevelAccess access;
 
-
-    @WrapOperation(
+    @Redirect(
         method = "getEnchantmentList",
         at =
         @At(
@@ -48,7 +48,7 @@ public class EnchantmentMenuMixin {
             target =
                 "Lnet/minecraft/world/item/enchantment/EnchantmentHelper;selectEnchantment(Lnet/minecraft/util/RandomSource;Lnet/minecraft/world/item/ItemStack;ILjava/util/stream/Stream;)Ljava/util/List;"))
     private List<EnchantmentInstance> addSwiftSneak(
-        RandomSource randomSource, ItemStack itemStack, int i, Stream<Holder<Enchantment>> stream, Operation<List<EnchantmentInstance>> original) {
+        RandomSource randomSource, ItemStack stack, int i, Stream<Holder<Enchantment>> stream) {
         if (SkyAdditionsSettings.renewableSwiftSneak) {
             boolean hasWardenNearby = access.evaluate((world, blockPos) -> {
                     AABB box = new AABB(blockPos).inflate(MAX_WARDEN_DISTANCE_FOR_SWIFT_SNEAK);
@@ -62,11 +62,10 @@ public class EnchantmentMenuMixin {
                 .orElseThrow();
 
             if (hasWardenNearby) {
-                itemStack = new ItemStack(itemStack.getItem(), itemStack.getCount());
-                //stack.addTagElement(SWIFT_SNEAK_ENCHANTABLE_TAG, ByteTag.ONE);
-                itemStack.set(DataComponents.CUSTOM_NAME, Component.literal(SWIFT_SNEAK_ENCHANTABLE_TAG));
+                stack = stack.copy();
+                stack.set(SkyAdditionsDataComponents.SWIFT_SNEAK_ENCHANTABLE_COMPONENT, true);
             }
         }
-        return EnchantmentHelper.selectEnchantment( randomSource, itemStack, i, stream);
+        return EnchantmentHelper.selectEnchantment(randomSource, stack, i, stream);
     }
 }

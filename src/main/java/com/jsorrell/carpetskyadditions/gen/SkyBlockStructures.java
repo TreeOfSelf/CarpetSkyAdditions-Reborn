@@ -200,7 +200,7 @@ public class SkyBlockStructures {
 
         private EntityType<?>[] entityTypes = {
             EntityType.BREEZE,
-            EntityType.SLIME,
+            /*EntityType.SLIME,
             EntityType.ZOMBIE,
             EntityType.HUSK,
             EntityType.SKELETON,
@@ -208,7 +208,7 @@ public class SkyBlockStructures {
             EntityType.STRAY,
             EntityType.SPIDER,
             EntityType.CAVE_SPIDER,
-            EntityType.SILVERFISH
+            EntityType.SILVERFISH*/
             // Add more entity types as needed
         };
         @Override
@@ -248,6 +248,7 @@ public class SkyBlockStructures {
                     BlockEntity tileEntity = level.getBlockEntity(trialSpawnerPos);
                     if (tileEntity instanceof TrialSpawnerBlockEntity) {
                         TrialSpawnerBlockEntity spawner = (TrialSpawnerBlockEntity) tileEntity;
+                        spawner.setLevel(level.getLevel());
                         int index = random.nextInt(entityTypes.length);
                         spawner.setEntityId(entityTypes[index], random);
                         spawner.markUpdated();
@@ -260,6 +261,20 @@ public class SkyBlockStructures {
     }
 
     public static class TrialChamberEntrance extends SkyBlockStructure {
+        private EntityType<?>[] entityTypes = {
+            EntityType.BREEZE,
+            /*EntityType.SLIME,
+            EntityType.ZOMBIE,
+            EntityType.HUSK,
+            EntityType.SKELETON,
+            EntityType.BOGGED,
+            EntityType.STRAY,
+            EntityType.SPIDER,
+            EntityType.CAVE_SPIDER,
+            EntityType.SILVERFISH*/
+            // Add more entity types as needed
+        };
+
         public TrialChamberEntrance(StructurePiece piece){
             super(piece);
         }
@@ -270,10 +285,32 @@ public class SkyBlockStructures {
             addBlock(
                 level,
                 Blocks.VAULT.defaultBlockState(),
-                random.nextInt(5) - random.nextInt(5),
-                random.nextInt(5) - random.nextInt(5),
-                random.nextInt(5) - random.nextInt(5),
+                0,0,0,
                 bounds);
+            addBlock(
+                level,
+                Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS,true),
+                1,0,0,
+                bounds);
+            BlockPos.MutableBlockPos trialSpawnerPos = addBlock(
+                level,
+                Blocks.TRIAL_SPAWNER.defaultBlockState(),
+                2,0,0,
+                bounds);
+
+
+
+            level.getServer().submit(() -> {
+                BlockEntity tileEntity = level.getBlockEntity(trialSpawnerPos);
+                if (tileEntity instanceof TrialSpawnerBlockEntity) {
+                    TrialSpawnerBlockEntity spawner = (TrialSpawnerBlockEntity) tileEntity;
+                    spawner.setLevel(level.getLevel());
+                    int index = random.nextInt(entityTypes.length);
+                    spawner.setEntityId(entityTypes[index], random);
+                    spawner.markUpdated();
+                    spawner.setChanged();
+                }
+            });
 
         }
     }
@@ -316,6 +353,7 @@ public class SkyBlockStructures {
                 level.setBlock(spawnerAbsolutePos, Blocks.SPAWNER.defaultBlockState(), Block.UPDATE_CLIENTS);
                 BlockEntity blockEntity = level.getBlockEntity(spawnerAbsolutePos);
                 if (blockEntity instanceof SpawnerBlockEntity spawnerEntity) {
+                    spawnerEntity.setLevel(level.getLevel());
                     spawnerEntity.setEntityId(spawnerType, random);
                 }
             }
