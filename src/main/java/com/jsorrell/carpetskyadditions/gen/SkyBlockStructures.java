@@ -280,7 +280,6 @@ public class SkyBlockStructures {
         }
 
 
-
         @Override
         public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
             addBlock(
@@ -298,6 +297,7 @@ public class SkyBlockStructures {
                 Blocks.TRIAL_SPAWNER.defaultBlockState(),
                 2,0,0,
                 bounds);
+
 
 
             level.getServer().submit(() -> {
