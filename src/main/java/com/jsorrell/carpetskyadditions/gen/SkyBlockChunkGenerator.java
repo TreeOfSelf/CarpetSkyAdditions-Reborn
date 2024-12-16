@@ -335,7 +335,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
     public int getBaseHeightInEquivalentNoiseWorld(int x, int z, Heightmap.Types heightmap, WorldGenLevel level) {
         RandomState randomState = RandomState.create(
                 generatorSettings().value(),
-                level.registryAccess().get(Registries.NOISE).get().value(),
+                level.registryAccess().lookupOrThrow(Registries.NOISE),
                 level.getSeed());
         return super.getBaseHeight(x, z, heightmap, level, randomState);
     }

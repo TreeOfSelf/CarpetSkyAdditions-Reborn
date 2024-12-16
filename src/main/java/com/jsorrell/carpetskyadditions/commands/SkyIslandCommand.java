@@ -131,7 +131,7 @@ public class SkyIslandCommand {
         // Load the target area
         source.getLevel().getChunkSource().addRegionTicket(TicketType.UNKNOWN, chunkPos, 2, chunkPos);
         Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry =
-                source.getServer().registryAccess().get(Registries.CONFIGURED_FEATURE).get().value();
+                source.getServer().registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
         ConfiguredFeature<?, ?> skyIslandFeature = getIslandFeature(configuredFeatureRegistry);
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
         random.setLargeFeatureSeed(source.getLevel().getSeed(), chunkPos.x, chunkPos.z);
