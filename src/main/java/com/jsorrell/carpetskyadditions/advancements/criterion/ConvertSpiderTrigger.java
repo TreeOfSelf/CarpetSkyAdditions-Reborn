@@ -41,7 +41,11 @@ public class ConvertSpiderTrigger extends SimpleCriterionTrigger<ConvertSpiderTr
                         .apply(instance, ConvertSpiderTrigger.Conditions::new));
 
         public boolean matches(LootContext spiderContext, LootContext caveSpiderContext) {
-            return spider.get().matches(spiderContext) && caveSpider.get().matches(caveSpiderContext);
+                // Check if spider and caveSpider predicates are present and match their contexts
+                boolean spiderMatches = spider.map(predicate -> predicate.matches(spiderContext)).orElse(true);
+                boolean caveSpiderMatches = caveSpider.map(predicate -> predicate.matches(caveSpiderContext)).orElse(true);
+
+                return spiderMatches && caveSpiderMatches;
         }
     }
 }
