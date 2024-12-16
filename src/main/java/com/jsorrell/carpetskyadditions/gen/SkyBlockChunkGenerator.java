@@ -237,7 +237,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                                                     ChunkGeneratorAccessor.getWritableArea(
                                                                         chunk),
                                                                     random);
-                                                        }else if (pieceId.getNamespace()
+                                                        }/*else if (pieceId.getNamespace()
                                                             .equals("minecraft")
                                                             && pieceId.getPath()
                                                             .startsWith(
@@ -259,7 +259,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                                                     ChunkGeneratorAccessor.getWritableArea(
                                                                         chunk),
                                                                     random);
-                                                        }
+                                                        }*/
                                                     }
                                                 }
                                             }
