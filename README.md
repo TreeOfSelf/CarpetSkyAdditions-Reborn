@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/bd211a15-8baa-43b8-a193-fff17e14e9c3)
+
 # Carpet Sky Additions Reborn
 
 Carpet Sky Additions Reborn is a mod based on CarpetSkyAdditions
