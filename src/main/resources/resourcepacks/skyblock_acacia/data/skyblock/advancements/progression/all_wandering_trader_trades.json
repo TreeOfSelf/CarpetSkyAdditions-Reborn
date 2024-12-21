@@ -1,5 +1,4 @@
 {
-  "parent": "skyblock:progression/all_saplings",
   "display": {
     "icon": {
       "id": "minecraft:tube_coral_block"
@@ -12,7 +11,20 @@
     },
     "frame": "challenge"
   },
+  "parent": "skyblock:progression/all_saplings",
   "criteria": {
+    "has_beetroot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:beetroot_seeds"
+            ]
+          }
+        ]
+      }
+    },
     "has_pumpkin": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -182,6 +194,18 @@
         ]
       }
     },
+    "has_oak_sapling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
     "has_spruce_sapling": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -218,13 +242,13 @@
         ]
       }
     },
-    "has_oak_sapling": {
+    "has_pink_petals": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:oak_sapling"
+              "minecraft:pink_petals"
             ]
           }
         ]
@@ -321,6 +345,54 @@
           {
             "items": [
               "minecraft:fern"
+            ]
+          }
+        ]
+      }
+    },
+    "has_pale_oak_sapling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pale_oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
+    "has_pale_moss_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pale_moss_block"
+            ]
+          }
+        ]
+      }
+    },
+    "has_open_eyeblossom": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:open_eyeblossom"
+            ]
+          }
+        ]
+      }
+    },
+    "has_pale_hanging_moss": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pale_hanging_moss"
             ]
           }
         ]
