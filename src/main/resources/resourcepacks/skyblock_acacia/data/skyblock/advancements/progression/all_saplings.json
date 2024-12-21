@@ -25,19 +25,18 @@
         ]
       }
     },
-    "criteria": {
-      "spruce": {
-        "trigger": "minecraft:inventory_changed",
-        "conditions": {
-          "items": [
-            {
-              "items": [
-                "minecraft:pale_oak_sapling"
-              ]
-            }
-          ]
-        }
-      },
+    "pale_oak": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pale_oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
     "birch": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {

@@ -1,7 +1,11 @@
+![image](https://github.com/user-attachments/assets/bd211a15-8baa-43b8-a193-fff17e14e9c3)
+
 # Carpet Sky Additions Reborn
 
 Carpet Sky Additions Reborn is a mod based on CarpetSkyAdditions
 [View the original mod here](https://github.com/jsorrell/CarpetSkyAdditions/issues)
+
+## Try the mod on sky.hardcoreanarchy.gay
 
 Carpet Sky Additions is a module for [fabric-carpet](https://github.com/gnembon/fabric-carpet)
 originally based on [skyrising/skyblock](https://github.com/skyrising/skyblock).
@@ -92,14 +96,8 @@ If you are able to add translations, your help would be much appreciated.
 
 This project is licensed under the terms of the MIT license.
 
-## Contributors 
-
-[Seigmannen](https://github.com/Seigmannen) 
-
-
-
-
-Try the mod on sky.hardcoreanarchy.gay
 
 ## Contributors: 
 [Seigmannen](https://github.com/Seigmannen) 
+
+

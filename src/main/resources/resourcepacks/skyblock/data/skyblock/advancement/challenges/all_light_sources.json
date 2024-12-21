@@ -723,6 +723,102 @@
           }
         ]
       }
+    },
+    "copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:copper_bulb"
+            ]
+          }
+        ]
+      }
+    },
+    "exposed_copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:exposed_copper_bulb"
+            ]
+          }
+        ]
+      }
+    },
+    "weathered_copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:weathered_copper_bulb"
+            ]
+          }
+        ]
+      }
+    },
+    "oxidized_copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oxidized_copper_bulb"
+            ]
+          }
+        ]
+      }
+    },
+    "waxed_copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:waxed_copper_bulb"
+            ]
+          }
+        ]
+      }
+    },
+    "waxed_exposed_copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:waxed_exposed_copper_bulb"
+            ]
+          }
+        ]
+      }
+    },
+    "waxed_weathered_copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:waxed_weathered_copper_bulb"
+            ]
+          }
+        ]
+      }
+    },
+    "waxed_oxidized_copper_bulb": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:waxed_oxidized_copper_bulb"
+            ]
+          }
+        ]
+      }
     }
   }
 }

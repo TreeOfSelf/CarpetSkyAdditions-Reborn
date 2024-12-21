@@ -87,6 +87,54 @@
           }
         ]
       }
+    },
+    "has_flow_banner_pattern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:flow_banner_pattern"
+            ]
+          }
+        ]
+      }
+    },
+    "has_guster_banner_pattern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:guster_banner_pattern"
+            ]
+          }
+        ]
+      }
+    },
+    "has_field_masoned_banner_pattern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:field_masoned_banner_pattern"
+            ]
+          }
+        ]
+      }
+    },
+    "has_bordure_indented_banner_pattern": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:bordure_indented_banner_pattern"
+            ]
+          }
+        ]
+      }
     }
   }
 }
