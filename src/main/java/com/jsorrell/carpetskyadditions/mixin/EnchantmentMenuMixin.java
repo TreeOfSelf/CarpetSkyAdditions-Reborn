@@ -56,6 +56,7 @@ public class EnchantmentMenuMixin {
                 .orElseThrow();
 
             if (hasWardenNearby) {
+                stack = stack.copy();
                 CustomData customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
                 CompoundTag tag = customData.copyTag();
                 tag.putBoolean("SWIFT_SNEAK_ENCHANTABLE", true);
