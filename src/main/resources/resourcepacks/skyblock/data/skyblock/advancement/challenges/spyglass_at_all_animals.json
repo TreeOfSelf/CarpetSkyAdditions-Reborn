@@ -16,6 +16,24 @@
     "frame": "challenge"
   },
   "criteria": {
+    "armadillo": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "player": {
+          "type_specific": {
+            "type": "player",
+            "looking_at": {
+              "type": "minecraft:armadillo"
+            }
+          }
+        },
+        "item": {
+          "items": [
+            "minecraft:spyglass"
+          ]
+        }
+      }
+    },
     "axolotl": {
       "trigger": "minecraft:using_item",
       "conditions": {
