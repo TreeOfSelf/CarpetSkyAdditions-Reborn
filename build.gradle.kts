@@ -57,6 +57,9 @@ dependencies {
   modImplementation("net.fabricmc", "fabric-loader", versions.fabricLoader)
   modImplementation("carpet", "fabric-carpet", versions.carpet)
 
+  // Add fabric-api
+  modImplementation("net.fabricmc.fabric-api", "fabric-api", versions.fabricApi)
+
   arrayOf(
     "fabric-object-builder-api-v1",
     "fabric-registry-sync-v0",
