@@ -17,7 +17,6 @@ import com.jsorrell.carpetskyadditions.helpers.PiglinBruteSpawnPredicate;
 import com.jsorrell.carpetskyadditions.helpers.SkyAdditionsMinecartComparatorLogic;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.jsorrell.carpetskyadditions.settings.SkyBlockDefaults;
-import com.jsorrell.carpetskyadditions.util.SkyAdditionsDataComponents;
 import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
 import com.mojang.brigadier.CommandDispatcher;
 import java.io.IOException;
@@ -84,7 +83,6 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
         SkyAdditionsFeatures.registerAll();
         SkyAdditionsCriteriaTriggers.registerAll();
         SkyAdditionsLootItemConditions.bootstrap();
-        SkyAdditionsDataComponents.bootstrap();
         MinecartComparatorLogicRegistry.register(EntityType.MINECART, new SkyAdditionsMinecartComparatorLogic());
         SkyAdditionsDataPacks.register();
 
