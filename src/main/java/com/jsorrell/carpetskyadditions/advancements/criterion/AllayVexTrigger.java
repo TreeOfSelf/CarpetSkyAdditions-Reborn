@@ -40,7 +40,8 @@ public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Cond
                         .apply(instance, AllayVexTrigger.Conditions::new));
 
         public boolean matches(LootContext vexContext, LootContext allayContext) {
-            return vex.get().matches(vexContext) && allay.get().matches(allayContext);
+                return vex.map(v -> v.matches(vexContext)).orElse(false) &&
+                        allay.map(a -> a.matches(allayContext)).orElse(false);
         }
     }
 }
