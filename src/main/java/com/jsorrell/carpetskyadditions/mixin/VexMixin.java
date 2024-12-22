@@ -12,6 +12,7 @@ import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.DynamicGameEventListener;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -29,6 +30,7 @@ public abstract class VexMixin extends Monster implements InstantListener.Instan
         return vexAllayer;
     }
 
+    @Unique
     @SuppressWarnings("ConstantConditions")
     private Vex asVex() {
         if ((Monster) this instanceof Vex vex) {
@@ -62,4 +64,6 @@ public abstract class VexMixin extends Monster implements InstantListener.Instan
             listenerConsumer.accept(vexAllayer.getGameEventHandler(), serverLevel);
         }
     }
+
+
 }

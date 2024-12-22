@@ -20,24 +20,10 @@ import java.util.function.Function;
 @Mixin(Blocks.class)
 public abstract class BlocksMixin {
 
-
-
-    @Unique
-    private static Block register(ResourceKey<Block> resourceKey, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
-        Block block = function.apply(properties.setId(resourceKey));
-        return  Registry.register(BuiltInRegistries.BLOCK, resourceKey, block);
-    }
-
     @Unique
     private static CoralSpreader.CustomCalciteBlock registerCalcite(ResourceKey<Block> resourceKey, Function<BlockBehaviour.Properties, CoralSpreader.CustomCalciteBlock> function, BlockBehaviour.Properties properties) {
         CoralSpreader.CustomCalciteBlock block = function.apply(properties.setId(resourceKey));
         return  Registry.register(BuiltInRegistries.BLOCK, resourceKey, block);
-    }
-
-
-    @Unique
-    private static Block register(String string, Function<BlockBehaviour.Properties, Block> function, BlockBehaviour.Properties properties) {
-        return register(vanillaBlockId(string), function, properties);
     }
 
     @Unique
@@ -46,13 +32,8 @@ public abstract class BlocksMixin {
     }
 
     @Unique
-    private static Block register(String string, BlockBehaviour.Properties properties) {
-        return register(string, Block::new, properties);
-    }
-
-    @Unique
     private static Block registerCalcite(String string, BlockBehaviour.Properties properties) {
-        return register(string, CoralSpreader.CustomCalciteBlock::new, properties);
+        return registerCalcite(string, CoralSpreader.CustomCalciteBlock::new, properties);
     }
 
     @Unique
@@ -62,16 +43,11 @@ public abstract class BlocksMixin {
 
     @Redirect(
         method = "<clinit>",
-        at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Blocks;register(Ljava/lang/String;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;"),
+        at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/Blocks;register(Ljava/lang/String;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)Lnet/minecraft/world/level/block/Block;", ordinal = 0),
         slice = @Slice(from = @At(value = "CONSTANT", args = "stringValue=calcite"))
     )
     private static Block registerCustomCalcite(String name, BlockBehaviour.Properties properties) {
-        if (name == "calcite") {
             return registerCalcite(name, properties);
-        } else {
-            return register(name, properties);
-        }
     }
-
 
 }
