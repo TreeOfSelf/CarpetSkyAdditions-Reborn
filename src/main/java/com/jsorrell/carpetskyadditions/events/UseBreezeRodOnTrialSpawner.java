@@ -1,6 +1,8 @@
 package com.jsorrell.carpetskyadditions.events;
 
+import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriteriaTriggers;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -13,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 
 public class UseBreezeRodOnTrialSpawner {
@@ -39,6 +42,10 @@ public class UseBreezeRodOnTrialSpawner {
                         1.0F,
                         1.0F
                     );
+
+                    AABB criteriaTriggerBox = new AABB(blockHitResult.getBlockPos()).inflate(50, 20, 50);
+                    level.getEntitiesOfClass(ServerPlayer.class, criteriaTriggerBox)
+                        .forEach(SkyAdditionsCriteriaTriggers.ACTIVATE_TRIAL_SPAWNER::trigger);
 
                     return InteractionResult.CONSUME;
 

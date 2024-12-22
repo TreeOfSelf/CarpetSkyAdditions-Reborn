@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:trial_spawner"
+    },
+    "title": {
+      "translate": "Key to the Trial"
+    },
+    "description": {
+      "translate": "Activate a trail spawner by using a breeze rod on it."
+    },
+    "frame": "challenge"
+  },
+  "parent": "skyblock:progression/breeze_rod",
+  "criteria": {
+    "allay_vex": {
+      "trigger": "carpetskyadditions:activate_trial_spawner"
+    }
+  }
+}
