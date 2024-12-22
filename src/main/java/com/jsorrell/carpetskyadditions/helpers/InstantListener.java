@@ -49,7 +49,7 @@ public class InstantListener implements GameEventListener {
         if (!instantListenerConfig.canAccept(event, context)) {
             return false;
         }
-        
+
         instantListenerConfig.accept(level, this, originPos, event, context);
         onCooldown = true;
         return true;

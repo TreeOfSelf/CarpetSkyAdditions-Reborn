@@ -19,6 +19,7 @@ import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.npc.WanderingTrader;
 import net.minecraft.world.entity.npc.WanderingTraderSpawner;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.storage.ServerLevelData;
@@ -112,7 +113,7 @@ public abstract class WanderingTraderSpawnerMixin {
                     serverLevelData.setWanderingTraderId(wanderingTrader.getUUID());
                     wanderingTrader.setDespawnDelay(48000);
 
-                    traderCamel.equipSaddle(null, SoundSource.AMBIENT);
+                    traderCamel.equipSaddle(Items.SADDLE.getDefaultInstance(), SoundSource.AMBIENT);
                     wanderingTrader.moveTo(
                             traderCamel.getX(), traderCamel.getY(), traderCamel.getZ(), traderCamel.getYRot(), 0.0F);
                     wanderingTrader.startRiding(traderCamel, true);
