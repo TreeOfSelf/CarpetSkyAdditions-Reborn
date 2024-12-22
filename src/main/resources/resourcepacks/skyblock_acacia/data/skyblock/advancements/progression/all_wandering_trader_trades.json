@@ -230,6 +230,18 @@
         ]
       }
     },
+    "has_acacia_sapling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_sapling"
+            ]
+          }
+        ]
+      }
+    },
     "has_jungle_sapling": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {

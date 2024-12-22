@@ -266,6 +266,18 @@
         ]
       }
     },
+    "has_oak_sapling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
     "has_mangrove_propagule": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {

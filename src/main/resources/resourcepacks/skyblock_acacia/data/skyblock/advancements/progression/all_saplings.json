@@ -37,6 +37,18 @@
         ]
       }
     },
+    "acacia": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:acacia_sapling"
+            ]
+          }
+        ]
+      }
+    },
     "birch": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
