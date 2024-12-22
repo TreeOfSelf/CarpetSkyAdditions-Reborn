@@ -343,6 +343,7 @@ Completing rewards *Wild Armor Trim Smithing Template*
 
 Granted after looking through a Spyglass at all animals in the following list:
 - Axolotl
+- Armadillo
 - Bat
 - Bee
 - Camel
