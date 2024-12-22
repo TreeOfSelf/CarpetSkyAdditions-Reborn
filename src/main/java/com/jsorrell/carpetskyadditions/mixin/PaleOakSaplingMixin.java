@@ -1,6 +1,7 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriteriaTriggers;
+import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -33,7 +34,8 @@ public class PaleOakSaplingMixin {
     )
     public void advanceTree(ServerLevel level, BlockPos pos, BlockState state, RandomSource random, CallbackInfo ci) {
         // Ensure the block is the Pale Oak Sapling
-        if (state.getBlock() == Blocks.PALE_OAK_SAPLING) {
+        if ( SkyAdditionsSettings.paleBlossomCreakingHeart &&
+            state.getBlock() == Blocks.PALE_OAK_SAPLING) {
             boolean eyeBlossomNearby = false;
 
             int range = 3;
