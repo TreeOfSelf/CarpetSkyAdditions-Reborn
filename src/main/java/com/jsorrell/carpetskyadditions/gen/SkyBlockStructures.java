@@ -2,35 +2,19 @@ package com.jsorrell.carpetskyadditions.gen;
 
 import java.util.Objects;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.monster.ZombieVillager;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.SpawnData;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
-import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerConfig;
-import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerData;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
 public class SkyBlockStructures {
     protected record StructureOrientation(Rotation rotation, Mirror mirror) {
@@ -195,19 +179,6 @@ public class SkyBlockStructures {
 
 
     public static class TrialChamberEntrance extends SkyBlockStructure {
-        private EntityType<?>[] entityTypes = {
-            EntityType.BREEZE,
-            /*EntityType.SLIME,
-            EntityType.ZOMBIE,
-            EntityType.HUSK,
-            EntityType.SKELETON,
-            EntityType.BOGGED,
-            EntityType.STRAY,
-            EntityType.SPIDER,
-            EntityType.CAVE_SPIDER,
-            EntityType.SILVERFISH*/
-            // Add more entity types as needed
-        };
 
         public TrialChamberEntrance(StructurePiece piece){
             super(piece);
@@ -266,7 +237,6 @@ public class SkyBlockStructures {
                 level.setBlock(spawnerAbsolutePos, Blocks.SPAWNER.defaultBlockState(), Block.UPDATE_CLIENTS);
                 BlockEntity blockEntity = level.getBlockEntity(spawnerAbsolutePos);
                 if (blockEntity instanceof SpawnerBlockEntity spawnerEntity) {
-                    spawnerEntity.setLevel(level.getLevel());
                     spawnerEntity.setEntityId(spawnerType, random);
                 }
             }
