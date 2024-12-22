@@ -2,34 +2,19 @@ package com.jsorrell.carpetskyadditions.gen;
 
 import java.util.Objects;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.Tag;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.RandomSource;
-import net.minecraft.util.random.SimpleWeightedRandomList;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.monster.ZombieVillager;
 import net.minecraft.world.level.ServerLevelAccessor;
-import net.minecraft.world.level.SpawnData;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
-import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerConfig;
-import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerData;
+import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
 public class SkyBlockStructures {
     protected record StructureOrientation(Rotation rotation, Mirror mirror) {
@@ -193,87 +178,7 @@ public class SkyBlockStructures {
     }
 
 
-    public static class TrialChamber extends SkyBlockStructure {
-        public TrialChamber(StructurePiece piece){
-            super(piece);
-        }
-
-        private EntityType<?>[] entityTypes = {
-            EntityType.BREEZE,
-            /*EntityType.SLIME,
-            EntityType.ZOMBIE,
-            EntityType.HUSK,
-            EntityType.SKELETON,
-            EntityType.BOGGED,
-            EntityType.STRAY,
-            EntityType.SPIDER,
-            EntityType.CAVE_SPIDER,
-            EntityType.SILVERFISH*/
-            // Add more entity types as needed
-        };
-        @Override
-        public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
-
-            if (random.nextInt(25) == 1) {
-                addBlock(
-                    level,
-                    Blocks.VAULT.defaultBlockState(),
-                    random.nextInt(5) - random.nextInt(5),
-                    random.nextInt(5) - random.nextInt(5),
-                    random.nextInt(5) - random.nextInt(5),
-                    bounds);
-            }
-
-            if (random.nextInt(30) == 1) {
-                addBlock(
-                    level,
-                    Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS, true),
-                    random.nextInt(5) - random.nextInt(5),
-                    random.nextInt(5) - random.nextInt(5),
-                    random.nextInt(5) - random.nextInt(5),
-                    bounds);
-            }
-
-            if (random.nextInt(16) == 1) {
-                BlockPos.MutableBlockPos trialSpawnerPos = addBlock(
-                    level,
-                    Blocks.TRIAL_SPAWNER.defaultBlockState(),
-                    random.nextInt(5) - random.nextInt(5),
-                    random.nextInt(5) - random.nextInt(5),
-                    random.nextInt(5) - random.nextInt(5),
-                    bounds);
-
-
-                level.getServer().submit(() -> {
-                    BlockEntity tileEntity = level.getBlockEntity(trialSpawnerPos);
-                    if (tileEntity instanceof TrialSpawnerBlockEntity) {
-                        TrialSpawnerBlockEntity spawner = (TrialSpawnerBlockEntity) tileEntity;
-                        spawner.setLevel(level.getLevel());
-                        int index = random.nextInt(entityTypes.length);
-                        spawner.setEntityId(entityTypes[index], random);
-                        spawner.markUpdated();
-                        spawner.setChanged();
-                    }
-                });
-
-            }
-        }
-    }
-
     public static class TrialChamberEntrance extends SkyBlockStructure {
-        private EntityType<?>[] entityTypes = {
-            EntityType.BREEZE,
-            /*EntityType.SLIME,
-            EntityType.ZOMBIE,
-            EntityType.HUSK,
-            EntityType.SKELETON,
-            EntityType.BOGGED,
-            EntityType.STRAY,
-            EntityType.SPIDER,
-            EntityType.CAVE_SPIDER,
-            EntityType.SILVERFISH*/
-            // Add more entity types as needed
-        };
 
         public TrialChamberEntrance(StructurePiece piece){
             super(piece);
@@ -295,7 +200,7 @@ public class SkyBlockStructures {
             BlockPos.MutableBlockPos trialSpawnerPos = addBlock(
                 level,
                 Blocks.TRIAL_SPAWNER.defaultBlockState(),
-                2,0,0,
+                10,0,0,
                 bounds);
 
 
@@ -305,10 +210,7 @@ public class SkyBlockStructures {
                 if (tileEntity instanceof TrialSpawnerBlockEntity) {
                     TrialSpawnerBlockEntity spawner = (TrialSpawnerBlockEntity) tileEntity;
                     spawner.setLevel(level.getLevel());
-                    int index = random.nextInt(entityTypes.length);
-                    spawner.setEntityId(entityTypes[index], random);
-                    spawner.markUpdated();
-                    spawner.setChanged();
+                    spawner.setState(level.getLevel(),TrialSpawnerState.INACTIVE);
                 }
             });
 
@@ -316,24 +218,6 @@ public class SkyBlockStructures {
     }
 
 
-    public static class TrialChamberAtrium extends SkyBlockStructure {
-        public TrialChamberAtrium(StructurePiece piece){
-            super(piece);
-        }
-
-
-        @Override
-        public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
-            addBlock(
-                level,
-                Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS,true),
-                random.nextInt(5) - random.nextInt(5),
-                random.nextInt(5) - random.nextInt(5),
-                random.nextInt(5) - random.nextInt(5),
-                bounds);
-
-        }
-    }
 
     public static class SpawnerStructure extends SkyBlockStructure {
         private final BlockPos spawnerPos;
@@ -353,7 +237,6 @@ public class SkyBlockStructures {
                 level.setBlock(spawnerAbsolutePos, Blocks.SPAWNER.defaultBlockState(), Block.UPDATE_CLIENTS);
                 BlockEntity blockEntity = level.getBlockEntity(spawnerAbsolutePos);
                 if (blockEntity instanceof SpawnerBlockEntity spawnerEntity) {
-                    spawnerEntity.setLevel(level.getLevel());
                     spawnerEntity.setEntityId(spawnerType, random);
                 }
             }

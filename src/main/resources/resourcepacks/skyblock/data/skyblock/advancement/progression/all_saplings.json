@@ -13,18 +13,6 @@
   },
   "parent": "skyblock:progression/wandering_trader",
   "criteria": {
-    "oak": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:oak_sapling"
-            ]
-          }
-        ]
-      }
-    },
     "spruce": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -92,6 +80,30 @@
           {
             "items": [
               "minecraft:dark_oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
+    "oak": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:oak_sapling"
+            ]
+          }
+        ]
+      }
+    },
+    "pale_oak": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:pale_oak_sapling"
             ]
           }
         ]

@@ -156,7 +156,7 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
             Vec3 originPos,
             GameEvent gameEvent,
             GameEvent.Context emitter) {
-        if (SkyAdditionsSettings.allayableVexes && gameEvent.equals(GameEvent.NOTE_BLOCK_PLAY)) {
+        if (SkyAdditionsSettings.allayableVexes && gameEvent.equals(GameEvent.NOTE_BLOCK_PLAY.value())) {
             BlockState noteBlockState = level.getBlockState(BlockPos.containing(originPos));
             if (noteBlockState.is(Blocks.NOTE_BLOCK)) {
                 int note = noteBlockState.getValue(NoteBlock.NOTE);

@@ -74,7 +74,7 @@ Netherrack elsewhere.
 
 #### Wandering Traders Sell Tall Flowers ####
 
-Provides *tall flowers*
+Provides *Tall Flowers*
 
 Disable with ```/carpetskyadditions removeDefault tallFlowersFromWanderingTrader```
 
@@ -371,6 +371,31 @@ Provides *Lava*
 Enable with ```/carpetskyadditions setDefault lavaFromWanderingTrader true```
 
 *** Not automatically enabled in SkyBlock — Get Lava from a Hero of the Village Gift Instead***
+
+##### Additional Tier 2 Trade: #####
+
+| Item        | Price | Input Item | Trades until disabled |
+|-------------|-------|------------|-----------------------|
+| Lava Bucket | 16    | Bucket     | 1                     |
+
+---
+
+#### Blaze turn into Breeze when Brought to Overworld ####
+
+Provides *Breeze Rods*
+
+Disable with ```/carpetskyadditions setDefault blazeToBreeze false```
+
+Blaze mobs turn into Breeze when go from the nether into the overworld.
+This does not affect entities with a custom name tag.
+
+---
+
+#### Growing a Pale Oak Sapling Near a Open Eye Blossom Produces a Creaking Heart ####
+
+Provides *Creaking Heart and Resin*
+
+Disable with ```/carpetskyadditions setDefault paleBlossomCreakingHeart false```
 
 ##### Additional Tier 2 Trade: #####
 

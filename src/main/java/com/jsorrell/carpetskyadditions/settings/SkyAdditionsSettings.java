@@ -84,6 +84,16 @@ public class SkyAdditionsSettings {
     @SkyAdditionsSetting("true")
     public static boolean gatewaysSpawnChorus = false;
 
+    /* Blaze will turn into Breeze when going from nether to overworld. Won't affect nametagged entities */
+    @Rule(categories = FEATURE)
+    @SkyAdditionsSetting("true")
+    public static boolean blazeToBreeze = false;
+
+    /* Growing a pale oak sapling near an open eye blossom produces a creaking heart */
+    @Rule(categories = FEATURE)
+    @SkyAdditionsSetting("true")
+    public static boolean paleBlossomCreakingHeart = false;
+
     /* Dolphins Find Hearts of the Sea */
     @Rule(categories = FEATURE)
     @SkyAdditionsSetting("true")
@@ -330,6 +340,9 @@ public class SkyAdditionsSettings {
         rules.put("poisonousPotatoesConvertSpiders", true);
         rules.put("sniffersFromDrowneds", true);
         rules.put("gatewaysSpawnChorus", true);
+        rules.put("blazeToBreeze", true);
+        rules.put("paleBlossomCreakingHeart", true);
+
         return rules;
     }
 }

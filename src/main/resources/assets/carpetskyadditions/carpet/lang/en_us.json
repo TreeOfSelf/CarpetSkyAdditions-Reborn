@@ -43,5 +43,7 @@
   "carpetskyadditions.rule.spreadingCoral.extra.0": "Rate varies depending on location",
   "carpetskyadditions.rule.maxWanderingTraderSpawnChance.desc": "Max Wandering Trader spawn chance",
   "carpetskyadditions.rule.maxWanderingTraderSpawnChance.extra.0": "This starts at 0.025 and increases by 0.025 each time a trader spawn fails until the max chance is reached.",
-  "carpetskyadditions.rule.wanderingTraderSpawnRate.desc": "How often the Wandering Trader attempts to spawn in ticks"
+  "carpetskyadditions.rule.wanderingTraderSpawnRate.desc": "How often the Wandering Trader attempts to spawn in ticks",
+  "carpetskyadditions.rule.blazeToBreeze.desc": "Bringing a blaze from the nether to overworld will convert it into a breeze",
+  "carpetskyadditions.rule.paleBlossomCreakingHeart.desc": "Growing a pale oak sapling near an open eye blossom produces a creaking heart"
 }

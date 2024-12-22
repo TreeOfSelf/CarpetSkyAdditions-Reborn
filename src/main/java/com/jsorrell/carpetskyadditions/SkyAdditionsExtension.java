@@ -10,13 +10,13 @@ import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriter
 import com.jsorrell.carpetskyadditions.advancements.predicates.SkyAdditionsLootItemConditions;
 import com.jsorrell.carpetskyadditions.commands.SkyIslandCommand;
 import com.jsorrell.carpetskyadditions.config.SkyAdditionsConfig;
+import com.jsorrell.carpetskyadditions.events.UseBreezeRodOnTrialSpawner;
 import com.jsorrell.carpetskyadditions.gen.SkyBlockChunkGenerator;
 import com.jsorrell.carpetskyadditions.gen.feature.SkyAdditionsFeatures;
 import com.jsorrell.carpetskyadditions.helpers.PiglinBruteSpawnPredicate;
 import com.jsorrell.carpetskyadditions.helpers.SkyAdditionsMinecartComparatorLogic;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.jsorrell.carpetskyadditions.settings.SkyBlockDefaults;
-import com.jsorrell.carpetskyadditions.util.SkyAdditionsDataComponents;
 import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
 import com.mojang.brigadier.CommandDispatcher;
 import java.io.IOException;
@@ -83,9 +83,10 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
         SkyAdditionsFeatures.registerAll();
         SkyAdditionsCriteriaTriggers.registerAll();
         SkyAdditionsLootItemConditions.bootstrap();
-        SkyAdditionsDataComponents.bootstrap();
         MinecartComparatorLogicRegistry.register(EntityType.MINECART, new SkyAdditionsMinecartComparatorLogic());
         SkyAdditionsDataPacks.register();
+
+        UseBreezeRodOnTrialSpawner.register();
     }
 
     private void onServerStarted(net.minecraft.server.MinecraftServer server) {

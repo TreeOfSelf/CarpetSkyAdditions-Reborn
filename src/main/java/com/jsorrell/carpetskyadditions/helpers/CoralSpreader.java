@@ -13,6 +13,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.level.levelgen.DensityFunction;
@@ -66,7 +67,8 @@ public abstract class CoralSpreader {
     }
 
     public static class CustomCalciteBlock extends Block {
-        public CustomCalciteBlock(Properties properties) {
+
+        public CustomCalciteBlock(BlockBehaviour.Properties properties) {
             super(properties);
         }
 

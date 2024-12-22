@@ -61,9 +61,6 @@ public class InstantListener implements GameEventListener {
         }
 
         default boolean canAccept(GameEvent gameEvent, GameEvent.Context context) {
-            if (!gameEvent.getClass().equals(getTag().getClass())) {
-                return false;
-            }
             Entity entity = context.sourceEntity();
             if (entity != null) {
                 if (entity.isSpectator()) {
