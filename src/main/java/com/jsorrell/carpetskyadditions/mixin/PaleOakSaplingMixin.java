@@ -1,12 +1,15 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
+import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -64,6 +67,9 @@ public class PaleOakSaplingMixin {
                             if (level.getBlockState(logPos).is(Blocks.PALE_OAK_LOG) && !creakingHeartSet && random.nextInt(10) == 1) {
                                 level.setBlock(logPos, Blocks.CREAKING_HEART.defaultBlockState(), SaplingBlock.UPDATE_ALL);
                                 creakingHeartSet = true;
+                                AABB criteriaTriggerBox = new AABB(logPos).inflate(50, 20, 50);
+                                level.getEntitiesOfClass(ServerPlayer.class, criteriaTriggerBox)
+                                    .forEach(SkyAdditionsCriteriaTriggers.CREAKING_HEART::trigger);
                                 break;
                             }
                         }
