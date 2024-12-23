@@ -22,7 +22,6 @@ public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Cond
 
         trigger(player, conditions -> {
             boolean matches = conditions.matches(vexLootContext, allayLootContext);
-            System.out.println("Conditions matched: " + matches);
             return matches;
         });
     }
