@@ -16,9 +16,15 @@ public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Cond
     static final ResourceLocation ID = new SkyAdditionsResourceLocation("allay_vex").getResourceLocation();
 
     public void trigger(ServerPlayer player, Vex vex, Allay allay) {
+
         LootContext vexLootContext = EntityPredicate.createContext(player, vex);
         LootContext allayLootContext = EntityPredicate.createContext(player, allay);
-        trigger(player, conditions -> conditions.matches(vexLootContext, allayLootContext));
+
+        trigger(player, conditions -> {
+            boolean matches = conditions.matches(vexLootContext, allayLootContext);
+            System.out.println("Conditions matched: " + matches);
+            return matches;
+        });
     }
 
     @Override
@@ -31,17 +37,19 @@ public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Cond
 
         public static final Codec<AllayVexTrigger.Conditions> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(
-                        Codec.optionalField( "player",EntityPredicate.ADVANCEMENT_CODEC, false)
+                        Codec.optionalField("player", EntityPredicate.ADVANCEMENT_CODEC, false)
                                 .forGetter(AllayVexTrigger.Conditions::player),
                         Codec.optionalField("vex", EntityPredicate.ADVANCEMENT_CODEC, false)
                                 .forGetter(AllayVexTrigger.Conditions::vex),
-                        Codec.optionalField( "allay", EntityPredicate.ADVANCEMENT_CODEC, false)
+                        Codec.optionalField("allay", EntityPredicate.ADVANCEMENT_CODEC, false)
                                 .forGetter(AllayVexTrigger.Conditions::allay))
                         .apply(instance, AllayVexTrigger.Conditions::new));
 
         public boolean matches(LootContext vexContext, LootContext allayContext) {
-                return vex.map(v -> v.matches(vexContext)).orElse(false) &&
-                        allay.map(a -> a.matches(allayContext)).orElse(false);
+            boolean vexMatches = vex.map(v -> v.matches(vexContext)).orElse(true); // Defaults to true if no predicate
+            boolean allayMatches = allay.map(a -> a.matches(allayContext)).orElse(true); // Defaults to true if no predicate
+
+            return vexMatches && allayMatches;
         }
     }
 }
