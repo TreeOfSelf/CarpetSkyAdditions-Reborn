@@ -38,6 +38,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
+import org.spongepowered.asm.mixin.MixinEnvironment;
 
 public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
     public static MinecraftServer minecraftServer;
@@ -57,6 +58,8 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
 
     @Override
     public void onInitialize() {
+        if (FabricLoader.getInstance().isDevelopmentEnvironment())
+            MixinEnvironment.getCurrentEnvironment().audit();
         settingsManager = new SettingsManager(MOD_VERSION, MOD_ID, MOD_NAME);
 
         // Register SkyAdditions settings

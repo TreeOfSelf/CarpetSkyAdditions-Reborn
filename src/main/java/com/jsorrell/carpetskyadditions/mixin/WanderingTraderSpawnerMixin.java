@@ -6,6 +6,7 @@ import java.util.Optional;
 
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -69,7 +70,7 @@ public abstract class WanderingTraderSpawnerMixin {
     // spawn chance when no players are online
     @WrapOperation(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I"))
     private int skipSecondChanceCheck(RandomSource instance, int i, Operation<Integer> original) {
-        return 100 < spawnChance ? 0 : instance.nextInt(i);
+        return 100 < spawnChance ? 0 : instance.nextInt(i) /*original.call(i)*/;
     }
 
     @Unique
@@ -89,13 +90,13 @@ public abstract class WanderingTraderSpawnerMixin {
     private void spawnTrader(
             ServerLevel serverLevel,
             CallbackInfoReturnable<Boolean> cir,
-            Player player,
-            BlockPos playerPos,
-            int i,
-            PoiManager poiManager,
-            Optional<BlockPos> optional,
-            BlockPos playerOrMeetingPos,
-            BlockPos spawnPos) {
+            @Local Player player,
+            @Local(ordinal = 0) BlockPos playerPos,
+            @Local int i,
+            @Local PoiManager poiManager,
+            @Local Optional<BlockPos> optional,
+            @Local(ordinal = 1) BlockPos playerOrMeetingPos,
+            @Local(ordinal = 2) BlockPos spawnPos) {
         if (!TraderCamelHelper.tradersRideCamelsAt(serverLevel, spawnPos)) {
             return;
         }

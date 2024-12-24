@@ -8,6 +8,7 @@
     "BaseCoralMixin",
     "BaseCoralWallFanBlockMixin",
     "BlazeToBreezeMixin",
+    "BlazeToBreezeMixin$BlazeMixin",
     "BlocksMixin",
     "CamelMixin",
     "ChunkGeneratorAccessor",

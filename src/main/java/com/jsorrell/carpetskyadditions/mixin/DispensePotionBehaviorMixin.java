@@ -25,7 +25,7 @@ public class DispensePotionBehaviorMixin {
         if (SkyAdditionsSettings.doRenewableDeepslate) {
             PotionContents potionContents = stack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
 
-            if (potionContents.is( DeepslateConversionHelper.CONVERSION_POTION)) {
+            if (potionContents.is(DeepslateConversionHelper.CONVERSION_POTION)) {
                 ServerLevel level = pointer.level();
                 BlockPos dispenserPos = pointer.pos();
                 Direction dispenserFacing = pointer.state().getValue(DispenserBlock.FACING);

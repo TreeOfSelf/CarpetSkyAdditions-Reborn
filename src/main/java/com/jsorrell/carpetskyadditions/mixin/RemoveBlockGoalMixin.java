@@ -1,6 +1,7 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
@@ -36,10 +37,10 @@ public class RemoveBlockGoalMixin {
                     @At(
                             value = "INVOKE",
                             target = "Lnet/minecraft/world/level/Level;removeBlock(Lnet/minecraft/core/BlockPos;Z)Z",
-                            shift = At.Shift.AFTER),
-            locals = LocalCapture.CAPTURE_FAILSOFT)
+                            shift = At.Shift.AFTER)
+    )
     private void placeSnifferEgg(
-            CallbackInfo ci, Level level, BlockPos drownedBlockPos, BlockPos eggPos, RandomSource randomSource) {
+            CallbackInfo ci, @Local Level level, @Local(ordinal = -0) BlockPos drownedBlockPos, @Local(ordinal = -0) BlockPos eggPos, @Local RandomSource randomSource) {
         if (SkyAdditionsSettings.sniffersFromDrowneds
                 && blockToRemove == Blocks.TURTLE_EGG
                 && removerMob instanceof Drowned drowned) {

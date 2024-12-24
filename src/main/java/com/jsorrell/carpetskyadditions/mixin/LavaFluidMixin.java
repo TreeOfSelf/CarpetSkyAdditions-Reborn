@@ -22,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(LavaFluid.class)
 public class LavaFluidMixin {
-    @Inject(method = "randomTick", locals = LocalCapture.CAPTURE_FAILSOFT, at = @At(value = "HEAD"))
+    @Inject(method = "randomTick", at = @At(value = "HEAD"))
     private void tryCreateGeode(ServerLevel level, BlockPos pos, FluidState fluidState, RandomSource random, CallbackInfo ci) {
         if (SkyAdditionsSettings.renewableBuddingAmethysts) {
             if (random.nextInt(GeodeGenerator.CONVERSION_RATE) == 0) {
