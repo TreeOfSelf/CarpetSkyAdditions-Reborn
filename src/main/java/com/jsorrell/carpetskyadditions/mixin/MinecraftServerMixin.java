@@ -1,14 +1,9 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
-import com.jsorrell.carpetskyadditions.config.SkyAdditionsConfig;
 import com.jsorrell.carpetskyadditions.gen.SkyBlockChunkGenerator;
 import com.jsorrell.carpetskyadditions.gen.feature.SkyAdditionsConfiguredFeatures;
-import com.jsorrell.carpetskyadditions.settings.Fixers;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
-import com.jsorrell.carpetskyadditions.settings.SkyBlockDefaults;
-import java.io.IOException;
-import java.nio.file.Path;
-import me.shedaniel.autoconfig.AutoConfig;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.LayeredRegistryAccess;
@@ -19,7 +14,6 @@ import net.minecraft.server.level.ServerChunkCache;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.ChunkGenerator;
-import net.minecraft.world.level.dimension.LevelStem;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
@@ -32,7 +26,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
+
+import java.nio.file.Path;
 
 // Lower priority to ensure loadWorld mixin is called before carpet loads the settings
 @Mixin(value = MinecraftServer.class, priority = 999)
@@ -77,25 +72,23 @@ public abstract class MinecraftServerMixin {
     }
 
     @Inject(
-            method = "setInitialSpawn",
-            locals = LocalCapture.CAPTURE_FAILHARD,
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lnet/minecraft/world/level/storage/ServerLevelData;setSpawn(Lnet/minecraft/core/BlockPos;F)V",
-                            ordinal = 1,
-                            shift = At.Shift.AFTER),
-            cancellable = true)
+        method = "setInitialSpawn",
+        at =
+        @At(
+            value = "INVOKE",
+            target =
+                "Lnet/minecraft/world/level/storage/ServerLevelData;setSpawn(Lnet/minecraft/core/BlockPos;F)V",
+            ordinal = 1,
+            shift = At.Shift.AFTER),
+        cancellable = true)
     private static void generateSpawnPlatform(
             ServerLevel level,
             ServerLevelData levelData,
             boolean bonusChest,
             boolean debugWorld,
             CallbackInfo ci,
-            ServerChunkCache serverChunkManager,
-            ChunkPos spawnChunk,
-            int spawnHeight) {
+        @Local ChunkPos spawnChunk,
+            @Local int spawnHeight) {
         ServerChunkCache chunkManager = level.getChunkSource();
         ChunkGenerator chunkGenerator = chunkManager.getGenerator();
         if (!(chunkGenerator instanceof SkyBlockChunkGenerator)) return;

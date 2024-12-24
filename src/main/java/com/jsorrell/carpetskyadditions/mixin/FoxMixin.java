@@ -6,6 +6,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.animal.Fox;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -16,7 +17,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Fox.class)
-public abstract class FoxMixin {
+public abstract class FoxMixin extends Mob {
+
+    protected FoxMixin(EntityType<? extends Mob> entityType, Level level) {
+        super(entityType, level);
+    }
 
     @Inject(
         method = "populateDefaultEquipmentSlots",
@@ -28,7 +33,7 @@ public abstract class FoxMixin {
             ItemStack equippedItem;
             if (f < SkyAdditionsSettings.foxesSpawnWithSweetBerriesChance) {
                 equippedItem = new ItemStack(Items.SWEET_BERRIES);
-                ((Fox)(Object)this).setItemSlot(EquipmentSlot.MAINHAND, equippedItem);
+                this.setItemSlot(EquipmentSlot.MAINHAND, equippedItem);
                 ci.cancel();
             }
         }

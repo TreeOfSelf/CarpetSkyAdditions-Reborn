@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
+import org.spongepowered.asm.mixin.transformer.meta.MixinInner;
 
 @Mixin(Dolphin.class)
 public abstract class DolphinMixin extends AgeableWaterCreature {

@@ -3,32 +3,32 @@ package com.jsorrell.carpetskyadditions.mixin;
 import com.jsorrell.carpetskyadditions.helpers.DeepslateConversionHelper;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.world.entity.AreaEffectCloud;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import java.lang.reflect.Field;
-
 @Mixin(AreaEffectCloud.class)
-public class AreaEffectCloudMixin {
+public abstract class AreaEffectCloudMixin extends Entity {
+
+    @Shadow
+    private PotionContents potionContents;
+
+    public AreaEffectCloudMixin(EntityType<?> entityType, Level level) {
+        super(entityType, level);
+    }
+
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void convertDeepslateOnTick(CallbackInfo ci) {
         if (SkyAdditionsSettings.renewableDeepslateFromSplash) {
-            try {
-                AreaEffectCloud cloud = (AreaEffectCloud)(Object)this;
-                Field potionContentsField = AreaEffectCloud.class.getDeclaredField("potionContents");
-                potionContentsField.setAccessible(true);
-                PotionContents potionContents = (PotionContents) potionContentsField.get(cloud);
-
-                if (potionContents.equals(DeepslateConversionHelper.CONVERSION_POTION)) {
-                    DeepslateConversionHelper.convertDeepslateInCloud(cloud.level(), cloud.getBoundingBox());
-                }
-            } catch (NoSuchFieldException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
+            if (this.potionContents.is(DeepslateConversionHelper.CONVERSION_POTION))
+                DeepslateConversionHelper.convertDeepslateInCloud(this.level(), this.getBoundingBox());
         }
     }
 }

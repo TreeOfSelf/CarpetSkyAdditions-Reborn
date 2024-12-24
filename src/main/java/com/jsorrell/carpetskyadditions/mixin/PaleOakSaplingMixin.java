@@ -41,18 +41,16 @@ public class PaleOakSaplingMixin {
             int range = 3;
             BlockPos.MutableBlockPos mutablePos = new BlockPos.MutableBlockPos();
 
-            for (int dx = -range; dx <= range; dx++) {
+            findEyeBlossom: for (int dx = -range; dx <= range; dx++) {
                 for (int dy = -range; dy <= range; dy++) {
                     for (int dz = -range; dz <= range; dz++) {
                         mutablePos.set(pos.getX() + dx, pos.getY() + dy, pos.getZ() + dz);
                         if (level.getBlockState(mutablePos).is(Blocks.OPEN_EYEBLOSSOM)) {
                             eyeBlossomNearby = true;
-                            break;
+                            break findEyeBlossom;
                         }
                     }
-                    if (eyeBlossomNearby) break;
                 }
-                if (eyeBlossomNearby) break;
             }
 
             if (eyeBlossomNearby) {

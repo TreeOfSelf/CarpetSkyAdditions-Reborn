@@ -1,6 +1,7 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -46,10 +47,9 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
             value = "INVOKE",
             target = "Lnet/minecraft/world/entity/ExperienceOrb;award(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/phys/Vec3;I)V",
             ordinal = 1
-        ),
-        locals = LocalCapture.CAPTURE_FAILHARD
+        )
     )
-    protected void dropDragonHead(CallbackInfo ci, int i, ServerLevel serverLevel, Level var3) {
+    protected void dropDragonHead(CallbackInfo ci, @Local ServerLevel serverLevel) {
         if (SkyAdditionsSettings.renewableDragonHeads && shouldDropHead) {
             spawnAtLocation(serverLevel, Items.DRAGON_HEAD);
         }
