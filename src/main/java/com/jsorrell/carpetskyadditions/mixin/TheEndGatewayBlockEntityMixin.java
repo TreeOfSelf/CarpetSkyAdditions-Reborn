@@ -5,6 +5,7 @@ import com.jsorrell.carpetskyadditions.gen.feature.SkyAdditionsConfiguredFeature
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.data.worldgen.features.EndFeatures;
 import net.minecraft.resources.ResourceKey;
@@ -35,7 +36,7 @@ public class TheEndGatewayBlockEntityMixin {
         if (SkyAdditionsSettings.gatewaysSpawnChorus) {
             return SkyAdditionsConfiguredFeatures.GATEWAY_ISLAND;
         } else {
-            return EndFeatures.END_ISLAND;
+            return EndFeatures.END_ISLAND/*original.call()*/;
         }
     }
 
@@ -52,16 +53,18 @@ public class TheEndGatewayBlockEntityMixin {
                     @At(
                             value = "INVOKE",
                             target = "Ljava/util/Optional;ifPresent(Ljava/util/function/Consumer;)V",
-                            shift = At.Shift.AFTER),
-            locals = LocalCapture.CAPTURE_FAILSOFT)
+                            shift = At.Shift.AFTER
+                    ),
+            locals = LocalCapture.CAPTURE_FAILSOFT
+    )
     private static void forceExitPortalPos(
             ServerLevel level,
             BlockPos pos,
             CallbackInfoReturnable<BlockPos> cir,
-            Vec3 teleportLocation,
-            LevelChunk portalChunk,
-            BlockPos blockPos,
-            BlockPos islandCenterPos) {
+            @Local Vec3 teleportLocation,
+            @Local LevelChunk portalChunk,
+            @Local(ordinal = 1) BlockPos blockPos,
+            @Local(ordinal = 2) BlockPos islandCenterPos) {
         if (SkyAdditionsSettings.gatewaysSpawnChorus) {
             BlockPos portalPos = EndGatewayIslandFeature.findGatewayLocation(level, islandCenterPos);
             cir.setReturnValue(portalPos);

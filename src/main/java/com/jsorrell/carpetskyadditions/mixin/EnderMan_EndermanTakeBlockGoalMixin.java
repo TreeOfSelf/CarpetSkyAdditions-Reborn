@@ -1,5 +1,6 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.monster.EnderMan;
@@ -23,19 +24,20 @@ public abstract class EnderMan_EndermanTakeBlockGoalMixin {
             at =
                     @At(
                             value = "INVOKE",
-                            target = "Lnet/minecraft/world/level/Level;removeBlock(Lnet/minecraft/core/BlockPos;Z)Z",
-                            shift = At.Shift.BEFORE),
-            locals = LocalCapture.CAPTURE_FAILSOFT,
+                            target = "Lnet/minecraft/world/level/Level;removeBlock(Lnet/minecraft/core/BlockPos;Z)Z"
+//                            shift = At.Shift.BEFORE once again, doesn't shift far enough to actually have an impact
+                    ),
+//            locals = LocalCapture.CAPTURE_FAILSOFT,
             cancellable = true)
     private void inject(
             CallbackInfo ci,
-            RandomSource random,
-            Level level,
-            int x,
-            int y,
-            int z,
-            BlockPos targetBlockPos,
-            BlockState targetBlockState) {
+            @Local RandomSource random,
+            @Local Level level,
+            @Local(ordinal = 0) int x,
+            @Local(ordinal = 1) int y,
+            @Local(ordinal = 2) int z,
+            @Local BlockPos targetBlockPos,
+            @Local BlockState targetBlockState) {
         Block targetBlock = targetBlockState.getBlock();
         if (targetBlock instanceof DoublePlantBlock || targetBlock instanceof DoorBlock) {
             // Only allow picking up the bottom half

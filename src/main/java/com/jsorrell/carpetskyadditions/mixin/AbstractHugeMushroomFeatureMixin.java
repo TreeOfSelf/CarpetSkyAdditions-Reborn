@@ -2,6 +2,8 @@ package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.Set;
+
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.LevelAccessor;
@@ -26,22 +28,25 @@ public class AbstractHugeMushroomFeatureMixin {
     @Unique
     private void generateMycelium(LevelAccessor level, RandomSource random, BlockPos pos) {
         AlterGroundDecorator decorator = new AlterGroundDecorator(BlockStateProvider.simple(Blocks.MYCELIUM));
-        decorator.place(new TreeDecorator.Context(
+        decorator.place(
+            new TreeDecorator.Context(
                 level,
                 (blockPos, blockState) -> level.setBlock(blockPos, blockState, Block.UPDATE_ALL),
                 random,
                 Set.of(pos),
                 Set.of(),
-                Set.of()));
+                Set.of()
+            )
+        );
     }
 
-    @Inject(method = "place", at = @At("TAIL"), locals = LocalCapture.CAPTURE_FAILSOFT)
+    @Inject(method = "place", at = @At("TAIL"))
     private void generateMycelium(
-            FeaturePlaceContext<HugeMushroomFeatureConfiguration> context,
             CallbackInfoReturnable<Boolean> cir,
-            WorldGenLevel level,
-            BlockPos pos,
-            RandomSource random) {
+            @Local WorldGenLevel level,
+            @Local RandomSource random,
+            @Local BlockPos pos
+    ) {
         if (SkyAdditionsSettings.hugeMushroomsSpreadMycelium) {
             generateMycelium(level, random, pos);
         }

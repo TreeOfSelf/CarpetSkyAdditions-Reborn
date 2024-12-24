@@ -18,7 +18,7 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public class DeepslateConversionHelper {
-    public static final Holder CONVERSION_POTION = Potions.THICK;
+    public static final Holder<Potion> CONVERSION_POTION = Potions.THICK;
 
     public static Optional<BlockState> canConvert(BlockState from) {
         if (from.is(Blocks.STONE)) {

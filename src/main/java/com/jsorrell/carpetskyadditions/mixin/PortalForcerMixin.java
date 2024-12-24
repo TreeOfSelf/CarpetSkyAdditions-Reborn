@@ -2,6 +2,8 @@ package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.Optional;
+
+import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.BlockUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.portal.PortalForcer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
@@ -25,6 +28,7 @@ public class PortalForcerMixin {
     @Final
     private ServerLevel level;
 
+    @Unique
     private BlockState getPortalSkirtBlock(BlockPos pos) {
         if (level.getBiome(pos).is(Biomes.CRIMSON_FOREST)) {
             return Blocks.CRIMSON_NYLIUM.defaultBlockState();
@@ -41,17 +45,18 @@ public class PortalForcerMixin {
                             value = "INVOKE",
                             target = "Lnet/minecraft/core/Direction;getClockWise()Lnet/minecraft/core/Direction;",
                             ordinal = 0),
-            locals = LocalCapture.CAPTURE_FAILSOFT)
+            locals = LocalCapture.CAPTURE_FAILSOFT
+    )
     private void addNetherrack(
             BlockPos pos,
             Direction.Axis axis,
             CallbackInfoReturnable<Optional<BlockUtil.FoundRectangle>> cir,
-            Direction direction,
-            double d,
-            BlockPos blockPos,
-            double e,
-            BlockPos blockPos2,
-            WorldBorder worldBorder) {
+            @Local Direction direction,
+            @Local(ordinal = 0) double d,
+            @Local(ordinal = 1) BlockPos blockPos,
+            @Local(ordinal = 1) double e,
+            @Local(ordinal = 2) BlockPos blockPos2,
+            @Local WorldBorder worldBorder) {
         if (SkyAdditionsSettings.renewableNetherrack) {
             if (!worldBorder.isWithinBounds(blockPos)) {
                 return;

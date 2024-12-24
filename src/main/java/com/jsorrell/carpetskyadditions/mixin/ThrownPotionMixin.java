@@ -37,11 +37,11 @@ public abstract class ThrownPotionMixin extends ThrowableItemProjectile {
         at =
         @At(
             value = "INVOKE",
-            target ="Lnet/minecraft/world/item/alchemy/PotionContents;getAllEffects()Ljava/lang/Iterable;"),
-        locals = LocalCapture.CAPTURE_FAILSOFT)
+            target ="Lnet/minecraft/world/item/alchemy/PotionContents;getAllEffects()Ljava/lang/Iterable;")
+    )
     private void onThickPotionCollision(HitResult result, CallbackInfo ci, @Local ItemStack itemStack, @Local PotionContents potionContents) {
         if (SkyAdditionsSettings.renewableDeepslateFromSplash) {
-            if (potionContents.equals(DeepslateConversionHelper.CONVERSION_POTION)) {
+            if (potionContents.is(DeepslateConversionHelper.CONVERSION_POTION)) {
                 Vec3 hitPos = result.getType() == HitResult.Type.BLOCK ? result.getLocation() : position();
                 if (isLingering()) {
                     // Create the cloud b/c vanilla doesn't when there are no potion effects

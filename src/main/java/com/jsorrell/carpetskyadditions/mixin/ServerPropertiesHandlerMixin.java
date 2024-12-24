@@ -30,7 +30,7 @@ public class ServerPropertiesHandlerMixin {
     private ResourceKey<WorldPreset> setDefaultSelectedWorldPreset(Operation<ResourceKey<WorldPreset>> original) {
         SkyAdditionsConfig config =
                 AutoConfig.getConfigHolder(SkyAdditionsConfig.class).get();
-        return config.defaultToSkyBlockWorld ? SkyAdditionsWorldPresets.SKYBLOCK : WorldPresets.NORMAL;
+        return config.defaultToSkyBlockWorld ? SkyAdditionsWorldPresets.SKYBLOCK : WorldPresets.NORMAL /*original.call()*/;
     }
 
     @WrapOperation(
@@ -39,7 +39,9 @@ public class ServerPropertiesHandlerMixin {
                     @At(
                             value = "INVOKE",
                             target =
-                                    "Lnet/minecraft/world/level/WorldDataConfiguration;dataPacks()Lnet/minecraft/world/level/DataPackConfig;"))
+                                    "Lnet/minecraft/world/level/WorldDataConfiguration;dataPacks()Lnet/minecraft/world/level/DataPackConfig;"
+                    )
+    )
     private DataPackConfig enableSkyAdditionsDatapacks(WorldDataConfiguration dc, Operation<DataPackConfig> original) {
         return DataConfigurationHelper.updateDataConfiguration(dc).dataPacks();
     }

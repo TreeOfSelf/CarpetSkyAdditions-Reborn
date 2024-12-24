@@ -22,7 +22,6 @@ public abstract class SmallDripleafBlockMixin extends DoublePlantBlock {
     }
 
     @Override
-    @SuppressWarnings("deprecation")
     public void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!SkyAdditionsSettings.spreadingSmallDripleaves) return;
         SmallDripleafSpreader.trySpread(state, level, pos, random);

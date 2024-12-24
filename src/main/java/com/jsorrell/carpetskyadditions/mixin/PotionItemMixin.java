@@ -3,6 +3,8 @@ package com.jsorrell.carpetskyadditions.mixin;
 import com.jsorrell.carpetskyadditions.helpers.DeepslateConversionHelper;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.Objects;
+
+import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
@@ -25,8 +27,36 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PotionItem.class)
 public class PotionItemMixin {
-    @Inject(method = "useOn", at = @At("TAIL"), cancellable = true)
-    private void convertStoneToDeepslate(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
+//    @Inject(method = "useOn", at = @At("TAIL"), cancellable = true)
+//    private void convertStoneToDeepslate(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
+//        if (SkyAdditionsSettings.doRenewableDeepslate) {
+//            ItemStack itemStack = context.getItemInHand();
+//
+//            PotionContents potionContents = itemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+//
+//            if (potionContents.is( DeepslateConversionHelper.CONVERSION_POTION)) {
+//                Level level = context.getLevel();
+//                BlockPos blockPos = context.getClickedPos();
+//                Player playerEntity = context.getPlayer();
+//                if (context.getClickedFace() != Direction.DOWN
+//                        && DeepslateConversionHelper.convertDeepslateWithBottle(level, blockPos, blockPos)) {
+//                    level.playSound(null, blockPos, SoundEvents.GENERIC_SPLASH, SoundSource.PLAYERS, 1.0f, 1.0f);
+//                    Objects.requireNonNull(playerEntity)
+//                            .setItemInHand(
+//                                    context.getHand(),
+//                                    ItemUtils.createFilledResult(
+//                                            itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
+//                    playerEntity.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
+//                    cir.setReturnValue(InteractionResult.SUCCESS);
+//                }
+//            }
+//        }
+//    }
+    @ModifyReturnValue(
+        method = "useOn",
+        at = @At("TAIL")
+    )
+    private InteractionResult convertStoneToDeeplslate(InteractionResult original, UseOnContext context) {
         if (SkyAdditionsSettings.doRenewableDeepslate) {
             ItemStack itemStack = context.getItemInHand();
 
@@ -37,17 +67,18 @@ public class PotionItemMixin {
                 BlockPos blockPos = context.getClickedPos();
                 Player playerEntity = context.getPlayer();
                 if (context.getClickedFace() != Direction.DOWN
-                        && DeepslateConversionHelper.convertDeepslateWithBottle(level, blockPos, blockPos)) {
+                    && DeepslateConversionHelper.convertDeepslateWithBottle(level, blockPos, blockPos)) {
                     level.playSound(null, blockPos, SoundEvents.GENERIC_SPLASH, SoundSource.PLAYERS, 1.0f, 1.0f);
                     Objects.requireNonNull(playerEntity)
-                            .setItemInHand(
-                                    context.getHand(),
-                                    ItemUtils.createFilledResult(
-                                            itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
+                        .setItemInHand(
+                            context.getHand(),
+                            ItemUtils.createFilledResult(
+                                itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
                     playerEntity.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
-                    cir.setReturnValue(InteractionResult.SUCCESS);
+                    return InteractionResult.SUCCESS;
                 }
             }
         }
+        return original;
     }
 }

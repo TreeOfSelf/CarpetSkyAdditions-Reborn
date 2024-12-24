@@ -12,9 +12,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.worldselection.CreateWorldCallback;
 import net.minecraft.client.gui.screens.worldselection.CreateWorldScreen;
-import net.minecraft.client.gui.screens.worldselection.WorldCreationContext;
 import net.minecraft.client.gui.screens.worldselection.WorldCreationContextMapper;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.WorldLoader;
 import net.minecraft.world.level.WorldDataConfiguration;
@@ -50,27 +48,40 @@ public class CreateWorldScreenMixin {
     private static ResourceKey<WorldPreset> setDefaultSelectedWorldPreset(Operation<ResourceKey<WorldPreset>> original) {
         SkyAdditionsConfig config =
                 AutoConfig.getConfigHolder(SkyAdditionsConfig.class).get();
-        return config.defaultToSkyBlockWorld ? SkyAdditionsWorldPresets.SKYBLOCK : WorldPresets.NORMAL;
+        return config.defaultToSkyBlockWorld ? SkyAdditionsWorldPresets.SKYBLOCK : /*WorldPresets.NORMAL*/ original.call();
     }
 
-
-    @WrapOperation(
-            method = "openFresh(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V",
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lnet/minecraft/client/gui/screens/worldselection/CreateWorldScreen;openCreateWorldScreen(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Ljava/util/function/Function;Lnet/minecraft/client/gui/screens/worldselection/WorldCreationContextMapper;Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V"))
-    private static void setDefaultWorldGenSettings(Minecraft minecraft, Screen screen, Function<WorldLoader.DataLoadContext, WorldGenSettings> function, WorldCreationContextMapper worldCreationContextMapper, ResourceKey<WorldPreset> resourceKey, CreateWorldCallback createWorldCallback, Operation<Void> original) {
-                SkyAdditionsConfig config = AutoConfig.getConfigHolder(SkyAdditionsConfig.class).get();
-        if (config.defaultToSkyBlockWorld) {
-                // Set Skyblock-specific world generation
-                original.call(minecraft, screen, function, worldCreationContextMapper, SkyAdditionsWorldPresets.SKYBLOCK, createWorldCallback);
-        } else {
-                // Fallback to normal preset
-                original.call(minecraft, screen, function, worldCreationContextMapper, WorldPresets.NORMAL, createWorldCallback);
-        }
+    @ModifyArg(method = "openFresh(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V",
+        at =
+        @At(
+            value = "INVOKE",
+            target =
+                "Lnet/minecraft/client/gui/screens/worldselection/CreateWorldScreen;openCreateWorldScreen(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Ljava/util/function/Function;Lnet/minecraft/client/gui/screens/worldselection/WorldCreationContextMapper;Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V"))
+    private static ResourceKey<WorldPreset> setDefaultWorldGenSettingsB(ResourceKey<WorldPreset> worldPreset) {
+        SkyAdditionsConfig config = AutoConfig.getConfigHolder(SkyAdditionsConfig.class).get();
+        if (config.defaultToSkyBlockWorld)
+            // Set Skyblock-specific world generation
+            return SkyAdditionsWorldPresets.SKYBLOCK;
+        // Fallback to normal preset
+        return worldPreset;
     }
+//    @WrapOperation(
+//            method = "openFresh(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V",
+//            at =
+//                    @At(
+//                            value = "INVOKE",
+//                            target =
+//                                    "Lnet/minecraft/client/gui/screens/worldselection/CreateWorldScreen;openCreateWorldScreen(Lnet/minecraft/client/Minecraft;Lnet/minecraft/client/gui/screens/Screen;Ljava/util/function/Function;Lnet/minecraft/client/gui/screens/worldselection/WorldCreationContextMapper;Lnet/minecraft/resources/ResourceKey;Lnet/minecraft/client/gui/screens/worldselection/CreateWorldCallback;)V"))
+//    private static void setDefaultWorldGenSettings(Minecraft minecraft, Screen screen, Function<WorldLoader.DataLoadContext, WorldGenSettings> function, WorldCreationContextMapper worldCreationContextMapper, ResourceKey<WorldPreset> resourceKey, CreateWorldCallback createWorldCallback, Operation<Void> original) {
+//        SkyAdditionsConfig config = AutoConfig.getConfigHolder(SkyAdditionsConfig.class).get();
+//        if (config.defaultToSkyBlockWorld) {
+//                // Set Skyblock-specific world generation
+//                original.call(minecraft, screen, function, worldCreationContextMapper, SkyAdditionsWorldPresets.SKYBLOCK, createWorldCallback);
+//        } else {
+//                // Fallback to normal preset
+//                original.call(minecraft, screen, function, worldCreationContextMapper, WorldPresets.NORMAL, createWorldCallback);
+//        }
+//    }
 
 
     @ModifyArg(

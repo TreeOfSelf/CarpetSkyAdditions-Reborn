@@ -25,6 +25,7 @@ import net.minecraft.world.phys.Vec3;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -45,15 +46,14 @@ public abstract class RamTargetMixin<E extends PathfinderMob> extends Behavior<E
     }
 
     @Inject(
-            method = "tick(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/animal/goat/Goat;J)V",
-            locals = LocalCapture.CAPTURE_FAILSOFT,
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lnet/minecraft/world/entity/ai/Brain;getMemory(Lnet/minecraft/world/entity/ai/memory/MemoryModuleType;)Ljava/util/Optional;",
-                            ordinal = 0),
-            cancellable = true)
+        method = "tick(Lnet/minecraft/server/level/ServerLevel;Lnet/minecraft/world/entity/animal/goat/Goat;J)V",
+        at =
+        @At(
+            value = "INVOKE",
+            target =
+                "Lnet/minecraft/world/entity/ai/Brain;getMemory(Lnet/minecraft/world/entity/ai/memory/MemoryModuleType;)Ljava/util/Optional;",
+            ordinal = 0),
+        cancellable = true)
     private void breakOpenNetherWart(ServerLevel level, Goat rammer, long gameTime, CallbackInfo ci) {
         if (SkyAdditionsSettings.rammingWart && level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
             Optional<BlockPos> optionalWartPos = shouldBreakNetherWart(level, rammer);
@@ -76,6 +76,7 @@ public abstract class RamTargetMixin<E extends PathfinderMob> extends Behavior<E
         }
     }
 
+    @Unique
     private Optional<BlockPos> shouldBreakNetherWart(ServerLevel level, Goat goat) {
         Vec3 movementVector = goat.getDeltaMovement().multiply(1, 0, 1).normalize();
         BlockPos hitPos = BlockPos.containing(goat.position().add(movementVector));
