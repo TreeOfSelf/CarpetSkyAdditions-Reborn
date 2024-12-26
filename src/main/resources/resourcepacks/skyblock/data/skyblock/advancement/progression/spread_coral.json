@@ -1,4 +1,5 @@
 {
+  "parent": "skyblock:progression/blasted_rock",
   "display": {
     "icon": {
       "id": "minecraft:calcite"
@@ -11,7 +12,6 @@
     },
     "frame": "goal"
   },
-  "parent": "skyblock:progression/blasted_rock",
   "criteria": {
     "placed_convertible_calcite": {
       "trigger": "minecraft:placed_block",

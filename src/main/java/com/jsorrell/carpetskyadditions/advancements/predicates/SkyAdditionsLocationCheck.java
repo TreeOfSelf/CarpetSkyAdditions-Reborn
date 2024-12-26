@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 public record SkyAdditionsLocationCheck(Optional<SkyAdditionsLocationPredicate> predicate, BlockPos offset)
     implements LootItemCondition {
@@ -29,7 +30,7 @@ public record SkyAdditionsLocationCheck(Optional<SkyAdditionsLocationPredicate> 
             .apply(instance, SkyAdditionsLocationCheck::new));
 
     @Override
-    public LootItemConditionType getType() {
+    public @NotNull LootItemConditionType getType() {
         return SkyAdditionsLootItemConditions.LOCATION_CHECK;
     }
 
