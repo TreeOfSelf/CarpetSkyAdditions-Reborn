@@ -22,7 +22,10 @@
             "block": "minecraft:calcite"
           },
           {
-            "condition": "carpetskyadditions:location_check"
+            "condition": "carpetskyadditions:location_check",
+            "predicate": {
+              "coral_convertible": true
+            }
           }
         ]
       }
