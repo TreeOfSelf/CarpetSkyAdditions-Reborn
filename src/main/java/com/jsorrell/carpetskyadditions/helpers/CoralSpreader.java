@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -26,7 +27,8 @@ public abstract class CoralSpreader {
 
     // Returns a suitability value in the range of 0 to 1
     public static double calculateCoralSuitability(ServerLevel level, BlockPos pos) {
-        if (!level.dimensionType().equals(BuiltinDimensionTypes.OVERWORLD))  {
+
+        if (level.dimension() != Level.OVERWORLD)  {
             return 0;
         }
 
