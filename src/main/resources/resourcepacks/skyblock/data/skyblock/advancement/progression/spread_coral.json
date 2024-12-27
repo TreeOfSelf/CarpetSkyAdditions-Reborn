@@ -22,6 +22,12 @@
             "block": "minecraft:calcite"
           },
           {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biomes": "minecraft:warm_ocean"
+            }
+          },
+          {
             "condition": "carpetskyadditions:location_check",
             "predicate": {
               "coral_convertible": true
