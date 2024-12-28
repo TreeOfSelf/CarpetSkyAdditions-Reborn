@@ -2,8 +2,11 @@ package com.jsorrell.carpetskyadditions.gen;
 
 import java.util.Objects;
 
+import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -11,7 +14,9 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
+import net.minecraft.world.level.block.entity.trialspawner.TrialSpawner;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
+import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
@@ -192,7 +197,7 @@ public class SkyBlockStructures {
                 Blocks.VAULT.defaultBlockState(),
                 0,0,0,
                 bounds);
-            addBlock(
+            BlockPos.MutableBlockPos ominousVaultPos = addBlock(
                 level,
                 Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS,true),
                 1,0,0,
@@ -204,18 +209,42 @@ public class SkyBlockStructures {
                 bounds);
 
 
-
             level.getServer().submit(() -> {
                 BlockEntity tileEntity = level.getBlockEntity(trialSpawnerPos);
-                if (tileEntity instanceof TrialSpawnerBlockEntity) {
-                    TrialSpawnerBlockEntity spawner = (TrialSpawnerBlockEntity) tileEntity;
+                if (tileEntity instanceof TrialSpawnerBlockEntity spawner) {
                     spawner.setLevel(level.getLevel());
                     spawner.setState(level.getLevel(),TrialSpawnerState.INACTIVE);
+                    CompoundTag blockData = spawner.saveWithoutMetadata(level.getLevel().registryAccess());
+                    blockData.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
+                    blockData.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
+                    spawner.loadWithComponents(blockData, level.getLevel().registryAccess());
+                    spawner.setChanged();
+                    spawner.markUpdated();
                 }
+
+                BlockEntity tileEntityVault = level.getBlockEntity(ominousVaultPos);
+                if (tileEntityVault instanceof VaultBlockEntity vault) {
+                    vault.setLevel(level.getLevel());
+                    CompoundTag blockData = vault.saveWithoutMetadata(level.getLevel().registryAccess());
+
+                    CompoundTag config = new CompoundTag();
+                    CompoundTag keyItem = new CompoundTag();
+                    keyItem.putInt("count", 1);
+                    keyItem.putString("id", "minecraft:ominous_trial_key");
+                    config.put("key_item", keyItem);
+                    config.putString("loot_table", "minecraft:chests/trial_chambers/reward_ominous");
+                    blockData.put("config", config);
+
+                    vault.loadWithComponents(blockData, level.getLevel().registryAccess());
+                    vault.setChanged();
+                }
+
+
             });
 
         }
     }
+
 
 
 
