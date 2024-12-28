@@ -53,7 +53,7 @@ public class PaleOakSaplingMixin {
                 }
             }
 
-            if (eyeBlossomNearby) {
+            if (eyeBlossomNearby && random.nextInt(20) == 1) {
                 int xzRange = 1;
                 int yRange = 4;
                 BlockPos.MutableBlockPos logPos = new BlockPos.MutableBlockPos();
