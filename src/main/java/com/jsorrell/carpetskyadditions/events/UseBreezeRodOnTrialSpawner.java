@@ -34,7 +34,7 @@ public class UseBreezeRodOnTrialSpawner {
                     spawner.markUpdated();
                     spawner.setChanged();
                     stack.shrink(1);
-                    spawner.setState(player.level(),TrialSpawnerState.ACTIVE);
+                    spawner.setState(player.level(),TrialSpawnerState.WAITING_FOR_PLAYERS);
 
                     player.level().playSound(null, blockHitResult.getBlockPos(),
                         SoundEvents.BREEZE_WHIRL,
