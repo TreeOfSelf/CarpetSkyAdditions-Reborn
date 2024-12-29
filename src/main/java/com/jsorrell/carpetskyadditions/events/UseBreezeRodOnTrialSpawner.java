@@ -13,6 +13,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.TrialSpawnerBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
@@ -34,7 +35,6 @@ public class UseBreezeRodOnTrialSpawner {
                     spawner.markUpdated();
                     spawner.setChanged();
                     stack.shrink(1);
-
 
                     player.level().playSound(null, blockHitResult.getBlockPos(),
                         SoundEvents.BREEZE_WHIRL,
