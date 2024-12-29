@@ -214,12 +214,6 @@ public class SkyBlockStructures {
                 if (tileEntity instanceof TrialSpawnerBlockEntity spawner) {
                     spawner.setLevel(level.getLevel());
                     spawner.setState(level.getLevel(),TrialSpawnerState.INACTIVE);
-                    CompoundTag blockData = spawner.saveWithoutMetadata(level.getLevel().registryAccess());
-                    blockData.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
-                    blockData.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
-                    spawner.loadWithComponents(blockData, level.getLevel().registryAccess());
-                    spawner.setChanged();
-                    spawner.markUpdated();
                 }
 
                 BlockEntity tileEntityVault = level.getBlockEntity(ominousVaultPos);

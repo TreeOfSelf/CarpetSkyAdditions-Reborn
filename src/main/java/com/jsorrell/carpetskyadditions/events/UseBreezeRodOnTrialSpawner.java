@@ -2,7 +2,7 @@ package com.jsorrell.carpetskyadditions.events;
 
 import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriteriaTriggers;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
-import net.minecraft.core.component.DataComponents;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -13,7 +13,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.TrialSpawnerBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
@@ -31,7 +30,14 @@ public class UseBreezeRodOnTrialSpawner {
             BlockEntity tileEntity = player.level().getBlockEntity(blockHitResult.getBlockPos());
             if (tileEntity instanceof TrialSpawnerBlockEntity spawner) {
                 if (spawner.getState() == TrialSpawnerState.INACTIVE) {
+
                     spawner.setEntityId(EntityType.BREEZE, player.level().random);
+                    CompoundTag blockData = spawner.saveWithoutMetadata(level.registryAccess());
+                    blockData.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
+                    blockData.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
+                    spawner.loadWithComponents(blockData, level.registryAccess());
+                    spawner.setChanged();
+                    spawner.markUpdated();
                     spawner.markUpdated();
                     spawner.setChanged();
                     stack.shrink(1);
