@@ -42,10 +42,10 @@ public class PaleOakSaplingMixin {
         if (SkyAdditionsSettings.paleBlossomCreakingHeart && state.getBlock() == Blocks.PALE_OAK_SAPLING) {
 
             // Check if the sapling is in the Pale Garden biome
-//            ResourceKey biomeKey = level.getBiome(pos).unwrapKey().orElse(null);
-//            if (biomeKey == null || !biomeKey.equals(Biomes.PALE_GARDEN)) {
-//                return; // Exit if not in the Pale Garden biome
-//            }
+            ResourceKey biomeKey = level.getBiome(pos).unwrapKey().orElse(null);
+            if (biomeKey == null || !biomeKey.equals(Biomes.PALE_GARDEN)) {
+                return; // Exit if not in the Pale Garden biome
+            }
 
             boolean eyeBlossomNearby = false;
 
