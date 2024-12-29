@@ -397,6 +397,11 @@ Provides *Creaking Heart and Resin*
 
 Disable with ```/carpetskyadditions setDefault paleBlossomCreakingHeart false```
 
+If four pale oak saplings are placed close to an open eyeblossom in the pale garden biome,
+there are a 10% chance for the pale oak tree to generate a creaking heart.
+
+---
+
 ##### Additional Tier 2 Trade: #####
 
 | Item        | Price | Input Item | Trades until disabled |
