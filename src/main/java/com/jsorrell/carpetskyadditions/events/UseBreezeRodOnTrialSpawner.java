@@ -3,6 +3,7 @@ package com.jsorrell.carpetskyadditions.events;
 import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriteriaTriggers;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -25,6 +26,11 @@ public class UseBreezeRodOnTrialSpawner {
     }
 
     private static InteractionResult onUseBlock(Player player, Level level, InteractionHand interactionHand, BlockHitResult blockHitResult) {
+
+        if (!(level instanceof ServerLevel)) {
+            return InteractionResult.PASS;
+        }
+
         ItemStack stack = player.getItemInHand(interactionHand);
         if (stack.getItem() == Items.BREEZE_ROD) {
             BlockEntity tileEntity = player.level().getBlockEntity(blockHitResult.getBlockPos());
