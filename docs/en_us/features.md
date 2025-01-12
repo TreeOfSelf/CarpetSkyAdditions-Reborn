@@ -402,12 +402,6 @@ there are a 10% chance for the pale oak tree to generate a creaking heart.
 
 ---
 
-##### Additional Tier 2 Trade: #####
-
-| Item        | Price | Input Item | Trades until disabled |
-|-------------|-------|------------|-----------------------|
-| Lava Bucket | 16    | Bucket     | 1                     |
-
 ### Carpet Features
 
 Default installation will also enable these `fabric-carpet` features.
