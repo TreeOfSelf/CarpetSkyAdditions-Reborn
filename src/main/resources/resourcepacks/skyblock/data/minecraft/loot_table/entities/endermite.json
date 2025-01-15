@@ -22,8 +22,12 @@
               "entity": "this",
               "predicate": {
                 "effects": {
-                  "minecraft:slow_falling": {},
-                  "minecraft:levitation": {}
+                  "minecraft:slow_falling": {
+                    "amplifier": 1
+                  },
+                  "minecraft:levitation": {
+                    "amplifier": 1
+                  }
                 }
               }
             },
