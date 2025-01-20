@@ -254,18 +254,6 @@
         ]
       }
     },
-    "has_pink_petals": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:pink_petals"
-            ]
-          }
-        ]
-      }
-    },
     "has_dark_oak_sapling": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
@@ -381,18 +369,6 @@
           {
             "items": [
               "minecraft:pale_moss_block"
-            ]
-          }
-        ]
-      }
-    },
-    "has_open_eyeblossom": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:open_eyeblossom"
             ]
           }
         ]
