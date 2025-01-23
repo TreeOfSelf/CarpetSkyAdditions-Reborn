@@ -2,7 +2,23 @@
   "parent": "skyblock:progression/emerald",
   "display": {
     "icon": {
-      "id": "minecraft:villager_spawn_egg"
+      "id": "minecraft:red_banner",
+      "components": {
+        "minecraft:banner_patterns": [
+          {
+            "color": "yellow",
+            "pattern": "small_stripes"
+          },
+          {
+            "color": "blue",
+            "pattern": "stripe_left"
+          },
+          {
+            "color": "blue",
+            "pattern": "stripe_right"
+          }
+        ]
+      }
     },
     "title": {
       "translate": "Thank You, Come Again"

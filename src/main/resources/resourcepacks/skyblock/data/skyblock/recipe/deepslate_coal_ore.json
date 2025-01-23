@@ -4,12 +4,16 @@
   "group": "ore",
   "pattern": [
     " X ",
-    "XDX",
+    "XSX",
     " X "
   ],
   "key": {
-    "X": "minecraft:coal",
-    "D": "minecraft:deepslate"
+    "X": [
+      "minecraft:coal"
+    ],
+    "S": [
+      "minecraft:deepslate"
+    ]
   },
   "result": {
     "id": "minecraft:deepslate_coal_ore"

@@ -2,7 +2,43 @@
   "parent": "skyblock:progression/cure_zombie_villager",
   "display": {
     "icon": {
-      "id": "minecraft:villager_spawn_egg"
+      "id": "minecraft:white_banner",
+      "components": {
+        "minecraft:banner_patterns": [
+          {
+            "color": "cyan",
+            "pattern": "rhombus"
+          },
+          {
+            "color": "light_gray",
+            "pattern": "stripe_bottom"
+          },
+          {
+            "color": "gray",
+            "pattern": "stripe_center"
+          },
+          {
+            "color": "light_gray",
+            "pattern": "border"
+          },
+          {
+            "color": "black",
+            "pattern": "stripe_middle"
+          },
+          {
+            "color": "light_gray",
+            "pattern": "half_horizontal"
+          },
+          {
+            "color": "light_gray",
+            "pattern": "circle"
+          },
+          {
+            "color": "black",
+            "pattern": "border"
+          }
+        ]
+      }
     },
     "title": {
       "translate": "Big Hero 6"

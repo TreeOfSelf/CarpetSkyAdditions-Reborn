@@ -3,6 +3,7 @@
   "pools": [
     {
       "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -11,17 +12,20 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 3
-              }
+              },
+              "add": false
             },
             {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
+              "function": "minecraft:enchanted_count_increase",
+              "enchantment": "minecraft:looting",
+              "count": {
+                "type": "minecraft:uniform",
                 "min": 0,
                 "max": 1
-              },
-              "options": "minecraft:looting"
+              }
             }
           ]
         }
@@ -32,12 +36,12 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:piglin_banner_pattern"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
+          "name": "minecraft:piglin_banner_pattern",
+          "conditions": [
+            {
+              "condition": "minecraft:killed_by_player"
+            }
+          ]
         }
       ]
     }

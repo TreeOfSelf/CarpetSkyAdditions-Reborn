@@ -4,12 +4,16 @@
   "group": "ore",
   "pattern": [
     " X ",
-    "XDX",
+    "XSX",
     " X "
   ],
   "key": {
-    "X": "minecraft:redstone_block",
-    "D": "minecraft:deepslate"
+    "X": [
+      "minecraft:redstone_block"
+    ],
+    "S": [
+      "minecraft:deepslate"
+    ]
   },
   "result": {
     "id": "minecraft:deepslate_redstone_ore"

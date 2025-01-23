@@ -4,12 +4,16 @@
   "group": "ore",
   "pattern": [
     " X ",
-    "XDX",
+    "XSX",
     " X "
   ],
   "key": {
-    "X": "minecraft:emerald",
-    "D": "minecraft:deepslate"
+    "X": [
+      "minecraft:emerald"
+    ],
+    "S": [
+      "minecraft:deepslate"
+    ]
   },
   "result": {
     "id": "minecraft:deepslate_emerald_ore"

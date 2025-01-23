@@ -13,7 +13,7 @@
   },
   "parent": "skyblock:progression/breeze_rod",
   "criteria": {
-    "allay_vex": {
+    "activate_trial_spawner": {
       "trigger": "carpetskyadditions:activate_trial_spawner"
     }
   }

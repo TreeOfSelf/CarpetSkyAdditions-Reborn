@@ -3,6 +3,7 @@
   "pools": [
     {
       "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -11,17 +12,20 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 0,
                 "max": 2
-              }
+              },
+              "add": false
             },
             {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
+              "function": "minecraft:enchanted_count_increase",
+              "enchantment": "minecraft:looting",
+              "count": {
+                "type": "minecraft:uniform",
                 "min": 0,
                 "max": 1
-              },
-              "options": "minecraft:looting"
+              }
             }
           ]
         }
@@ -29,6 +33,7 @@
     },
     {
       "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -37,17 +42,20 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 0,
                 "max": 2
-              }
+              },
+              "add": false
             },
             {
-              "function": "minecraft:enchant_with_levels",
-              "levels": {
+              "function": "minecraft:enchanted_count_increase",
+              "enchantment": "minecraft:looting",
+              "count": {
+                "type": "minecraft:uniform",
                 "min": 0,
                 "max": 1
-              },
-              "options": "minecraft:looting"
+              }
             }
           ]
         }
@@ -58,33 +66,33 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:cobweb"
-        }
-      ],
-      "conditions": [
-        {
-          "condition": "minecraft:killed_by_player"
-        },
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "vehicle": {
-              "type": "minecraft:spider"
-            }
-          }
-        },
-        {
-          "condition": "minecraft:inverted",
-          "term": {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "vehicle": {
-                "nbt": "{Health:0f}"
+          "name": "minecraft:cobweb",
+          "conditions": [
+            {
+              "condition": "minecraft:killed_by_player"
+            },
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "vehicle": {
+                  "type": "minecraft:spider"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:entity_properties",
+                "entity": "this",
+                "predicate": {
+                  "vehicle": {
+                    "nbt": "{Health:0f}"
+                  }
+                }
               }
             }
-          }
+          ]
         }
       ]
     }
