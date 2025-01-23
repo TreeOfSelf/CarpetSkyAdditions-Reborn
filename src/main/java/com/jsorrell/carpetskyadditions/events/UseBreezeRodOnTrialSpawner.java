@@ -44,8 +44,6 @@ public class UseBreezeRodOnTrialSpawner {
                     spawner.loadWithComponents(blockData, level.registryAccess());
                     spawner.setChanged();
                     spawner.markUpdated();
-                    spawner.markUpdated();
-                    spawner.setChanged();
                     stack.shrink(1);
 
                     player.level().playSound(null, blockHitResult.getBlockPos(),
