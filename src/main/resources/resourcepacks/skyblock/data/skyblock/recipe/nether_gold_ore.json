@@ -4,12 +4,16 @@
   "group": "ore",
   "pattern": [
     " X ",
-    "XNX",
+    "XSX",
     " X "
   ],
   "key": {
-    "X": "minecraft:gold_ingot",
-    "N": "minecraft:netherrack"
+    "X": [
+      "minecraft:gold_ingot"
+    ],
+    "S": [
+      "minecraft:netherrack"
+    ]
   },
   "result": {
     "id": "minecraft:nether_gold_ore"

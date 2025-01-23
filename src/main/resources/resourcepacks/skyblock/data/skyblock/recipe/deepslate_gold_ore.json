@@ -4,12 +4,16 @@
   "group": "ore",
   "pattern": [
     " X ",
-    "XDX",
+    "XSX",
     " X "
   ],
   "key": {
-    "X": "minecraft:gold_ingot",
-    "D": "minecraft:deepslate"
+    "X": [
+      "minecraft:gold_ingot"
+    ],
+    "S": [
+      "minecraft:deepslate"
+    ]
   },
   "result": {
     "id": "minecraft:deepslate_gold_ore"

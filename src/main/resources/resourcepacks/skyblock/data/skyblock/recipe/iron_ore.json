@@ -8,8 +8,12 @@
     " X "
   ],
   "key": {
-    "X": "minecraft:iron_ingot",
-    "S": "minecraft:stone"
+    "X": [
+      "minecraft:iron_ingot"
+    ],
+    "S": [
+      "minecraft:stone"
+    ]
   },
   "result": {
     "id": "minecraft:iron_ore"

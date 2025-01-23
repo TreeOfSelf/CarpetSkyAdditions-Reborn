@@ -4,12 +4,16 @@
   "group": "ore",
   "pattern": [
     " X ",
-    "XNX",
+    "XSX",
     " X "
   ],
   "key": {
-    "X": "minecraft:quartz",
-    "N": "minecraft:netherrack"
+    "X": [
+      "minecraft:quartz"
+    ],
+    "S": [
+      "minecraft:netherrack"
+    ]
   },
   "result": {
     "id": "minecraft:nether_quartz_ore"
