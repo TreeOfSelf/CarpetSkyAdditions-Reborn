@@ -98,7 +98,7 @@ This project is licensed under the terms of the MIT license.
 
 
 ## Notable Contributors
-- [Seigmannen](https://github.com/Seigmannen) (Code/Datapacks/Suggestions)
+- [Seigmannen](https://github.com/Seigmannen) (Code/Datapack/Suggestions)
 - [cputnam-a11y](https://github.com/cputnam-a11y/) (Mixin improvements)
 
 
