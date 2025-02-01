@@ -391,6 +391,17 @@ This does not affect entities with a custom name tag.
 
 ---
 
+#### Using a Breeze Rod on an Unactivated Trial Spawner Makes It a Breeze Trial Spawner ####
+
+Provides *Trial Chamber Loot*
+
+Disable generation with ```/carpetskyadditions setDefault generateTrialChambers false```
+
+Breeze Rods when used on an unactivated Trial Spawner turns it into a Breeze Trial Spawner.
+This is how you obtain the loot from Trial Spawners.
+
+---
+
 #### Growing a Pale Oak Sapling Near a Open Eye Blossom Produces a Creaking Heart ####
 
 Provides *Creaking Heart and Resin*
