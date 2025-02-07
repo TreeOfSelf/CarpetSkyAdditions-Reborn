@@ -67,8 +67,6 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
 
         AutoConfig.register(SkyAdditionsConfig.class, Toml4jConfigSerializer::new);
 
-        // Register a server lifecycle event to handle configuration and settings
-        ServerLifecycleEvents.SERVER_STARTED.register(this::onServerStarted);
 
         // Restrict Piglin Brute spawning when piglinsSpawningInBastions is true
         SpawnPlacements.register(
@@ -88,72 +86,14 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
         SkyAdditionsLootItemConditions.bootstrap();
         MinecartComparatorLogicRegistry.register(EntityType.MINECART, new SkyAdditionsMinecartComparatorLogic());
         SkyAdditionsDataPacks.register();
-
         UseBreezeRodOnTrialSpawner.register();
     }
 
-    private void onServerStarted(net.minecraft.server.MinecraftServer server) {
-        SkyAdditionsSettings.LOG.info("Server started. Processing configuration files and settings.");
-        minecraftServer = server;
 
-        // Write default configuration files
-        try {
-            Path configPath = server.getWorldPath(net.minecraft.world.level.storage.LevelResource.ROOT);
-            SkyBlockDefaults.writeDefaults(configPath);
-            SkyAdditionsSettings.LOG.info("Configuration files written successfully to: " + configPath);
-        } catch (IOException e) {
-            SkyAdditionsSettings.LOG.error("Failed to write configuration files.", e);
-        }
-
-        // Apply Carpet settings dynamically
-        applyCarpetRules(server);
-
-        // Apply SkyAdditions settings dynamically
-        applySkyAdditionsRules(server);
-    }
-
-    private void applyCarpetRules(net.minecraft.server.MinecraftServer server) {
-        CarpetServer.settingsManager.getCarpetRules().forEach(rule -> {
-            try {
-                if ("renewableSponges".equals(rule.name())) {
-                    rule.set(server.createCommandSourceStack(), "true");
-                    SkyAdditionsSettings.LOG.info("Set renewableSponges to true.");
-                } else if ("piglinsSpawningInBastions".equals(rule.name())) {
-                    rule.set(server.createCommandSourceStack(), "true");
-                    SkyAdditionsSettings.LOG.info("Set piglinsSpawningInBastions to true.");
-                }
-            } catch (Exception e) {
-                SkyAdditionsSettings.LOG.error("Failed to apply rule: " + rule.name(), e);
-            }
-        });
-        SkyAdditionsSettings.LOG.info("Default Carpet rules configured programmatically.");
-    }
-
-    private void applySkyAdditionsRules(net.minecraft.server.MinecraftServer server) {
-        SkyAdditionsSettings.getRules().forEach((ruleName, defaultValue) -> {
-            CarpetRule<?> rule = settingsManager.getCarpetRule(ruleName);
-            if (rule != null) {
-                try {
-                    rule.set(server.createCommandSourceStack(), defaultValue.toString());
-                    SkyAdditionsSettings.LOG.info("Set SkyAdditions rule: " + ruleName + " to " + defaultValue);
-                } catch (InvalidRuleValueException e) {
-                    SkyAdditionsSettings.LOG.error("Invalid value for SkyAdditions rule: " + ruleName, e);
-                }
-            } else {
-                SkyAdditionsSettings.LOG.warn("SkyAdditions rule not found: " + ruleName);
-            }
-        });
-        SkyAdditionsSettings.LOG.info("SkyAdditions rules applied dynamically.");
-    }
 
     @Override
     public void onGameStarted() {
         settingsManager.parseSettingsClass(SkyAdditionsSettings.class);
-
-        // Ensure rules are applied on game start
-        if (CarpetServer.minecraft_server != null) {
-            applySkyAdditionsRules(CarpetServer.minecraft_server);
-        }
     }
 
     @Override
