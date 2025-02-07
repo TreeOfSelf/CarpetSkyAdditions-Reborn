@@ -8,8 +8,12 @@
     " X "
   ],
   "key": {
-    "X": "minecraft:coal",
-    "S": "minecraft:stone"
+    "X": [
+      "minecraft:coal"
+    ],
+    "S": [
+      "minecraft:stone"
+    ]
   },
   "result": {
     "id": "minecraft:coal_ore"

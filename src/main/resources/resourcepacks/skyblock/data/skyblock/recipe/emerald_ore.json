@@ -8,8 +8,12 @@
     " X "
   ],
   "key": {
-    "X": "minecraft:emerald",
-    "S": "minecraft:stone"
+    "X": [
+      "minecraft:emerald"
+    ],
+    "S": [
+      "minecraft:stone"
+    ]
   },
   "result": {
     "id": "minecraft:emerald_ore"

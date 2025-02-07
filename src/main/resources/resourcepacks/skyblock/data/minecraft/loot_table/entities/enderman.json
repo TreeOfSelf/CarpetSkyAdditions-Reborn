@@ -31,33 +31,33 @@
       "rolls": 1,
       "entries": [
         {
-          "type": "minecraft:item",
-          "name": "minecraft:large_fern",
-          "conditions": [
+          "type": "minecraft:alternatives",
+          "children": [
             {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "nbt": "{carriedBlockState:{\"Name\":\"minecraft:large_fern\"}}"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:tall_grass",
-          "conditions": [
+              "type": "minecraft:item",
+              "name": "minecraft:large_fern",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "nbt": "{carriedBlockState:{Name:\"minecraft:large_fern\"}}"
+                  }
+                }
+              ]
+            },
             {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "nbt": "{carriedBlockState:{\"Name\":\"minecraft:tall_grass\"}}"
-              }
+              "type": "minecraft:item",
+              "name": "minecraft:tall_grass",
+              "conditions": [
+                {
+                  "condition": "minecraft:entity_properties",
+                  "entity": "this",
+                  "predicate": {
+                    "nbt": "{carriedBlockState:{\"Name\":\"minecraft:tall_grass\"}}"
+                  }
+                }
+              ]
             }
           ]
         }

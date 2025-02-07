@@ -3,6 +3,7 @@
   "pools": [
     {
       "rolls": 1,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -11,8 +12,7 @@
           "functions": [
             {
               "function": "minecraft:enchant_randomly",
-              "options": "minecraft:soul_speed",
-              "only_compatible": true
+              "options": "minecraft:soul_speed"
             }
           ]
         },
@@ -23,8 +23,7 @@
           "functions": [
             {
               "function": "minecraft:enchant_randomly",
-              "options": "minecraft:soul_speed",
-              "only_compatible": true
+              "options": "minecraft:soul_speed"
             }
           ]
         },
@@ -69,9 +68,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 10,
                 "max": 36
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -83,9 +84,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 2,
                 "max": 4
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -97,9 +100,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 3,
                 "max": 9
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -111,9 +116,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 5,
                 "max": 12
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -130,9 +137,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 3
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -149,9 +158,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 2,
                 "max": 4
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -163,9 +174,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 2,
                 "max": 8
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -177,9 +190,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 2,
                 "max": 8
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -191,9 +206,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 6,
                 "max": 12
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -205,9 +222,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 8,
                 "max": 16
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -219,9 +238,11 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 8,
                 "max": 16
-              }
+              },
+              "add": false
             }
           ]
         },
@@ -233,13 +254,16 @@
             {
               "function": "minecraft:set_count",
               "count": {
+                "type": "minecraft:uniform",
                 "min": 1,
                 "max": 3
-              }
+              },
+              "add": false
             }
           ]
         }
       ]
     }
-  ]
+  ],
+  "random_sequence": "minecraft:gameplay/piglin_bartering"
 }
