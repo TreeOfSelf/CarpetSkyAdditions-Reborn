@@ -22,6 +22,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.*;
@@ -91,26 +92,8 @@ public class SkyIslandCommand {
         return Mth.floor(Mth.sqrt(xOff * xOff + zOff * zOff));
     }
 
-    // First look for a sky_island configured feature
-    // Then try taking the spawn platform's config and using the platformConfig value if it is of type "spawn_platform"
-    // Otherwise, just generate the spawn_platform configured feature
-    private static ConfiguredFeature<?, ?> getIslandFeature(Registry<ConfiguredFeature<?, ?>> cfr) {
-        ConfiguredFeature<?, ?> skyIslandCF = cfr.get(SkyAdditionsConfiguredFeatures.SKY_ISLAND).get().value();
-        if (skyIslandCF != null) {
-            return skyIslandCF;
-        }
 
-        ConfiguredFeature<?, ?> spawnPlatformCF = cfr.getOrThrow(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).value();
-        // try to get the platform out
-        if (spawnPlatformCF.feature().equals(SkyAdditionsFeatures.SPAWN_PLATFORM)) {
-            SpawnPlatformFeatureConfiguration config = (SpawnPlatformFeatureConfiguration) spawnPlatformCF.config();
-            return new ConfiguredFeature<>(SkyAdditionsFeatures.LOCATABLE_STRUCTURE, config.platformConfig());
-        } else {
-            return spawnPlatformCF;
-        }
-    }
-
-    private static int newIsland(CommandSourceStack source) throws CommandSyntaxException {
+    private static int newIsland(CommandSourceStack source) {
         int max = SkyIslandPositionContainer.getNumIslands();
         Optional<ImmutablePair<Integer, ChunkPos>> islandOpt = IntStream.range(1, max)
                 .mapToObj(i -> ImmutablePair.of(i, SkyIslandPositionContainer.getChunk(i)))
@@ -132,13 +115,17 @@ public class SkyIslandCommand {
         source.getLevel().getChunkSource().addRegionTicket(TicketType.UNKNOWN, chunkPos, 2, chunkPos);
         Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry =
                 source.getServer().registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
-        ConfiguredFeature<?, ?> skyIslandFeature = getIslandFeature(configuredFeatureRegistry);
+
+        //ConfiguredFeature<?, ?> skyIslandFeature = getIslandFeature(configuredFeatureRegistry);
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
         random.setLargeFeatureSeed(source.getLevel().getSeed(), chunkPos.x, chunkPos.z);
 
-        if (!skyIslandFeature.place(
-                source.getLevel(), source.getLevel().getChunkSource().getGenerator(), random, new BlockPos(x, 0, z))) {
-            throw FAILED_EXCEPTION.create();
+        Holder.Reference<ConfiguredFeature<?, ?>> skyIslandFeature = source.getServer().overworld().registryAccess()
+            .lookupOrThrow(Registries.CONFIGURED_FEATURE)
+            .get(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).get();
+
+        if (!skyIslandFeature.value().place(source.getServer().overworld(), source.getServer().overworld().getChunkSource().getGenerator(), random, new BlockPos(x, 0, z))) {
+            SkyAdditionsSettings.LOG.error("Couldn't generate new island");
         }
 
         Supplier<Component> feedback =

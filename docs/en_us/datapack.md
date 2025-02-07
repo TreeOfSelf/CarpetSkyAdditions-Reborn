@@ -15,11 +15,6 @@ The world spawn platform uses a configured feature defined in
 `data/carpetskyadditions/worldgen/configured_feature/spawn_platform.json`.
 By default, it loads the structure defined in `data/carpetskyadditions/structures/spawn_platform.nbt`
 at an offset of (-4, -1) at y=63.
-
-Sky Islands generated from the command use a configured feature defined in
-`data/carpetskyadditions/worldgen/configured_feature/sky_island.json`.
-They fall back to the world spawn platform if this isn't defined.
-
 ---
 
 ### Built-In "SkyBlock" Datapack Features ###
