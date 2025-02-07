@@ -32,45 +32,6 @@ import java.nio.file.Path;
 // Lower priority to ensure loadWorld mixin is called before carpet loads the settings
 @Mixin(value = MinecraftServer.class, priority = 999)
 public abstract class MinecraftServerMixin {
-    @Shadow
-    @Final
-    protected WorldData worldData;
-
-    @Shadow
-    public abstract Path getWorldPath(LevelResource worldSavePath);
-
-    @Shadow
-    @Final
-    private LayeredRegistryAccess<RegistryLayer> registries;
-
-    @Inject(method = "loadLevel", at = @At("HEAD"))
-    private void fixSettingsFile(CallbackInfo ci) {
-        /*Path worldSavePath = getWorldPath(LevelResource.ROOT);
-        // Fix existing settings
-        try {
-            Fixers.fixSettings(worldSavePath);
-        } catch (IOException e) {
-            SkyAdditionsSettings.LOG.error("Failed to update config", e);
-        }
-
-        // Write defaults
-        SkyAdditionsConfig config =
-                AutoConfig.getConfigHolder(SkyAdditionsConfig.class).get();
-        if (config.autoEnableDefaultSettings
-                && registries
-                                .compositeAccess()
-                                .get(Registries.LEVEL_STEM).get().value()
-                                .getOrThrow(LevelStem.OVERWORLD).value().generator()
-                        instanceof SkyBlockChunkGenerator
-                && !worldData.overworldData().isInitialized()) {
-            try {
-                SkyBlockDefaults.writeDefaults(worldSavePath);
-            } catch (IOException e) {
-                SkyAdditionsSettings.LOG.error("Failed write default configs", e);
-            }
-        }*/
-    }
-
     @Inject(
         method = "setInitialSpawn",
         at =
