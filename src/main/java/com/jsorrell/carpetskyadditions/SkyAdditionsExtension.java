@@ -20,6 +20,7 @@ import java.util.Map;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.MinecartComparatorLogicRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.ModContainer;
@@ -61,6 +62,7 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
 
         AutoConfig.register(SkyAdditionsConfig.class, Toml4jConfigSerializer::new);
 
+        ServerLifecycleEvents.SERVER_STARTED.register(this::onServerStarted);
 
         // Restrict Piglin Brute spawning when piglinsSpawningInBastions is true
         SpawnPlacements.register(
@@ -83,6 +85,9 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
         UseBreezeRodOnTrialSpawner.register();
     }
 
+    private void onServerStarted(MinecraftServer server) {
+        minecraftServer = server;
+    }
 
 
     @Override

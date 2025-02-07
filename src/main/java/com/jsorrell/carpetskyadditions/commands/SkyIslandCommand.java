@@ -39,8 +39,6 @@ import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 public class SkyIslandCommand {
-    private static final SimpleCommandExceptionType FAILED_EXCEPTION =
-            new SimpleCommandExceptionType(SkyAdditionsText.translatable("commands.skyisland.new.failed"));
     private static final SimpleCommandExceptionType ISLAND_NOT_CREATED =
             new SimpleCommandExceptionType(SkyAdditionsText.translatable("commands.skyisland.not_created"));
 
