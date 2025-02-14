@@ -21,9 +21,7 @@
       "conditions": {
         "player": {
           "effects": {
-            "minecraft:levitation": {
-              "amplifier": 1
-            }
+            "minecraft:levitation": {}
           }
         },
         "recipe_id": "minecraft:purpur_block"
@@ -34,9 +32,7 @@
       "conditions": {
         "player": {
           "effects": {
-            "minecraft:levitation": {
-              "amplifier": 1
-            }
+            "minecraft:levitation": {}
           }
         },
         "recipe_id": "minecraft:purpur_slab"
@@ -47,9 +43,7 @@
       "conditions": {
         "player": {
           "effects": {
-            "minecraft:levitation": {
-              "amplifier": 1
-            }
+            "minecraft:levitation": {}
           }
         },
         "recipe_id": "minecraft:purpur_slab_from_purpur_block_stonecutting"
@@ -60,9 +54,7 @@
       "conditions": {
         "player": {
           "effects": {
-            "minecraft:levitation": {
-              "amplifier": 1
-            }
+            "minecraft:levitation": {}
           }
         },
         "recipe_id": "minecraft:purpur_pillar"
@@ -73,9 +65,7 @@
       "conditions": {
         "player": {
           "effects": {
-            "minecraft:levitation": {
-              "amplifier": 1
-            }
+            "minecraft:levitation": {}
           }
         },
         "recipe_id": "minecraft:purpur_pillar_from_purpur_block_stonecutting"
@@ -86,9 +76,7 @@
       "conditions": {
         "player": {
           "effects": {
-            "minecraft:levitation": {
-              "amplifier": 1
-            }
+            "minecraft:levitation": {}
           }
         },
         "recipe_id": "minecraft:purpur_stairs"
@@ -99,9 +87,7 @@
       "conditions": {
         "player": {
           "effects": {
-            "minecraft:levitation": {
-              "amplifier": 1
-            }
+            "minecraft:levitation": {}
           }
         },
         "recipe_id": "minecraft:purpur_stairs_from_purpur_block_stonecutting"
