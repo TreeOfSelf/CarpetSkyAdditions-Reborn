@@ -3,7 +3,6 @@
   "carpetskyadditions.category.wandering_trader": "wandering_trader",
   "carpetskyadditions.rule.commandSkyIsland.desc": "Enables /skyisland command for generating new spawn platforms",
   "carpetskyadditions.rule.generateEndPortals.desc": "Generates End Portal frames in a SkyBlock world",
-  "carpetskyadditions.rule.generateTrialChambers.desc": "Generates Trial Chambers in a SkyBlock world",
   "carpetskyadditions.rule.generateSilverfishSpawners.desc": "Generates Silverfish spawners in a SkyBlock world",
   "carpetskyadditions.rule.generateAncientCityPortals.desc": "Generates Ancient City portal frames in a SkyBlock world",
   "carpetskyadditions.rule.generateMagmaCubeSpawners.desc": "Generates Magma Cube spawners in a SkyBlock world",
@@ -43,7 +42,5 @@
   "carpetskyadditions.rule.spreadingCoral.extra.0": "Rate varies depending on location",
   "carpetskyadditions.rule.maxWanderingTraderSpawnChance.desc": "Max Wandering Trader spawn chance",
   "carpetskyadditions.rule.maxWanderingTraderSpawnChance.extra.0": "This starts at 0.025 and increases by 0.025 each time a trader spawn fails until the max chance is reached.",
-  "carpetskyadditions.rule.wanderingTraderSpawnRate.desc": "How often the Wandering Trader attempts to spawn in ticks",
-  "carpetskyadditions.rule.blazeToBreeze.desc": "Bringing a blaze from the nether to overworld will convert it into a breeze",
-  "carpetskyadditions.rule.paleBlossomCreakingHeart.desc": "Growing a pale oak sapling near an open eye blossom produces a creaking heart"
+  "carpetskyadditions.rule.wanderingTraderSpawnRate.desc": "How often the Wandering Trader attempts to spawn in ticks"
 }
