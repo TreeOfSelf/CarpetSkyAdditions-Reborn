@@ -1,4 +1,5 @@
 project_id: 763531
+api_token_env: CROWDIN_PERSONAL_TOKEN
 preserve_hierarchy: 1
 files:
   - source: /src/main/resources/assets/carpetskyadditions/lang/en_us.json
