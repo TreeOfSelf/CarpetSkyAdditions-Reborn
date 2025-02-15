@@ -3,6 +3,7 @@
   "carpetskyadditions.category.wandering_trader": "流浪商人",
   "carpetskyadditions.rule.commandSkyIsland.desc": "启用 /skyisland 命令以生成新的出生平台",
   "carpetskyadditions.rule.generateEndPortals.desc": "在空岛世界中生成末地传送门框架",
+  "carpetskyadditions.rule.generateTrialChambers.desc": "Generates Trial Chambers in a SkyBlock world",
   "carpetskyadditions.rule.generateSilverfishSpawners.desc": "在空岛世界中生成蠹虫刷怪笼",
   "carpetskyadditions.rule.generateAncientCityPortals.desc": "在空岛世界中生成远古城市传送门框架",
   "carpetskyadditions.rule.generateMagmaCubeSpawners.desc": "在空岛世界中生成岩浆怪刷怪笼",
@@ -42,5 +43,7 @@
   "carpetskyadditions.rule.spreadingCoral.extra.0": "珊瑚传播到方解石上的概率随坐标的不同而变化",
   "carpetskyadditions.rule.maxWanderingTraderSpawnChance.desc": "流浪商人的最大生成概率",
   "carpetskyadditions.rule.maxWanderingTraderSpawnChance.extra.0": "这个值从0.025开始，每当流浪商人生成失败时会增加0.025，直到达到最大生成概率",
-  "carpetskyadditions.rule.wanderingTraderSpawnRate.desc": "流浪商人在每个游戏刻生成的概率"
+  "carpetskyadditions.rule.wanderingTraderSpawnRate.desc": "流浪商人在每个游戏刻生成的概率",
+  "carpetskyadditions.rule.blazeToBreeze.desc": "Bringing a blaze from the nether to overworld will convert it into a breeze",
+  "carpetskyadditions.rule.paleBlossomCreakingHeart.desc": "Growing a pale oak sapling near an open eye blossom produces a creaking heart"
 }
