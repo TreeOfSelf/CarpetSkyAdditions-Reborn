@@ -1,5 +1,4 @@
-project_id: 557143
-api_token_env: CROWDIN_PERSONAL_TOKEN
+project_id: 763531
 preserve_hierarchy: 1
 files:
   - source: /src/main/resources/assets/carpetskyadditions/lang/en_us.json
@@ -7,4 +6,5 @@ files:
     translation: /src/main/resources/assets/carpetskyadditions/lang/%locale_with_underscore%.json
   - source: /src/main/resources/assets/carpetskyadditions/carpet/lang/en_us.json
     translation: /src/main/resources/assets/carpetskyadditions/carpet/lang/%locale_with_underscore%.json
+    multilingual: 1
     dest: /carpet_translations.json
