@@ -7,4 +7,5 @@ files:
     translation: /src/main/resources/assets/carpetskyadditions/lang/%locale_with_underscore%.json
   - source: /src/main/resources/assets/carpetskyadditions/carpet/lang/en_us.json
     translation: /src/main/resources/assets/carpetskyadditions/carpet/lang/%locale_with_underscore%.json
+    multilingual: 1
     dest: /carpet_translations.json
