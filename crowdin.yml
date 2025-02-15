@@ -1,12 +1,10 @@
 project_id: 557143
-api_token_env: "CROWDIN_PERSONAL_TOKEN"
-preserve_hierarchy: true
+api_token_env: CROWDIN_PERSONAL_TOKEN
+preserve_hierarchy: 1
 files:
-- source: "/src/main/resources/assets/carpetskyadditions/lang/en_us.json"
-  dest: "/translations.json"
-  translation: "/src/main/resources/assets/carpetskyadditions/lang/%locale_with_underscore%.json"
-  skip_untranslated_strings: true
-- source: "/src/main/resources/assets/carpetskyadditions/carpet/lang/en_us.json"
-  dest: "/carpet_translations.json"
-  translation: "/src/main/resources/assets/carpetskyadditions/carpet/lang/%locale_with_underscore%.json"
-  skip_untranslated_strings: true
+  - source: /src/main/resources/assets/carpetskyadditions/lang/en_us.json
+    dest: /translations.json
+    translation: /src/main/resources/assets/carpetskyadditions/lang/%locale_with_underscore%.json
+  - source: /src/main/resources/assets/carpetskyadditions/carpet/lang/en_us.json
+    translation: /src/main/resources/assets/carpetskyadditions/carpet/lang/%locale_with_underscore%.json
+    dest: /carpet_translations.json
