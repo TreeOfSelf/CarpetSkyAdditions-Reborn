@@ -110,5 +110,5 @@ This project is licensed under the terms of the MIT license.
 ## Notable Contributors
 - [Seigmannen](https://github.com/Seigmannen) (Code/Datapack/Testing)
 - [cputnam-a11y](https://github.com/cputnam-a11y/) (Mixin improvements)
-
+- [XieLong55](https://github.com/XieLong55) (Simplified Chinese Translation Updates)
 
