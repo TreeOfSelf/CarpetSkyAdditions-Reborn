@@ -1,8 +1,11 @@
 {
   "carpetskyadditions.category.generation": "generation",
   "carpetskyadditions.category.wandering_trader": "wandering_trader",
+  "carpetskyadditions.rule.blazeToBreeze.desc": "Blaze will turn into Breeze when going from nether to overworld. Won't affect nametagged entities",
+  "carpetskyadditions.rule.paleBlossomCreakingHeart.desc": "Growing a pale oak sapling near an open eye blossom produces a creaking heart",
   "carpetskyadditions.rule.commandSkyIsland.desc": "Enables /skyisland command for generating new spawn platforms",
   "carpetskyadditions.rule.generateEndPortals.desc": "Generates End Portal frames in a SkyBlock world",
+  "carpetskyadditions.rule.generateTrialChambers.desc": "Generates Trial Chambers in a SkyBlock world",
   "carpetskyadditions.rule.generateSilverfishSpawners.desc": "Generates Silverfish spawners in a SkyBlock world",
   "carpetskyadditions.rule.generateAncientCityPortals.desc": "Generates Ancient City portal frames in a SkyBlock world",
   "carpetskyadditions.rule.generateMagmaCubeSpawners.desc": "Generates Magma Cube spawners in a SkyBlock world",

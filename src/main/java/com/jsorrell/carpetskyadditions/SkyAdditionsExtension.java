@@ -61,8 +61,8 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
         settingsManager.parseSettingsClass(SkyAdditionsSettings.class);
 
         AutoConfig.register(SkyAdditionsConfig.class, Toml4jConfigSerializer::new);
-
-        ServerLifecycleEvents.SERVER_STARTED.register(this::onServerStarted);
+        AutoConfig.getConfigHolder(SkyAdditionsConfig.class).save();
+    
 
         // Restrict Piglin Brute spawning when piglinsSpawningInBastions is true
         SpawnPlacements.register(
