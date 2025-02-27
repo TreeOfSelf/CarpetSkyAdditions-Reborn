@@ -8,14 +8,11 @@
     " X "
   ],
   "key": {
-    "X": [
-      "minecraft:diamond"
-    ],
-    "S": [
-      "minecraft:deepslate"
-    ]
+    "X": "minecraft:diamond",
+    "S": "minecraft:deepslate"
   },
   "result": {
-    "id": "minecraft:deepslate_diamond_ore"
+    "id": "minecraft:deepslate_diamond_ore",
+    "count": 1
   }
 }

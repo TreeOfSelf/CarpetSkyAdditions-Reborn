@@ -8,14 +8,11 @@
     " X "
   ],
   "key": {
-    "X": [
-      "minecraft:redstone_block"
-    ],
-    "S": [
-      "minecraft:deepslate"
-    ]
+    "X": "minecraft:redstone_block",
+    "S": "minecraft:deepslate"
   },
   "result": {
-    "id": "minecraft:deepslate_redstone_ore"
+    "id": "minecraft:deepslate_redstone_ore",
+    "count": 1
   }
 }

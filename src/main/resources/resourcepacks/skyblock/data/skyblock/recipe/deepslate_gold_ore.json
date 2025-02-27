@@ -8,14 +8,11 @@
     " X "
   ],
   "key": {
-    "X": [
-      "minecraft:gold_ingot"
-    ],
-    "S": [
-      "minecraft:deepslate"
-    ]
+    "X": "minecraft:gold_ingot",
+    "S": "minecraft:deepslate"
   },
   "result": {
-    "id": "minecraft:deepslate_gold_ore"
+    "id": "minecraft:deepslate_gold_ore",
+    "count": 1
   }
 }

@@ -8,14 +8,11 @@
     " X "
   ],
   "key": {
-    "X": [
-      "minecraft:lapis_block"
-    ],
-    "S": [
-      "minecraft:deepslate"
-    ]
+    "X": "minecraft:lapis_block",
+    "S": "minecraft:deepslate"
   },
   "result": {
-    "id": "minecraft:deepslate_lapis_ore"
+    "id": "minecraft:deepslate_lapis_ore",
+    "count": 1
   }
 }

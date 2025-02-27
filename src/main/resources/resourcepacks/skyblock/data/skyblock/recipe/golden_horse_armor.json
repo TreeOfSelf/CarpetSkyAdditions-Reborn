@@ -7,11 +7,10 @@
     "X X"
   ],
   "key": {
-    "X": [
-      "minecraft:gold_ingot"
-    ]
+    "X": "minecraft:gold_ingot"
   },
   "result": {
-    "id": "minecraft:golden_horse_armor"
+    "id": "minecraft:golden_horse_armor",
+    "count": 1
   }
 }

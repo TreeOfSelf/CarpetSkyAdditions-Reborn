@@ -8,15 +8,9 @@
     "XXX"
   ],
   "key": {
-    "X": [
-      "minecraft:diamond"
-    ],
-    "S": [
-      "minecraft:netherite_upgrade_smithing_template"
-    ],
-    "C": [
-      "minecraft:netherrack"
-    ]
+    "X": "minecraft:diamond",
+    "S": "minecraft:netherite_upgrade_smithing_template",
+    "C": "minecraft:netherrack"
   },
   "result": {
     "id": "minecraft:netherite_upgrade_smithing_template",
