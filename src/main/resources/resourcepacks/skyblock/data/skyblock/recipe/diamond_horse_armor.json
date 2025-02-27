@@ -7,11 +7,10 @@
     "X X"
   ],
   "key": {
-    "X": [
-      "minecraft:diamond"
-    ]
+    "X": "minecraft:diamond"
   },
   "result": {
-    "id": "minecraft:diamond_horse_armor"
+    "id": "minecraft:diamond_horse_armor",
+    "count": 1
   }
 }

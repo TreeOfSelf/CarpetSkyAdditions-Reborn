@@ -8,14 +8,11 @@
     " X "
   ],
   "key": {
-    "X": [
-      "minecraft:emerald"
-    ],
-    "S": [
-      "minecraft:deepslate"
-    ]
+    "X": "minecraft:emerald",
+    "S": "minecraft:deepslate"
   },
   "result": {
-    "id": "minecraft:deepslate_emerald_ore"
+    "id": "minecraft:deepslate_emerald_ore",
+    "count": 1
   }
 }
