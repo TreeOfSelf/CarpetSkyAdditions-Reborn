@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(SaplingBlock.class)
-public abstract class SaplingBlockMixin extends BushBlock {
+public abstract class SaplingBlockMixin extends VegetationBlock {
 
     public SaplingBlockMixin(BlockBehaviour.Properties settings) {
         super(settings);
@@ -33,7 +33,7 @@ public abstract class SaplingBlockMixin extends BushBlock {
     @Unique
     @SuppressWarnings("ConstantConditions")
     private boolean isPropagule() {
-        return (BushBlock) this instanceof MangrovePropaguleBlock;
+        return (VegetationBlock) this instanceof MangrovePropaguleBlock;
     }
 
     @Override

@@ -78,9 +78,8 @@ public class SkyIslandCommand {
         MutableComponent text = ComponentUtils.wrapInSquareBrackets(
                         SkyAdditionsText.translatable("commands.skyisland.locate.coordinates", x, z))
                 .withStyle(style -> style.withColor(ChatFormatting.GREEN)
-                        .withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/tp @s " + x + " ~ " + z))
-                        .withHoverEvent(new HoverEvent(
-                                HoverEvent.Action.SHOW_TEXT, Component.translatable("chat.coordinates.tooltip"))));
+                        .withClickEvent(new ClickEvent.SuggestCommand("/tp @s " + x + " ~ " + z))
+                        .withHoverEvent(new HoverEvent.ShowText(Component.translatable("chat.coordinates.tooltip"))));
         source.sendSuccess(
                 () -> SkyAdditionsText.translatable("commands.skyisland.locate.success", islandNum, text), false);
 
@@ -110,7 +109,7 @@ public class SkyIslandCommand {
         int z = chunkPos.getMiddleBlockZ();
 
         // Load the target area
-        source.getLevel().getChunkSource().addRegionTicket(TicketType.UNKNOWN, chunkPos, 2, chunkPos);
+        source.getLevel().getChunkSource().addTicketWithRadius(TicketType.UNKNOWN, chunkPos, 2);
         Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry =
                 source.getServer().registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
 
@@ -156,7 +155,7 @@ public class SkyIslandCommand {
             player.setDeltaMovement(player.getDeltaMovement().multiply(1.0, 0.0, 1.0));
             player.setOnGround(true);
         }
-        player.setRespawnPosition(player.level().dimension(), new BlockPos(x, y, z), 0f, true, false);
+        player.setRespawnPosition(new ServerPlayer.RespawnConfig(player.level().dimension(), new BlockPos(x, y, z), 0f, true), false);
     }
 
     public abstract static class SkyIslandPositionContainer {

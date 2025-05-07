@@ -139,7 +139,7 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
 
     public void readFromNbt(CompoundTag nbt) {
         if (nbt.contains(NUM_SUCCESSFUL_NOTES_KEY)) {
-            numSuccessfulNotes = nbt.getInt(NUM_SUCCESSFUL_NOTES_KEY);
+            numSuccessfulNotes = nbt.getInt(NUM_SUCCESSFUL_NOTES_KEY).get();
         }
     }
 

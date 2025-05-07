@@ -14,7 +14,7 @@ class Versions(properties: ExtraPropertiesExtension) {
 }
 
 plugins {
-  id("fabric-loom") version "1.8-SNAPSHOT"
+  id("fabric-loom") version "1.10-SNAPSHOT"
   id("com.modrinth.minotaur") version "latest.release"
 }
 
