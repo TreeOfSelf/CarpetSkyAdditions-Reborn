@@ -117,14 +117,14 @@ public abstract class WanderingTraderMixin extends AbstractVillager {
                         this,
                         PotionContents.createItemStack(Items.POTION, Potions.INVISIBILITY),
                         SoundEvents.WANDERING_TRADER_DISAPPEARED,
-                        wanderingTrader -> this.level().isNight() && !wanderingTrader.isInvisible()));
+                        wanderingTrader -> this.level().isDarkOutside() && !wanderingTrader.isInvisible()));
         goalSelector.addGoal(
                 0,
                 new UseItemGoal<>(
                         this,
                         new ItemStack(Items.MILK_BUCKET),
                         SoundEvents.WANDERING_TRADER_REAPPEARED,
-                        wanderingTrader -> this.level().isDay() && wanderingTrader.isInvisible()));
+                        wanderingTrader -> this.level().isBrightOutside() && wanderingTrader.isInvisible()));
         goalSelector.addGoal(1, new TraderCamelHelper.TradeWithPlayerWhileMountedGoal(this));
         goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Zombie.class, 8.0F, 0.5 * s, 0.5 * s));
         goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Evoker.class, 12.0F, 0.5 * s, 0.5 * s));

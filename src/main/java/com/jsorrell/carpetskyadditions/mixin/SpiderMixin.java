@@ -53,7 +53,7 @@ public abstract class SpiderMixin extends Monster {
                 // Copy status effects
                 getActiveEffects().forEach(spawnedSpider::addEffect);
                 // Add particles
-                spawnedSpider.addEffect(new MobEffectInstance(MobEffects.CONFUSION, 200, 0));
+                spawnedSpider.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 200, 0));
 
                 if (player instanceof ServerPlayer serverPlayer) {
                     SkyAdditionsCriteriaTriggers.CONVERT_SPIDER.trigger(serverPlayer, asSpider(), spawnedSpider);

@@ -38,7 +38,7 @@ public abstract class EnchantmentHelperMixin {
         Holder.Reference<Enchantment> swiftSneak = SkyAdditionsExtension.minecraftServer.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Enchantments.SWIFT_SNEAK).orElseThrow();
         CustomData customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
 
-        if (customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE") /*EnchantmentHelperContexts.FORCE_ALLOW_SWIFT_SNEAK.get()*/) {
+        if (customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").get() /*EnchantmentHelperContexts.FORCE_ALLOW_SWIFT_SNEAK.get()*/) {
             if (swiftSneak.value().canEnchant(stack) || stack.is(Items.BOOK)) {
                 for (int level = 1; level <= 3; level++) {
                     enchantmentList.add(new EnchantmentInstance(

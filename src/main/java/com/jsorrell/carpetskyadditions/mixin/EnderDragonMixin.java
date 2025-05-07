@@ -30,7 +30,7 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
     private void readMixinNbt(CompoundTag nbt, CallbackInfo ci) {
         if (nbt.contains(SHOULD_DROP_HEAD_KEY)) {
-            shouldDropHead = nbt.getBoolean(SHOULD_DROP_HEAD_KEY);
+            shouldDropHead = nbt.getBoolean(SHOULD_DROP_HEAD_KEY).get();
         }
     }
 

@@ -13,6 +13,7 @@
     "CamelMixin",
     "ChunkGeneratorAccessor",
     "DispensePotionBehaviorMixin",
+    "DolphinAccessorMixin",
     "DolphinMixin",
     "DrownedMixin",
     "EnchantmentHelperMixin",
