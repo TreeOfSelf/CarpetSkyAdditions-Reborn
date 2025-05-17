@@ -5,7 +5,6 @@ import com.jsorrell.carpetskyadditions.helpers.TraderCamelHelper;
 import com.jsorrell.carpetskyadditions.helpers.WanderingTraderHelper;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -27,6 +26,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
+import java.util.List;
+import org.apache.commons.lang3.tuple.Pair;
 
 @Mixin(WanderingTrader.class)
 public abstract class WanderingTraderMixin extends AbstractVillager {
@@ -54,16 +55,11 @@ public abstract class WanderingTraderMixin extends AbstractVillager {
                             value = "FIELD",
                             opcode = Opcodes.GETSTATIC,
                             target =
-                                    "Lnet/minecraft/world/entity/npc/VillagerTrades;WANDERING_TRADER_TRADES:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;"))
-    private Int2ObjectMap<VillagerTrades.ItemListing[]> getTrades(Operation<Int2ObjectMap<VillagerTrades.ItemListing[]>> original) {
+                                    "Lnet/minecraft/world/entity/npc/VillagerTrades;WANDERING_TRADER_TRADES:Ljava/util/List;"))
+    private List<Pair<VillagerTrades.ItemListing[], Integer>> getTrades(
+            Operation<List<Pair<VillagerTrades.ItemListing[], Integer>>> original) {
         return WanderingTraderHelper.getTrades();
     }
-
-    //@Override
-    // This only works with the mod on the client side
-    //public float getMyRidingOffset(Entity entity) {
-     //   return TraderCamelHelper.isMountedTrader(asTrader()) ? -0.45f : super.getMyRidingOffset(entity);
-   // }
 
     @Override
     public void remove(RemovalReason reason) {

@@ -1,23 +1,20 @@
 package com.jsorrell.carpetskyadditions.helpers;
 
-import com.google.common.collect.ImmutableMap;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.Items;
-import org.apache.commons.lang3.tuple.Pair;
+import org.apache.commons.lang3.tuple.Pair; 
 
 public class WanderingTraderHelper {
-    public static Int2ObjectMap<VillagerTrades.ItemListing[]> getTrades() {
-        Pair<VillagerTrades.ItemListing[], Integer> tier1Pair = VillagerTrades.WANDERING_TRADER_TRADES.get(1);
-        Pair<VillagerTrades.ItemListing[], Integer> tier2Pair = VillagerTrades.WANDERING_TRADER_TRADES.get(2);
+    public static List<Pair<VillagerTrades.ItemListing[], Integer>> getTrades() {
+        Pair<VillagerTrades.ItemListing[], Integer> tier1VanillaPair = VillagerTrades.WANDERING_TRADER_TRADES.get(0);
+        Pair<VillagerTrades.ItemListing[], Integer> tier2VanillaPair = VillagerTrades.WANDERING_TRADER_TRADES.get(1);
 
-        List<VillagerTrades.ItemListing> tier1List = new ArrayList<>(Arrays.asList(tier1Pair.getLeft()));
-        List<VillagerTrades.ItemListing> tier2List = new ArrayList<>(Arrays.asList(tier2Pair.getLeft()));
+        List<VillagerTrades.ItemListing> tier1List = new ArrayList<>(Arrays.asList(tier1VanillaPair.getLeft()));
+        List<VillagerTrades.ItemListing> tier2List = new ArrayList<>(Arrays.asList(tier2VanillaPair.getLeft()));
 
         if (SkyAdditionsSettings.tallFlowersFromWanderingTrader) {
             tier1List.add(new VillagerTrades.ItemsForEmeralds(Items.SUNFLOWER, 1, 1, 12, 1));
@@ -34,9 +31,10 @@ public class WanderingTraderHelper {
         VillagerTrades.ItemListing[] tier1Array = tier1List.toArray(new VillagerTrades.ItemListing[0]);
         VillagerTrades.ItemListing[] tier2Array = tier2List.toArray(new VillagerTrades.ItemListing[0]);
 
-        return new Int2ObjectOpenHashMap<>(ImmutableMap.of(
-            1, tier1Array,
-            2, tier2Array
-        ));
+        List<Pair<VillagerTrades.ItemListing[], Integer>> newTrades = new ArrayList<>();
+        newTrades.add(Pair.of(tier1Array, tier1VanillaPair.getRight())); 
+        newTrades.add(Pair.of(tier2Array, tier2VanillaPair.getRight())); 
+        
+        return newTrades;
     }
 }

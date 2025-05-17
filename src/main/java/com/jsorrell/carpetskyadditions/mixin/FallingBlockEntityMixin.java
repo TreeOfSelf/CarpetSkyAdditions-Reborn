@@ -50,7 +50,7 @@ public abstract class FallingBlockEntityMixin extends Entity {
             method = "causeFallDamage",
             at = @At(value = "INVOKE", target = "Ljava/util/List;forEach(Ljava/util/function/Consumer;)V"))
     private void compactCoalToDiamonds(
-            float fallDistance, float multiplier, DamageSource source, CallbackInfoReturnable<Boolean> cir) {
+            double fallDistance, float multiplier, DamageSource source, CallbackInfoReturnable<Boolean> cir) {
         if (SkyAdditionsSettings.renewableDiamonds) {
             if (blockState.is(BlockTags.ANVIL)) {
                 Predicate<Entity> coalBlockPredicate = entity -> entity instanceof ItemEntity itemEntity

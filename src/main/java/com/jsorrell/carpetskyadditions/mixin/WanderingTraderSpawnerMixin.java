@@ -30,6 +30,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
@@ -132,21 +133,18 @@ public abstract class WanderingTraderSpawnerMixin {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     public void tick(
-            ServerLevel level, boolean spawnMonsters, boolean spawnAnimals, CallbackInfoReturnable<Integer> cir) {
+            ServerLevel level, boolean spawnMonsters, boolean spawnAnimals, CallbackInfo ci) {
 
-        // Ensure we don't make changes when the settings are default
-        // It should be the same, but it's safer to just use the vanilla version
         if (usesDefaultSettings()) {
             return;
         }
 
-        cir.setReturnValue(0);
+        ci.cancel();
 
         if (!level.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING)) {
             return;
         }
 
-        // Cut the timer short if necessary
         if (SkyAdditionsSettings.wanderingTraderSpawnRate < spawnDelay) {
             spawnDelay = SkyAdditionsSettings.wanderingTraderSpawnRate;
             currentSpawnTimer = Math.min(1200, spawnDelay);
@@ -158,7 +156,6 @@ public abstract class WanderingTraderSpawnerMixin {
         }
 
         spawnDelay -= currentSpawnTimer;
-
         boolean trySpawn = spawnDelay <= 0;
 
         spawnDelay = trySpawn ? SkyAdditionsSettings.wanderingTraderSpawnRate : spawnDelay;
@@ -168,16 +165,12 @@ public abstract class WanderingTraderSpawnerMixin {
         serverLevelData.setWanderingTraderSpawnDelay(spawnDelay);
 
         if (trySpawn && level.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
-            // Bound changed for high spawn chances b/c the 90% chance for trySpawn to fail
-            // is removed
             if (random.nextInt(100 < spawnChance ? 1000 : 100) < spawnChance && spawn(level)) {
                 spawnChance = 25;
-                cir.setReturnValue(1);
             } else {
                 spawnChance = Mth.clamp(spawnChance + 25, 25,
                         (int) Math.round(SkyAdditionsSettings.maxWanderingTraderSpawnChance * 1000d));
             }
-
             serverLevelData.setWanderingTraderSpawnChance(spawnChance);
         }
     }
