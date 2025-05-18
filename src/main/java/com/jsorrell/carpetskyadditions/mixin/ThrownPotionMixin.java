@@ -39,9 +39,11 @@ public abstract class ThrownPotionMixin extends ThrowableItemProjectile {
                 if ((AbstractThrownPotion)(Object)this instanceof ThrownLingeringPotion) {
                     // Create the cloud b/c vanilla doesn't when there are no potion effects
                     AreaEffectCloud cloud = new AreaEffectCloud(level(), hitPos.x(), hitPos.y(), hitPos.z());
-                    cloud.setRadius(3.0f);
+                    cloud.setRadius(3.0F);
+                    cloud.setRadiusOnUse(-0.5F);
                     cloud.setWaitTime(10);
-                    cloud.setRadiusPerTick(-cloud.getRadius() / cloud.getDuration());
+                    cloud.setDuration(cloud.getDuration() / 2);
+                    cloud.setRadiusPerTick(-cloud.getRadius() / (float) cloud.getDuration());
                     cloud.setPotionContents(potionContents);
                     /*CompoundTag nbt = stack.getTag();
                     if (nbt != null && nbt.contains("CustomPotionColor", Tag.TAG_ANY_NUMERIC)) {
