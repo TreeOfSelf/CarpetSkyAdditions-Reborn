@@ -201,6 +201,16 @@ After a time, the saplings will die and turn into Dead Bushes.
 
 ---
 
+#### Dead Bush Rehydrated with Water ####
+
+Provides *Bushes*
+
+Disable with ```/carpetskyadditions removeDefault doDeadBushToBush```
+
+Using a water bottle on a deadh bush turns it into a bush. 
+
+---
+
 #### Ender Dragons Can Drop their Head ####
 
 Provides *Dragon Heads*
