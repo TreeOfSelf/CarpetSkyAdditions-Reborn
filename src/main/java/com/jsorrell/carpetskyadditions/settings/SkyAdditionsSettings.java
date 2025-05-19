@@ -175,6 +175,11 @@ public class SkyAdditionsSettings {
 
     @Rule(categories = FEATURE)
     @SkyAdditionsSetting("true")
+    public static boolean doDeadBushToBush = false;
+
+
+    @Rule(categories = FEATURE)
+    @SkyAdditionsSetting("true")
     public static boolean renewableEchoShards = false;
 
     private static class AllayableVexesFixer extends SettingFixer {
@@ -227,7 +232,8 @@ public class SkyAdditionsSettings {
 
     public static boolean doRenewableDeepslate = false;
     public static boolean renewableDeepslateFromSplash = false;
-    public static boolean doDeadBushToBush = true;
+
+
 
 
     @Rule(categories = FEATURE)
