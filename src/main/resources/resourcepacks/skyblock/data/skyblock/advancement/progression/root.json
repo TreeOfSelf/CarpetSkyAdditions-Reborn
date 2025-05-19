@@ -11,7 +11,7 @@
     },
     "show_toast": false,
     "announce_to_chat": false,
-    "background": "minecraft:textures/block/gray_concrete.png"
+    "background": "minecraft:block/dirt"
   },
   "criteria": {
     "join_skyblock_world": {
