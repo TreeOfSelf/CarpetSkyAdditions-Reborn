@@ -340,6 +340,7 @@ public class SkyAdditionsSettings {
         rules.put("renewableEchoShards", true);
         rules.put("foxesSpawnWithSweetBerriesChance", 0.2);
         rules.put("saplingsDieOnSand", true);
+        rules.put("doDeadBushToBush", true);
         rules.put("renewableHeartsOfTheSea", true);
         rules.put("renewableDiamonds", true);
         rules.put("rammingWart", true);
