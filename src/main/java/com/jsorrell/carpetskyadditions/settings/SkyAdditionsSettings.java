@@ -227,6 +227,8 @@ public class SkyAdditionsSettings {
 
     public static boolean doRenewableDeepslate = false;
     public static boolean renewableDeepslateFromSplash = false;
+    public static boolean doDeadBushToBush = true;
+
 
     @Rule(categories = FEATURE)
     @SkyAdditionsSetting("true")

@@ -12,6 +12,7 @@
     "BlocksMixin",
     "CamelMixin",
     "ChunkGeneratorAccessor",
+    "DeadBushToBushMixin",
     "DispensePotionBehaviorMixin",
     "DolphinAccessorMixin",
     "DolphinMixin",
