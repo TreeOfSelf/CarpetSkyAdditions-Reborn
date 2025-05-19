@@ -24,6 +24,7 @@
   "carpetskyadditions.rule.foxesSpawnWithSweetBerriesChance.desc": "Probability that Foxes spawn with Sweet Berries",
   "carpetskyadditions.rule.poisonousPotatoesConvertSpiders.desc": "Makes Spiders turn into Cave Spiders when right-clicked with a Poisonous Potato",
   "carpetskyadditions.rule.saplingsDieOnSand.desc": "Allows Saplings to be placed on Sand, but they soon turn into Dead Bushes",
+  "carpetskyadditions.rule.doDeadBushToBush.desc": "Allows Dead Bushes to be converted into regular Bushes",
   "carpetskyadditions.rule.renewableEchoShards.desc": "Makes Creatures with Echolocation (Bats and Dolphins) drop Echo Shards when killed by a Warden's Sonic Boom attack",
   "carpetskyadditions.rule.allayableVexes.desc": "Allows Vexes to turn into Allays when played the correct Note Block sequence",
   "carpetskyadditions.rule.coralErosion.desc": "Makes Dead Coral erode into Sand when Water flows out of it",

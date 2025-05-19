@@ -87,12 +87,12 @@ public class SkyAdditionsSettings {
     /* Blaze will turn into Breeze when going from nether to overworld. Won't affect nametagged entities */
     @Rule(categories = FEATURE)
     @SkyAdditionsSetting("true")
-    public static boolean blazeToBreeze = false;
+    public static boolean blazeToBreeze = true;
 
     /* Growing a pale oak sapling near an open eye blossom produces a creaking heart */
     @Rule(categories = FEATURE)
     @SkyAdditionsSetting("true")
-    public static boolean paleBlossomCreakingHeart = false;
+    public static boolean paleBlossomCreakingHeart = true;
 
     /* Dolphins Find Hearts of the Sea */
     @Rule(categories = FEATURE)
@@ -175,7 +175,7 @@ public class SkyAdditionsSettings {
 
     @Rule(categories = FEATURE)
     @SkyAdditionsSetting("true")
-    public static boolean doDeadBushToBush = false;
+    public static boolean doDeadBushToBush = true;
 
 
     @Rule(categories = FEATURE)
