@@ -4,9 +4,7 @@
       "id": "minecraft:golden_shovel",
       "components": {
         "minecraft:enchantments": {
-          "levels": {
-            "minecraft:silk_touch": 1
-          }
+          "levels": 1
         }
       }
     },
