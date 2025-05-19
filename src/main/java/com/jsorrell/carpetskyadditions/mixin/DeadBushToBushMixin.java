@@ -1,10 +1,12 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
+import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriteriaTriggers;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
@@ -20,6 +22,7 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 
@@ -52,6 +55,11 @@ public class DeadBushToBushMixin {
                                 itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
                     playerEntity.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
                     level.setBlock(blockPos, Blocks.BUSH.defaultBlockState(),0);
+
+                    AABB criteriaTriggerBox = new AABB(blockPos).inflate(50, 20, 50);
+                    level.getEntitiesOfClass(ServerPlayer.class, criteriaTriggerBox)
+                        .forEach(SkyAdditionsCriteriaTriggers.DEAD_BUSH_TO_BUSH::trigger);
+
                     return InteractionResult.SUCCESS;
                 }
             }

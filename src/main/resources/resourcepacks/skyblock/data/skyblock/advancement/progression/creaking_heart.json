@@ -13,7 +13,7 @@
   },
   "parent": "skyblock:progression/wandering_trader",
   "criteria": {
-    "allay_vex": {
+    "creaking_heart": {
       "trigger": "carpetskyadditions:creaking_heart"
     }
   }

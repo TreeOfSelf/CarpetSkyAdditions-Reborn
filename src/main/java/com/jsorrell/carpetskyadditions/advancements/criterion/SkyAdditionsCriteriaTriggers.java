@@ -8,7 +8,7 @@ public class SkyAdditionsCriteriaTriggers {
     public static final AllayVexTrigger ALLAY_VEX = new AllayVexTrigger();
     public static final BreezeRodTrialSpawnerTrigger ACTIVATE_TRIAL_SPAWNER = new BreezeRodTrialSpawnerTrigger();
     public static final CreakingHeartTrigger CREAKING_HEART = new CreakingHeartTrigger();
-
+    public static final DeadBushToBushTrigger DEAD_BUSH_TO_BUSH = new DeadBushToBushTrigger();
 
 
     public static void registerAll() {
@@ -17,5 +17,7 @@ public class SkyAdditionsCriteriaTriggers {
         CriteriaTriggers.register("carpetskyadditions:allay_vex", ALLAY_VEX);
         CriteriaTriggers.register("carpetskyadditions:activate_trial_spawner", ACTIVATE_TRIAL_SPAWNER);
         CriteriaTriggers.register("carpetskyadditions:creaking_heart", CREAKING_HEART);
+        CriteriaTriggers.register("carpetskyadditions:bush", DEAD_BUSH_TO_BUSH);
+
     }
 }
