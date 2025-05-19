@@ -27,31 +27,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PotionItem.class)
 public class PotionItemMixin {
-//    @Inject(method = "useOn", at = @At("TAIL"), cancellable = true)
-//    private void convertStoneToDeepslate(UseOnContext context, CallbackInfoReturnable<InteractionResult> cir) {
-//        if (SkyAdditionsSettings.doRenewableDeepslate) {
-//            ItemStack itemStack = context.getItemInHand();
-//
-//            PotionContents potionContents = itemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
-//
-//            if (potionContents.is( DeepslateConversionHelper.CONVERSION_POTION)) {
-//                Level level = context.getLevel();
-//                BlockPos blockPos = context.getClickedPos();
-//                Player playerEntity = context.getPlayer();
-//                if (context.getClickedFace() != Direction.DOWN
-//                        && DeepslateConversionHelper.convertDeepslateWithBottle(level, blockPos, blockPos)) {
-//                    level.playSound(null, blockPos, SoundEvents.GENERIC_SPLASH, SoundSource.PLAYERS, 1.0f, 1.0f);
-//                    Objects.requireNonNull(playerEntity)
-//                            .setItemInHand(
-//                                    context.getHand(),
-//                                    ItemUtils.createFilledResult(
-//                                            itemStack, playerEntity, new ItemStack(Items.GLASS_BOTTLE)));
-//                    playerEntity.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
-//                    cir.setReturnValue(InteractionResult.SUCCESS);
-//                }
-//            }
-//        }
-//    }
     @ModifyReturnValue(
         method = "useOn",
         at = @At("TAIL")
