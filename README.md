@@ -3,7 +3,7 @@
 # Carpet Sky Additions Reborn
 
 Carpet Sky Additions Reborn is a mod based on CarpetSkyAdditions
-[View the original mod here](https://github.com/jsorrell/CarpetSkyAdditions/issues)
+[View the original mod here](https://github.com/jsorrell/CarpetSkyAdditions/)
 
 ## Try the mod on sky.hardcoreanarchy.gay
 
