@@ -18,7 +18,7 @@ public class WanderingTraderHelper {
             List<VillagerTrades.ItemListing> currentGroupTradeList = new ArrayList<>(Arrays.asList(currentVanillaPair.getLeft()));
             Integer tradesToPickFromGroup = currentVanillaPair.getRight();
 
-            if (i == 0) {
+            if (i == 2) {
                 if (SkyAdditionsSettings.tallFlowersFromWanderingTrader) {
                     currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.SUNFLOWER, 1, 1, 12, 1));
                     currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.LILAC, 1, 1, 12, 1));
@@ -26,7 +26,7 @@ public class WanderingTraderHelper {
                     currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.PEONY, 1, 1, 12, 1));
                 }
 
-                currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.PINK_PETALS, 1, 16, 12, 1));
+                //currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.PINK_PETALS, 1, 16, 12, 1));
             } else if (i == 1) {
                 if (SkyAdditionsSettings.lavaFromWanderingTrader) {
                     currentGroupTradeList.add(new VillagerTrades.ItemsAndEmeraldsToItems(Items.BUCKET, 1, 16, Items.LAVA_BUCKET, 1, 1, 1, 1));
