@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SaplingBlock;
@@ -17,6 +18,7 @@ import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -42,7 +44,7 @@ public class PaleOakSaplingMixin {
         if (SkyAdditionsSettings.paleBlossomCreakingHeart && state.getBlock() == Blocks.PALE_OAK_SAPLING) {
 
             // Check if the sapling is in the Pale Garden biome
-            ResourceKey biomeKey = level.getBiome(pos).unwrapKey().orElse(null);
+            ResourceKey<Biome> biomeKey = level.getBiome(pos).unwrapKey().orElse(null);
             if (biomeKey == null || !biomeKey.equals(Biomes.PALE_GARDEN)) {
                 return; // Exit if not in the Pale Garden biome
             }
@@ -99,6 +101,7 @@ public class PaleOakSaplingMixin {
         }
     }
 
+    @Unique
     private void updateCreakingHeartState(ServerLevel level, BlockPos pos) {
         BlockState currentState = level.getBlockState(pos);
         if (currentState.is(Blocks.CREAKING_HEART)) {

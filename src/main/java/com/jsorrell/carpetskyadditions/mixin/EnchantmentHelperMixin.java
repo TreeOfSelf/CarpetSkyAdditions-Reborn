@@ -1,6 +1,5 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
-
 import com.jsorrell.carpetskyadditions.SkyAdditionsExtension;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.Holder;

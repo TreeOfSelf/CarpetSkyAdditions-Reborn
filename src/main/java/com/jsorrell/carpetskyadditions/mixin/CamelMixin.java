@@ -25,9 +25,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(Camel.class)
 public abstract class CamelMixin extends AbstractHorse implements CamelInterface {
 
-    // @Shadow
-    // public abstract LivingEntity getControllingPassenger();
-
     protected CamelMixin(EntityType<? extends AbstractHorse> entityType, Level level) {
         super(entityType, level);
     }
@@ -46,25 +43,6 @@ public abstract class CamelMixin extends AbstractHorse implements CamelInterface
     public boolean isTraderCamel() {
         return TraderCamelHelper.isTraderCamel(asCamel());
     }
-
-    /*@Override
-    public boolean canBeLeashed(Player player) {
-        boolean normallyCanBeLeashed = super.canBeLeashed(player);
-        boolean canBeLeashed = normallyCanBeLeashed && !isTraderCamel();
-        if (normallyCanBeLeashed && !canBeLeashed) {
-            // TODO improve this
-            // When mod is only installed serverside, the client thinks camels can be
-            // leashed.
-            // This causes desync, which we can somewhat mitigate by instantly telling the
-            // lead to break.
-            // This still causes the lead to be "used" client side (ie stack decreased),
-            // but is fixed by moving the stack, relogging, etc.
-            if (!level().isClientSide && level() instanceof ServerLevel serverLevel) {
-                serverLevel.getChunkSource().broadcast(this, new ClientboundSetEntityLinkPacket(this, null));
-            }
-        }
-        return canBeLeashed;
-    }*/
 
     @Inject(method = "canAddPassenger", at = @At("HEAD"), cancellable = true)
     public void canAddPassengerToTraderCamel(Entity passenger, CallbackInfoReturnable<Boolean> cir) {
@@ -98,21 +76,4 @@ public abstract class CamelMixin extends AbstractHorse implements CamelInterface
         brain = makeBrain(getBlankBrainDynamic());
     }
 
-    // This only works with the mod on the client side
-    // @WrapOperation(method = "positionRider", at = @At(value = "NEW", args = "class=net/minecraft/world/phys/Vec3"))
-    // protected Vec3 moveTraderForward(double x, double y, double z) {
-    //     if (isTraderCamel()) {
-    //         return new Vec3(x, y, z + 0.09);
-    //     }
-    //     return new Vec3(x, y, z);
-    // }
-
-    // // This only works with the mod on the client side
-    // @Inject(method = "positionRider", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/animal/camel/Camel;clampRotation(Lnet/minecraft/world/entity/Entity;)V"), cancellable = true)
-    // protected void fixTraderRotation(Entity passenger, MoveFunction callback, CallbackInfo ci) {
-    //     if (isTraderCamel()) {
-    //         getControllingPassenger().yBodyRot = yBodyRot;
-    //         ci.cancel();
-    //     }
-    // }
 }

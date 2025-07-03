@@ -40,16 +40,5 @@ public abstract class BlazeToBreezeMixin {
         return original.call(carpetskyadditions$getEntityTypeForDimensionChange().orElse(instance), level, entitySpawnReason);
     }
 
-    @Mixin(Blaze.class)
-    private abstract static class BlazeMixin extends BlazeToBreezeMixin {
 
-        @Override
-        protected Optional<EntityType<?>> carpetskyadditions$getEntityTypeForDimensionChange() {
-            if (SkyAdditionsSettings.blazeToBreeze
-                && this.level().dimension() == Level.NETHER
-                && !this.hasCustomName())
-                return Optional.of(EntityType.BREEZE);
-            return super.carpetskyadditions$getEntityTypeForDimensionChange();
-        }
-    }
 }

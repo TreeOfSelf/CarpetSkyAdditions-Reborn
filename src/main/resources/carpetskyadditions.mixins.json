@@ -7,6 +7,7 @@
     "AreaEffectCloudMixin",
     "BaseCoralMixin",
     "BaseCoralWallFanBlockMixin",
+    "BlazeMixin",
     "BlazeToBreezeMixin",
     "BlazeToBreezeMixin$BlazeMixin",
     "BlocksMixin",
@@ -52,8 +53,7 @@
     "VexMixin",
     "WanderingTraderAccessor",
     "WanderingTraderMixin",
-    "WanderingTraderSpawnerMixin",
-    "WorldGenSettingsHeightAndBiomeFixMixin"
+    "WanderingTraderSpawnerMixin"
   ],
   "client": [
     "CreateWorldScreenMixin"

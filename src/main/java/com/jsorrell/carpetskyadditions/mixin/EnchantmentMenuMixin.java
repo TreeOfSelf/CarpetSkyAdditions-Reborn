@@ -67,7 +67,6 @@ public class EnchantmentMenuMixin {
                 tag.putBoolean("SWIFT_SNEAK_ENCHANTABLE", true);
                 stack.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
             }
-//            EnchantmentHelperContexts.FORCE_ALLOW_SWIFT_SNEAK.set(hasWardenNearby);
         }
         return original.call(randomSource, stack, i, stream);
     }

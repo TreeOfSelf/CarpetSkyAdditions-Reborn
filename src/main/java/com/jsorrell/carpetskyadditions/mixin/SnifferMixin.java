@@ -1,6 +1,5 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
-import com.google.common.collect.Lists;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.*;
 import java.util.function.Function;
@@ -9,7 +8,6 @@ import java.util.stream.Stream;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
