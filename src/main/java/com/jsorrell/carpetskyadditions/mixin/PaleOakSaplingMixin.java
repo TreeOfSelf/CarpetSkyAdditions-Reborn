@@ -10,10 +10,12 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CreakingHeartBlock;
 import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.grower.TreeGrower;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.CreakingHeartState;
 import net.minecraft.world.phys.AABB;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -69,7 +71,7 @@ public class PaleOakSaplingMixin {
             }
 
             // Single random chance per tree
-            if (eyeBlossomNearby && random.nextInt(10) == 1) { // 10% chance
+            if (eyeBlossomNearby && random.nextInt(10) == 0) { // 10% chance
                 // Replace eligible Pale Oak Logs with Creaking Heart
                 List<BlockPos> eligibleLogs = new ArrayList<>();
                 int xzRange = 1;
@@ -105,13 +107,16 @@ public class PaleOakSaplingMixin {
     private void updateCreakingHeartState(ServerLevel level, BlockPos pos) {
         BlockState currentState = level.getBlockState(pos);
         if (currentState.is(Blocks.CREAKING_HEART)) {
-            BooleanProperty activeProperty = (BooleanProperty) Blocks.CREAKING_HEART.getStateDefinition().getProperty("active");
-            if (activeProperty != null) {
-                boolean isActive = level.getBlockState(pos.above()).is(Blocks.PALE_OAK_LOG) &&
-                                    level.getBlockState(pos.below()).is(Blocks.PALE_OAK_LOG);
+            boolean hasRequiredLogs = CreakingHeartBlock.hasRequiredLogs(currentState, level, pos);
+            CreakingHeartState newState;
 
-                level.setBlock(pos, currentState.setValue(activeProperty, isActive), 3);
+            if (hasRequiredLogs) {
+                newState = CreakingHeartBlock.isNaturalNight(level) ? CreakingHeartState.AWAKE : CreakingHeartState.DORMANT;
+            } else {
+                newState = CreakingHeartState.UPROOTED;
             }
+
+            level.setBlock(pos, currentState.setValue(BlockStateProperties.CREAKING_HEART_STATE, newState), 3);
         }
     }
 }
