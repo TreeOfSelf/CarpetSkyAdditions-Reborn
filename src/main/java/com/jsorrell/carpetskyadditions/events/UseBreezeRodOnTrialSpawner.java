@@ -42,7 +42,6 @@ public class UseBreezeRodOnTrialSpawner {
                     CompoundTag blockData = spawner.saveWithoutMetadata(level.registryAccess());
                     blockData.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
                     blockData.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
-                    //spawner.loadWithComponents(blockData, level.registryAccess());
                     BlockEntity.loadStatic(blockHitResult.getBlockPos(), spawner.getBlockState(), blockData, player.getServer().registryAccess());
                     spawner.setChanged();
                     spawner.markUpdated();

@@ -220,7 +220,6 @@ public class SkyBlockStructures {
                 if (tileEntityVault instanceof VaultBlockEntity vault) {
                     vault.setLevel(level.getLevel());
                     CompoundTag blockData = vault.saveWithoutMetadata(level.getLevel().registryAccess());
-
                     CompoundTag config = new CompoundTag();
                     CompoundTag keyItem = new CompoundTag();
                     keyItem.putInt("count", 1);
@@ -228,8 +227,7 @@ public class SkyBlockStructures {
                     config.put("key_item", keyItem);
                     config.putString("loot_table", "minecraft:chests/trial_chambers/reward_ominous");
                     blockData.put("config", config);
-
-                    //vault.loadWithComponents(blockData, level.getLevel().registryAccess());
+                    BlockEntity.loadStatic(ominousVaultPos, vault.getBlockState(), blockData, level.getLevel().registryAccess());
                     vault.setChanged();
                 }
 
