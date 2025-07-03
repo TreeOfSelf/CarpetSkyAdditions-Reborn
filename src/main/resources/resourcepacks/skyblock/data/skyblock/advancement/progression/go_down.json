@@ -19,13 +19,15 @@
           {
             "condition": "minecraft:entity_properties",
             "predicate": {
-              "nbt": "{FallDistance: 0f}",
               "location": {
                 "position": {
                   "y": {
                     "max": -54
                   }
                 }
+              },
+              "flags": {
+                "is_on_ground": true
               }
             },
             "entity": "this"
