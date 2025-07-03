@@ -7,7 +7,6 @@
     "AreaEffectCloudMixin",
     "BaseCoralMixin",
     "BaseCoralWallFanBlockMixin",
-    "BlazeMixin",
     "BlazeToBreezeMixin",
     "BlazeToBreezeMixin$BlazeMixin",
     "BlocksMixin",

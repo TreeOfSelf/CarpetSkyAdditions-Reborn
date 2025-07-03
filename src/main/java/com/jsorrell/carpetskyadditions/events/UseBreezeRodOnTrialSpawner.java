@@ -17,6 +17,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
+import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 
@@ -41,7 +42,8 @@ public class UseBreezeRodOnTrialSpawner {
                     CompoundTag blockData = spawner.saveWithoutMetadata(level.registryAccess());
                     blockData.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
                     blockData.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
-                    spawner.loadWithComponents(blockData, level.registryAccess());
+                    //spawner.loadWithComponents(blockData, level.registryAccess());
+                    BlockEntity.loadStatic(blockHitResult.getBlockPos(), spawner.getBlockState(), blockData, player.getServer().registryAccess());
                     spawner.setChanged();
                     spawner.markUpdated();
                     stack.shrink(1);

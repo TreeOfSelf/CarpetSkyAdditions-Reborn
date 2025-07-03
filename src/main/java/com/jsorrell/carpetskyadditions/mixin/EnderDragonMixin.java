@@ -12,6 +12,8 @@ import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -28,16 +30,16 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
-    private void readMixinNbt(CompoundTag nbt, CallbackInfo ci) {
-        if (nbt.contains(SHOULD_DROP_HEAD_KEY)) {
-            shouldDropHead = nbt.getBoolean(SHOULD_DROP_HEAD_KEY).get();
-        }
+    private void readMixinNbt(ValueInput valueInput, CallbackInfo ci) {
+
+        shouldDropHead = valueInput.getBooleanOr(SHOULD_DROP_HEAD_KEY, false);
+
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
-    private void writeMixinNbt(CompoundTag nbt, CallbackInfo ci) {
+    private void writeMixinNbt(ValueOutput valueOutput, CallbackInfo ci) {
         if (SkyAdditionsSettings.renewableDragonHeads) {
-            nbt.putBoolean(SHOULD_DROP_HEAD_KEY, shouldDropHead);
+            valueOutput.putBoolean(SHOULD_DROP_HEAD_KEY, shouldDropHead);
         }
     }
 

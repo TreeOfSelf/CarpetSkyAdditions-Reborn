@@ -229,7 +229,7 @@ public class SkyBlockStructures {
                     config.putString("loot_table", "minecraft:chests/trial_chambers/reward_ominous");
                     blockData.put("config", config);
 
-                    vault.loadWithComponents(blockData, level.getLevel().registryAccess());
+                    //vault.loadWithComponents(blockData, level.getLevel().registryAccess());
                     vault.setChanged();
                 }
 
