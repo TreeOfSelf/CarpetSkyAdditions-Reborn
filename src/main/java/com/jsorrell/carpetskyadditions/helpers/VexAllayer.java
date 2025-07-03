@@ -4,7 +4,6 @@ import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriter
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
@@ -24,6 +23,8 @@ import net.minecraft.world.level.gameevent.EntityPositionSource;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.gameevent.GameEventListener;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -137,15 +138,13 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
         }
     }
 
-    public void readFromNbt(CompoundTag nbt) {
-        if (nbt.contains(NUM_SUCCESSFUL_NOTES_KEY)) {
-            numSuccessfulNotes = nbt.getInt(NUM_SUCCESSFUL_NOTES_KEY).get();
-        }
+    public void readFromNbt(ValueInput valueInput) {
+        numSuccessfulNotes = valueInput.getIntOr(NUM_SUCCESSFUL_NOTES_KEY, 0);
     }
 
-    public void writeToNbt(CompoundTag nbt) {
+    public void writeToNbt(ValueOutput valueOutput) {
         if (SkyAdditionsSettings.allayableVexes) {
-            nbt.putInt(NUM_SUCCESSFUL_NOTES_KEY, numSuccessfulNotes);
+            valueOutput.putInt(NUM_SUCCESSFUL_NOTES_KEY, numSuccessfulNotes);
         }
     }
 

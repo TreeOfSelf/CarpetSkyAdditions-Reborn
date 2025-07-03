@@ -11,6 +11,8 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.DynamicGameEventListener;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
@@ -49,13 +51,13 @@ public abstract class VexMixin extends Monster implements InstantListener.Instan
     }
 
     @Inject(method = "readAdditionalSaveData", at = @At("TAIL"))
-    private void readMixinNbt(CompoundTag nbt, CallbackInfo ci) {
-        vexAllayer.readFromNbt(nbt);
+    private void readMixinNbt(ValueInput valueInput, CallbackInfo ci) {
+        vexAllayer.readFromNbt(valueInput);
     }
 
     @Inject(method = "addAdditionalSaveData", at = @At("TAIL"))
-    private void writeMixinNbt(CompoundTag nbt, CallbackInfo ci) {
-        vexAllayer.writeToNbt(nbt);
+    private void writeMixinNbt(ValueOutput valueOutput, CallbackInfo ci) {
+        vexAllayer.writeToNbt(valueOutput);
     }
 
     @Override
