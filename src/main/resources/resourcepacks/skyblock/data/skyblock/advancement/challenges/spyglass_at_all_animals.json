@@ -322,6 +322,24 @@
         }
       }
     },
+    "happy_ghast": {
+      "trigger": "minecraft:using_item",
+      "conditions": {
+        "player": {
+          "type_specific": {
+            "type": "player",
+            "looking_at": {
+              "type": "minecraft:happy_ghast"
+            }
+          }
+        },
+        "item": {
+          "items": [
+            "minecraft:spyglass"
+          ]
+        }
+      }
+    },
     "hoglin": {
       "trigger": "minecraft:using_item",
       "conditions": {
