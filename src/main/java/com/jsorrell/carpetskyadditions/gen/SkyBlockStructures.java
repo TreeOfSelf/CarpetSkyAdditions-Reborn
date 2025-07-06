@@ -12,6 +12,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawner;
@@ -20,6 +21,8 @@ import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
+
+import static net.fabricmc.fabric.api.resource.conditions.v1.ResourceConditionType.TYPE_CODEC;
 
 public class SkyBlockStructures {
     protected record StructureOrientation(Rotation rotation, Mirror mirror) {
@@ -227,7 +230,7 @@ public class SkyBlockStructures {
                     config.put("key_item", keyItem);
                     config.putString("loot_table", "minecraft:chests/trial_chambers/reward_ominous");
                     blockData.put("config", config);
-                    BlockEntity.loadStatic(ominousVaultPos, vault.getBlockState(), blockData, level.getLevel().registryAccess());
+                    blockData.putString("id", "minecraft:vault");
                     vault.setChanged();
                 }
 
