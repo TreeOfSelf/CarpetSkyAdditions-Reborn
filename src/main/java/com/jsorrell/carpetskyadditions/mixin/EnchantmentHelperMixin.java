@@ -2,6 +2,8 @@ package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.SkyAdditionsExtension;
 import com.llamalad7.mixinextras.sugar.Local;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +25,6 @@ import java.util.stream.Stream;
 @Mixin(EnchantmentHelper.class)
 public abstract class EnchantmentHelperMixin {
 
-
     @Inject(
         method = "getAvailableEnchantmentResults",
         at =
@@ -34,15 +35,16 @@ public abstract class EnchantmentHelperMixin {
     private static void forceAllowSwiftSneak(
         int i, ItemStack stack, Stream<Holder<Enchantment>> stream,
         CallbackInfoReturnable<List<EnchantmentInstance>> cir, @Local List<EnchantmentInstance> enchantmentList) {
-        Holder.Reference<Enchantment> swiftSneak = SkyAdditionsExtension.minecraftServer.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Enchantments.SWIFT_SNEAK).orElseThrow();
-        CustomData customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-
-        if (customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").isPresent() && customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").get()  /*EnchantmentHelperContexts.FORCE_ALLOW_SWIFT_SNEAK.get()*/) {
-            if (swiftSneak.value().canEnchant(stack) || stack.is(Items.BOOK)) {
-                for (int level = 1; level <= 3; level++) {
-                    enchantmentList.add(new EnchantmentInstance(
-                        swiftSneak,
-                        level));
+        if (SkyAdditionsExtension.minecraftServer != null) {
+            Holder.Reference<Enchantment> swiftSneak = SkyAdditionsExtension.minecraftServer.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Enchantments.SWIFT_SNEAK).orElseThrow();
+            CustomData customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
+            if (customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").isPresent() && customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").get()  /*EnchantmentHelperContexts.FORCE_ALLOW_SWIFT_SNEAK.get()*/) {
+                if (swiftSneak.value().canEnchant(stack) || stack.is(Items.BOOK)) {
+                    for (int level = 1; level <= 3; level++) {
+                        enchantmentList.add(new EnchantmentInstance(
+                            swiftSneak,
+                            level));
+                    }
                 }
             }
         }
