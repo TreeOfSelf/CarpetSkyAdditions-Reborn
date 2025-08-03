@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "netherite_upgrade_smithing_template",
+  "pattern": [
+    "XCX",
+    "XSX",
+    "XXX"
+  ],
+  "key": {
+    "X": "minecraft:diamond",
+    "C": "minecraft:netherite_ingot",
+    "S": "minecraft:netherrack"
+  },
+  "result": {
+    "id": "minecraft:netherite_upgrade_smithing_template",
+    "count": 1
+  }
+}

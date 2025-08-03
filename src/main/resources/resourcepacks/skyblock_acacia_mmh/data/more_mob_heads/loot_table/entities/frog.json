@@ -1,0 +1,140 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"conditions": [
+						{
+							"condition": "killed_by_player"
+						}
+					],
+					"children": [
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.frog.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzY4Nzc4OTNlOTIwZmY1ZGZhNGI1ZmJkMTRkYWJlZTJlNjMwOGE2Zjk3YzNhMTliMDhlMjQxYTI5ZWI5YTVjMyJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Cold Frog Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{variant:\"minecraft:cold\"}"
+									},
+									"entity": "this"
+								},
+								{
+									"condition": "random_chance_with_enchanted_bonus",
+									"enchantment": "minecraft:looting",
+									"unenchanted_chance": 0.2,
+									"enchanted_chance": {
+										"type": "minecraft:linear",
+										"base": 0.21,
+										"per_level_above_first": 0.01
+									}
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.frog.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTUwZDEwNzNkNDFmMTkzNDA1ZDk1YjFkOTQxZjlmZTFhN2ZmMDgwZTM4MTU1ZDdiYjc4MGJiYmQ4ZTg2ZjcwZCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Temperate Frog Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{variant:\"minecraft:temperate\"}"
+									},
+									"entity": "this"
+								},
+								{
+									"condition": "random_chance_with_enchanted_bonus",
+									"enchantment": "minecraft:looting",
+									"unenchanted_chance": 0.2,
+									"enchanted_chance": {
+										"type": "minecraft:linear",
+										"base": 0.21,
+										"per_level_above_first": 0.01
+									}
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.frog.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDViMGRhNDM5NzViODNjMzMyMjc4OGRkYTMxNzUwNjMzMzg0M2FlYmU1NTEyNzg3Y2IyZTNkNzY5ZWQyYjM4MiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Warm Frog Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{variant:\"minecraft:warm\"}"
+									},
+									"entity": "this"
+								},
+								{
+									"condition": "random_chance_with_enchanted_bonus",
+									"enchantment": "minecraft:looting",
+									"unenchanted_chance": 0.2,
+									"enchanted_chance": {
+										"type": "minecraft:linear",
+										"base": 0.21,
+										"per_level_above_first": 0.01
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

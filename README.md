@@ -24,9 +24,13 @@ client.
 
 To create a new SkyBlock world, choose `World Type: SkyBlock` and enable the datapack `"carpetskyadditions/skyblock"`.
 
-If you want a harder challenge, ***also*** enable the datapack `"carpetskyadditions/skyblock_acacia"` to start with an
-Acacia
+If you want a harder challenge, enable the datapack `"carpetskyadditions/skyblock_acacia"` to start with an Acacia
 tree instead of an Oak tree.
+
+If you want an even harder challenge, enable the datapack `"carpetskyadditions/skyblock_no_tree"` to start with only
+a platform without any tree.
+
+All datapacks are stand alone, and are also available with a More Mob Heads (Vanilla Tweaks) variant.
 
 For custom or server installations, follow the [Detailed Installation Instructions](docs/en_us/installation.md)
 
@@ -99,6 +103,8 @@ If you are able to add translations, your help would be much appreciated.
 - [@DeadlyMC](https://github.com/DeadlyMC/Skyblock-datapack) for the initial ideas for the datapack
 
 - [@gnembon](https://github.com/gnembon/fabric-carpet) for `fabric-carpet`
+
+- [Vanilla Tweaks](https://vanillatweaks.net) for the More Mob Heads Datapack
 
 - All the translators on CrowdIn
 

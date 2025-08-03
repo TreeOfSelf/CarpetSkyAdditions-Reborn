@@ -1,0 +1,28 @@
+{
+  "parent": "skyblock:progression/the_nether",
+  "display": {
+    "icon": {
+      "id": "minecraft:breeze_rod"
+    },
+    "title": {
+      "translate": "Breezing Through"
+    },
+    "description": {
+      "translate": "Obtain a breeze rod by bringing a blaze back into the overworld."
+    }
+  },
+  "criteria": {
+    "has_breeze_rod": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:breeze_rod"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

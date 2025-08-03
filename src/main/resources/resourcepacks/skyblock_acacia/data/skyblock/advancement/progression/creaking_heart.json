@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:creaking_heart"
+    },
+    "title": {
+      "translate": "Open Heart"
+    },
+    "description": {
+      "translate": "Grow a pale oak sapling near an open eye blossom to create a creaking heart."
+    },
+    "frame": "goal"
+  },
+  "parent": "skyblock:progression/wandering_trader",
+  "criteria": {
+    "creaking_heart": {
+      "trigger": "carpetskyadditions:creaking_heart"
+    }
+  }
+}

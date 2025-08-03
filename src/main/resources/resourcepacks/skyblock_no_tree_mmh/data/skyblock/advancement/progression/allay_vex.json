@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:note_block"
+    },
+    "title": {
+      "translate": "Relaxing Music"
+    },
+    "description": {
+      "translate": "Convert a Vex into an Allay by playing it the right Note Block sequence"
+    },
+    "frame": "challenge"
+  },
+  "parent": "skyblock:progression/cure_zombie_villager",
+  "criteria": {
+    "allay_vex": {
+      "trigger": "carpetskyadditions:allay_vex"
+    }
+  }
+}

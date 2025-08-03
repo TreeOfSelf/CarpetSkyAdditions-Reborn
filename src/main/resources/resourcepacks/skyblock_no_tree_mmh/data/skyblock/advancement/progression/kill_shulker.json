@@ -1,0 +1,33 @@
+{
+  "parent": "skyblock:progression/the_end",
+  "display": {
+    "icon": {
+      "id": "minecraft:shulker_box"
+    },
+    "title": {
+      "translate": "Shulking in the Shadows"
+    },
+    "description": {
+      "translate": "Kill a Shulker that spawns when a respawned Ender Dragon dies"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "kill_shulker": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:shulker"
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "kill_shulker"
+    ]
+  ]
+}

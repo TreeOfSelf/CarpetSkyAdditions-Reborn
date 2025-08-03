@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:bush"
+    },
+    "title": {
+      "translate": "Green Thumb"
+    },
+    "description": {
+      "translate": "Grow a Live Bush by Using a Water Bottle on a Dead Bush"
+    },
+    "frame": "goal"
+  },
+  "parent": "skyblock:progression/dead_bush",
+  "criteria": {
+    "bush": {
+      "trigger": "carpetskyadditions:bush"
+    }
+  }
+}
