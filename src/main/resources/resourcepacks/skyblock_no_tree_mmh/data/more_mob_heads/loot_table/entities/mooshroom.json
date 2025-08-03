@@ -1,0 +1,100 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"conditions": [
+						{
+							"condition": "killed_by_player"
+						}
+					],
+					"children": [
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.cow.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE4MDYwNmU4MmM2NDJmMTQxNTg3NzMzZTMxODBhZTU3ZjY0NjQ0MmM5ZmZmZDRlNTk5NzQ1N2UzNDMxMWEyOSJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Red Mooshroom Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Type:\"red\"}"
+									},
+									"entity": "this"
+								},
+								{
+									"condition": "random_chance_with_enchanted_bonus",
+									"enchantment": "minecraft:looting",
+									"unenchanted_chance": 0.01,
+									"enchanted_chance": {
+										"type": "minecraft:linear",
+										"base": 0.011,
+										"per_level_above_first": 0.001
+									}
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.cow.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2U2NDY2MzAyYTVhYjQzOThiNGU0NzczNDk4MDhlNWQ5NDAyZWEzYWQ4ZmM0MmUyNDQ2ZTRiZWQwYTVlZDVlIn19fQ=="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Brown Mooshroom Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Type:\"brown\"}"
+									},
+									"entity": "this"
+								},
+								{
+									"condition": "random_chance_with_enchanted_bonus",
+									"enchantment": "minecraft:looting",
+									"unenchanted_chance": 0.1,
+									"enchanted_chance": {
+										"type": "minecraft:linear",
+										"base": 0.101,
+										"per_level_above_first": 0.001
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,95 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"conditions": [
+				{
+					"condition": "killed_by_player"
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:player_head",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_components",
+							"components": {
+								"minecraft:note_block_sound": "minecraft:entity.wither.ambient",
+								"minecraft:profile": {
+									"properties": [
+										{
+											"name": "textures",
+											"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWRhMTA4MjhmNjNiN2VjZGVmZDc2N2IzMjQ1ZmJkYWExM2MzZWMwYzZiMTM3NzRmMWVlOGQzMDdjMDM0YzM4MyJ9fX0="
+										}
+									]
+								},
+								"minecraft:item_name": "\"Wither Head\""
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"conditions": [
+				{
+					"condition": "killed_by_player"
+				},
+				{
+					"condition": "random_chance",
+					"chance": 0.5
+				}
+			],
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:player_head",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_components",
+							"components": {
+								"minecraft:note_block_sound": "minecraft:entity.wither.shoot",
+								"minecraft:profile": {
+									"properties": [
+										{
+											"name": "textures",
+											"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjM3YzU4MTRhOTJmOGVjMGY2YWU5OTMzYWJlOTU0MmUxNjUxOTA3NjhlNzYwNDc4NTQzYWViZWVkNDAyN2MyNyJ9fX0="
+										}
+									]
+								},
+								"minecraft:item_name": "\"Wither Projectile Head\""
+							}
+						}
+					]
+				},
+				{
+					"type": "item",
+					"name": "minecraft:player_head",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_components",
+							"components": {
+								"minecraft:note_block_sound": "minecraft:entity.wither.shoot",
+								"minecraft:profile": {
+									"properties": [
+										{
+											"name": "textures",
+											"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDM2ODJiMDYyMDNiOWRlNGMyODU0MTA3MWEyNmNkYzM0MGRkMjVkNGMzNzJiNzAyM2VjMmY0MTIwMjFkNjJmNyJ9fX0="
+										}
+									]
+								},
+								"minecraft:item_name": "\"Blue Wither Projectile Head\""
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

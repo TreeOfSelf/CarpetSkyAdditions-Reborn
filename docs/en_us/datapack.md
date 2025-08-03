@@ -153,6 +153,8 @@ When Creepers are killed by Skeletons in the Strongholds, they can drop the Musi
 
 When Creepers are killed by Skeletons in the Ancient Cities, they can drop Disc Fragment 5.
 
+When Creepers are killed by Skeletons in the Trial Chambers, they can drop the Music Discs "Precipice" or "Creator".
+
 ---
 
 #### Zoglins Drop Snout Banner Patterns ####
@@ -199,6 +201,13 @@ A Netherite Upgrade Smithing Template is crafted from the duplication recipe
 with the Smithing Template replaced with a Netherite Ingot.
 
 ![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "Template Recipe")
+
+---
+
+#### Loot Tables for Trial Vaults are Updated ####
+
+As the trial vaults are easy to find and provides an easy way to get some resources that would make some parts of this mod obsolete, the
+loot tables for the trial vaults has been updated.
 
 ---
 
@@ -254,6 +263,7 @@ Granted upon obtaining all Light Sources in the following list:
 - Beacon
 - Conduit
 - Dragon Egg
+- All variants of Copper Bulb
 
 ---
 
@@ -369,3 +379,19 @@ Granted after looking through a Spyglass at all animals in the following list:
 - Strider
 - Turtle
 - Wolf
+
+---
+
+#### Lightning Conqueror ####
+
+Completing rewards *Bolt Armor Trim Smithing Template*
+
+Granted after using a channeling trident to take down creepers, guardians, mooshrooms, zombified piglins, and witches during a thunderstorm
+
+---
+
+#### Harnessing the Flow ####
+
+Completing rewards *Flow Armor Trim Smithing Template*
+
+Granted after using a riptide trident under the influence of a conduit during rain.

@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:gift",
+  "pools": [
+    {
+      "rolls": 1,
+      "bonus_rolls": 0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stone_axe",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:golden_axe",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:iron_axe",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:lava_bucket",
+          "weight": 2
+        }
+      ]
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/hero_of_the_village/weaponsmith_gift"
+}

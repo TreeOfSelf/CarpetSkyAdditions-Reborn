@@ -1,0 +1,37 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:player_head",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_components",
+							"components": {
+								"minecraft:note_block_sound": "minecraft:entity.warden.ambient",
+								"minecraft:profile": {
+									"properties": [
+										{
+											"name": "textures",
+											"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJmMzg3OWI3MzcxMjc0ODVlYjM1ZGRlZTc0OGQwNmNmOTE0YjE5M2Q5Nzc1M2FlMzRlOTIyMzA4NDI4MzFmYiJ9fX0="
+										}
+									]
+								},
+								"minecraft:item_name": "\"Warden Head\""
+							}
+						}
+					]
+				}
+			],
+			"conditions": [
+				{
+					"condition": "killed_by_player"
+				}
+			]
+		}
+	]
+}

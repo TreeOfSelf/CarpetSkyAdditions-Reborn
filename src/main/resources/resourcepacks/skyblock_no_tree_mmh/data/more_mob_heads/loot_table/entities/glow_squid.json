@@ -1,0 +1,47 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "item",
+					"name": "minecraft:player_head",
+					"weight": 1,
+					"functions": [
+						{
+							"function": "set_components",
+							"components": {
+								"minecraft:note_block_sound": "minecraft:entity.glow_squid.ambient",
+								"minecraft:profile": {
+									"properties": [
+										{
+											"name": "textures",
+											"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGIyZTliNjU4MWZlZDQ4YTk5ZTAzMjMwOTFhZDVjM2MzMjZjZGEyMDA3M2UyOGE5MDJhMDM3M2Y3MzgyYjU5ZiJ9fX0="
+										}
+									]
+								},
+								"minecraft:item_name": "\"Glow Squid Head\""
+							}
+						}
+					]
+				}
+			],
+			"conditions": [
+				{
+					"condition": "killed_by_player"
+				},
+				{
+					"condition": "random_chance_with_enchanted_bonus",
+					"enchantment": "minecraft:looting",
+					"unenchanted_chance": 0.05,
+					"enchanted_chance": {
+						"type": "minecraft:linear",
+						"base": 0.06,
+						"per_level_above_first": 0.01
+					}
+				}
+			]
+		}
+	]
+}

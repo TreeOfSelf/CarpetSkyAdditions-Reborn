@@ -1,0 +1,470 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"conditions": [
+						{
+							"condition": "killed_by_player"
+						}
+					],
+					"children": [
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMWVmNjI3ZjU2NmFjMGE3ODI4YmFkOTNlOWU0Yjk2NDNkOTlhOTI4YTEzZDVmOTc3YmY0NDFlNDBkYjEzMzZiZiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Armorer Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:armorer\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTFiYWQ2NDE4NWUwNGJmMWRhZmUzZGE4NDkzM2QwMjU0NWVhNGE2MzIyMWExMGQwZjA3NzU5MTc5MTEyYmRjMiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Butcher Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:butcher\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNhZWNmYmU4MDFjZjMyYjVkMWIwYjFmNjY4MDA0OTY2NjE1ODY3OGM1M2Y0YTY1MWZjODNlMGRmOWQzNzM4YiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Cartographer Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:cartographer\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWI5ZTU4MmUyZjliODlkNTU2ZTc5YzQ2OTdmNzA2YjFkZDQ5MjllY2FlM2MwN2VlOTBiZjFkNWJlMzE5YmY2ZiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Cleric Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:cleric\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDkyNzJkMDNjZGE2MjkwZTRkOTI1YTdlODUwYTc0NWU3MTFmZTU3NjBmNmYwNmY5M2Q5MmI4ZjhjNzM5ZGIwNyJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Farmer Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:farmer\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDE4OWZiNGFjZDE1ZDczZmYyYTU4YTg4ZGYwNDY2YWQ5ZjRjMTU0YTIwMDhlNWM2MjY1ZDVjMmYwN2QzOTM3NiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Fisherman Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:fisherman\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmY2MTFmMTJlMThjZTQ0YTU3MjM4ZWVmMWNhZTAzY2Q5ZjczMGE3YTQ1ZTBlYzI0OGYxNGNlODRlOWM0ODA1NiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Fletcher Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:fletcher\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWUwZTk1OTFlMTFhYWVmNGMyYzUxZDlhYzY5NTE0ZTM0MDQ4NWRlZmNjMmMxMmMzOGNkMTIzODZjMmVjNmI3OCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Leatherworker Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:leatherworker\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2RjYWE1NzRiYWJiNDBlZTBmYTgzZjJmZDVlYTIwY2ZmMzFmZmEyNzJmZTExMzU4OGNlZWU0Njk2ODIxMjhlNyJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Librarian Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:librarian\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWUwZTk1OTFlMTFhYWVmNGMyYzUxZDlhYzY5NTE0ZTM0MDQ4NWRlZmNjMmMxMmMzOGNkMTIzODZjMmVjNmI3OCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Mason Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:mason\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWUwZTk1OTFlMTFhYWVmNGMyYzUxZDlhYzY5NTE0ZTM0MDQ4NWRlZmNjMmMxMmMzOGNkMTIzODZjMmVjNmI3OCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Nitwit Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:nitwit\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWUwZTk1OTFlMTFhYWVmNGMyYzUxZDlhYzY5NTE0ZTM0MDQ4NWRlZmNjMmMxMmMzOGNkMTIzODZjMmVjNmI3OCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:none\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmFiZjRlOTE1NGFjOTI3MTk0MWM3MzNlYWNjNjJkYzlmYzBhNmRjMWI1ZDY3Yzc4Y2E5OGFmYjVjYjFiZTliMiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Shepherd Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:shepherd\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWUwZTk1OTFlMTFhYWVmNGMyYzUxZDlhYzY5NTE0ZTM0MDQ4NWRlZmNjMmMxMmMzOGNkMTIzODZjMmVjNmI3OCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Toolsmith Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:toolsmith\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.villager.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODQ3NmZmYTQxMGJiZTdmYTcwOTA5OTY1YTEyNWY0YTRlOWE0ZmIxY2UxYjhiM2MzNGJmYjczYWFmZmQ0Y2U0MyJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Weaponsmith Villager Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{VillagerData:{profession:\"minecraft:weaponsmith\"}}"
+									},
+									"entity": "this"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

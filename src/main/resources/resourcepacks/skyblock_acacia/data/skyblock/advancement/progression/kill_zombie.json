@@ -1,0 +1,33 @@
+{
+  "parent": "skyblock:progression/go_down",
+  "display": {
+    "icon": {
+      "id": "minecraft:rotten_flesh"
+    },
+    "title": {
+      "translate": "The Evil Dead"
+    },
+    "description": {
+      "translate": "Kill the first of many Zombies"
+    }
+  },
+  "criteria": {
+    "kill_zombie": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": [
+                "minecraft:zombie",
+                "minecraft:husk"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

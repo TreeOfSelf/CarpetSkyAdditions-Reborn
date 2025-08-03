@@ -1,0 +1,41 @@
+{
+  "parent": "skyblock:progression/music_disc_pigstep",
+  "display": {
+    "icon": {
+      "id": "minecraft:music_disc_creator_music_box"
+    },
+    "title": {
+      "translate": "The Sound of Trials"
+    },
+    "description": {
+      "translate": "Get Precipice, and Creator when a Skeleton kills a Creeper in a Trial Chamber"
+    },
+    "frame": "goal"
+  },
+  "criteria": {
+    "has_music_disk_precipice": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:music_disc_precipice"
+            ]
+          }
+        ]
+      }
+    },
+    "has_music_disk_creator": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:music_disc_creator"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

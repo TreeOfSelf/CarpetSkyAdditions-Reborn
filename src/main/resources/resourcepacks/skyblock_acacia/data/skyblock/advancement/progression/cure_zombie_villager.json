@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:bell"
+    },
+    "title": {
+      "translate": "Trade Doctor"
+    },
+    "description": {
+      "translate": "Cure a Zombie Villager using a Weakness Potion thrown by a Witch"
+    }
+  },
+  "parent": "skyblock:progression/boat_with_witch",
+  "criteria": {
+    "cured_zombie_villager": {
+      "trigger": "minecraft:cured_zombie_villager"
+    }
+  }
+}

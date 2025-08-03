@@ -1,0 +1,150 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"conditions": [
+						{
+							"condition": "killed_by_player"
+						},
+						{
+							"condition": "random_chance_with_enchanted_bonus",
+							"enchantment": "minecraft:looting",
+							"unenchanted_chance": 0.24,
+							"enchanted_chance": {
+								"type": "minecraft:linear",
+								"base": 0.26,
+								"per_level_above_first": 0.02
+							}
+						}
+					],
+					"children": [
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNGQ2N2ZkNGJmZjI5MzI2OWNiOTA4OTc0ZGNhODNjMzM0ODVlNDM1ZWQ1YThlMWRiZDY1MjFjNjE2ODcxNDAifX19"
+												}
+											]
+										},
+										"minecraft:item_name": "\"Creamy Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:0}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODAyNzdlNmIzZDlmNzgxOWVmYzdkYTRiNDI3NDVmN2FiOWE2M2JhOGYzNmQ2Yjg0YTdhMjUwYzZkMWEzNThlYiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"White Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:1}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYzJiMWVjZmY3N2ZmZTNiNTAzYzMwYTU0OGViMjNhMWEwOGZhMjZmZDY3Y2RmZjM4OTg1NWQ3NDkyMTM2OCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Brown Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:2}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2YyNGU1NmZkOWZmZDcxMzNkYTZkMWYzZTJmNDU1OTUyYjFkYTQ2MjY4NmY3NTNjNTk3ZWU4MjI5OWEifX19"
+												}
+											]
+										},
+										"minecraft:item_name": "\"Gray Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:3}"
+									},
+									"entity": "this"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

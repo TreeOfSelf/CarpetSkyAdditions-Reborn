@@ -1,0 +1,48 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:elytra",
+          "functions": [
+            {
+              "function": "minecraft:set_damage",
+              "damage": {
+                "min": 0,
+                "max": 0.25
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "effects": {
+                  "minecraft:slow_falling": {},
+                  "minecraft:levitation": {}
+                }
+              }
+            },
+            {
+              "condition": "minecraft:killed_by_player"
+            },
+            {
+              "condition": "minecraft:random_chance_with_enchanted_bonus",
+              "enchantment": "minecraft:looting",
+              "unenchanted_chance": 0.1,
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 0.12,
+                "per_level_above_first": 0.02
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

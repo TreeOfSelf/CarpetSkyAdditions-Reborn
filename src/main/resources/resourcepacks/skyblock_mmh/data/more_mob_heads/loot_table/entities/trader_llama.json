@@ -1,0 +1,150 @@
+{
+	"type": "minecraft:entity",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:alternatives",
+					"conditions": [
+						{
+							"condition": "killed_by_player"
+						},
+						{
+							"condition": "random_chance_with_enchanted_bonus",
+							"enchantment": "minecraft:looting",
+							"unenchanted_chance": 0.24,
+							"enchanted_chance": {
+								"type": "minecraft:linear",
+								"base": 0.31,
+								"per_level_above_first": 0.07
+							}
+						}
+					],
+					"children": [
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTg5YTJlYjE3NzA1ZmU3MTU0YWIwNDFlNWM3NmEwOGQ0MTU0NmEzMWJhMjBlYTMwNjBlM2VjOGVkYzEwNDEyYyJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Creamy Trader Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:0}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzA4N2E1NTZkNGZmYTk1ZWNkMjg0NGYzNTBkYzQzZTI1NGU1ZDUzNWZhNTk2ZjU0MGQ3ZTc3ZmE2N2RmNDY5NiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"White Trader Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:1}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODQyNDc4MGIzYzVjNTM1MWNmNDlmYjViZjQxZmNiMjg5NDkxZGY2YzQzMDY4M2M4NGQ3ODQ2MTg4ZGI0Zjg0ZCJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Brown Trader Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:2}"
+									},
+									"entity": "this"
+								}
+							]
+						},
+						{
+							"type": "item",
+							"name": "minecraft:player_head",
+							"functions": [
+								{
+									"function": "set_components",
+									"components": {
+										"minecraft:note_block_sound": "minecraft:entity.llama.ambient",
+										"minecraft:profile": {
+											"properties": [
+												{
+													"name": "textures",
+													"value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmU0ZDhhMGJjMTVmMjM5OTIxZWZkOGJlMzQ4MGJhNzdhOThlZTdkOWNlMDA3MjhjMGQ3MzNmMGEyZDYxNGQxNiJ9fX0="
+												}
+											]
+										},
+										"minecraft:item_name": "\"Gray Trader Llama Head\""
+									}
+								}
+							],
+							"conditions": [
+								{
+									"condition": "entity_properties",
+									"predicate": {
+										"nbt": "{Variant:3}"
+									},
+									"entity": "this"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}
