@@ -38,9 +38,6 @@ public class UseBreezeRodOnTrialSpawner {
                 if (spawner.getState() == TrialSpawnerState.INACTIVE) {
 
                     spawner.setEntityId(EntityType.BREEZE, player.level().random);
-                    CompoundTag blockData = spawner.saveWithoutMetadata(level.registryAccess());
-                    //blockData.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
-                    //blockData.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
                     spawner.setChanged();
                     spawner.markUpdated();
                     stack.shrink(1);
