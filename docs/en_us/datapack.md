@@ -6,6 +6,8 @@ To customize the datapack,
 Download the mod .jar file and open it with any archive tool you prefer such as 7-Zip, WinRAR, File Roller, Ark, or a command line utility like unzip or tar
 and edit to your liking.
 
+Look in either /resourcepacks or /data
+
 #### Structures ####
 Configured features can be overridden to replace the default world spawn platform and Sky Island platform.
 
