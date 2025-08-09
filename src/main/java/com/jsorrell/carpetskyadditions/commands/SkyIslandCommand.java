@@ -5,8 +5,6 @@ import static net.minecraft.commands.Commands.literal;
 
 import carpet.utils.CommandHelper;
 import com.jsorrell.carpetskyadditions.gen.feature.SkyAdditionsConfiguredFeatures;
-import com.jsorrell.carpetskyadditions.gen.feature.SkyAdditionsFeatures;
-import com.jsorrell.carpetskyadditions.gen.feature.SpawnPlatformFeatureConfiguration;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.jsorrell.carpetskyadditions.util.SkyAdditionsText;
 import com.mojang.brigadier.CommandDispatcher;

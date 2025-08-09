@@ -1,7 +1,6 @@
 package com.jsorrell.carpetskyadditions.advancements.predicates;
 
 import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
-import com.mojang.serialization.Codec;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;

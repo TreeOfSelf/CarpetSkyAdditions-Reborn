@@ -1,6 +1,5 @@
 package com.jsorrell.carpetskyadditions.advancements.predicates;
 
-import com.google.common.collect.ImmutableSet;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
