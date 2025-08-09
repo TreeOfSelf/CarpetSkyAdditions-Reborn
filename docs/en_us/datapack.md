@@ -3,10 +3,8 @@
 ### Modifying
 
 To customize the datapack,
-download the datapack from [releases](https://github.com/jsorrell/CarpetSkyAdditions/releases)
+Download the mod .jar file and open it with any archive tool you prefer such as 7-Zip, WinRAR, File Roller, Ark, or a command line utility like unzip or tar
 and edit to your liking.
-
-Disable the built-in datapack and enable your edited one instead.
 
 #### Structures ####
 Configured features can be overridden to replace the default world spawn platform and Sky Island platform.
