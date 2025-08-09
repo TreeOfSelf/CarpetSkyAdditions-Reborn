@@ -83,12 +83,12 @@ If you get stuck, a general progression walkthrough is available [here](docs/en_
 
 ### Fixing Old Trial Spawners / Vaults
 
-If you have old <=1.21.1 Trial Spawners / Vaults from an older version of this mod that aren't working properly    
-You can use [mcaselector](https://github.com/Querz/mcaselector) to fix them.   
-Simply download the mcaselector.jar, place it next to your world folder, and run it in a command-line using this command:  
+If you have old <=1.21.1 Trial Spawners / Vaults from an older version of this mod that aren't working properly
+You can use [mcaselector](https://github.com/Querz/mcaselector) to fix them.
+Simply download the mcaselector.jar, place it next to your world folder, and run it in a command-line using this command:
 
-`java -jar /usr/local/bin/mcaselector.jar --mode delete --world 'world' --query 'Palette contains "trial_spawner" OR Palette contains "vault"'`    
-*Note: This will completely delete any chunks containing vaults/trial spawners so they can be regenerated. Use with caution.*
+`java -jar /usr/local/bin/mcaselector.jar --mode delete --world 'world' --query 'Palette contains "trial_spawner" OR Palette contains "vault"'`
+*Note: This will completely delete any chunks containing vaults/trial spawners, so they can be regenerated. Use with caution.*
 
 ## Translations
 

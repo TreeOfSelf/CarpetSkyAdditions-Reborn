@@ -207,7 +207,7 @@ Provides *Bushes*
 
 Disable with ```/carpetskyadditions removeDefault doDeadBushToBush```
 
-Using a water bottle on a deadh bush turns it into a bush. 
+Using a water bottle on a deadh bush turns it into a bush.
 
 ---
 
@@ -412,7 +412,7 @@ This is how you obtain the loot from Trial Spawners.
 
 ---
 
-#### Growing a Pale Oak Sapling Near a Open Eye Blossom Produces a Creaking Heart ####
+#### Growing a Pale Oak Sapling Near an Open Eye Blossom Produces a Creaking Heart ####
 
 Provides *Creaking Heart and Resin*
 
