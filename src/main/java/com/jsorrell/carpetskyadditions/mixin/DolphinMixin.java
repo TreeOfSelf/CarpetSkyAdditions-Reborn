@@ -9,6 +9,7 @@ import net.minecraft.world.entity.animal.Dolphin;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
 import org.spongepowered.asm.mixin.transformer.meta.MixinInner;
@@ -19,6 +20,7 @@ public abstract class DolphinMixin extends AgeableWaterCreature {
         super(entityType, level);
     }
 
+    @Unique
     @SuppressWarnings("ConstantConditions")
     private Dolphin asDolphin() {
         if ((AgeableWaterCreature) this instanceof Dolphin dolphin) {

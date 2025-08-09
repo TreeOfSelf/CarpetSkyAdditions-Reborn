@@ -19,6 +19,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 
 @Mixin(Spider.class)
 public abstract class SpiderMixin extends Monster {
@@ -26,6 +27,7 @@ public abstract class SpiderMixin extends Monster {
         super(entityType, level);
     }
 
+    @Unique
     @SuppressWarnings("ConstantConditions")
     private Spider asSpider() {
         if ((Monster) this instanceof Spider spider) {
