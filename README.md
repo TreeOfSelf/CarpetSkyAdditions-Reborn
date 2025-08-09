@@ -30,7 +30,7 @@ tree instead of an Oak tree.
 If you want an even harder challenge, enable the datapack `"carpetskyadditions/skyblock_no_tree"` to start with only
 a platform without any tree.
 
-All datapacks are stand alone, and are also available with a More Mob Heads (Vanilla Tweaks) variant.
+All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
 
 For custom or server installations, follow the [Detailed Installation Instructions](docs/en_us/installation.md)
 
