@@ -1,0 +1,20 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:poisonous_potato"
+    },
+    "title": {
+      "translate": "Spider Scientist"
+    },
+    "description": {
+      "translate": "Convert a Spider to a Cave Spider with a Poisonous Potato"
+    },
+    "frame": "goal"
+  },
+  "parent": "skyblock:progression/zombie_crop",
+  "criteria": {
+    "convert_spider": {
+      "trigger": "carpetskyadditions:convert_spider"
+    }
+  }
+}

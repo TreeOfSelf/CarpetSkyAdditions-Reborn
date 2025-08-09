@@ -1,0 +1,26 @@
+{
+  "parent": "skyblock:progression/sapling",
+  "display": {
+    "icon": {
+      "id": "minecraft:oak_log"
+    },
+    "title": {
+      "translate": "The First of Many"
+    },
+    "description": {
+      "translate": "Get your first Log"
+    }
+  },
+  "criteria": {
+    "has_oak_log": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:logs"
+          }
+        ]
+      }
+    }
+  }
+}

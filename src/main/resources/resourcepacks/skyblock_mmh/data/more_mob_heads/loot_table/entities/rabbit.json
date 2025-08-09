@@ -1,0 +1,411 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:player_head",
+          "functions": [
+            {
+              "function": "set_components",
+              "components": {
+                "minecraft:note_block_sound": "minecraft:entity.rabbit.ambient",
+                "minecraft:profile": {
+                  "properties": [
+                    {
+                      "name": "textures",
+                      "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTFhNTdjM2QwYTliMTBlMTNmNjZkZjc0MjAwY2I4YTZkNDg0YzY3MjIyNjgxMmQ3NGUyNWY2YzAyNzQxMDYxNiJ9fX0="
+                    }
+                  ]
+                },
+                "minecraft:item_name": "\"Toast Head\""
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "random_chance_with_enchanted_bonus",
+              "enchantment": "minecraft:looting",
+              "unenchanted_chance": 1.0,
+              "enchanted_chance": {
+                "type": "minecraft:linear",
+                "base": 1,
+                "per_level_above_first": 0
+              }
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_count",
+          "count": 2
+        },
+        {
+          "function": "minecraft:set_name",
+          "entity": "this",
+          "name": {
+            "selector": "@s[name=Toast]"
+          }
+        },
+        {
+          "function": "minecraft:filtered",
+          "item_filter": {
+            "components": {
+              "minecraft:custom_name": "\"\""
+            }
+          },
+          "modifier": {
+            "function": "minecraft:set_count",
+            "count": 1
+          }
+        },
+        {
+          "function": "minecraft:set_count",
+          "count": -1,
+          "add": true
+        },
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "!minecraft:custom_name": {}
+          }
+        }
+      ]
+    },
+    {
+      "conditions": [
+        {
+          "condition": "killed_by_player"
+        }
+      ],
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "item",
+              "name": "minecraft:player_head",
+              "functions": [
+                {
+                  "function": "set_components",
+                  "components": {
+                    "minecraft:note_block_sound": "minecraft:entity.rabbit.ambient",
+                    "minecraft:profile": {
+                      "properties": [
+                        {
+                          "name": "textures",
+                          "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2ZkNGY4NmNmNzQ3M2ZiYWU5M2IxZTA5MDQ4OWI2NGMwYmUxMjZjN2JiMTZmZmM4OGMwMDI0NDdkNWM3Mjc5NSJ9fX0="
+                        }
+                      ]
+                    },
+                    "minecraft:item_name": "\"Brown Rabbit Head\""
+                  }
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "predicate": {
+                    "nbt": "{RabbitType:0}"
+                  },
+                  "entity": "this"
+                },
+                {
+                  "condition": "random_chance_with_enchanted_bonus",
+                  "enchantment": "minecraft:looting",
+                  "unenchanted_chance": 0.26,
+                  "enchanted_chance": {
+                    "type": "minecraft:linear",
+                    "base": 0.31,
+                    "per_level_above_first": 0.05
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "minecraft:player_head",
+              "functions": [
+                {
+                  "function": "set_components",
+                  "components": {
+                    "minecraft:note_block_sound": "minecraft:entity.rabbit.ambient",
+                    "minecraft:profile": {
+                      "properties": [
+                        {
+                          "name": "textures",
+                          "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTU0MmQ3MTYwOTg3MTQ4YTVkOGUyMGU0NjliZDliM2MyYTM5NDZjN2ZiNTkyM2Y1NWI5YmVhZTk5MTg1ZiJ9fX0="
+                        }
+                      ]
+                    },
+                    "minecraft:item_name": "\"White Rabbit Head\""
+                  }
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "predicate": {
+                    "nbt": "{RabbitType:1}"
+                  },
+                  "entity": "this"
+                },
+                {
+                  "condition": "random_chance_with_enchanted_bonus",
+                  "enchantment": "minecraft:looting",
+                  "unenchanted_chance": 0.26,
+                  "enchanted_chance": {
+                    "type": "minecraft:linear",
+                    "base": 0.31,
+                    "per_level_above_first": 0.05
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "minecraft:player_head",
+              "functions": [
+                {
+                  "function": "set_components",
+                  "components": {
+                    "minecraft:note_block_sound": "minecraft:entity.rabbit.ambient",
+                    "minecraft:profile": {
+                      "properties": [
+                        {
+                          "name": "textures",
+                          "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjJiNDI1ZmYyYTIzNmFiMTljYzkzOTcxOTVkYjQwZjhmMTg1YjE5MWM0MGJmNDRiMjZlOTVlYWM5ZmI1ZWZhMyJ9fX0="
+                        }
+                      ]
+                    },
+                    "minecraft:item_name": "\"Black Rabbit Head\""
+                  }
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "predicate": {
+                    "nbt": "{RabbitType:2}"
+                  },
+                  "entity": "this"
+                },
+                {
+                  "condition": "random_chance_with_enchanted_bonus",
+                  "enchantment": "minecraft:looting",
+                  "unenchanted_chance": 0.26,
+                  "enchanted_chance": {
+                    "type": "minecraft:linear",
+                    "base": 0.31,
+                    "per_level_above_first": 0.05
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "minecraft:player_head",
+              "functions": [
+                {
+                  "function": "set_components",
+                  "components": {
+                    "minecraft:note_block_sound": "minecraft:entity.rabbit.ambient",
+                    "minecraft:profile": {
+                      "properties": [
+                        {
+                          "name": "textures",
+                          "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMzVmNzJhMjE5NWViZjQxMTdjNTA1NmNmZTJiNzM1N2VjNWJmODMyZWRlMTg1NmE3NzczZWU0MmEwZDBmYjNmMCJ9fX0="
+                        }
+                      ]
+                    },
+                    "minecraft:item_name": "\"Black and White Rabbit Head\""
+                  }
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "predicate": {
+                    "nbt": "{RabbitType:3}"
+                  },
+                  "entity": "this"
+                },
+                {
+                  "condition": "random_chance_with_enchanted_bonus",
+                  "enchantment": "minecraft:looting",
+                  "unenchanted_chance": 0.26,
+                  "enchanted_chance": {
+                    "type": "minecraft:linear",
+                    "base": 0.31,
+                    "per_level_above_first": 0.05
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "minecraft:player_head",
+              "functions": [
+                {
+                  "function": "set_components",
+                  "components": {
+                    "minecraft:note_block_sound": "minecraft:entity.rabbit.ambient",
+                    "minecraft:profile": {
+                      "properties": [
+                        {
+                          "name": "textures",
+                          "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzY3YjcyMjY1NmZkZWVjMzk5NzRkMzM5NWM1ZTE4YjQ3YzVlMjM3YmNlNWJiY2VkOWI3NTUzYWExNGI1NDU4NyJ9fX0="
+                        }
+                      ]
+                    },
+                    "minecraft:item_name": "\"Gold Rabbit Head\""
+                  }
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "predicate": {
+                    "nbt": "{RabbitType:4}"
+                  },
+                  "entity": "this"
+                },
+                {
+                  "condition": "random_chance_with_enchanted_bonus",
+                  "enchantment": "minecraft:looting",
+                  "unenchanted_chance": 0.26,
+                  "enchanted_chance": {
+                    "type": "minecraft:linear",
+                    "base": 0.31,
+                    "per_level_above_first": 0.05
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "minecraft:player_head",
+              "functions": [
+                {
+                  "function": "set_components",
+                  "components": {
+                    "minecraft:note_block_sound": "minecraft:entity.rabbit.ambient",
+                    "minecraft:profile": {
+                      "properties": [
+                        {
+                          "name": "textures",
+                          "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTIzODUxOWZmMzk4MTViMTZjNDA2MjgyM2U0MzE2MWZmYWFjOTY4OTRmZTA4OGIwMThlNmEyNGMyNmUxODFlYyJ9fX0="
+                        }
+                      ]
+                    },
+                    "minecraft:item_name": "\"Salt and Pepper Rabbit Head\""
+                  }
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "predicate": {
+                    "nbt": "{RabbitType:5}"
+                  },
+                  "entity": "this"
+                },
+                {
+                  "condition": "random_chance_with_enchanted_bonus",
+                  "enchantment": "minecraft:looting",
+                  "unenchanted_chance": 0.26,
+                  "enchanted_chance": {
+                    "type": "minecraft:linear",
+                    "base": 0.31,
+                    "per_level_above_first": 0.05
+                  }
+                }
+              ]
+            },
+            {
+              "type": "item",
+              "name": "minecraft:player_head",
+              "functions": [
+                {
+                  "function": "set_components",
+                  "components": {
+                    "minecraft:note_block_sound": "minecraft:entity.rabbit.attack",
+                    "minecraft:profile": {
+                      "properties": [
+                        {
+                          "name": "textures",
+                          "value": "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzFkZDc2NzkyOWVmMmZkMmQ0M2U4NmU4NzQ0YzRiMGQ4MTA4NTM0NzEyMDFmMmRmYTE4Zjk2YTY3ZGU1NmUyZiJ9fX0="
+                        }
+                      ]
+                    },
+                    "minecraft:item_name": "\"The Killer Bunny Head\""
+                  }
+                }
+              ],
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "predicate": {
+                    "nbt": "{RabbitType:99}"
+                  },
+                  "entity": "this"
+                },
+                {
+                  "condition": "random_chance_with_enchanted_bonus",
+                  "enchantment": "minecraft:looting",
+                  "unenchanted_chance": 1,
+                  "enchanted_chance": {
+                    "type": "minecraft:linear",
+                    "base": 1,
+                    "per_level_above_first": 0
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "functions": [
+        {
+          "function": "minecraft:set_name",
+          "entity": "this",
+          "name": {
+            "selector": "@s[name=Toast]"
+          }
+        },
+        {
+          "function": "minecraft:filtered",
+          "item_filter": {
+            "components": {
+              "minecraft:custom_name": "\"\""
+            }
+          },
+          "modifier": {
+            "function": "minecraft:set_count",
+            "count": 2
+          }
+        },
+        {
+          "function": "minecraft:set_count",
+          "count": -1,
+          "add": true
+        },
+        {
+          "function": "minecraft:set_components",
+          "components": {
+            "!minecraft:custom_name": {}
+          }
+        }
+      ]
+    }
+  ]
+}

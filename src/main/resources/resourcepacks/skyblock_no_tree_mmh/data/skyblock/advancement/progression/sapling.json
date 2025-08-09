@@ -1,0 +1,26 @@
+{
+  "parent": "skyblock:progression/wandering_trader",
+  "display": {
+    "icon": {
+      "id": "minecraft:oak_sapling"
+    },
+    "title": {
+      "translate": "The Circle of Life"
+    },
+    "description": {
+      "translate": "Buy your first Sapling from a Wandering Trader"
+    }
+  },
+  "criteria": {
+    "has_oak_sapling": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "#minecraft:saplings"
+          }
+        ]
+      }
+    }
+  }
+}

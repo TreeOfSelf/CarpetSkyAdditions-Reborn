@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "group": "ore",
+  "pattern": [
+    " X ",
+    "XSX",
+    " X "
+  ],
+  "key": {
+    "X": "minecraft:gold_ingot",
+    "S": "minecraft:stone"
+  },
+  "result": {
+    "id": "minecraft:gold_ore",
+    "count": 1
+  }
+}

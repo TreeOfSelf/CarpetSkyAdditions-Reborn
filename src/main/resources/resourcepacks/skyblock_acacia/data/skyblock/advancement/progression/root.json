@@ -1,0 +1,21 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:feather"
+    },
+    "title": {
+      "translate": "SkyBlock"
+    },
+    "description": {
+      "translate": "Everything from Nothing"
+    },
+    "show_toast": false,
+    "announce_to_chat": false,
+    "background": "minecraft:block/dirt"
+  },
+  "criteria": {
+    "join_skyblock_world": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
