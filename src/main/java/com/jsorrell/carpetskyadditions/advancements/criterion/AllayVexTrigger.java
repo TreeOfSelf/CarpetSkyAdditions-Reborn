@@ -20,10 +20,7 @@ public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Cond
         LootContext vexLootContext = EntityPredicate.createContext(player, vex);
         LootContext allayLootContext = EntityPredicate.createContext(player, allay);
 
-        trigger(player, conditions -> {
-            boolean matches = conditions.matches(vexLootContext, allayLootContext);
-            return matches;
-        });
+        trigger(player, conditions -> conditions.matches(vexLootContext, allayLootContext));
     }
 
     @Override
