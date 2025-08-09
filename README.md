@@ -97,6 +97,7 @@ If you are able to add translations, your help would be much appreciated.
 
 
 ## Acknowledgements
+- [@Seigmannen](https://github.com/Seigmannen) Merging his improved datapacks with better balance & more varied starts
 
 - [@skyrising](https://github.com/skyrising/skyblock) for the initial mod idea
 
