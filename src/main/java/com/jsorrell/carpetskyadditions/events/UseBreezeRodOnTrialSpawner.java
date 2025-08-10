@@ -1,12 +1,17 @@
 package com.jsorrell.carpetskyadditions.events;
 
 import com.jsorrell.carpetskyadditions.advancements.criterion.SkyAdditionsCriteriaTriggers;
+import com.mojang.logging.LogUtils;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
@@ -17,6 +22,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
+import net.minecraft.world.level.storage.TagValueInput;
+import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 
@@ -38,6 +45,7 @@ public class UseBreezeRodOnTrialSpawner {
                 if (spawner.getState() == TrialSpawnerState.INACTIVE) {
 
                     spawner.setEntityId(EntityType.BREEZE, player.level().random);
+
                     spawner.setChanged();
                     spawner.markUpdated();
                     stack.shrink(1);

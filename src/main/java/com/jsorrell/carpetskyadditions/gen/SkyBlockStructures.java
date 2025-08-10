@@ -1,34 +1,44 @@
 package com.jsorrell.carpetskyadditions.gen;
 
 import java.util.Objects;
+import java.util.Optional;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.entity.TrialSpawnerBlockEntity;
-import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerState;
+import net.minecraft.world.level.block.entity.trialspawner.PlayerDetector;
+import net.minecraft.world.level.block.entity.trialspawner.TrialSpawner;
+import net.minecraft.world.level.block.entity.trialspawner.TrialSpawnerConfigs;
 import net.minecraft.world.level.block.entity.vault.VaultBlockEntity;
+import net.minecraft.world.level.block.entity.vault.VaultConfig;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.structure.BoundingBox;
 import net.minecraft.world.level.levelgen.structure.StructurePiece;
+import net.minecraft.world.level.storage.TagValueInput;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 
 
 public class SkyBlockStructures {
     protected record StructureOrientation(Rotation rotation, Mirror mirror) {
         private int applyXTransform(int x, int z, BoundingBox boundingBox) {
             if ((rotation == Rotation.NONE && mirror != Mirror.FRONT_BACK)
-                    || (rotation == Rotation.CLOCKWISE_180 && mirror == Mirror.FRONT_BACK)) {
+                || (rotation == Rotation.CLOCKWISE_180 && mirror == Mirror.FRONT_BACK)) {
                 return boundingBox.minX() + x;
             } else if (rotation == Rotation.NONE || rotation == Rotation.CLOCKWISE_180) {
                 return boundingBox.maxX() - x;
             } else if ((rotation == Rotation.COUNTERCLOCKWISE_90 && mirror != Mirror.LEFT_RIGHT)
-                    || (rotation == Rotation.CLOCKWISE_90 && mirror == Mirror.LEFT_RIGHT)) {
+                || (rotation == Rotation.CLOCKWISE_90 && mirror == Mirror.LEFT_RIGHT)) {
                 return boundingBox.minX() + z;
             } else {
                 return boundingBox.maxX() - z;
@@ -37,12 +47,12 @@ public class SkyBlockStructures {
 
         private int applyZTransform(int x, int z, BoundingBox boundingBox) {
             if ((rotation == Rotation.NONE && mirror != Mirror.LEFT_RIGHT)
-                    || (rotation == Rotation.CLOCKWISE_180 && mirror == Mirror.LEFT_RIGHT)) {
+                || (rotation == Rotation.CLOCKWISE_180 && mirror == Mirror.LEFT_RIGHT)) {
                 return boundingBox.minZ() + z;
             } else if (rotation == Rotation.NONE || rotation == Rotation.CLOCKWISE_180) {
                 return boundingBox.maxZ() - z;
             } else if ((rotation == Rotation.CLOCKWISE_90 && mirror != Mirror.FRONT_BACK)
-                    || (rotation == Rotation.COUNTERCLOCKWISE_90 && mirror == Mirror.LEFT_RIGHT)) {
+                || (rotation == Rotation.COUNTERCLOCKWISE_90 && mirror == Mirror.LEFT_RIGHT)) {
                 return boundingBox.minZ() + x;
             } else {
                 return boundingBox.maxZ() - x;
@@ -95,15 +105,15 @@ public class SkyBlockStructures {
         }
 
         protected void fillBlocks(
-                ServerLevelAccessor level,
-                BlockState block,
-                int minX,
-                int minY,
-                int minZ,
-                int maxX,
-                int maxY,
-                int maxZ,
-                BoundingBox bounds) {
+            ServerLevelAccessor level,
+            BlockState block,
+            int minX,
+            int minY,
+            int minZ,
+            int maxX,
+            int maxY,
+            int maxZ,
+            BoundingBox bounds) {
             for (int x = minX; x <= maxX; ++x) {
                 for (int y = minY; y <= maxY; ++y) {
                     for (int z = minZ; z <= maxZ; ++z) {
@@ -171,15 +181,14 @@ public class SkyBlockStructures {
 
             // Sculk Shrieker
             addBlock(
-                    level,
-                    Blocks.SCULK_SHRIEKER.defaultBlockState().setValue(SculkShriekerBlock.CAN_SUMMON, true),
-                    9,
-                    8,
-                    20,
-                    bounds);
+                level,
+                Blocks.SCULK_SHRIEKER.defaultBlockState().setValue(SculkShriekerBlock.CAN_SUMMON, true),
+                9,
+                8,
+                20,
+                bounds);
         }
     }
-
 
     public static class TrialChamberEntrance extends SkyBlockStructure {
 
@@ -187,56 +196,81 @@ public class SkyBlockStructures {
             super(piece);
         }
 
-
         @Override
         public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
-            addBlock(
+            // Place regular vault
+            BlockPos.MutableBlockPos vaultPos = addBlock(
                 level,
                 Blocks.VAULT.defaultBlockState(),
-                0,0,0,
+                0, 0, 0,
                 bounds);
+
+            // Place ominous vault
             BlockPos.MutableBlockPos ominousVaultPos = addBlock(
                 level,
-                Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS,true),
-                1,0,0,
+                Blocks.VAULT.defaultBlockState().setValue(VaultBlock.OMINOUS, true),
+                1, 0, 0,
                 bounds);
+
+            // Place trial spawner
             BlockPos.MutableBlockPos trialSpawnerPos = addBlock(
                 level,
                 Blocks.TRIAL_SPAWNER.defaultBlockState(),
-                10,0,0,
+                10, 0, 0,
                 bounds);
 
-
             level.getServer().submit(() -> {
-                BlockEntity tileEntity = level.getBlockEntity(trialSpawnerPos);
-                if (tileEntity instanceof TrialSpawnerBlockEntity spawner) {
-                    spawner.setLevel(level.getLevel());
-                    spawner.setState(level.getLevel(),TrialSpawnerState.INACTIVE);
+
+                BlockEntity trialSpawnerEntity = level.getBlockEntity(trialSpawnerPos);
+                if (trialSpawnerEntity instanceof TrialSpawnerBlockEntity spawner) {
+                    // Create NBT with the proper config structure
+                    CompoundTag configNbt = new CompoundTag();
+                    configNbt.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
+                    configNbt.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
+                    // Use the TrialSpawner's load method which properly handles the config
+                    ValueInput valueInput = TagValueInput.create(null, level.registryAccess(), configNbt);
+                    spawner.getTrialSpawner().load(valueInput);
+
+                    spawner.setChanged();
                 }
 
-                BlockEntity tileEntityVault = level.getBlockEntity(ominousVaultPos);
-                if (tileEntityVault instanceof VaultBlockEntity vault) {
-                    vault.setLevel(level.getLevel());
-                    CompoundTag blockData = vault.saveWithoutMetadata(level.getLevel().registryAccess());
-                    CompoundTag config = new CompoundTag();
-                    CompoundTag keyItem = new CompoundTag();
-                    keyItem.putInt("count", 1);
-                    keyItem.putString("id", "minecraft:ominous_trial_key");
-                    config.put("key_item", keyItem);
-                    config.putString("loot_table", "minecraft:chests/trial_chambers/reward_ominous");
-                    blockData.put("config", config);
-                    blockData.putString("id", "minecraft:vault");
+                BlockEntity vaultEntity = level.getBlockEntity(vaultPos);
+
+                if (vaultEntity instanceof VaultBlockEntity vault) {
+                    VaultConfig vaultConfig = vault.getConfig();
+                    ItemStack trialKey = new ItemStack(Items.TRIAL_KEY);
+                    VaultConfig config = new VaultConfig(
+                        BuiltInLootTables.TRIAL_CHAMBERS_REWARD,
+                        vaultConfig.activationRange(),
+                        vaultConfig.deactivationRange(),
+                        trialKey,
+                        Optional.empty(),
+                        PlayerDetector.INCLUDING_CREATIVE_PLAYERS,
+                        PlayerDetector.EntitySelector.SELECT_FROM_LEVEL
+                    );
+                    vault.setConfig(config);
                     vault.setChanged();
                 }
 
-
+                BlockEntity ominousVaultEntity = level.getBlockEntity(ominousVaultPos);
+                if (ominousVaultEntity instanceof VaultBlockEntity ominousVault) {
+                    VaultConfig vaultConfig = ominousVault.getConfig();
+                    ItemStack ominousTrialKey = new ItemStack(Items.OMINOUS_TRIAL_KEY);
+                    VaultConfig ominousConfig = new VaultConfig(
+                        BuiltInLootTables.TRIAL_CHAMBERS_REWARD_OMINOUS,
+                        vaultConfig.activationRange(),
+                        vaultConfig.deactivationRange(),
+                        ominousTrialKey,
+                        Optional.empty(),
+                        PlayerDetector.INCLUDING_CREATIVE_PLAYERS,
+                        PlayerDetector.EntitySelector.SELECT_FROM_LEVEL
+                    );
+                    ominousVault.setConfig(ominousConfig);
+                    ominousVault.setChanged();
+                }
             });
-
         }
     }
-
-
-
 
     public static class SpawnerStructure extends SkyBlockStructure {
         private final BlockPos spawnerPos;
@@ -251,7 +285,7 @@ public class SkyBlockStructures {
         @Override
         public void generate(ServerLevelAccessor level, BoundingBox bounds, RandomSource random) {
             BlockPos.MutableBlockPos spawnerAbsolutePos =
-                    offsetPos(spawnerPos.getX(), spawnerPos.getY(), spawnerPos.getZ());
+                offsetPos(spawnerPos.getX(), spawnerPos.getY(), spawnerPos.getZ());
             if (bounds.isInside(spawnerAbsolutePos)) {
                 level.setBlock(spawnerAbsolutePos, Blocks.SPAWNER.defaultBlockState(), Block.UPDATE_CLIENTS);
                 BlockEntity blockEntity = level.getBlockEntity(spawnerAbsolutePos);
