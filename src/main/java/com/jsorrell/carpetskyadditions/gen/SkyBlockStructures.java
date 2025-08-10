@@ -220,17 +220,13 @@ public class SkyBlockStructures {
                 bounds);
 
             level.getServer().submit(() -> {
-
                 BlockEntity trialSpawnerEntity = level.getBlockEntity(trialSpawnerPos);
                 if (trialSpawnerEntity instanceof TrialSpawnerBlockEntity spawner) {
-                    // Create NBT with the proper config structure
                     CompoundTag configNbt = new CompoundTag();
                     configNbt.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
                     configNbt.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
-                    // Use the TrialSpawner's load method which properly handles the config
                     ValueInput valueInput = TagValueInput.create(null, level.registryAccess(), configNbt);
                     spawner.getTrialSpawner().load(valueInput);
-
                     spawner.setChanged();
                 }
 
