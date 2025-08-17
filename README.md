@@ -90,12 +90,6 @@ Simply download the mcaselector.jar, place it next to your world folder, and run
 `java -jar mcaselector.jar --mode delete --world 'world' --query 'Palette contains "trial_spawner" OR Palette contains "vault"'`
 *Note: This will completely delete any chunks containing vaults/trial spawners, so they can be regenerated. Use with caution.*
 
-## Translations
-
-The mod and the datapack are available for translation using [CrowdIn](https://crowdin.com/project/carpetskyadditions).
-If you are able to add translations, your help would be much appreciated.
-
-
 ## Acknowledgements
 - [@Seigmannen](https://github.com/Seigmannen) Merging his improved datapacks with better balance & more varied starts
 
