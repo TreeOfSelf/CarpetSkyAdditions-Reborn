@@ -206,8 +206,37 @@ with the Smithing Template replaced with a Netherite Ingot.
 
 #### Loot Tables for Trial Vaults are Updated ####
 
+Provides *Trial Chamber Pottery Sherds* and the music disc *Creator (Music Box)*
+
 As the trial vaults are easy to find and provides an easy way to get some resources that would make some parts of this mod obsolete, the
 loot tables for the trial vaults has been updated.
+
+Added to regular vaults:
+* Flow Pottery Sherd
+* Guster Pottery Sherd
+* Scrape Pottery Sherd
+
+Removed from regular vaults:
+* Diamond
+* Diamond Axe
+* Diamond Chestplate
+* Golden Apple
+* Bolt Armor Trim Smithing Template
+* Music Disc (Precipice)
+* Trident
+
+Added to ominous vaults:
+* Music Disc (Creator (Music Box))
+
+Removed from ominous vaults:
+* Diamond
+* Golden Apple
+* Diamond Axe
+* Diamond Chestplate
+* Block of Diamond
+* Enchanted Golden Apple
+* Flow Armor Trim Smithing Template
+* Music Disc (Creator)
 
 ---
 
