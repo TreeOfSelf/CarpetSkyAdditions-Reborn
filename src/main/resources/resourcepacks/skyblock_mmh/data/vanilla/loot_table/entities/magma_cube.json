@@ -2,7 +2,7 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "bonus_rolls": 0.0,
+      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
@@ -36,16 +36,16 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": -2.0
+                "max": 1,
+                "min": -2
               },
               "function": "minecraft:set_count"
             },
             {
               "count": {
                 "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
+                "max": 1,
+                "min": 0
               },
               "enchantment": "minecraft:looting",
               "function": "minecraft:enchanted_count_increase"
@@ -61,9 +61,8 @@
               "predicate": {
                 "source_entity": {
                   "type": "minecraft:frog",
-                  "type_specific": {
-                    "type": "minecraft:frog",
-                    "variant": "minecraft:warm"
+                  "components": {
+                    "minecraft:frog/variant": "minecraft:warm"
                   }
                 }
               }
@@ -72,7 +71,7 @@
           "functions": [
             {
               "add": false,
-              "count": 1.0,
+              "count": 1,
               "function": "minecraft:set_count"
             }
           ],
@@ -86,9 +85,8 @@
               "predicate": {
                 "source_entity": {
                   "type": "minecraft:frog",
-                  "type_specific": {
-                    "type": "minecraft:frog",
-                    "variant": "minecraft:cold"
+                  "components": {
+                    "minecraft:frog/variant": "minecraft:cold"
                   }
                 }
               }
@@ -97,7 +95,7 @@
           "functions": [
             {
               "add": false,
-              "count": 1.0,
+              "count": 1,
               "function": "minecraft:set_count"
             }
           ],
@@ -111,9 +109,8 @@
               "predicate": {
                 "source_entity": {
                   "type": "minecraft:frog",
-                  "type_specific": {
-                    "type": "minecraft:frog",
-                    "variant": "minecraft:temperate"
+                  "components": {
+                    "minecraft:frog/variant": "minecraft:temperate"
                   }
                 }
               }
@@ -122,14 +119,14 @@
           "functions": [
             {
               "add": false,
-              "count": 1.0,
+              "count": 1,
               "function": "minecraft:set_count"
             }
           ],
           "name": "minecraft:ochre_froglight"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "minecraft:entities/magma_cube"

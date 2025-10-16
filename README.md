@@ -1,4 +1,5 @@
-![image](https://github.com/user-attachments/assets/bd211a15-8baa-43b8-a193-fff17e14e9c3)
+<img width="128" height="128" alt="image" src="https://github.com/user-attachments/assets/5e8be161-1902-48cb-97b8-8ec7c4192789" />
+
 
 # Carpet Sky Additions Reborn
 
@@ -104,12 +105,9 @@ Simply download the mcaselector.jar, place it next to your world folder, and run
 - All the translators on CrowdIn
 
 ## License
-
 This project is licensed under the terms of the MIT license.
-
 
 ## Notable Contributors
 - [Seigmannen](https://github.com/Seigmannen) (Code/Datapack/Testing)
-- [cputnam-a11y](https://github.com/cputnam-a11y/) (Mixin improvements)
 - [XieLong55](https://github.com/XieLong55) (Simplified Chinese Translation Updates)
 
