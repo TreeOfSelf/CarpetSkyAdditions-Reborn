@@ -20,6 +20,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.GlobalPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
@@ -34,6 +35,7 @@ import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.storage.LevelData;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 public class SkyIslandCommand {
@@ -153,7 +155,7 @@ public class SkyIslandCommand {
             player.setDeltaMovement(player.getDeltaMovement().multiply(1.0, 0.0, 1.0));
             player.setOnGround(true);
         }
-        player.setRespawnPosition(new ServerPlayer.RespawnConfig(player.level().dimension(), new BlockPos(x, y, z), 0f, true), false);
+        player.setRespawnPosition(new ServerPlayer.RespawnConfig(new LevelData.RespawnData(new GlobalPos(player.level().dimension(),new BlockPos(x, y, z)),0f, 0f), false), false);
     }
 
     public abstract static class SkyIslandPositionContainer {

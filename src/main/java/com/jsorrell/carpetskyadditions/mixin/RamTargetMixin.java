@@ -63,7 +63,7 @@ public abstract class RamTargetMixin<E extends PathfinderMob> extends Behavior<E
 
                 boolean blockRemoved = level.removeBlock(wartPos, false);
                 if (blockRemoved) {
-                    if (!level.isClientSide) {
+                    if (!level.isClientSide()) {
                         Block.popResource(
                                 level, wartPos, new ItemStack(Items.NETHER_WART, level.random.nextInt(2) + 1));
                     }

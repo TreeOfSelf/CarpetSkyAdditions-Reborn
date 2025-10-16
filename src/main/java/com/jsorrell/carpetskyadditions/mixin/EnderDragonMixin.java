@@ -15,6 +15,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -22,6 +23,9 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(EnderDragon.class)
 public abstract class EnderDragonMixin extends Mob implements Enemy {
+    @Shadow
+    public abstract void kill(ServerLevel level);
+
     protected boolean shouldDropHead;
     private static final String SHOULD_DROP_HEAD_KEY = "ShouldDropHead";
 
@@ -62,8 +66,7 @@ public abstract class EnderDragonMixin extends Mob implements Enemy {
         super.dropCustomDeathLoot(serverLevel, damageSource, bl);
         if (SkyAdditionsSettings.renewableDragonHeads) {
             if (damageSource.getEntity() instanceof Creeper killerCreeper) {
-                if (killerCreeper.canDropMobsSkull()) {
-                    killerCreeper.increaseDroppedSkulls();
+                if (killerCreeper.isPowered()) {
                     shouldDropHead = true;
                 }
             }

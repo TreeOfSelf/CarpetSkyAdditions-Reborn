@@ -27,11 +27,16 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import java.util.List;
 import org.apache.commons.lang3.tuple.Pair;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(WanderingTrader.class)
 public abstract class WanderingTraderMixin extends AbstractVillager {
     @Shadow
     protected abstract void registerGoals();
+
+    @Unique
+    private boolean wasRiding = false;
 
     public WanderingTraderMixin(EntityType<? extends AbstractVillager> entityType, Level level) {
         super(entityType, level);
@@ -72,17 +77,22 @@ public abstract class WanderingTraderMixin extends AbstractVillager {
         super.remove(reason);
     }
 
-    @Override
-    public boolean startRiding(Entity vehicle, boolean force) {
-        boolean success = super.startRiding(vehicle, force);
-        if (success) {
-            Camel traderCamel = TraderCamelHelper.getTraderCamel(asTrader());
-            if (traderCamel != null) {
-                ((CamelInterface) traderCamel).carpetSkyAdditions$makeTraderCamel();
-                reregisterGoalsForMountedTrader();
-            }
+    @Inject(method = "aiStep", at = @At("HEAD"))
+    private void onAiStep(CallbackInfo ci) {
+        boolean isRiding = this.isPassenger();
+        if (isRiding && !wasRiding) {
+            onMounted();
         }
-        return success;
+        wasRiding = isRiding;
+    }
+
+    @Unique
+    private void onMounted() {
+        Camel traderCamel = TraderCamelHelper.getTraderCamel(asTrader());
+        if (traderCamel != null) {
+            ((CamelInterface) traderCamel).carpetSkyAdditions$makeTraderCamel();
+            reregisterGoalsForMountedTrader();
+        }
     }
 
     @Override

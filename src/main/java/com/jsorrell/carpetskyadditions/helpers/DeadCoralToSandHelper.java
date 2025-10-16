@@ -34,7 +34,7 @@ public class DeadCoralToSandHelper {
             return false;
         }
 
-        if (!level.isClientSide) {
+        if (!level.isClientSide()) {
             Vec3 sandVelocity = waterVelocity.scale(0.1);
             String lootTablePath = state.getBlock().getLootTable().toString(); // Get the loot table path as a string
             Item sandItem = lootTablePath.contains("fire") ? Items.RED_SAND : Items.SAND; // Check if the loot table path contains "fire"

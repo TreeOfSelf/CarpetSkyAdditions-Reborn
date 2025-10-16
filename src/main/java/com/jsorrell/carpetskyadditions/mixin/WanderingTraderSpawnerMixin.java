@@ -119,7 +119,7 @@ public abstract class WanderingTraderSpawnerMixin {
                     wanderingTrader.setPos(traderCamel.getX(), traderCamel.getY(), traderCamel.getZ());
                     wanderingTrader.setYRot(traderCamel.getYRot());
                     wanderingTrader.setXRot(0.0F);
-                    wanderingTrader.startRiding(traderCamel, true);
+                    wanderingTrader.startRiding(traderCamel);
                     wanderingTrader.setWanderTarget(playerOrMeetingPos);
                     serverLevel.addFreshEntity(wanderingTrader);
                     cir.setReturnValue(true);
