@@ -100,6 +100,7 @@ public class SkyBlockStructures {
             if (rotation != Rotation.NONE) {
                 block = block.rotate(rotation);
             }
+            level.getChunk(blockPos).setInhabitedTime(6000);
             level.setBlock(blockPos, block, Block.UPDATE_CLIENTS);
             return blockPos;
         }
@@ -283,6 +284,7 @@ public class SkyBlockStructures {
             BlockPos.MutableBlockPos spawnerAbsolutePos =
                 offsetPos(spawnerPos.getX(), spawnerPos.getY(), spawnerPos.getZ());
             if (bounds.isInside(spawnerAbsolutePos)) {
+                level.getChunk(spawnerAbsolutePos).setInhabitedTime(6000);
                 level.setBlock(spawnerAbsolutePos, Blocks.SPAWNER.defaultBlockState(), Block.UPDATE_CLIENTS);
                 BlockEntity blockEntity = level.getBlockEntity(spawnerAbsolutePos);
                 if (blockEntity instanceof SpawnerBlockEntity spawnerEntity) {
