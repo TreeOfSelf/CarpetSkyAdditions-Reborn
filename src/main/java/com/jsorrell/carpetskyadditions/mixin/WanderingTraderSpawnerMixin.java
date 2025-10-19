@@ -62,24 +62,20 @@ public abstract class WanderingTraderSpawnerMixin {
     @Unique
     private boolean usesDefaultSettings() {
         return SkyAdditionsSettings.wanderingTraderSpawnRate == 24000
-                && SkyAdditionsSettings.maxWanderingTraderSpawnChance == 0.075;
+            && SkyAdditionsSettings.maxWanderingTraderSpawnChance == 0.075;
     }
 
-    // For some reason vanilla has 2 probability guards that do nothing but makes
-    // the chance not be able to go above 0.1
-    // Merging these two checks will slightly change the chance of resetting the
-    // spawn chance when no players are online
     @WrapOperation(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I"))
     private int skipSecondChanceCheck(RandomSource instance, int i, Operation<Integer> original) {
-        return 100 < spawnChance ? 0 : instance.nextInt(i) /*original.call(i)*/;
+        return 100 < spawnChance ? 0 : instance.nextInt(i);
     }
 
     @Unique
     private boolean hasEnoughSpace(BlockGetter level, BlockPos pos) {
         for (BlockPos blockPos : BlockPos.betweenClosed(pos.offset(-1, 0, -1), pos.offset(1, 2, 1))) {
             if (!level.getBlockState(blockPos)
-                    .getCollisionShape(level, blockPos)
-                    .isEmpty()) {
+                .getCollisionShape(level, blockPos)
+                .isEmpty()) {
                 return false;
             }
         }
@@ -89,15 +85,15 @@ public abstract class WanderingTraderSpawnerMixin {
 
     @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/npc/WanderingTraderSpawner;hasEnoughSpace(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z"), cancellable = true, locals = LocalCapture.CAPTURE_FAILSOFT)
     private void spawnTrader(
-            ServerLevel serverLevel,
-            CallbackInfoReturnable<Boolean> cir,
-            @Local Player player,
-            @Local(ordinal = 0) BlockPos playerPos,
-            @Local int i,
-            @Local PoiManager poiManager,
-            @Local Optional<BlockPos> optional,
-            @Local(ordinal = 1) BlockPos playerOrMeetingPos,
-            @Local(ordinal = 2) BlockPos spawnPos) {
+        ServerLevel serverLevel,
+        CallbackInfoReturnable<Boolean> cir,
+        @Local Player player,
+        @Local(ordinal = 0) BlockPos playerPos,
+        @Local int i,
+        @Local PoiManager poiManager,
+        @Local Optional<BlockPos> optional,
+        @Local(ordinal = 1) BlockPos playerOrMeetingPos,
+        @Local(ordinal = 2) BlockPos spawnPos) {
         if (!TraderCamelHelper.tradersRideCamelsAt(serverLevel, spawnPos)) {
             return;
         }
@@ -132,7 +128,7 @@ public abstract class WanderingTraderSpawnerMixin {
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
     public void tick(
-            ServerLevel level, boolean spawnMonsters, boolean spawnAnimals, CallbackInfo ci) {
+        ServerLevel level, boolean spawnEnemies, CallbackInfo ci) {
 
         if (usesDefaultSettings()) {
             return;
@@ -168,7 +164,7 @@ public abstract class WanderingTraderSpawnerMixin {
                 spawnChance = 25;
             } else {
                 spawnChance = Mth.clamp(spawnChance + 25, 25,
-                        (int) Math.round(SkyAdditionsSettings.maxWanderingTraderSpawnChance * 1000d));
+                    (int) Math.round(SkyAdditionsSettings.maxWanderingTraderSpawnChance * 1000d));
             }
             serverLevelData.setWanderingTraderSpawnChance(spawnChance);
         }

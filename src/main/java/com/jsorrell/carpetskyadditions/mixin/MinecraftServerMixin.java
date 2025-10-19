@@ -6,7 +6,6 @@ import com.jsorrell.carpetskyadditions.gen.feature.SkyAdditionsConfiguredFeature
 import com.jsorrell.carpetskyadditions.settings.Fixers;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.jsorrell.carpetskyadditions.settings.SkyBlockDefaults;
-import com.llamalad7.mixinextras.sugar.Local;
 import me.shedaniel.autoconfig.AutoConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -21,6 +20,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.level.storage.LevelResource;
 import net.minecraft.world.level.storage.ServerLevelData;
 import org.spongepowered.asm.mixin.Mixin;
@@ -66,28 +66,30 @@ public abstract class MinecraftServerMixin {
         at =
         @At(
             value = "INVOKE",
-            target = "Lnet/minecraft/world/level/storage/ServerLevelData;setSpawn(Lnet/minecraft/core/BlockPos;F)V",
+            target = "Lnet/minecraft/world/level/storage/ServerLevelData;setSpawn(Lnet/minecraft/world/level/storage/LevelData$RespawnData;)V",
             ordinal = 1,
             shift = At.Shift.AFTER),
         cancellable = true)
     private static void generateSpawnPlatform(
-            ServerLevel level,
-            ServerLevelData levelData,
-            boolean bonusChest,
-            boolean debugWorld,
-            CallbackInfo ci,
-        @Local ChunkPos spawnChunk,
-            @Local int spawnHeight) {
+        ServerLevel level,
+        ServerLevelData levelData,
+        boolean bonusChest,
+        boolean debugWorld,
+        net.minecraft.server.level.progress.LevelLoadListener listener,
+        CallbackInfo ci) {
         ServerChunkCache chunkManager = level.getChunkSource();
         ChunkGenerator chunkGenerator = chunkManager.getGenerator();
         if (!(chunkGenerator instanceof SkyBlockChunkGenerator)) return;
-        BlockPos worldSpawn = spawnChunk.getMiddleBlockPosition(spawnHeight);
+
+        LevelData.RespawnData respawnData = levelData.getRespawnData();
+        BlockPos worldSpawn = respawnData.pos();
+        ChunkPos spawnChunk = new ChunkPos(worldSpawn);
 
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
         random.setLargeFeatureSeed(level.getSeed(), spawnChunk.x, spawnChunk.z);
 
         Holder.Reference<ConfiguredFeature<?, ?>> spawnPlatformFeature = level.registryAccess()
-                .lookupOrThrow(Registries.CONFIGURED_FEATURE)
+            .lookupOrThrow(Registries.CONFIGURED_FEATURE)
             .get(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).get();
 
         if (!spawnPlatformFeature.value().place(level, chunkGenerator, random, worldSpawn)) {
