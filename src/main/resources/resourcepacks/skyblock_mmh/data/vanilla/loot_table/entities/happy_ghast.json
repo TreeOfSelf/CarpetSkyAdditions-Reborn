@@ -1,4 +1,4 @@
 {
-    "type": "minecraft:entity",
-    "random_sequence": "minecraft:entities/happy_ghast"
+  "type": "minecraft:entity",
+  "random_sequence": "minecraft:entities/happy_ghast"
 }
