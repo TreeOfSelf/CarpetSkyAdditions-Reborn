@@ -427,9 +427,7 @@ there are a 10% chance for the pale oak tree to generate a creaking heart.
 
 Default installation will also enable these `fabric-carpet` features.
 
-- [renewableSponges](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#renewablesponges) for
-  Sponges
+- [renewableSponges](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#renewablesponges): Guardians struck by lightning turn into elder guardians, which give access to wet sponges and the Tide armor trim smithing template.
   - run `/carpet removeDefault renewableSponges` to disable
-- [piglinsSpawningInBastions](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#piglinsSpawningInBastions)
-  for Piglin Brutes and Ancient Debris
+- [piglinsSpawningInBastions](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#piglinsSpawningInBastions): Piglin brutes respawn in bastion remnants, giving access to ancient debris via a datapack feature.
   - run `/carpet removeDefault piglinsSpawningInBastions` to disable
