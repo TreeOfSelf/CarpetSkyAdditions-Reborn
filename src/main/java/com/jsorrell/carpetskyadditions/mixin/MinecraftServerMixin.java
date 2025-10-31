@@ -67,7 +67,7 @@ public abstract class MinecraftServerMixin {
         @At(
             value = "INVOKE",
             target = "Lnet/minecraft/world/level/storage/ServerLevelData;setSpawn(Lnet/minecraft/world/level/storage/LevelData$RespawnData;)V",
-            ordinal = 1,
+            ordinal = 2,
             shift = At.Shift.AFTER),
         cancellable = true)
     private static void generateSpawnPlatform(
