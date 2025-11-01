@@ -143,7 +143,7 @@ Piglins will rarely give Gilded Blackstone when bartering.
 
 #### Creepers Drop Structure Specific Music Discs or Fragments in those Structures ####
 
-Provides the music discs *Pigstep*, *otherside*, and *5*
+Provides the music discs *Pigstep*, *otherside*, *5*, *Precipice*, and *Creator*
 
 Disable by deleting ```data/minecraft/loot_tables/entities/creeper.json```
 
