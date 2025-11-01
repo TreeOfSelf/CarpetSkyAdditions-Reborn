@@ -1,3 +1,5 @@
+[![Modrinth](https://img.shields.io/modrinth/v/Hi4jcyg4?style=flat-square&logo=modrinth&label=Modrinth)](https://modrinth.com/mod/carpetskyadditions-reborn)
+
 <img width="128" height="128" alt="image" src="https://github.com/user-attachments/assets/5e8be161-1902-48cb-97b8-8ec7c4192789" />
 
 
