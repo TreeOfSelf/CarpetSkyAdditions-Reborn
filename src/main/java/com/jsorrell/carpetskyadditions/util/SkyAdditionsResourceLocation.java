@@ -1,6 +1,7 @@
 package com.jsorrell.carpetskyadditions.util;
 
 import com.jsorrell.carpetskyadditions.SkyAdditionsExtension;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceLocation;
 
 public class SkyAdditionsResourceLocation {
@@ -19,7 +20,7 @@ public class SkyAdditionsResourceLocation {
         return resourceLocation.getNamespace();
     }
 
-    public ResourceLocation getResourceLocation() {
+    public Identifier getResourceLocation() {
         return resourceLocation;
     }
 

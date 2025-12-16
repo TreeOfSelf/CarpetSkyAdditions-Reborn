@@ -1,17 +1,15 @@
 package com.jsorrell.carpetskyadditions.advancements.criterion;
 
-import java.util.Optional;
-
-import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.advancements.critereon.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.criterion.ContextAwarePredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
 
-public class GenerateGeodeTrigger extends SimpleCriterionTrigger<GenerateGeodeTrigger.Conditions> {
+import java.util.Optional;
 
-    static final ResourceLocation ID = new SkyAdditionsResourceLocation("generate_geode").getResourceLocation();
+public class GenerateGeodeTrigger extends SimpleCriterionTrigger<GenerateGeodeTrigger.@org.jetbrains.annotations.NotNull Conditions> {
 
     @Override
     public Codec<GenerateGeodeTrigger.Conditions> codec() {
@@ -27,7 +25,7 @@ public class GenerateGeodeTrigger extends SimpleCriterionTrigger<GenerateGeodeTr
 
         public static final Codec<GenerateGeodeTrigger.Conditions> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(
-                        Codec.optionalField("player",EntityPredicate.ADVANCEMENT_CODEC, false)
+                        Codec.optionalField("player", EntityPredicate.ADVANCEMENT_CODEC, false)
                                 .forGetter(GenerateGeodeTrigger.Conditions::player))
                         .apply(instance, GenerateGeodeTrigger.Conditions::new));
 

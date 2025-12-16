@@ -1,20 +1,20 @@
 package com.jsorrell.carpetskyadditions.advancements.criterion;
 
-import java.util.Optional;
-
 import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.minecraft.advancements.critereon.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.criterion.ContextAwarePredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.monster.CaveSpider;
-import net.minecraft.world.entity.monster.Spider;
+import net.minecraft.world.entity.monster.spider.CaveSpider;
+import net.minecraft.world.entity.monster.spider.Spider;
 import net.minecraft.world.level.storage.loot.LootContext;
 
+import java.util.Optional;
+
 public class ConvertSpiderTrigger extends SimpleCriterionTrigger<ConvertSpiderTrigger.Conditions> {
-    static final ResourceLocation ID = new SkyAdditionsResourceLocation("convert_spider").getResourceLocation();
 
 
     public void trigger(ServerPlayer player, Spider spider, CaveSpider caveSpider) {
@@ -28,7 +28,7 @@ public class ConvertSpiderTrigger extends SimpleCriterionTrigger<ConvertSpiderTr
         return ConvertSpiderTrigger.Conditions.CODEC;
     }
     public static record Conditions(Optional<ContextAwarePredicate> player, Optional<ContextAwarePredicate> spider,
-            Optional<ContextAwarePredicate> caveSpider) implements SimpleCriterionTrigger.SimpleInstance {
+                                    Optional<ContextAwarePredicate> caveSpider) implements SimpleCriterionTrigger.SimpleInstance {
 
         public static final Codec<ConvertSpiderTrigger.Conditions> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(

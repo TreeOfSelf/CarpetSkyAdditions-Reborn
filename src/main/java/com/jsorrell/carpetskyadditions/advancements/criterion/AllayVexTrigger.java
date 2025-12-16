@@ -2,18 +2,17 @@ package com.jsorrell.carpetskyadditions.advancements.criterion;
 
 import java.util.Optional;
 
-import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.advancements.critereon.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.criterion.ContextAwarePredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.level.storage.loot.LootContext;
 
-public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Conditions> {
-    static final ResourceLocation ID = new SkyAdditionsResourceLocation("allay_vex").getResourceLocation();
+public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.@org.jetbrains.annotations.NotNull Conditions> {
 
     public void trigger(ServerPlayer player, Vex vex, Allay allay) {
 
@@ -28,8 +27,8 @@ public class AllayVexTrigger extends SimpleCriterionTrigger<AllayVexTrigger.Cond
         return AllayVexTrigger.Conditions.CODEC;
     }
 
-    public static record Conditions(Optional<ContextAwarePredicate> player, Optional<ContextAwarePredicate> vex,
-            Optional<ContextAwarePredicate> allay) implements SimpleCriterionTrigger.SimpleInstance {
+    public record Conditions(Optional<ContextAwarePredicate> player, Optional<ContextAwarePredicate> vex,
+                                    Optional<ContextAwarePredicate> allay) implements SimpleCriterionTrigger.SimpleInstance {
 
         public static final Codec<AllayVexTrigger.Conditions> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(

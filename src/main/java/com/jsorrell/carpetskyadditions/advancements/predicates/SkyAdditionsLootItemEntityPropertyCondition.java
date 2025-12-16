@@ -5,16 +5,15 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
 import java.util.Optional;
-import java.util.Set;
 
-import net.minecraft.advancements.critereon.EntityPredicate;
-import net.minecraft.util.context.ContextKey;
+import net.minecraft.advancements.criterion.EntityPredicate;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 public record SkyAdditionsLootItemEntityPropertyCondition(Optional<EntityPredicate> predicate, LootContext.EntityTarget entityTarget) implements LootItemCondition {
 
@@ -27,32 +26,19 @@ public record SkyAdditionsLootItemEntityPropertyCondition(Optional<EntityPredica
 	);
 
     @Override
-    public LootItemConditionType getType() {
+    public @NotNull LootItemConditionType getType() {
         return SkyAdditionsLootItemConditions.ENTITY_PROPERTIES;
     }
 
-    @Override
-    public Set<ContextKey<?>> getReferencedContextParams() {
-        return Set.of();
-    }
-
-
     public boolean test(LootContext lootContext) {
-        Entity entity = lootContext.getParameter(entityTarget.getParam());
+        Entity entity = lootContext.getParameter(LootContextParams.THIS_ENTITY);
         Vec3 origin = lootContext.getParameter(LootContextParams.ORIGIN);
-        return !this.predicate.isEmpty() && ((EntityPredicate)this.predicate.get()).matches(lootContext.getLevel(), origin, entity);
+        return this.predicate.isPresent() && this.predicate.get().matches(lootContext.getLevel(), origin, entity);
     }
-
-    public static LootItemCondition.Builder entityPresent(LootContext.EntityTarget target) {
-		return hasProperties(target, EntityPredicate.Builder.entity());
-	}
 
 	public static LootItemCondition.Builder hasProperties(LootContext.EntityTarget target, EntityPredicate.Builder predicateBuilder) {
 		return () -> new SkyAdditionsLootItemEntityPropertyCondition(Optional.of(predicateBuilder.build()), target);
 	}
 
-	public static LootItemCondition.Builder hasProperties(LootContext.EntityTarget target, EntityPredicate entityPredicate) {
-		return () -> new SkyAdditionsLootItemEntityPropertyCondition(Optional.of(entityPredicate), target);
-	}
 
 }

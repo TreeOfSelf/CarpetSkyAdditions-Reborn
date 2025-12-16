@@ -1,20 +1,19 @@
 package com.jsorrell.carpetskyadditions.advancements.criterion;
 
-import java.util.Optional;
-
-import com.jsorrell.carpetskyadditions.util.SkyAdditionsResourceLocation;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.advancements.critereon.*;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.advancements.criterion.ContextAwarePredicate;
+import net.minecraft.advancements.criterion.EntityPredicate;
+import net.minecraft.advancements.criterion.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
+import org.jetbrains.annotations.NotNull;
 
-public class CreakingHeartTrigger extends SimpleCriterionTrigger<CreakingHeartTrigger.Conditions> {
+import java.util.Optional;
 
-    static final ResourceLocation ID = new SkyAdditionsResourceLocation("creaking_heart").getResourceLocation();
+public class CreakingHeartTrigger extends SimpleCriterionTrigger<CreakingHeartTrigger.@org.jetbrains.annotations.NotNull Conditions> {
 
     @Override
-    public Codec<CreakingHeartTrigger.Conditions> codec() {
+    public @NotNull Codec<CreakingHeartTrigger.Conditions> codec() {
         return CreakingHeartTrigger.Conditions.CODEC;
     }
 
@@ -22,12 +21,12 @@ public class CreakingHeartTrigger extends SimpleCriterionTrigger<CreakingHeartTr
         trigger(player, conditions -> true);
     }
 
-    public static record Conditions(Optional<ContextAwarePredicate> player)
+    public record Conditions(Optional<ContextAwarePredicate> player)
         implements SimpleCriterionTrigger.SimpleInstance {
 
         public static final Codec<CreakingHeartTrigger.Conditions> CODEC = RecordCodecBuilder.create(
             instance -> instance.group(
-                    Codec.optionalField("player",EntityPredicate.ADVANCEMENT_CODEC, false)
+                    Codec.optionalField("player", EntityPredicate.ADVANCEMENT_CODEC, false)
                         .forGetter(CreakingHeartTrigger.Conditions::player))
                 .apply(instance, CreakingHeartTrigger.Conditions::new));
 
