@@ -5,9 +5,9 @@ import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.projectile.AbstractThrownPotion;
-import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
-import net.minecraft.world.entity.projectile.ThrownLingeringPotion;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
+import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrownLingeringPotion;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.level.Level;
@@ -35,7 +35,7 @@ public abstract class ThrownPotionMixin extends ThrowableItemProjectile {
     private void onThickPotionCollision(HitResult result, CallbackInfo ci, @Local ItemStack itemStack, @Local PotionContents potionContents) {
         if (SkyAdditionsSettings.renewableDeepslateFromSplash) {
             if (potionContents.is(DeepslateConversionHelper.CONVERSION_POTION)) {
-                Vec3 hitPos = result.getType() == HitResult.Type.BLOCK ? result.getLocation() : position();
+                Vec3 hitPos = result.getType() == HitResult.Type.BLOCK ? result.getLocation() : this.position();
                 if ((AbstractThrownPotion)(Object)this instanceof ThrownLingeringPotion) {
                     AreaEffectCloud cloud = new AreaEffectCloud(level(), hitPos.x(), hitPos.y(), hitPos.z());
                     cloud.setRadius(3.0F);

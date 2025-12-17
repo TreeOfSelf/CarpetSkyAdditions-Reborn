@@ -10,9 +10,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ConversionParams;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.monster.CaveSpider;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Spider;
+import net.minecraft.world.entity.monster.spider.CaveSpider;
+import net.minecraft.world.entity.monster.spider.Spider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -52,15 +52,17 @@ public abstract class SpiderMixin extends Monster {
 
 
                 // Copy status effects
-                getActiveEffects().forEach(spawnedSpider::addEffect);
-                // Add particles
-                spawnedSpider.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 200, 0));
+                if (spawnedSpider != null) {
+                    getActiveEffects().forEach(spawnedSpider::addEffect);
+                    // Add particles
+                    spawnedSpider.addEffect(new MobEffectInstance(MobEffects.NAUSEA, 200, 0));
 
-                if (player instanceof ServerPlayer serverPlayer) {
-                    SkyAdditionsCriteriaTriggers.CONVERT_SPIDER.trigger(serverPlayer, asSpider(), spawnedSpider);
-                }
-                playSound(
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        SkyAdditionsCriteriaTriggers.CONVERT_SPIDER.trigger(serverPlayer, asSpider(), spawnedSpider);
+                    }
+                    playSound(
                         SoundEvents.ZOMBIE_VILLAGER_CURE, 1.0f + random.nextFloat(), random.nextFloat() * 0.7f + 0.3f);
+                }
                 return InteractionResult.SUCCESS;
             }
         }

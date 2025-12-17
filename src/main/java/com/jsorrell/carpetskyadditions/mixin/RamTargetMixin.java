@@ -17,7 +17,7 @@ import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.entity.animal.goat.Goat;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.gameevent.GameEvent;
@@ -55,7 +55,7 @@ public abstract class RamTargetMixin<E extends PathfinderMob> extends Behavior<E
             ordinal = 0),
         cancellable = true)
     private void breakOpenNetherWart(ServerLevel level, Goat rammer, long gameTime, CallbackInfo ci) {
-        if (SkyAdditionsSettings.rammingWart && level.getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)) {
+        if (SkyAdditionsSettings.rammingWart && level.getGameRules().get(GameRules.MOB_GRIEFING)) {
             Optional<BlockPos> optionalWartPos = shouldBreakNetherWart(level, rammer);
             if (optionalWartPos.isPresent()) {
                 BlockPos wartPos = optionalWartPos.get();

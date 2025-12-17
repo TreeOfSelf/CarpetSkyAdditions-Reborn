@@ -9,7 +9,6 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
@@ -17,13 +16,14 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.animal.camel.Camel;
-import net.minecraft.world.entity.npc.WanderingTrader;
-import net.minecraft.world.entity.npc.WanderingTraderSpawner;
+import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
+import net.minecraft.world.entity.npc.wanderingtrader.WanderingTraderSpawner;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.storage.ServerLevelData;
+import org.apache.logging.log4j.core.jmx.Server;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -83,7 +83,7 @@ public abstract class WanderingTraderSpawnerMixin {
         return true;
     }
 
-    @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/npc/WanderingTraderSpawner;hasEnoughSpace(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z"), cancellable = true, locals = LocalCapture.CAPTURE_FAILSOFT)
+    @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/npc/wanderingtrader/WanderingTraderSpawner;hasEnoughSpace(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z"), cancellable = true, locals = LocalCapture.CAPTURE_FAILSOFT)
     private void spawnTrader(
         ServerLevel serverLevel,
         CallbackInfoReturnable<Boolean> cir,
@@ -136,7 +136,9 @@ public abstract class WanderingTraderSpawnerMixin {
 
         ci.cancel();
 
-        if (!level.getGameRules().getBoolean(GameRules.RULE_DO_TRADER_SPAWNING)) {
+        ServerLevel serverLevel = level;
+
+        if (!serverLevel.getGameRules().get(GameRules.SPAWN_WANDERING_TRADERS)) {
             return;
         }
 
@@ -159,7 +161,7 @@ public abstract class WanderingTraderSpawnerMixin {
 
         serverLevelData.setWanderingTraderSpawnDelay(spawnDelay);
 
-        if (trySpawn && level.getGameRules().getBoolean(GameRules.RULE_DOMOBSPAWNING)) {
+        if (trySpawn && serverLevel.getGameRules().get(GameRules.SPAWN_MOBS)) {
             if (random.nextInt(100 < spawnChance ? 1000 : 100) < spawnChance && spawn(level)) {
                 spawnChance = 25;
             } else {

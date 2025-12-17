@@ -5,7 +5,7 @@ import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.fabricmc.fabric.api.object.builder.v1.entity.MinecartComparatorLogic;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.monster.Vex;
-import net.minecraft.world.entity.vehicle.Minecart;
+import net.minecraft.world.entity.vehicle.minecart.Minecart;
 import net.minecraft.world.level.block.state.BlockState;
 
 public class SkyAdditionsMinecartComparatorLogic implements MinecartComparatorLogic<Minecart> {

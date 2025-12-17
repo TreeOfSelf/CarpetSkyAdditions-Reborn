@@ -16,7 +16,7 @@ import net.minecraft.CrashReport;
 import net.minecraft.ReportedException;
 import net.minecraft.core.*;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.WorldGenRegion;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.StructureManager;
@@ -146,7 +146,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                 Holder<StructureTemplatePool> startPool = ((JigsawStructureAccessor) structure).getStartPool();
                                 // Bastion Remnants
                                 if (SkyAdditionsSettings.generateMagmaCubeSpawners
-                                        && startPool.is(ResourceLocation.withDefaultNamespace("bastion/starts"))) {
+                                        && startPool.is(Identifier.withDefaultNamespace("bastion/starts"))) {
                                     level.setCurrentlyGenerating(structureNameSupplier);
                                     structureManager
                                             .startsForStructure(sectionPos, structure)
@@ -156,12 +156,12 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                                             && piece instanceof PoolElementStructurePiece poolPiece) {
                                                         if (poolPiece.getElement()
                                                                 instanceof SinglePoolElement singlePoolElement) {
-                                                            ResourceLocation pieceId = ((SinglePoolElementAccessor)
+                                                            Identifier pieceId = ((SinglePoolElementAccessor)
                                                                             singlePoolElement)
                                                                     .getTemplate()
                                                                     .left()
                                                                     .orElseThrow(AssertionError::new);
-                                                            if (pieceId.equals(ResourceLocation.withDefaultNamespace(
+                                                            if (pieceId.equals(Identifier.withDefaultNamespace(
                                                                     "bastion/treasure/bases/lava_basin"))) {
                                                                 new SkyBlockStructures.MagmaCubeSpawner(piece)
                                                                         .generate(
@@ -176,7 +176,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                             });
                                     // Ancient Cities
                                 } else if (SkyAdditionsSettings.generateAncientCityPortals
-                                        && startPool.is(ResourceLocation.withDefaultNamespace("ancient_city/city_center"))) {
+                                        && startPool.is(Identifier.withDefaultNamespace("ancient_city/city_center"))) {
                                     level.setCurrentlyGenerating(structureNameSupplier);
                                     structureManager
                                             .startsForStructure(sectionPos, structure)
@@ -186,7 +186,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                                             && piece instanceof PoolElementStructurePiece poolPiece) {
                                                         if (poolPiece.getElement()
                                                                 instanceof SinglePoolElement singlePoolElement) {
-                                                            ResourceLocation pieceId = ((SinglePoolElementAccessor)
+                                                            Identifier pieceId = ((SinglePoolElementAccessor)
                                                                             singlePoolElement)
                                                                     .getTemplate()
                                                                     .left()
@@ -209,7 +209,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                             });
                                 }
                                 //Trial Chambers
-                                else if (SkyAdditionsSettings.generateTrialChambers && startPool.is(ResourceLocation.withDefaultNamespace("trial_chambers/chamber/end"))){
+                                else if (SkyAdditionsSettings.generateTrialChambers && startPool.is(Identifier.withDefaultNamespace("trial_chambers/chamber/end"))){
                                     level.setCurrentlyGenerating(structureNameSupplier);
                                     structureManager
                                         .startsForStructure(sectionPos, structure)
@@ -219,7 +219,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                                     && piece instanceof PoolElementStructurePiece poolPiece) {
                                                     if (poolPiece.getElement()
                                                         instanceof SinglePoolElement singlePoolElement) {
-                                                        ResourceLocation pieceId = ((SinglePoolElementAccessor)
+                                                        Identifier pieceId = ((SinglePoolElementAccessor)
                                                             singlePoolElement)
                                                             .getTemplate()
                                                             .left()
@@ -304,7 +304,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                     try {
                         // Random End Gateways
                         if (SkyAdditionsSettings.generateRandomEndGateways
-                                && placedFeature.feature().is(ResourceLocation.withDefaultNamespace("end_gateway_return"))) {
+                                && placedFeature.feature().is(Identifier.withDefaultNamespace("end_gateway_return"))) {
                             level.setCurrentlyGenerating(placedFeatureNameSupplier);
                             placedFeature.placeWithBiomeCheck(level, this, random, minChunkPos);
                         }

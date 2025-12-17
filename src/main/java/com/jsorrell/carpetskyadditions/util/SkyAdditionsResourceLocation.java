@@ -2,22 +2,13 @@ package com.jsorrell.carpetskyadditions.util;
 
 import com.jsorrell.carpetskyadditions.SkyAdditionsExtension;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceLocation;
 
 public class SkyAdditionsResourceLocation {
     public static final String NAMESPACE = SkyAdditionsExtension.MOD_ID;
-    private final ResourceLocation resourceLocation;
+    private final Identifier resourceLocation;
 
     public SkyAdditionsResourceLocation(String path) {
-        this.resourceLocation = ResourceLocation.fromNamespaceAndPath(NAMESPACE, path);
-    }
-
-    public String getPath() {
-        return resourceLocation.getPath();
-    }
-
-    public String getNamespace() {
-        return resourceLocation.getNamespace();
+        this.resourceLocation = Identifier.fromNamespaceAndPath(NAMESPACE, path);
     }
 
     public Identifier getResourceLocation() {
@@ -38,5 +29,4 @@ public class SkyAdditionsResourceLocation {
     public int hashCode() {
         return resourceLocation.hashCode();
     }
-
 }

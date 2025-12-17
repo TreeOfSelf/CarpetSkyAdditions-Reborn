@@ -4,7 +4,7 @@ import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import net.minecraft.world.entity.npc.VillagerTrades;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.item.Items;
 import org.apache.commons.lang3.tuple.Pair;
 

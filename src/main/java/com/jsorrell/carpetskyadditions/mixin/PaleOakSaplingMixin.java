@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.attribute.EnvironmentAttributes;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.block.Blocks;
@@ -111,7 +112,9 @@ public class PaleOakSaplingMixin {
             CreakingHeartState newState;
 
             if (hasRequiredLogs) {
-                newState = CreakingHeartBlock.isNaturalNight(level) ? CreakingHeartState.AWAKE : CreakingHeartState.DORMANT;
+                newState = level.environmentAttributes().getValue(EnvironmentAttributes.CREAKING_ACTIVE, pos)
+                    ? CreakingHeartState.AWAKE
+                    : CreakingHeartState.DORMANT;
             } else {
                 newState = CreakingHeartState.UPROOTED;
             }

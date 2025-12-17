@@ -6,14 +6,18 @@ import com.jsorrell.carpetskyadditions.helpers.WanderingTraderHelper;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.monster.*;
-import net.minecraft.world.entity.npc.AbstractVillager;
-import net.minecraft.world.entity.npc.VillagerTrades;
-import net.minecraft.world.entity.npc.WanderingTrader;
+import net.minecraft.world.entity.monster.illager.Evoker;
+import net.minecraft.world.entity.monster.illager.Illusioner;
+import net.minecraft.world.entity.monster.illager.Pillager;
+import net.minecraft.world.entity.monster.illager.Vindicator;
+import net.minecraft.world.entity.monster.zombie.Zombie;
+import net.minecraft.world.entity.npc.villager.AbstractVillager;
+import net.minecraft.world.entity.npc.villager.VillagerTrades;
+import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -25,10 +29,10 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
-import java.util.List;
-import org.apache.commons.lang3.tuple.Pair;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+
+import java.util.List;
 
 @Mixin(WanderingTrader.class)
 public abstract class WanderingTraderMixin extends AbstractVillager {
@@ -59,9 +63,9 @@ public abstract class WanderingTraderMixin extends AbstractVillager {
                             value = "FIELD",
                             opcode = Opcodes.GETSTATIC,
                             target =
-                                    "Lnet/minecraft/world/entity/npc/VillagerTrades;WANDERING_TRADER_TRADES:Ljava/util/List;"))
-    private List<Pair<VillagerTrades.ItemListing[], Integer>> getTrades(
-            Operation<List<Pair<VillagerTrades.ItemListing[], Integer>>> original) {
+                                    "Lnet/minecraft/world/entity/npc/villager/VillagerTrades;WANDERING_TRADER_TRADES:Ljava/util/List;"))
+    private List<org.apache.commons.lang3.tuple.Pair<VillagerTrades.ItemListing[], Integer>> getTrades(
+        Operation<List<org.apache.commons.lang3.tuple.Pair<VillagerTrades.ItemListing[], Integer>>> original) {
         return WanderingTraderHelper.getTrades();
     }
 

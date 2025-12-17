@@ -18,12 +18,13 @@ import net.minecraft.world.entity.animal.sniffer.Sniffer;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gamerules.GameRule;
+import net.minecraft.world.level.gamerules.GameRules;
 import net.minecraft.world.level.levelgen.structure.BuiltinStructures;
 import net.minecraft.world.level.levelgen.structure.Structure;
 import net.minecraft.world.level.pathfinder.Path;
@@ -133,7 +134,7 @@ public abstract class SnifferMixin extends Animal {
         Optional<Function<RandomSource, ResourceKey<LootTable>>> archLootTable = getLootTable(diggedBlockPos);
         if (SkyAdditionsSettings.doSuspiciousSniffers
             && archLootTable.isPresent()
-            && level().getServer().getGameRules().getBoolean(GameRules.RULE_MOBGRIEFING)
+            && ((ServerLevel)level()).getServer().getWorldData().getGameRules().get(GameRules.MOB_GRIEFING)
             && level().getRandom().nextFloat() < 0.1) {
             Block susBlock = level().getBlockState(diggedBlockPos).is(Blocks.SAND)
                 ? Blocks.SUSPICIOUS_SAND
