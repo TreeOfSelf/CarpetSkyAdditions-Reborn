@@ -61,7 +61,7 @@
 
 #### 下界岩和菌岩会随下界传送门结构一起生成
 
-Provides _Netherrack_ and _Nylium_
+提供 _下界岩_ 和 _菌岩_
 
 通过指令 `/carpetskyadditions removeDefault renewableNetherrack` 可禁用该特性
 
@@ -101,7 +101,7 @@ Provides _Netherrack_ and _Nylium_
 恼鬼会检测周围 16 格范围内的音符，并根据是否演奏了正确的音符而发出粒子效果。 乐器种类和八度音阶都将被忽略，这意味着 F#<sub>3</sub> 和 F#<sub>5</sub> 将被视作同一个音符。
 
 当恼鬼处于矿车中时，可以使用比较器和探测铁轨来确定序列中的下一个音符。
-The Comparator outputs a value from 0 (corresponding to F#) to 11 (corresponding to F).
+比较器会输出一个从 0（对应 F#）到 11（对应 F）的值。
 
 ---
 
@@ -201,7 +201,7 @@ The Comparator outputs a value from 0 (corresponding to F#) to 11 (corresponding
 
 通过指令 `/carpetskyadditions removeDefault doDeadBushToBush` 可禁用该特性
 
-Using a Water Bottle on a Dead Bush turns it into a Bush.
+对枯萎的灌木使用水瓶会将其转变为灌木丛。
 
 ---
 
@@ -336,7 +336,7 @@ Using a Water Bottle on a Dead Bush turns it into a Bush.
 当一个方解石方块在其周围 3x3 范围内至少存在 8 个相同类型的珊瑚方块时，它在一次随机刻中可以转化为该珊瑚方块（如果该珊瑚能够存活）。
 
 转化概率取决于该位置的适宜度。
-The suitability is based on the [generation temperature and continentalness parameters](https://minecraft.wiki/w/World_generation#Overworld).
+适宜度基于[生成温度和大陆性参数](https://zh.minecraft.wiki/w/%E4%B8%96%E7%95%8C%E7%94%9F%E6%88%90#%E7%94%9F%E6%88%90%E7%94%9F%E7%89%A9%E7%BE%A4%E7%B3%BB)计算。
 理想位置定义为温度 0.65、大陆性 -0.3，对应于温暖地区、靠近海岸的位置。
 这些数值可在单人游戏的 F3 界面中查看。
 算法如下：
@@ -401,7 +401,7 @@ The suitability is based on the [generation temperature and continentalness para
 
 #### 在张开的眼眸花附近种植苍白橡木树苗会生成一个嘎吱之心
 
-Provides _Creaking Heart_ and _Resin_
+提供 _嘎吱之心_ 和 _树脂_
 
 通过指令 `/carpetskyadditions setDefault paleBlossomCreakingHeart false` 可禁用该特性
 
