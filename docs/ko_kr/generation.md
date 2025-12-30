@@ -1,10 +1,12 @@
-## 空岛生成
+## SkyBlock Generation
 
-空岛世界的生成方式与默认世界生成完全相同，但所有方块都会被移除。 生物群系和结构的边界框仍然会被保留。 这意味着，例如，尸壳仍会在沙漠中生成，烈焰人仍会在下界要塞中生成。
+A SkyBlock world generates exactly like a Default generation world, but with every block removed. Biomes and Structure
+Bounding Boxes are kept in place. This means Husks will still spawn in Deserts and Blazes will spawn in Nether
+Fortresses, for example.
 
-唯一的区别在于末地传送门框架上的末影之眼是随机的 —— 这可能会在未来调整。
+The only difference is that End Portal eyes are randomized — this may change in the future.
 
-只有少量东西会伴随世界生成：
+Only a few things are generated:
 
 - A (configurable) small starting island where you spawn:
   ![small spawn platform with grass and an oak tree](../screenshots/spawn_platform.png?raw=true "Spawn Platform")
@@ -18,8 +20,8 @@
 - Ancient City Portal Frames with a Sculk Shrieker (unless `generateAncientCityPortals` is set to `false`):
   ![ancient city portal frame remains](../screenshots/ancient_city_portal.png?raw=true "Ancient City Portal Frame")
 
-- 蠹虫刷怪笼（除非属性 `generateSilverfishSpawners` 被设置为 `false`）
+- Silverfish spawners (unless `generateSilverfishSpawners` is set to `false`)
 
-- 堡垒遗迹的宝藏室中的岩浆怪刷怪笼（仅当属性 `generateMagmaCubeSpawners` 设置为 `true` 时生效）
+- Magma Cube spawners in Treasure Room Bastion Remnants (only if `generateMagmaCubeSpawners` is set to `true`)
 
-- 末地中的所有随机返回折跃门（仅当属性 `generateRandomEndGateways` 设置为 `true` 时生效）
+- Random End Gateways throughout the End (only if `generateRandomEndGateways` is set to `true`)
