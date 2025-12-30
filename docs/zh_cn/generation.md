@@ -1,23 +1,27 @@
-## 空岛世界生成
+## SkyBlock Generation
 
-空岛世界的生成与常规世界完全一致，但所有方块均被移除。
-所有群系以及结构生成框架均得到保留。
-这意味着尸壳将正常于沙漠生成，烈焰人也会在下界堡垒中刷出，其余生物也如此。
+A SkyBlock world generates exactly like a Default generation world, but with every block removed. Biomes and Structure
+Bounding Boxes are kept in place. This means Husks will still spawn in Deserts and Blazes will spawn in Nether
+Fortresses, for example.
 
-唯一的区别在于末地传送门框架上的末影之眼是随机的——这可能会在未来被调整。
+The only difference is that End Portal eyes are randomized — this may change in the future.
 
-只有少量事物会在伴随世界生成：
-+ 一个小的出生点平台：
-  ![一个小出生点平台，包括草方块，以及一棵树](../screenshots/spawn_platform.png?raw=true "出生点平台")
+Only a few things are generated:
 
-+ 末地传送门框架（除非属性`generateEndPortals`被设置为`false`）：
-  ![末地传送门框架将得到保留](../screenshots/end_portal.png?raw=true "末地传送门框架")
+- A (configurable) small starting island where you spawn:
+  ![small spawn platform with grass and an oak tree](../screenshots/spawn_platform.png?raw=true "Spawn Platform")
 
-+ 带有幽匿尖啸体的远古城市传送门框架（除非属性`generateAncientCityPortals`被设置为`false`）：
-  ![远古城市传送门框架将得到保留](../screenshots/ancient_city_portal.png?raw=true "远古城市传送门框架")
+- End Portal Frames (unless `generateEndPortals` is set to `false`):
+  ![end portal frame remains](../screenshots/end_portal.png?raw=true "End Portal Frame")
 
-+ 蠹虫刷怪笼（除非属性`generateSilverfishSpawners`被设置为`false`）
+- Trial spawner and a vault and ominous vault (unless `generateTrialChambers` is set to `false`):
+  ![trial spawner and vaults](https://github.com/user-attachments/assets/56dfde08-78c7-4883-b2bb-697c558a2e04)
 
-+ 堡垒遗迹的宝藏室中的岩浆刷怪笼（仅当属性`generateMagmaCubeSpawners`设置为`true`时生效）
+- Ancient City Portal Frames with a Sculk Shrieker (unless `generateAncientCityPortals` is set to `false`):
+  ![ancient city portal frame remains](../screenshots/ancient_city_portal.png?raw=true "Ancient City Portal Frame")
 
-+ 末地中的所有随机返回折跃门（仅当属性`generateRandomEndGateways`设置为`true`时生效）
+- Silverfish spawners (unless `generateSilverfishSpawners` is set to `false`)
+
+- Magma Cube spawners in Treasure Room Bastion Remnants (only if `generateMagmaCubeSpawners` is set to `true`)
+
+- Random End Gateways throughout the End (only if `generateRandomEndGateways` is set to `true`)
