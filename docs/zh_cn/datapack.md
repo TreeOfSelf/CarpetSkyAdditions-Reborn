@@ -2,10 +2,11 @@
 
 ### 修改
 
-要自定义该数据包，
-请下载该模组的 .jar 文件，并使用你偏好的任意压缩工具（如 [7-Zip](https://7-zip.org/)、WinRAR、File Roller、Ark，或使用 unzip、tar 等命令行工具）将其打开，然后按需进行修改。
+To customize the datapack,
+Download the mod `.jar` file and open it with any archive tool you prefer such as [7-Zip](https://7-zip.org/), WinRAR, File Roller, Ark, or a command line utility like unzip or tar
+and edit to your liking.
 
-在 `/resourcepacks` 或 `/data` 中查找。
+Look in either `/resourcepacks` or `/data`.
 
 #### 结构
 
@@ -201,7 +202,7 @@ _其中铜、红石和青金石需要使用对应的方块。_
 
 下界合金升级锻造模板可通过其复制配方进行合成，只需将配方中的锻造模板替换为一个下界合金锭即可。
 
-![下界合金升级锻造模板合成配方](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "锻造模板配方")
+![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true)
 
 ---
 
@@ -342,7 +343,7 @@ _其中铜、红石和青金石需要使用对应的方块。_
 
 完成奖励 _沙丘盔甲纹饰锻造模板_
 
-必须按照[此处](http://zh.minecraft.wiki/w/%E6%B2%99%E6%BC%A0%E7%A5%9E%E6%AE%BF/%E7%BB%93%E6%9E%84)所述的结构，建造一个完全一致的沙漠神殿复制品。
+An exact replica Desert Pyramid must be built as described [here](https://minecraft.wiki/w/Desert_Pyramid/Structure).
 该结构可以面向任意方向。 只需满足从蓝色陶瓦层到顶部之间的结构要求即可。
 
 当一只尸壳在沙漠神殿中央的蓝色陶瓦上被击杀时，将授予该进度。
