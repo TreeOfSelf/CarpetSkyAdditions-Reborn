@@ -5,3 +5,5 @@ files:
     translation: /src/main/resources/assets/carpetskyadditions/lang/%locale%.json
   - source: /docs/en_us
     translation: /docs/%locale%/%original_file_name%
+  - source: /README.md
+    translation: /docs/%locale%/README.md
