@@ -1,264 +1,434 @@
-## 模组特性
+## Mod Features
 
-#### 失活的珊瑚和失活的珊瑚扇可以冲蚀成沙 ####
+#### Dead Coral and Coral Fans Erode into Sand
 
-提供额外的*沙子*与*红沙*
+Provides additional _Sand_ and _Red Sand_
 
-通过指令```/carpetskyadditions removeDefault coralErosion```可禁用该特性。
+Disable with `/carpetskyadditions removeDefault coralErosion`
 
-失活的珊瑚和失活的珊瑚扇在有水流出的时候每隔几秒就会生成沙子。
-火珊瑚会生成红沙。
+Dead Coral and Dead Coral Fans with water flowing out of them will spawn a Sand item every 16-32 seconds.
+Fire versions spawn Red Sand instead.
 
-珊瑚在每次生成沙子之后将会有3%的概率被破坏。
+The Coral has a 3% chance to break after spawning Sand.
 
-无限自动化农场是可行的，并不复杂。
+Infinitely automatic farms are possible, but not trivial.
 
-添加此特性是因为：
+This method was added because:
 
-- 仅从流浪商人处获取沙子远远无法满足需求。
-- 重力方块复制和重复交易bug是没有意义的，随时可能被官方修复。
-- 尸壳掉落沙子的旧途径很无聊，因为它只是另一种形式的刷怪塔。
-
----
-
-#### 潜影贝生成于击杀末影龙后 ####
-
-提供*潜影贝*
-
-通过指令```/carpetskyadditions removeDefault shulkerSpawning```可禁用该特性
-
-当末影龙被再次击杀时，一只潜影贝会在基岩祭坛的顶部生成。
+- Getting Sand purely from the Wandering Trader is not sufficient.
+- Gravity block duping and Trader multi-use bugs are unintended and could be fixed at any time.
+- The old method where Husks dropped Sand is boring as it's just another standard mob farm.
 
 ---
 
-#### 山羊撞击分解地狱疣块 ####
+#### Shulkers Spawn On Dragon Kill
 
-提供*地狱疣*
+Provides _Shulkers_
 
-通过指令```/carpetskyadditions removeDefault rammingWart```可禁用该特性
+Disable with `/carpetskyadditions removeDefault shulkerSpawning`
 
-当山羊撞击地狱疣块时，它会分解为地狱疣。
-
----
-
-#### 浓稠的药水可将石头转化为深板岩 ####
-
-提供*深板岩*
-
-通过指令```/carpetskyadditions removeDefault renewableDeepslate```可禁用该特性
-
-通过指令```/carpetskyadditions setDefault renewableDeepslate no_splash```仅禁用溅射药水生效
-
-右键点击或通过发射器使用的浓稠药水可以将对应的石头转化成为深板岩
-
-溅射的浓稠药水也会将所有覆盖的石头方块转化成深板岩。
+When an Ender Dragon is re-killed, a Shulker spawns on top of the Bedrock pillar.
 
 ---
 
-#### 下界岩通过下界传送门结构生成 ####
+#### Goats Break Apart Nether Wart Blocks By Ramming Them
 
-提供*下界岩*
+Provides _Nether Wart_
 
-通过指令```/carpetskyadditions removeDefault renewableNetherrack```可禁用该特性
+Disable with `/carpetskyadditions removeDefault rammingWart`
 
-当在虚空生成下界传送门时，其周围会生成下界岩。
-这与基岩版的设计保持一致。
-
----
-
-#### 流浪商人销售高花 ####
-
-提供*高花*
-
-通过指令```/carpetskyadditions removeDefault tallFlowersFromWanderingTrader```可禁用该特性
-
-高花交易模仿自基岩版
-
-##### 追加的一级交易内容 #####
-
-| 物品   | 价格 | 失效前可交易次数 |
-|--------|-----|-----------------|
-| 丁香   | 1    | 12             |
-| 玫瑰丛 | 1    | 12             |
-| 牡丹   | 1    | 12             |
-| 向日葵 | 1    | 12             |
+When a Goat rams a Nether Wart Block, it will break into Nether Wart.
 
 ---
 
-#### 恼鬼可以被平复 ####
+#### Thick Potions Convert Stone into Deepslate
 
-提供*悦灵*
+Provides _Deepslate_
 
-通过指令```/carpetskyadditions removeDefault allayableVexes```可禁用该特性
+Disable with `/carpetskyadditions removeDefault renewableDeepslate`
 
-使用5个音符盒对恼鬼弹奏正确的旋律可以将他们转化成悦灵。
+Disable only splash/lingering conversion with `/carpetskyadditions setDefault renewableDeepslate no_splash`
 
-恼鬼会检测周围16格范围内的音符盒，并根据是否演奏了正确的音符而发出粒子效果。乐器种类和八度音阶都将被忽略，这意味着F#<sub>3</sub>和F#<sub>5</sub>将被视作同一个音符。
+Right-clicking or dispensing a Thick Potion on Stone converts it to Deepslate.
 
-当恼鬼处于矿车中时，可以使用比较器和探测铁轨来确定序列中的下一个音符。比较器会输出一个从0（对应 F#）到 11（对应 F）的值。
+A Thick Splash Potion will convert Stone blocks hit by the splash into Deepslate.
 
----
+The conversion chance equals twice the percentage of the potion duration an entity would get.
 
-#### 狐狸携带甜浆果生成 ####
-
-提供*甜浆果*
-
-通过指令```/carpetskyadditions removeDefault foxesSpawnWithSweetBerriesChance```可禁用该特性
-
-通过指令```/carpetskyadditions setDefault foxesSpawnWithSweetBerriesChance <chance>```可调整生成甜浆果的概率
-
-当一只狐狸携带物品生成时，有20%的概率为甜浆果。
-狐狸在生成之后很快就会吃掉它，所以请动作快点。
+A Thick Lingering Potion will continuously convert all Stone blocks in its cloud into Deepslate.
 
 ---
 
-#### 铁砧压合煤炭块为钻石 ####
+#### Netherrack and Nylium Generates with Nether Portal Structures
 
-提供*钻石*
+Provides _Netherrack and Nylium_
 
-通过指令```/carpetskyadditions removeDefault renewableDiamonds```可禁用该特性
+Disable with `/carpetskyadditions removeDefault renewableNetherrack`
 
-下落的铁砧可将整组煤炭块转化为钻石。
+When a Nether Portal generates in the void, it generates a few blocks of Netherrack or Nylium around it.
 
----
-
-#### 雷击藤蔓使其通电 ####
-
-提供*发光地衣*
-
-通过指令```/carpetskyadditions removeDefault lightningElectrifiesVines```可禁用该特性
-
-如果闪电击中附着于萤石上的藤蔓，则藤蔓将会转变为发光地衣，击中萤石上的避雷针时该特性依旧有效。
+Which block is generated depends on the Biome -- Crimson Nylium in Crimson Forests, Warped Nylium in Warped Forests,
+Netherrack elsewhere.
 
 ---
 
-#### 紫颂植物在末地小岛上生成 ####
+#### Wandering Traders Sell Tall Flowers
 
-提供*紫颂果*和*紫颂花*
+Provides _Tall Flowers_
 
-通过指令```/carpetskyadditions removeDefault gatewaysSpawnChorus```可禁用该特性
+Disable with `/carpetskyadditions removeDefault tallFlowersFromWanderingTrader`
 
-当一个末地折跃门在虚空上方生成时，其伴生的末地石小岛将会生成一株紫颂植物。
+Tall Flowers trades mimic Bedrock.
 
----
+##### Additional Tier 1 Trades:
 
-#### 海豚可以找到海洋之心 ####
-
-提供*海洋之心*
-
-通过指令```/carpetskyadditions removeDefault renewableHeartsOfTheSea```可禁用该特性
-
-当海豚被喂食鱼后，它会在海底的沙子或砂砾中找到一个海洋之心。
-
-必须在海洋群系——这玩意儿是海洋之心，而不是丛林之心
+| Item      | Price | Trades until disabled |
+| --------- | ----- | --------------------- |
+| Lilac     | 1     | 12                    |
+| Rose Bush | 1     | 12                    |
+| Peony     | 1     | 12                    |
+| Sunflower | 1     | 12                    |
 
 ---
 
-#### 紫水晶母岩可再生 ####
+#### Vexes Can Be Allayed
 
-提供*紫水晶母岩*
+Provides _Allays_
 
-通过指令```/carpetskyadditions removeDefault renewableBuddingAmethysts```可禁用该特性
+Disable with `/carpetskyadditions removeDefault allayableVexes`
 
-当熔岩方块被方解石包围后，外围再被平滑玄武岩包围时，最终会变为一个紫水晶母岩方块
+Play Vexes the right sequence of 5 Note Block notes to convert them to Allays.
 
-##### 如何搭建该结构 #####
+Vexes listen to Note Blocks within a 16 block range and emit particles based on whether the correct note is played. The
+instrument is ignored and the octave is ignored, meaning F#<sub>3</sub> is treated the same as F#<sub>5</sub>.
 
-![熔岩源](../screenshots/amethyst_step_1_240.png?raw=true "紫水晶母岩再生步骤1")
----->
-![用方解石包围熔岩](../screenshots/amethyst_step_2_240.png?raw=true "紫水晶母岩再生步骤2")
----->
-![用平滑玄武岩包围方解石](../screenshots/amethyst_step_3_240.png?raw=true "紫水晶母岩再生步骤3")
-
-在一定时间后（平均约2小时），处于结构正中心的熔岩将会转变为紫水晶母岩
-
-![熔岩变成了紫水晶母岩](../screenshots/amethyst_result_240.png?raw=true "紫水晶母岩再生结果")
+When a Vex is in a Minecart, a Comparator can be used with a Detector Rail to determine the next note in the sequence.
+The Comparator outputs a value from 0 (corresponding to F#) to 11 (corresponding to F)
 
 ---
 
-#### 树苗会在沙子上枯死 ####
+#### Foxes Spawn With Sweet Berries
 
-提供*枯萎的灌木*
+Provides _Sweet Berries_
 
-通过指令```/carpetskyadditions removeDefault saplingsDieOnSand```可禁用该特性
+Disable with `/carpetskyadditions removeDefault foxesSpawnWithSweetBerriesChance`
 
-树苗可以放在沙子和红沙上。
+Set the chance with `/carpetskyadditions setDefault foxesSpawnWithSweetBerriesChance <chance>`.
 
-一段时间后它们会枯萎并转化为枯死的灌木
-
----
-
-#### 末影龙掉落龙首 ####
-
-提供*龙首*
-
-通过指令```/carpetskyadditions removeDefault renewableDragonHeads```可禁用该特性
-
-当末影龙被**闪电苦力怕**击杀时，她会掉落她的头颅。
+When a Fox spawns with an item, there is a 20% chance the item is Sweet Berries. The Fox will eat them soon after
+spawning, so be quick.
 
 ---
 
-#### 巨型蘑菇生成菌丝 ####
+#### Anvils Compact Coal into Diamonds
 
-提供*菌丝*
+Provides _Diamonds_
 
-通过指令```/carpetskyadditions removeDefault hugeMushroomsSpreadMycelium```可禁用该特性
+Disable with `/carpetskyadditions removeDefault renewableDiamonds`
 
-当巨型蘑菇长成时，它会往附近的方块上扩散菌丝，该机制类似于巨型云杉扩散灰化土。
-
----
-
-#### 具有音波定位能力的生物在被音爆杀死时掉落回响碎片 ####
-
-提供*回响碎片*
-
-通过指令```/carpetskyadditions removeDefault renewableEchoShards```可禁用该特性
-
-蝙蝠和海豚在被监守者释放的音爆杀死时会掉落回响碎片
+A Falling Anvil compresses a stack of Coal Blocks into a Diamond.
 
 ---
 
-#### 监守者附近的附魔台可以提供迅捷潜行的附魔 ####
+#### Lightning Electrifies Vines
 
-提供*迅捷潜行*
+Provides _Glow Lichen_
 
-通过指令```/carpetskyadditions removeDefault renewableSwiftSneak```可禁用该特性
+Disable with `/carpetskyadditions removeDefault lightningElectrifiesVines`
 
-处于监守者周围8格范围内的附魔台可以为其上的物品提供迅捷潜行的附魔。
-
----
-
-#### 毒马铃薯转化蜘蛛 ####
-
-提供*洞穴蜘蛛*
-
-通过指令```/carpetskyadditions removeDefault poisonousPotatoesConvertSpiders```可禁用该特性
-
-对蜘蛛使用毒马铃薯可将其转化为洞穴蜘蛛
+If lightning strikes Glowstone with vines attached, the vines will turn into Glow Lichen. It can also strike a Lightning
+Rod on the Glowstone.
 
 ---
 
-#### 流浪商人出售熔岩  ####
+#### Chorus Trees Generate on End Islands
 
-提供*熔岩*
+Provides _Chorus Fruit_ and _Chorus Flowers_
 
-通过指令```/carpetskyadditions setDefault lavaFromWanderingTrader true```启用该特性
+Disable with `/carpetskyadditions removeDefault gatewaysSpawnChorus`
 
-***默认禁用 - 取而代之的是通过村庄英雄的礼物来获取熔岩***
+When an End Gateway is taken to a position over the void, the Endstone island generated spawns with a Chorus Tree on it.
 
+---
 
+#### Dolphins Find Hearts of the Sea
 
-##### 追加的二级交易内容 #####
+Provides _Hearts of the Sea_
 
-| 获得物品 | 消耗物品 | 价格 | 失效前可交易次数 |
-|---------|---------|------|-----------------|
-| 熔岩桶   | 桶      | 16   | 1               |
+Disable with `/carpetskyadditions removeDefault renewableHeartsOfTheSea`
 
-### 地毯模组特性
+When a Dolphin is fed a fish, they may dig a Heart of the Sea out of Sand or Gravel on the sea floor.
 
-默认状态下安装也会启用以下`fabric-carpet`的特性：
+Make sure to give the Dolphin enough space to search.
 
-+ 启用[renewableSponges](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#renewablesponges)选项以再生海绵
-  + 运行指令`/carpet removeDefault renewableSponges`可禁用该特性
-+ 启用[piglinsSpawningInBastions](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#piglinsSpawningInBastions)选项以在堡垒遗迹中再生猪灵
-  + 运行指令`/carpet removeDefault piglinsSpawningInBastions`可禁用该特性
+Must be in an Ocean type biome -- they're Hearts of the Sea, not Hearts of the Jungle.
+
+---
+
+#### Budding Amethysts Can Be Generated
+
+Provides _Budding Amethysts_
+
+Disable with `/carpetskyadditions removeDefault renewableBuddingAmethysts`
+
+A lava block surrounded by Calcite which is then surrounded by Smooth Basalt will eventually turn into a Budding
+Amethyst.
+
+##### How to build structure:
+
+![lava source](../screenshots/amethyst_step_1_240.png?raw=true "Budding Amethyst Generation Step 1")
+\---->
+![Lava surrounded by calcite](../screenshots/amethyst_step_2_240.png?raw=true "Budding Amethyst Generation Step 2")
+\---->
+![Calcite surrounded by smooth basalt](../screenshots/amethyst_step_3_240.png?raw=true "Budding Amethyst Generation Step 3")
+
+After some time (1/100 chance on a random tick — ~2 hours on average), the Lava in the center will turn into a Budding
+Amethyst.
+
+![Lava has become budding amethyst](../screenshots/amethyst_result_240.png?raw=true "Budding Amethyst Generation Result")
+
+---
+
+#### Saplings Die on Sand
+
+Provides _Dead Bushes_
+
+Disable with `/carpetskyadditions removeDefault saplingsDieOnSand`
+
+Saplings can be placed on Sand and Red Sand.
+
+After a time, the saplings will die and turn into Dead Bushes.
+
+---
+
+#### Dead Bush Rehydrated with Water
+
+Provides _Bushes_
+
+Disable with `/carpetskyadditions removeDefault doDeadBushToBush`
+
+Using a water bottle on a deadh bush turns it into a bush.
+
+---
+
+#### Ender Dragons Can Drop their Head
+
+Provides _Dragon Heads_
+
+Disable with `/carpetskyadditions removeDefault renewableDragonHeads`
+
+When an Ender Dragon is killed by a Charged Creeper, she will drop her head.
+
+---
+
+#### Huge Mushrooms Spread Mycelium
+
+Provides _Mycelium_
+
+Disable with `/carpetskyadditions removeDefault hugeMushroomsSpreadMycelium`
+
+When a Huge Mushroom grows, it spreads Mycelium nearby, similar to how Mega Spruces Trees spread Podzol.
+
+---
+
+#### Creatures with Echolocation Drop Echo Shards when Killed with Sonic Booms
+
+Provides _Echo Shards_
+
+Disable with `/carpetskyadditions removeDefault renewableEchoShards`
+
+Bats and Dolphins drop an Echo Shard when killed by a Warden's Sonic Boom attack.
+
+---
+
+#### Drowneds Foster Sniffer Eggs
+
+Provides _Sniffer Eggs_
+
+Disable with `/carpetskyadditions removeDefault sniffersFromDrowneds`
+
+Drowneds have a 1% chance to spawn with a Sniffer Egg in their offhand.
+
+This Egg will never drop when the Drowned dies.
+
+Instead, when a Drowned holding a Sniffer Egg stomps on a Turtle Egg,
+it will replace the destroyed Egg with the Sniffer Egg.
+
+---
+
+#### Sniffers are Suspicious
+
+Provides _Suspicious Sand_ and _Suspicious Gravel_
+
+Disable with `/carpetskyadditions removeDefault suspiciousSniffers`
+
+Disable only Iron Nugget drops with `/carpetskyadditions setDefault suspiciousSniffers no_iron`
+
+Sniffers will dig in Sand, Red Sand, Suspicious Sand, Gravel, and Suspicious Gravel.
+
+They dig up Iron Nuggets from these materials.
+This Iron Nugget is more for lore than as an Iron source,
+but it can provide a passive Iron source before an Iron Golem farm is built.
+
+Digging has a 10% chance to convert Sand into Suspicious Sand when it's within a Desert Pyramid or Warm Ocean Ruin
+and a 10% chance to convert Gravel into Suspicious Gravel when it's within a Trail Ruin or Cold Ocean Ruin.
+
+Suspicious blocks will have the loot table of the structure they are created in.
+In Trail Ruins, it will have a 20% chance to have the rare Trail Ruins loot table.
+In a Desert Pyramid, it will have a 20% chance to have a Desert Well loot table.
+
+---
+
+#### Enchanting Tables Near Wardens can Enchant Items with Swift Sneak
+
+Provides _Swift Sneak_
+
+Disable with `/carpetskyadditions removeDefault renewableSwiftSneak`
+
+An Enchanting Table placed within 8 blocks of a Warden can enchant items with Swift Sneak.
+
+---
+
+#### Poisonous Potatoes Convert Spiders
+
+Provides _Cave Spiders_
+
+Disable with `/carpetskyadditions removeDefault poisonousPotatoesConvertSpiders`
+
+Use a Poisonous Potato on a Spider to convert it to a Cave Spider.
+
+---
+
+#### Wandering Traders Can Spawn Riding Camels
+
+Provides _Camels_
+
+Disable with `/carpetskyadditions removeDefault traderCamels`
+
+When a Wandering Trader spawns in a Desert or Badlands biome (tag `carpetskyadditions:wandering_trader_spawns_on_camel`),
+it will not have Trader Llamas, but will ride a Camel.
+
+The Camel will despawn when the Wandering Trader does if the Trader is still riding it.
+
+While the Wandering Trader is riding, the Camel can't be ridden, fed, or leashed.
+
+Note: When installed only on the server side, the Trader will appear to be standing on the Camel,
+instead of sitting. Also, feeding or leashing the ridden Camel will appear use the Cactus or Lead.
+This is client side only, but I recommend not trying to mess with the Trader's Camel.
+
+---
+
+#### Small Dripleaves Can Propogate
+
+Provides additional _Small Dripleaves_
+
+Disable with `/carpetskyadditions removeDefault spreadingSmallDripleaves`
+
+When a Small Dripleaf is planted on Clay such that the bottom half is waterlogged, the top isn't,
+and the top is at exactly light level 5, it can spread. Spreading works similarly to Mushrooms.
+
+It only spreads to blocks which match the same conditions.
+It can spread to a location up to 5 blocks away horizontally and 2 vertically.
+Closer blocks are more likely.
+It can only spread to locations with a maximum of 15 Small Dripleaf blocks (both halves counted) in a 5x2x5 area around.
+
+In SkyBlock worlds, Small Dripleaves are normally very limited,
+as they can only be obtained through the Wandering Trader, 10 at a time.
+This allows farming and heavier use of them.
+
+---
+
+#### Coral can Spread to Calcite
+
+Provides additional _Coral Blocks_
+
+Disable with `/carpetskyadditions removeDefault spreadingCoral`
+
+When a Calcite block has at least 8 of the same type of Coral block within a 3x3 around it,
+it can convert to that Coral block upon a random tick (if it would survive).
+
+The chance of conversion depends on the suitability of the location.
+The suitability is based on the [generation temperature and continentalness parameters](https://minecraft.fandom.com/wiki/Biome#Overworld_3).
+The ideal spot is defined as a temperature of 0.65 and a continentalness of -0.3,
+which translates to just off the coast, in warm locations.
+These values are visible on the F3 screen in singleplayer.
+The algorithm is:
+
+```
+if dimension is not overworld then
+    suitability = 0
+else if flat world then
+    suitability = 0.5
+else
+    # This value is clamped between 0 and 1
+    suitability = 1 - ((temperature - 0.65)^2 + (continentalness + 0.3)^2)
+```
+
+The chance of conversion upon a random tick is `suitability * 0.49 + 0.01`.
+
+When most suitable, conversion takes about 2 minutes on average.
+When least suitable, it averages almost 2 hours.
+
+In SkyBlock worlds, Coral Blocks are normally very limited,
+as they can only be obtained through the Wandering Trader, 8 at a time.
+This allows farming and heavier use of them.
+
+---
+
+#### Wandering Traders Sell Lava
+
+Provides _Lava_
+
+Enable with `/carpetskyadditions setDefault lavaFromWanderingTrader true`
+
+\*\*\* Not automatically enabled in SkyBlock — Get Lava from a Hero of the Village Gift Instead\*\*\*
+
+##### Additional Tier 2 Trade:
+
+| Item        | Price | Input Item | Trades until disabled |
+| ----------- | ----- | ---------- | --------------------- |
+| Lava Bucket | 16    | Bucket     | 1                     |
+
+---
+
+#### Blaze turn into Breeze when Brought to Overworld
+
+Provides _Breeze Rods_
+
+Disable with `/carpetskyadditions setDefault blazeToBreeze false`
+
+Blaze mobs turn into Breeze when go from the nether into the overworld.
+This does not affect entities with a custom name tag.
+
+---
+
+#### Using a Breeze Rod on an Unactivated Trial Spawner Makes It a Breeze Trial Spawner
+
+Provides _Trial Chamber Loot_
+
+Disable generation with `/carpetskyadditions setDefault generateTrialChambers false`
+
+Breeze Rods when used on an unactivated Trial Spawner turns it into a Breeze Trial Spawner.
+This is how you obtain the loot from Trial Spawners.
+
+---
+
+#### Growing a Pale Oak Sapling Near an Open Eye Blossom Produces a Creaking Heart
+
+Provides _Creaking Heart and Resin_
+
+Disable with `/carpetskyadditions setDefault paleBlossomCreakingHeart false`
+
+If four pale oak saplings are placed close to an open eyeblossom in the pale garden biome,
+there are a 10% chance for the pale oak tree to generate a creaking heart.
+
+---
+
+### Carpet Features
+
+Default installation will also enable these `fabric-carpet` features.
+
+- [`renewableSponges`](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#renewablesponges): Guardians struck by lightning turn into elder guardians, which give access to wet sponges and the Tide armor trim smithing template.
+  - run `/carpet removeDefault renewableSponges` to disable
+- [`piglinsSpawningInBastions`](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#piglinsSpawningInBastions): Piglin brutes respawn in bastion remnants, giving access to ancient debris via a datapack feature.
+  - run `/carpet removeDefault piglinsSpawningInBastions` to disable
