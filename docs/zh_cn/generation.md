@@ -12,7 +12,8 @@
 - 末地传送门框架（除非属性 `generateEndPortals` 被设置为 `false`）：
   ![末地传送门框架将得到保留](../screenshots/end_portal.png?raw=true "末地传送门框架")
 
-- 试炼刷怪笼，以及宝库和不祥宝库（除非将 `generateTrialChambers` 设置为 `false`）：![试炼刷怪笼和宝库](../trial_spawner_and_vaults.png?raw=true "试炼刷怪笼和宝库")
+- Trial spawner and a vault and ominous vault (unless `generateTrialChambers` is set to `false`):
+  ![trial spawner and vaults](../screenshots/trial_spawner_and_vaults.png?raw=true "Trial Spaner and Vaults")
 
 - 带有幽匿尖啸体的远古城市传送门框架（除非属性 `generateAncientCityPortals` 被设置为 `false`）：
   ![远古城市传送门框架将得到保留](../screenshots/ancient_city_portal.png?raw=true "远古城市传送门框架")
