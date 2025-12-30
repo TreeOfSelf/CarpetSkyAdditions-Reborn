@@ -91,7 +91,7 @@ Carpet Sky Additions 是 [fabric-carpet](https://github.com/gnembon/fabric-carpe
 
 - [Vanilla Tweaks](https://vanillatweaks.net) 的 More Mob Heads 数据包
 
-- CrowdIn 上的所有翻译人员
+- Crowdin 上的所有翻译人员
 
 ## 许可证
 本项目根据 MIT 许可证条款授权。

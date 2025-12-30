@@ -103,7 +103,7 @@ Simply download the mcaselector.jar, place it next to your world folder, and run
 
 - [Vanilla Tweaks](https://vanillatweaks.net) for the More Mob Heads Datapack
 
-- All the translators on CrowdIn
+- All the translators on Crowdin
 
 ## License
 This project is licensed under the terms of the MIT license.
