@@ -203,7 +203,7 @@ Disable by deleting `skyblock/data/skyblock/recipe/netherite_upgrade_smithing_te
 A Netherite Upgrade Smithing Template is crafted from the duplication recipe
 with the Smithing Template replaced with a Netherite Ingot.
 
-![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true)
+![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "Template Recipe")
 
 ---
 
