@@ -75,8 +75,8 @@ ilmango 的[这个视频](https://www.youtube.com/watch?v=gibE51sgutg)或许是�
 
 ---
 
-Below is a progression chart translate from Chinese using ChatGPT:
+下面是一个进度图表：
 
-![progression chart](../charts/progression_chart_en_us.svg)
+![进度图表](../charts/progression_chart_zh_cn.svg)
 
 © 2025 SilianZ
