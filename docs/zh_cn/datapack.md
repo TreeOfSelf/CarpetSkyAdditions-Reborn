@@ -1,435 +1,431 @@
 ## 数据包特性
 
-### Modifying
+### 修改
 
-To customize the datapack,
-Download the mod .jar file and open it with any archive tool you prefer such as [7-Zip](https://7-zip.org/), WinRAR, File Roller, Ark, or a command line utility like unzip or tar
-and edit to your liking.
+要自定义该数据包，
+请下载该模组的 .jar 文件，并使用你偏好的任意压缩工具（如 [7-Zip](https://7-zip.org/)、WinRAR、File Roller、Ark，或使用 unzip、tar 等命令行工具）将其打开，然后按需进行修改。
 
-Look in either /resourcepacks or /data
+在 `/resourcepacks` 或 `/data` 中查找。
 
-#### Structures
+#### 结构
 
-Configured features can be overridden to replace the default world spawn platform and Sky Island platform.
+已配置的特性可以被覆盖，用于替换默认的世界出生平台和空岛平台。
 
-The world spawn platform uses a configured feature defined in
-`data/carpetskyadditions/worldgen/configured_feature/spawn_platform.json`.
-By default, it loads the structure defined in `data/carpetskyadditions/structures/spawn_platform.nbt`
-at an offset of (-4, -1) at y=63.
-
----
-
-### Built-In "SkyBlock" Datapack Features
-
-Note that this datapack needs to be explicitly enabled when starting a new world.
-
-#### Villagers Gift Lava Buckets
-
-Provides _Lava_
-
-Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/hero_of_the_village`
-
-Lava Buckets can be received as a Hero of the Village gift from Armorers, Weaponsmiths, and Toolsmiths.
+世界出生平台使用的是在
+`data/carpetskyadditions/worldgen/configured_feature/spawn_platform.json`
+中定义的一个已配置特性。
+默认情况下，它会在 y=63 的高度，以 (-4, -1) 的偏移量加载
+`data/carpetskyadditions/structures/spawn_platform.nbt`
+中定义的结构。
 
 ---
 
-#### Elytra Obtainable from Endermites
+### 内置的“SkyBlock”数据包功能
 
-Provides _Elytra_
+请注意，在创建新世界时需要显示启用此数据包。
 
-Disable by deleting `skyblock/data/minecraft/loot_table/entities/endermite.json`
+#### 村民赠予熔岩桶
 
-Player killing an Endermite affected by both Slow Falling and Levitation
-has a chance to drop an Elytra, increased by looting.
+提供 _熔岩_
 
----
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/gameplay/hero_of_the_village` 可移除该特性
 
-#### Piglin Brutes Drop Ancient Debris
-
-Provides _Ancient Debris_
-
-Disable by deleting `skyblock/data/minecraft/loot_table/entities/piglin_brute.json`
-
-A Carpet setting enables Piglin Brutes to spawn in bastions. These Brutes have a chance to drop Ancient Debris.
+熔岩桶将可以作为村庄英雄的礼物从盔甲匠、武器匠和工具匠那里获得。
 
 ---
 
-#### Calcite and Tuff Obtainable
+#### 可从末影螨获得鞘翅
 
-Provides _Calcite_ and _Tuff_
+提供 _鞘翅_
 
-Disable by deleting `skyblock/data/skyblock/recipe/[tuff_from_blasting_andesite.json + calcite_from_blasting_diorite.json]`
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/entities/endermite.json` 可移除该特性
 
-Put Diorite in a Blast Furnace for Calcite.
-
-Put Andesite in a Blast Furnace for Tuff.
+玩家击杀同时受到缓降和漂浮效果影响的末影螨时，有概率掉落鞘翅，且该概率会受到抢夺附魔加成。
 
 ---
 
-#### Glow Berries Craftable
+#### 猪灵蛮兵掉落远古残骸
 
-Provides _Glow Berries_
+提供 _远古残骸_
 
-Disable by deleting `skyblock/data/skyblock/recipe/glow_berries.json`
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/entities/piglin_brute.json` 可移除该特性
 
-Sweet Berries crafted with Glow Ink Sacs give Glow Berries.
-
----
-
-#### Spider Jockeys Drop Cobwebs
-
-Provides _Cobwebs_
-
-Disable by deleting `skyblock/data/minecraft/loot_table/entities/[skeleton.json + spider.json]`
-
-When a player kills a Spider Jockey, the first half killed drops a cobweb.
+一个 Carpet 设置可使猪灵蛮兵在堡垒遗迹中生成。 这些猪灵蛮兵有概率掉落远古残骸。
 
 ---
 
-#### Cocoa Beans Obtainable by Fishing in Jungles
+#### 方解石和凝灰岩可获取
 
-Provides _Cocoa Beans_
+提供 _方解石_ 和 _凝灰岩_
 
-Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/fishing/junk.json`
+通过在数据包中删除 `skyblock/data/skyblock/recipe/[tuff_from_blasting_andesite.json + calcite_from_blasting_diorite.json]` 可移除该特性
 
-Matching Bedrock, Cocoa Beans can be obtained as a junk item when fishing in a Jungle.
+将闪长岩放入高炉中烧炼以获得方解石。
 
----
-
-#### Ores are Craftable
-
-Provides _ores_
-
-Disable by deleting `skyblock/data/skyblock/recipe/*_ore.json`
-
-All ores can be crafted using a block of the base stone material and four of the ore's material.
-
-The recipe requires ingots, Nether Quartz, Coal, Diamonds, or Emeralds.
-
-_Copper, Redstone, and Lapis Lazuli require blocks._
-
-For example, Nether Gold Ore can be crafted with Netherrack in the center and Gold Ingots on the four sides.
-
-![4 Gold Ingots around Netherrack gives Nether Gold Ore](../screenshots/ore_recipe.png?raw=true "Ore Recipe")
+将安山岩放入高炉中烧炼以获得凝灰岩。
 
 ---
 
-#### Horse Armor is Craftable
+#### 可合成发光浆果
 
-Provides _Iron Horse Armor_, _Golden Horse Armor_, and _Diamond Horse Armor_
+提供 _发光浆果_
 
-Disable by deleting `skyblock/data/skyblock/recipe/*_horse_armor.json`
+通过在数据包中删除 `skyblock/data/skyblock/recipe/glow_berries.json` 可移除该特性
 
-Craft Horse Armors with their respective materials in a **H** shape.
-
----
-
-#### Cats Gift Enchanted Golden Apples
-
-Provides _Enchanted Golden Apples_
-
-Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/cat_morning_gift.json`
-
-Cats will rarely bring the player an Enchanted Golden Apple as a morning gift.
+使用荧光墨囊和甜浆果合成发光浆果。
 
 ---
 
-#### Piglins Give Gilded Blackstone
+#### 蜘蛛骑士掉落蜘蛛网
 
-Provides _Gilded Blackstone_
+提供 _蜘蛛网_
 
-Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/piglin_bartering.json`
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/entities/[skeleton.json + spider.json]` 可移除该特性
 
-Piglins will rarely give Gilded Blackstone when bartering.
-
----
-
-#### Creepers Drop Structure Specific Music Discs or Fragments in those Structures
-
-Provides the music discs _Pigstep_, _otherside_, _5_, _Precipice_, and _Creator_
-
-Disable by deleting `skyblock/data/minecraft/loot_table/entities/creeper.json`
-
-When Creepers are killed by Skeletons in the Bastions, they can drop the Music Disc "Pigstep".
-
-When Creepers are killed by Skeletons in the Strongholds, they can drop the Music Disc "otherside".
-
-When Creepers are killed by Skeletons in the Ancient Cities, they can drop Disc Fragment 5.
-
-When Creepers are killed by Skeletons in the Trial Chambers, they can drop the Music Discs "Precipice" or "Creator".
+当玩家杀死一个蜘蛛骑士时，先被击杀的部分将会掉落蜘蛛网。
 
 ---
 
-#### Zoglins Drop Snout Banner Patterns
+#### 可在丛林中通过钓鱼获得可可豆
 
-Provides _Snout Banner Pattern_
+提供 _可可豆_
 
-Disable by deleting `skyblock/data/minecraft/loot_table/entities/zoglin.json`
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/gameplay/fishing/junk.json` 可移除该特性
 
-Zoglins will always drop a Snout Banner Pattern when killed by a player.
-
----
-
-#### Flowering Azalea Leaves Drop Spore Blossoms
-
-Provides _Spore Blossoms_
-
-Disable by deleting `skyblock/data/minecraft/loot_table/blocks/flowering_azaliea_leaves.json`
-
-Flowering Azalea Leaves have a chance to drop Spore Blossoms, increased by Fortune.
+与基岩版匹配，可可豆可以作为丛林特色物品在丛林中钓鱼被钓出。
 
 ---
 
-#### Endermen Can Pick Up Tall Grass and Large Ferns
+#### 矿石可合成
 
-Provides _Tall Grass and Large Ferns_
+提供 _矿石_
 
-Disable by deleting `skyblock/data/minecraft/tags/block/enderman_holdable.json`
+通过在数据包中删除 `skyblock/data/skyblock/recipe/*_ore.json` 可移除该特性
 
-Endermen who have picked up Tall Grass and Large Ferns can be killed to retrieve those as an item,
-mimicking pre-1.19.3 behavior.
+所有矿石都可以使用基础石材方块与该矿石对应的四个材料进行合成。
 
-The mod fixes Endermen's handling of double-tall blocks, allowing them to be correctly placed down without being
-destroyed.
+该配方需要使用金属锭、下界石英、煤炭、钻石或绿宝石。
 
----
+_其中铜、红石和青金石需要使用对应的方块。_
 
-#### Netherite Upgrade Smithing Template is Craftable
+例如，下界金矿石可以通过在合成栏中央放置下界岩，并在四个侧位放置金锭来合成。
 
-Provides _Netherite Upgrade Smithing Template_
-
-Disable by deleting `skyblock/data/skyblock/recipe/netherite_upgrade_smithing_template_from_netherite.json`
-
-A Netherite Upgrade Smithing Template is crafted from the duplication recipe
-with the Smithing Template replaced with a Netherite Ingot.
-
-![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "Template Recipe")
+![在下界岩周围放置 4 个金锭即可合成下界金矿石](../screenshots/ore_recipe.png?raw=true "矿石配方")
 
 ---
 
-#### Loot Tables for Trial Vaults are Updated
+#### 马铠可合成
 
-Provides _Trial Chamber Pottery Sherds_ and the music disc _Creator (Music Box)_
+提供 _铁马铠_，_金马铠_ 和 _钻石马铠_
 
-As the trial vaults are easy to find and provides an easy way to get some resources that would make some parts of this mod obsolete, the
-loot tables for the trial vaults has been updated.
+通过在数据包中删除 `skyblock/data/skyblock/recipe/*_horse_armor.json` 可移除该特性
 
-Added to regular vaults:
-
-- Flow Pottery Sherd
-- Guster Pottery Sherd
-- Scrape Pottery Sherd
-
-Removed from regular vaults:
-
-- Diamond
-- Diamond Axe
-- Diamond Chestplate
-- Golden Apple
-- Bolt Armor Trim Smithing Template
-- Music Disc (Precipice)
-- Trident
-
-Added to ominous vaults:
-
-- Music Disc (Creator (Music Box))
-
-Removed from ominous vaults:
-
-- Diamond
-- Golden Apple
-- Diamond Axe
-- Diamond Chestplate
-- Block of Diamond
-- Enchanted Golden Apple
-- Flow Armor Trim Smithing Template
-- Music Disc (Creator)
+使用对应材料在工作台上摆放为 **H** 型以合成对应马铠。
 
 ---
 
-### Advancements
+#### 猫会赠送附魔金苹果
 
-The datapack adds numerous advancements to guide progression.
+提供 _附魔金苹果_
 
-It also adds multiple challenge advancements that provide Armor Trim Smithing Templates as rewards upon completion.
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/gameplay/cat_morning_gift.json` 可移除该特性
 
-The challenge advancements are documented below.
-
-#### Seeing Patterns Everywhere
-
-Completing rewards _Sentry Armor Trim Smithing Template_
-
-Granted upon obtaining all Banner Patterns.
+猫有极低的概率将附魔金苹果作为早晨礼物提供给玩家。
 
 ---
 
-#### Let There Be Light
+#### 猪灵交易提供镶金黑石
 
-Completing rewards _Eye Armor Trim Smithing Template_
+提供 _镶金黑石_
 
-Granted upon obtaining all Light Sources in the following list:
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/gameplay/piglin_bartering.json` 可移除该特性
 
-- Torch and Soul Torch
-- Lantern and Soul Lantern
-- Campfire and Soul Campfire
-- Candle and all Colored Candles
-- Glowstone
-- Jack o'Lantern
-- Shroomlight
-- Sea Lantern
-- All Froglights
-- Lava Bucket
-- Redstone Lamp
-- Glow Berries
-- Glow Lichen
-- Sea Pickle
-- End Rod
-- Furnace, Blast Furnace, and Smoker
-- Brewing Stand
-- Crying Obsidian
-- Respawn Anchor
-- Redstone Ore and Deepslate Redstone Ore
-- Enchanting Table
-- Ender Chest
-- Redstone Torch
-- Sculk Sensor and Calibrated Sculk Sensor
-- Sculk Catalyst
-- Amethyst Cluster and all sized Buds
-- Magma Block
-- Brown Mushroom
-- Beacon
-- Conduit
-- Dragon Egg
-- All variants of Copper Bulb
+猪灵在进行以物易物时，有极低概率会给予镶金黑石。
 
 ---
 
-#### End City Builder
+#### 苦力怕在特定结构中掉落对应唱片或唱片残片
 
-Completing rewards _Spire Armor Trim Smithing Template_
+提供音乐唱片 _Pigstep_、_otherside_、_5_、_Precipice_ 和 _Creator_
 
-Granted upon crafting or stonecutting all Purpur Blocks, Pillars, Stairs, and Slabs while levitated.
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/entities/creeper.json` 可移除该特性
 
----
+当苦力怕在堡垒遗迹中被骷髅击杀时，有概率掉落音乐唱片 Pigstep。
 
-#### Treasure Map to Nowhere
+当苦力怕在要塞中被骷髅击杀时，有概率掉落音乐唱片 otherside。
 
-Completing rewards _Vex Armor Trim Smithing Template_
+当苦力怕在远古城市中被骷髅击杀时，有概率掉落唱片碎片 5。
 
-Granted upon entering a Woodland Mansion bounding box.
-
-The spirit of this challenge is to follow a treasure map from a villager,
-but looking up the coordinates would work too.
+当苦力怕在试炼密室中被骷髅击杀时，有概率掉落音乐唱片 Precipice 或 Creator。
 
 ---
 
-#### Wither Art Thou
+#### 僵尸疣猪兽掉落猪鼻旗帜图案
 
-Completing rewards _Rib Armor Trim Smithing Template_
+提供 _猪鼻旗帜图案_
 
-Granted upon killing a Wither within the (small) bounding box of a Nether Fortress.
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/entities/zoglin.json` 可移除该特性
 
----
-
-#### Air Tunes
-
-Completing rewards _Silence Armor Trim Smithing Template_
-
-Granted upon playing all music discs in a Jukebox.
-
-Music discs must be clicked onto a Jukebox, not hoppered in.
+当玩家击杀僵尸疣猪兽时，它们将必定掉落一个猪鼻旗帜图案。
 
 ---
 
-#### Way of the Ancients
+#### 盛开的杜鹃花丛掉落孢子花
 
-Completing rewards _Dune Armor Trim Smithing Template_
+提供_孢子花_
 
-An exact replica Desert Pyramid must be built as described [here](https://minecraft.fandom.com/wiki/Desert_pyramid/Structure).
-The structure can face any direction. Only layers from the Blue Terracotta layer to the top matter.
+通过在数据包中删除 `skyblock/data/minecraft/loot_table/blocks/flowering_azaliea_leaves.json` 可移除该特性
 
-The advancement is granted when a Husk is sacrificed on the Blue Terracotta in the center of the pyramid.
-
----
-
-#### Sky Pirate
-
-Completing rewards _Coast Armor Trim Smithing Template_
-
-Granted upon traveling 30km in a boat.
+盛开的杜鹃树叶有概率掉落孢子花，且该概率会受到时运附魔的加成。
 
 ---
 
-#### War Pigs
+#### 末影人可以拾取高草丛和大型蕨
 
-Completing rewards _Snout Armor Trim Smithing Template_
+提供 _高草丛_ 和 _大型蕨_
 
-Granted upon killing a Piglin Brute while riding a Pig and wearing a Piglin Head.
+通过在数据包中删除 `skyblock/data/minecraft/tags/block/enderman_holdable.json` 可移除该特性
 
-The vanilla War Pigs advancement is impossible; this serves as its replacement.
+拾取了高草丛或大型蕨类的末影人在被击杀后可以将这些方块以物品形式掉落，
+以此模拟 1.19.3 之前的行为。
 
----
-
-#### Resistance Isn't Futile
-
-Completing rewards _Ward Armor Trim Smithing Template_
-
-Granted upon getting hit by a Warden while wearing full Protection 4 Netherite Armor
-and affected by Resistance 4.
+模组修复了末影人对两格高方块的处理，使其能正确的放置而不会被破坏。
 
 ---
 
-#### Spy in the Sky
+#### 下界合金升级锻造模板可合成
 
-Completing rewards _Wild Armor Trim Smithing Template_
+提供 _下界合金升级锻造模板_
 
-Granted after looking through a Spyglass at all animals in the following list:
+通过在数据包中删除 `skyblock/data/skyblock/recipe/netherite_upgrade_smithing_template_from_netherite.json` 可移除该特性
 
-- Axolotl
-- Armadillo
-- Bat
-- Bee
-- Camel
-- Cat
-- Spider and Cave Spider
-- Chicken
-- Cod, Salmon, Pufferfish, and Tropical Fish
-- Cow
-- Dolphin
-- Horse, Donkey, and Mule
-- Endermite
-- Fox
-- Frog and Tadpole
-- Squid and Glow Squid
-- Goat
-- Hoglin
-- Llama
-- Mooshroom
-- Ocelot
-- Panda
-- Parrot
-- Pig
-- Polar Bear
-- Rabbit
-- Sheep
-- Silverfish
-- Sniffer
-- Strider
-- Turtle
-- Wolf
+下界合金升级锻造模板可通过其复制配方进行合成，只需将配方中的锻造模板替换为一个下界合金锭即可。
+
+![下界合金升级锻造模板合成配方](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "锻造模板配方")
 
 ---
 
-#### Lightning Conqueror
+#### 试炼宝库的战利品表已更新
 
-Completing rewards _Bolt Armor Trim Smithing Template_
+提供 _试炼密室陶片_ 以及 _音乐唱片 Creator（八音盒）_
 
-Granted after using a channeling trident to take down creepers, guardians, mooshrooms, zombified piglins, and witches during a thunderstorm
+由于试炼宝库非常容易找到，并且提供了一种获取某些资源的便捷途径，这可能会使本模组的部分内容失去意义，因此对试炼宝库的战利品表进行了调整。
+
+已添加到普通宝库：
+
+- 涡流纹样陶片
+- 旋风纹样陶片
+- 刮削纹样陶片
+
+已从普通宝库移除：
+
+- 钻石
+- 钻石斧
+- 钻石胸甲
+- 金苹果
+- 镶铆盔甲纹饰锻造模板
+- 音乐唱片 Precipice
+- 三叉戟
+
+已添加到不祥宝库：
+
+- 音乐唱片 Creator（八音盒）
+
+已从不祥宝库移除：
+
+- 钻石
+- 金苹果
+- 钻石斧
+- 钻石胸甲
+- 钻石块
+- 附魔金苹果
+- 涡流盔甲纹饰锻造模板
+- 音乐唱片 Creator
 
 ---
 
-#### Harnessing the Flow
+### 进度
 
-Completing rewards _Flow Armor Trim Smithing Template_
+该数据包添加了大量进度，用于引导玩家的游戏流程。
 
-Granted after using a riptide trident under the influence of a conduit during rain.
+它还加入了多个挑战进度，在完成后会奖励盔甲纹饰锻造模板。
+
+这些挑战进度在下文中有详细说明。
+
+#### 处处皆是图案
+
+完成奖励 _哨兵盔甲纹饰锻造模板_
+
+在获得所有旗帜图案后授予该进度。
+
+---
+
+#### 要有光
+
+完成奖励 _眼眸盔甲纹饰锻造模板_
+
+在获得以下列表中的所有光源后授予该进度：
+
+- 火把和灵魂火把
+- 灯笼和灵魂灯笼
+- 篝火和灵魂篝火
+- 蜡烛及所有颜色的蜡烛
+- 萤石
+- 南瓜灯
+- 菌光体
+- 海晶灯
+- 所有蛙明灯
+- 熔岩桶
+- 红石灯
+- 发光浆果
+- 发光地衣
+- 海泡菜
+- 末地烛
+- 熔炉、高炉和烟熏炉
+- 酿造台
+- 哭泣的黑曜石
+- 重生锚
+- 红石矿石和深层红石矿石
+- 附魔台
+- 末影箱
+- 红石火把
+- 幽匿感测体和校频幽匿感测体
+- 幽匿催发体
+- 紫水晶簇以及所有尺寸的紫晶芽
+- 岩浆块
+- 棕色蘑菇
+- 信标
+- 潮涌核心
+- 龙蛋
+- 所有变种的铜灯
+
+---
+
+#### 人造末地城
+
+完成奖励 _尖塔盔甲纹饰锻造模板_
+
+在漂浮状态下，通过合成或切石获得所有紫珀方块、紫珀柱、紫珀楼梯和紫珀台阶授予该进度。
+
+---
+
+#### 通往虚无的藏宝图
+
+完成奖励 _恼鬼盔甲纹饰锻造模板_
+
+在进入林地府邸的边界范围后授予该进度。
+
+该挑战的本意是跟随村民提供的藏宝图前往目标地点，
+但直接查看坐标同样也可以完成。
+
+---
+
+#### 凋灵在何方
+
+完成奖励 _肋骨盔甲纹饰锻造模板_
+
+在下界要塞的（较小）边界范围内击杀一只凋灵后授予该进度。
+
+---
+
+#### 碟碟不休
+
+完成奖励 _幽静盔甲纹饰锻造模板_
+
+在唱片机中播放所有音乐唱片后授予该进度。
+
+音乐唱片必须手动点击放入唱片机中，而不能通过漏斗放入。
+
+---
+
+#### 古人之道
+
+完成奖励 _沙丘盔甲纹饰锻造模板_
+
+必须按照[此处](http://zh.minecraft.wiki/w/%E6%B2%99%E6%BC%A0%E7%A5%9E%E6%AE%BF/%E7%BB%93%E6%9E%84)所述的结构，建造一个完全一致的沙漠神殿复制品。
+该结构可以面向任意方向。 只需满足从蓝色陶瓦层到顶部之间的结构要求即可。
+
+当一只尸壳在沙漠神殿中央的蓝色陶瓦上被击杀时，将授予该进度。
+
+---
+
+#### 天空海盗
+
+完成奖励 _海岸盔甲纹饰锻造模板_
+
+在船上行驶 30 公里后授予该进度。
+
+---
+
+#### 战猪
+
+完成奖励 _猪鼻盔甲纹饰锻造模板_
+
+在骑着猪并佩戴猪灵头颅的情况下击杀一只猪灵蛮兵后授予该进度。
+
+原版的战猪进度无法完成；此进度作为其替代。
+
+---
+
+#### 抵抗并非徒劳
+
+完成奖励 _监守盔甲纹饰锻造模板_
+
+在穿戴全套防护 IV 的下界合金盔甲，并受到抗性 IV 效果影响的情况下，被监守者击中后授予该进度。
+
+---
+
+#### 远望空岛
+
+完成奖励 _荒野盔甲纹饰锻造模板_
+
+在使用望远镜观察下列清单中的所有动物后授予该进度：
+
+- 美西螈
+- 犰狳
+- 蝙蝠
+- 蜜蜂
+- 骆驼
+- 猫
+- 蜘蛛和洞穴蜘蛛
+- 鸡
+- 鳕鱼、鲑鱼、河豚以及热带鱼
+- 牛
+- 海豚
+- 马、驴和骡
+- 末影螨
+- 狐狸
+- 青蛙和蝌蚪
+- 鱿鱼和发光鱿鱼
+- 山羊
+- 疣猪兽
+- 羊驼
+- 哞菇
+- 豹猫
+- 熊猫
+- 鹦鹉
+- 猪
+- 北极熊
+- 兔子
+- 羊
+- 蠹虫
+- 嗅探兽
+- 炽足兽
+- 海龟
+- 狼
+
+---
+
+#### 闪电征服者
+
+完成奖励 _镶铆盔甲纹饰锻造模板_
+
+在雷暴天气中，使用附有引雷的三叉戟击杀苦力怕、守卫者、哞菇、僵尸猪灵和女巫后授予该进度。
+
+---
+
+#### 驾驭流动
+
+完成奖励 _涡流盔甲纹饰锻造模板_
+
+在下雨时，在潮涌能量的影响下使用附有激流的三叉戟后授予该进度。
