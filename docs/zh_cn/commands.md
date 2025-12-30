@@ -1,30 +1,30 @@
-## Commands
+## 命令
 
 ### SkyIsland
 
 ----
 
-Permissions configured with `/carpetskyadditions commandSkyIsland`
+配置权限请使用 `/carpetskyadditions commandSkyIsland`
 
-Generates spawn islands, simplifying having multiple players on the same server with different starting islands.
+生成出生岛屿，让同一服务器上的多名玩家更容易拥有各自不同的起始岛屿。
 
 **`/skyisland new`**
 
-Creates a new starting platform.
+创建一个新的出生平台。
 
-The platform will be at least a few thousand blocks out from other generated islands,
-yet not too far outside the outer stronghold ring.
+该平台会与其他生成的岛屿至少相距数千个方块，
+但又不会离外圈要塞环太远。
 
-It will never generate in already generated chunks.
+它永远不会生成在已经生成的区块中。
 
 **`/skyisland join [num]`**
 
-Teleports the calling player to the island number `num` and sets their spawn.
+将调用的玩家传送到岛屿编号为 `num` 的位置，并设置他们的出生点。
 
 **`/skyisland join [num] [player]`**
 
-Teleports the `player` to the island number `num` and sets their spawn.
+将 `player` 传送到岛屿编号为 `num` 的位置，并设置他们的出生点。
 
 **`/skyisland locate [num]`**
 
-Prints the coordinates of the island number `num`.
+输出岛屿编号为 `num` 的坐标。
