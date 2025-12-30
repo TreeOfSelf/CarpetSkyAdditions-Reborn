@@ -6,17 +6,16 @@
 
 只有少量东西会伴随世界生成：
 
-- A (configurable) small starting island where you spawn:
-  ![small spawn platform with grass and an oak tree](../screenshots/spawn_platform.png?raw=true "Spawn Platform")
+- 一个小（可自定义的）的出生点平台：
+  ![一个小出生点平台，包括草方块，以及一棵树](../screenshots/spawn_platform.png?raw=true "出生点平台")
 
-- End Portal Frames (unless `generateEndPortals` is set to `false`):
-  ![end portal frame remains](../screenshots/end_portal.png?raw=true "End Portal Frame")
+- 末地传送门框架（除非属性 `generateEndPortals` 被设置为 `false`）：
+  ![末地传送门框架将得到保留](../screenshots/end_portal.png?raw=true "末地传送门框架")
 
-- Trial spawner and a vault and ominous vault (unless `generateTrialChambers` is set to `false`):
-  ![trial spawner and vaults](../trial_spawner_and_vaults.png?raw=true "Trial Spaner and Vaults")
+- 试炼刷怪笼，以及宝库和不祥宝库（除非将 `generateTrialChambers` 设置为 `false`）：![试炼刷怪笼和宝库](../trial_spawner_and_vaults.png?raw=true "试炼刷怪笼和宝库")
 
-- Ancient City Portal Frames with a Sculk Shrieker (unless `generateAncientCityPortals` is set to `false`):
-  ![ancient city portal frame remains](../screenshots/ancient_city_portal.png?raw=true "Ancient City Portal Frame")
+- 带有幽匿尖啸体的远古城市传送门框架（除非属性 `generateAncientCityPortals` 被设置为 `false`）：
+  ![远古城市传送门框架将得到保留](../screenshots/ancient_city_portal.png?raw=true "远古城市传送门框架")
 
 - 蠹虫刷怪笼（除非属性 `generateSilverfishSpawners` 被设置为 `false`）
 
