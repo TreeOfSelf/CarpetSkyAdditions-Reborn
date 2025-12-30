@@ -9,16 +9,16 @@ The only difference is that End Portal eyes are randomized — this may change i
 Only a few things are generated:
 
 - A (configurable) small starting island where you spawn:
-  ![small spawn platform with grass and an oak tree](../screenshots/spawn_platform.png?raw=true)
+  ![small spawn platform with grass and an oak tree](../screenshots/spawn_platform.png?raw=true "Spawn Platform")
 
 - End Portal Frames (unless `generateEndPortals` is set to `false`):
-  ![end portal frame remains](../screenshots/end_portal.png?raw=true)
+  ![end portal frame remains](../screenshots/end_portal.png?raw=true "End Portal Frame")
 
 - Trial spawner and a vault and ominous vault (unless `generateTrialChambers` is set to `false`):
-  ![trial spawner and vaults](../trial_spawner_and_vaults.png?raw=true)
+  ![trial spawner and vaults](../trial_spawner_and_vaults.png?raw=true "Trial Spaner and Vaults")
 
 - Ancient City Portal Frames with a Sculk Shrieker (unless `generateAncientCityPortals` is set to `false`):
-  ![ancient city portal frame remains](../screenshots/ancient_city_portal.png?raw=true)
+  ![ancient city portal frame remains](../screenshots/ancient_city_portal.png?raw=true "Ancient City Portal Frame")
 
 - Silverfish spawners (unless `generateSilverfishSpawners` is set to `false`)
 
