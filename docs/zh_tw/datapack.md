@@ -3,10 +3,10 @@
 ### Modifying
 
 To customize the datapack,
-Download the mod .jar file and open it with any archive tool you prefer such as [7-Zip](https://7-zip.org/), WinRAR, File Roller, Ark, or a command line utility like unzip or tar
+Download the mod `.jar` file and open it with any archive tool you prefer such as [7-Zip](https://7-zip.org/), WinRAR, File Roller, Ark, or a command line utility like unzip or tar
 and edit to your liking.
 
-Look in either /resourcepacks or /data
+Look in either `/resourcepacks` or `/data`.
 
 #### Structures
 
@@ -203,7 +203,7 @@ Disable by deleting `skyblock/data/skyblock/recipe/netherite_upgrade_smithing_te
 A Netherite Upgrade Smithing Template is crafted from the duplication recipe
 with the Smithing Template replaced with a Netherite Ingot.
 
-![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "Template Recipe")
+![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true)
 
 ---
 
@@ -345,7 +345,7 @@ Music discs must be clicked onto a Jukebox, not hoppered in.
 
 Completing rewards _Dune Armor Trim Smithing Template_
 
-An exact replica Desert Pyramid must be built as described [here](https://minecraft.fandom.com/wiki/Desert_pyramid/Structure).
+An exact replica Desert Pyramid must be built as described [here](https://minecraft.wiki/w/Desert_Pyramid/Structure).
 The structure can face any direction. Only layers from the Blue Terracotta layer to the top matter.
 
 The advancement is granted when a Husk is sacrificed on the Blue Terracotta in the center of the pyramid.
