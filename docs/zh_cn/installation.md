@@ -1,71 +1,68 @@
-## Installation
+## 安装
 
-### Singleplayer
+### 单人游戏
 
-- Install [Fabric](https://fabricmc.net/use/installer/)
+- 安装 [Fabric](https://fabricmc.net/use/installer/)
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
   [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
   [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files/all?filter-game-version=2020709689%3A7499),
-  and [Carpet Sky Additions](https://github.com/jsorrell/CarpetSkyAdditions/releases)
-- Place downloaded mods into `<minecraft-directory>/mods/`
-- Start Minecraft and `Create New World`
-- Set Allow Cheats to `ON` so you will be able to enable/disable mod features
-- Enable the Datapack `carpetskyadditions/skyblock`
-- Optionally enable the Datapack `carpetskyadditions/skyblock_acacia` for an Acacia Tree start (or check out any of the other datapacks)
-- Click on `More World Options...`
-- Choose `World Type: SkyBlock`
-- Create the World
+  and [Carpet Sky Additions](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases)
+- 将下载的模组放入 `<minecraft-directory>/mods/`
+- 启动 Minecraft 并选择 `创建新的世界`
+- 将允许命令设置为 `开`，以便你能够启用/禁用模组功能
+- 启用数据包 `carpetskyadditions/skyblock`
+- 可选启用数据包 `carpetskyadditions/skyblock_acacia` 以使用金合欢树作为开局（或查看其他可用的数据包）
+- 选择 `世界类型：空岛`
+- 创建世界
 
-### Multiplayer
+### 多人游戏
 
-The mod is only required server-side.
+该模组仅需在服务器端进行配置。
 
-- Create a [Fabric Server](https://fabricmc.net/use/server/)
-- Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
-  [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
-  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files),
-  and [Carpet Sky Additions](https://github.com/jsorrell/CarpetSkyAdditions/releases)
-- Place downloaded mods into `<server-directory>/mods/`
-- Start the server to generate a template `server.properties` and `eula.txt` file
-- Agree to the EULA
-- Open `server.properties`
-- Change `level-type=minecraft\:normal` to `level-type=carpetskyadditions\:skyblock`
-- Move `carpetskyadditions\:skyblock` from `initial-disabled-packs` to `initial-enabled-packs`
-- Optionally move `carpetskyadditions\:skyblock_acacia` (or any other additional packs) from `initial-disabled-packs` to `initial-enabled-packs` for an Acacia Tree start
-- Start the server
+- 创建一个 [Fabric 服务端](https://fabricmc.net/use/server/)
+- 下载  [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)，[fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files)，[cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files/all?filter-game-version=2020709689%3A7499),
+  和 [Carpet Sky Additions](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases)
+- 将下载的模组放入 `<server-directory>/mods/`
+- 启动服务端以生成配置模板 `server.properties` 和 `eula.txt` 文件
+- 同意 EULA（最终用户许可协议）
+- 打开配置文件 `server.properties`
+- 将 `level-type=minecraft\:normal`（世界生成类型：默认）修改为 `level-type=carpetskyadditions\:skyblock`（世界生成类型：空岛）
+- 将 `carpetskyadditions:skyblock` 从 `initial-disabled-packs` 移动到 `initial-enabled-packs`
+- 可选将 `carpetskyadditions:skyblock_acacia`（或其他附加数据包）从 `initial-disabled-packs` 移动到 `initial-enabled-packs`，以使用金合欢树作为开局
+- 启动服务器
 
-### Configuration
+### 配置
 
-The mod has a config file: `carpetskyadditions.toml`
+该模组有一个配置文件：`carpetskyadditions.toml`
 
 #### `defaultToSkyBlockWorld`
 
-_Defaults to false_
+_默认值为 false_
 
-When `true`, the `SkyBlock` world type is selected by default when creating a new world.
+当设为 `true` 时，在创建新世界时将默认选择 `空岛` 世界类型。
 
 ---
 
 #### `enableDatapackByDefault`
 
-_Defaults to false_
+_默认值为 false_
 
-When `true`, the `skyblock` datapack is enabled by default when creating a new world.
+当设为 `true` 时，在创建新世界时将默认启用 `skyblock` 数据包。
 
 ---
 
 #### `initialTreeType`
 
-_Defaults to OAK_
+_默认值为 OAK_
 
-When set to `ACACIA`, the `skyblock_acacia` datapack is also enabled by default when creating a new world.
+当设置为 `ACACIA` 时，在创建新世界时也会默认启用 `skyblock_acacia` 数据包。
 
-Only takes effect when `enableDatapackByDefault` is `true`
+仅在 `enableDatapackByDefault` 为 `true` 时生效
 
 ---
 
 #### `autoEnableDefaultSettings`
 
-_Defaults to true_
+_默认值为 true_
 
-When `true`, the default SkyBlock settings are enabled when first starting a world with `SkyBlock` generation.
+当设为 `true` 时，在首次使用 `空岛` 生成方式创建世界时，将启用默认的空岛设置。
