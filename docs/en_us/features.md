@@ -61,7 +61,7 @@ A Thick Lingering Potion will continuously convert all Stone blocks in its cloud
 
 #### Netherrack and Nylium Generates with Nether Portal Structures
 
-Provides *Netherrack and Nylium*
+Provides *Netherrack* and *Nylium*
 
 Disable with ```/carpetskyadditions removeDefault renewableNetherrack```
 
@@ -103,7 +103,7 @@ Vexes listen to Note Blocks within a 16 block range and emit particles based on 
 instrument is ignored and the octave is ignored, meaning F#<sub>3</sub> is treated the same as F#<sub>5</sub>.
 
 When a Vex is in a Minecart, a Comparator can be used with a Detector Rail to determine the next note in the sequence.
-The Comparator outputs a value from 0 (corresponding to F#) to 11 (corresponding to F)
+The Comparator outputs a value from 0 (corresponding to F#) to 11 (corresponding to F).
 
 ---
 
@@ -207,7 +207,7 @@ Provides *Bushes*
 
 Disable with ```/carpetskyadditions removeDefault doDeadBushToBush```
 
-Using a water bottle on a deadh bush turns it into a bush.
+Using a Water Bottle on a Dead Bush turns it into a Bush.
 
 ---
 
@@ -348,7 +348,7 @@ When a Calcite block has at least 8 of the same type of Coral block within a 3x3
 it can convert to that Coral block upon a random tick (if it would survive).
 
 The chance of conversion depends on the suitability of the location.
-The suitability is based on the [generation temperature and continentalness parameters](https://minecraft.fandom.com/wiki/Biome#Overworld_3).
+The suitability is based on the [generation temperature and continentalness parameters](https://minecraft.wiki/w/World_generation#Overworld).
 The ideal spot is defined as a temperature of 0.65 and a continentalness of -0.3,
 which translates to just off the coast, in warm locations.
 These values are visible on the F3 screen in singleplayer.
@@ -414,7 +414,7 @@ This is how you obtain the loot from Trial Spawners.
 
 #### Growing a Pale Oak Sapling Near an Open Eye Blossom Produces a Creaking Heart
 
-Provides *Creaking Heart and Resin*
+Provides *Creaking Heart* and *Resin*
 
 Disable with ```/carpetskyadditions setDefault paleBlossomCreakingHeart false```
 
