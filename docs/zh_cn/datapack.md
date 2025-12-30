@@ -201,7 +201,7 @@ _其中铜、红石和青金石需要使用对应的方块。_
 
 下界合金升级锻造模板可通过其复制配方进行合成，只需将配方中的锻造模板替换为一个下界合金锭即可。
 
-![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "Template Recipe")
+![下界合金升级锻造模板合成配方](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "锻造模板配方")
 
 ---
 

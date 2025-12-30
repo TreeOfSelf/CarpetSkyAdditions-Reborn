@@ -34,7 +34,7 @@ Carpet Sky Additions 是 [fabric-carpet](https://github.com/gnembon/fabric-carpe
 
 ### 空岛生成
 
-空岛世界的生成方式与默认生成世界完全相同，但移除了所有方块。生物群系和结构边界框保持不变。这意味着尸壳仍然会在沙漠中生成，烈焰人仍然会在下界要塞中生成。即使移除了几乎所有方块，你仍然可以获得游戏中的大部分物品。
+空岛世界的生成方式与默认世界生成完全相同，但所有方块都会被移除。 生物群系和结构的边界框仍然会被保留。 这意味着，例如，尸壳仍会在沙漠中生成，烈焰人仍会在下界要塞中生成。 即使移除了几乎所有方块，你仍然可以获得游戏中的大部分物品。
 
 [更多生成细节](generation.md)
 
@@ -53,16 +53,18 @@ Carpet Sky Additions 是 [fabric-carpet](https://github.com/gnembon/fabric-carpe
 
 为了方便用户自定义，只要可能，更改都会添加到数据包中，而不是编程到模组中。
 数据包已内置于模组中。
+数据包已内置于模组中。
 
 还添加了空岛进度，以引导游戏进程并记录模组对原版的更改。
 
-*在默认设置下安装时，默认生成中可获得的所有方块、物品、生物和进度在空岛生成中均可获得。*
+_在默认设置下安装时，默认生成中可获得的所有方块、物品、生物和进度在空岛生成中均可获得。_
 
 [模组特性列表](features.md)
 
 [数据包特性列表](datapack.md)
 
 ### 命令
+
 本模组提供了一个生成岛屿的命令，这简化了在同一服务器上拥有不同起始岛屿的多个玩家的情况。
 
 [模组命令列表](commands.md)
@@ -78,9 +80,10 @@ Carpet Sky Additions 是 [fabric-carpet](https://github.com/gnembon/fabric-carpe
 只需下载 mcaselector.jar，将其放在你的世界文件夹旁边，并在命令行中使用以下命令运行它：
 
 `java -jar mcaselector.jar --mode delete --world 'world' --query 'Palette contains "trial_spawner" OR Palette contains "vault"'`
-*注意：这将完全删除任何包含宝库/试炼刷怪笼的区块，以便它们可以重新生成。请谨慎使用。*
+_注意：这将完全删除任何包含宝库/试炼刷怪笼的区块，以便它们可以重新生成。 请谨慎使用。_
 
 ## 致谢
+
 - [@Seigmannen](https://github.com/Seigmannen) 合并了他改进的数据包，具有更好的平衡性和更多样化的开局
 
 - [@skyrising](https://github.com/skyrising/skyblock) 最初的模组创意
@@ -94,9 +97,11 @@ Carpet Sky Additions 是 [fabric-carpet](https://github.com/gnembon/fabric-carpe
 - Crowdin 上的所有翻译人员
 
 ## 许可证
+
 本项目根据 MIT 许可证条款授权。
 
 ## 杰出贡献者
+
 - [Seigmannen](https://github.com/Seigmannen) (代码/数据包/测试)
 - [XieLong55](https://github.com/XieLong55) (简体中文翻译更新)
 

@@ -15,7 +15,7 @@ Only a few things are generated:
   ![end portal frame remains](../screenshots/end_portal.png?raw=true "End Portal Frame")
 
 - Trial spawner and a vault and ominous vault (unless `generateTrialChambers` is set to `false`):
-  ![trial spawner and vaults](../trial_spawner_and_vaults.png?raw=true "Trial Spaner and Vaults")
+  ![trial spawner and vaults](../screenshots/trial_spawner_and_vaults.png?raw=true "Trial Spaner and Vaults")
 
 - Ancient City Portal Frames with a Sculk Shrieker (unless `generateAncientCityPortals` is set to `false`):
   ![ancient city portal frame remains](../screenshots/ancient_city_portal.png?raw=true "Ancient City Portal Frame")
