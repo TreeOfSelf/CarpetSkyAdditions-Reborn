@@ -1,178 +1,435 @@
-## 数据包特性
+## Datapacks
 
-### 自定义
+### Modifying
 
-如需自定义数据包，请[于此](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fjsorrell%2FCarpetSkyAdditions%2Ftree%2FHEAD%2Fdatapack)
-下载，并根据个人喜好进行编辑。
+To customize the datapack,
+Download the mod .jar file and open it with any archive tool you prefer such as [7-Zip](https://7-zip.org/), WinRAR, File Roller, Ark, or a command line utility like unzip or tar
+and edit to your liking.
 
-禁用内置数据包后启用您编辑的数据包即可使用自定义数据包。
+Look in either /resourcepacks or /data
 
----
+#### Structures
 
-#### 村民赠予熔岩桶 ####
+Configured features can be overridden to replace the default world spawn platform and Sky Island platform.
 
-提供*熔岩*
-
-通过在数据包中删除```data/minecraft/loot_tables/gameplay/hero_of_the_village```可移除该特性
-
-熔岩桶将可以作为村庄英雄的礼物从盔甲匠、武器匠和工具匠那里获得。
-
----
-
-#### 可通过末影螨获得鞘翅 ####
-
-提供*鞘翅*
-
-通过在数据包中删除```data/minecraft/loot_tables/entities/endermite.json```可移除该特性
-
-当玩家杀死同时受缓降和悬浮影响的末影螨时有几率掉落鞘翅，抢夺附魔可增加掉率。
+The world spawn platform uses a configured feature defined in
+`data/carpetskyadditions/worldgen/configured_feature/spawn_platform.json`.
+By default, it loads the structure defined in `data/carpetskyadditions/structures/spawn_platform.nbt`
+at an offset of (-4, -1) at y=63.
 
 ---
 
-#### 猪灵蛮兵掉落远古残骸 ####
+### Built-In "SkyBlock" Datapack Features
 
-提供*远古残骸*
+Note that this datapack needs to be explicitly enabled when starting a new world.
 
-通过在数据包中删除```data/minecraft/loot_tables/entities/piglin_brute.json```可移除该特性
+#### Villagers Gift Lava Buckets
 
-地毯模组通过配置可令猪灵蛮兵在堡垒遗迹中再生。因此通过击杀它们可以概率掉落远古残骸。
+Provides _Lava_
 
----
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/hero_of_the_village`
 
-#### 可再生方解石与凝灰岩 ####
-
-提供*方解石*和*凝灰岩*
-
-通过在数据包中删除```data/skyblock/recipes/[tuff_from_blasting_andesite.json + calcite_from_blasting_diorite.json]```可移除该特性
-
-将闪长岩放入高炉烧制获得方解石
-
-将安山岩放入高炉烧制获得凝灰岩
+Lava Buckets can be received as a Hero of the Village gift from Armorers, Weaponsmiths, and Toolsmiths.
 
 ---
 
-#### 可合成发光浆果 ####
+#### Elytra Obtainable from Endermites
 
-提供*发光浆果*
+Provides _Elytra_
 
-通过在数据包中删除```data/skyblock/recipes/glow_berries.json```可移除该特性
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/endermite.json`
 
-使用荧光墨囊和甜浆果合成发光浆果
-
----
-
-#### 蜘蛛骑士掉落蜘蛛网 ####
-
-提供*蜘蛛网*
-
-通过在数据包中删除```data/minecraft/loot_tables/entities/[skeleton.json + spider.json]```可移除该特性
-
-当玩家杀死一个蜘蛛骑士时，先被击杀的部分将会掉落蜘蛛网。
+Player killing an Endermite affected by both Slow Falling and Levitation
+has a chance to drop an Elytra, increased by looting.
 
 ---
 
-#### 可可豆可在丛林群系被钓出 ####
+#### Piglin Brutes Drop Ancient Debris
 
-提供*可可豆*
+Provides _Ancient Debris_
 
-通过在数据包中删除```data/minecraft/loot_tables/gameplay/fishing/junk.json```可移除该特性
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/piglin_brute.json`
 
-与基岩版匹配，可可豆可以作为丛林特色物品在丛林中钓鱼被钓出。
-
----
-
-#### 锻造台可用于合成矿石 ####
-
-提供*矿石*
-
-通过在数据包中删除```data/skyblock/recipes/*_ore_smithing.json```可移除该特性
-
-所有矿石都可以在锻造台上通过一块基材和一个矿物块进行合成。
-
-举个例子，下界金矿石可以通过一个下界岩和一个金块合成。
+A Carpet setting enables Piglin Brutes to spawn in bastions. These Brutes have a chance to drop Ancient Debris.
 
 ---
 
-#### 马铠可合成 ####
+#### Calcite and Tuff Obtainable
 
-提供*铁马铠*，*金马铠*和*钻石马铠*
+Provides _Calcite_ and _Tuff_
 
-通过在数据包中删除```data/skyblock/recipes/*_horse_armor.json```可移除该特性
+Disable by deleting `skyblock/data/skyblock/recipe/[tuff_from_blasting_andesite.json + calcite_from_blasting_diorite.json]`
 
-使用对应材料在工作台上摆放为**H**型以合成对应马铠。
+Put Diorite in a Blast Furnace for Calcite.
 
----
-
-#### 猫的晨礼提供附魔金苹果 ####
-
-提供*附魔金苹果*
-
-通过在数据包中删除```data/minecraft/loot_tables/gameplay/cat_morning_gift.json```可移除该特性
-
-猫有极低的概率将附魔金苹果作为早晨礼物提供给玩家。
+Put Andesite in a Blast Furnace for Tuff.
 
 ---
 
-#### 猪灵交易提供镶金黑石 ####
+#### Glow Berries Craftable
 
-提供*镶金黑石*
+Provides _Glow Berries_
 
-通过在数据包中删除```data/minecraft/loot_tables/gameplay/piglin_bartering.json```可移除该特性
+Disable by deleting `skyblock/data/skyblock/recipe/glow_berries.json`
 
-猪灵有极低的概率在交易时给出镶金黑石。
-
----
-
-#### 苦力怕在特定结构中掉落对应唱片或唱片残片 ####
-
-提供唱片*Pigstep*、*otherside*和唱片残片*5*
-
-通过在数据包中删除```data/minecraft/loot_tables/entities/creeper.json```可移除该特性
-
-当苦力怕在堡垒遗迹中被骷髅杀死时，有几率掉落唱片“Pigstep”。
-
-当苦力怕在要塞中被骷髅杀死时，有几率掉落唱片“otherside”。
-
-当苦力怕在远古城市被骷髅杀死时，有几率掉落唱片残片 5。
+Sweet Berries crafted with Glow Ink Sacs give Glow Berries.
 
 ---
 
-#### 僵尸疣猪兽掉落猪鼻旗帜图案 ####
+#### Spider Jockeys Drop Cobwebs
 
-提供*猪鼻旗帜图案*
+Provides _Cobwebs_
 
-通过在数据包中删除```data/minecraft/loot_tables/entities/zoglin.json```可移除该特性
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/[skeleton.json + spider.json]`
 
-标题说明一切。
-
----
-
-#### 盛开的杜鹃花丛掉落孢子花 ####
-
-提供*孢子花*
-
-通过在数据包中删除```data/minecraft/loot_tables/blocks/flowering_azaliea_leaves.json```可移除该特性
-
-盛开的杜鹃花丛被破坏时有概率掉落孢子花，该操作受时运附魔的影响
+When a player kills a Spider Jockey, the first half killed drops a cobweb.
 
 ---
 
-#### 末影人可以拾取高草丛和大型蕨 ####
+#### Cocoa Beans Obtainable by Fishing in Jungles
 
-提供*高草丛*和*大型蕨*
+Provides _Cocoa Beans_
 
-通过在数据包中删除```data/minecraft/tags/blocks/enderman_holdable.json```可移除该特性
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/fishing/junk.json`
 
-杀死拾起高草丛和大型蕨的末影人可以将它们作为掉落物获取。
-
-模组修复了末影人对两格高方块的处理，使其能正确的放置而不会被破坏。
-
-但这一修复并非针对客户端，因此原版的渲染修复并未修复（[MC-193497](https://bugs.mojang.com/browse/MC-193497)）
+Matching Bedrock, Cocoa Beans can be obtained as a junk item when fishing in a Jungle.
 
 ---
 
-#### 战猪进度调整 ####
+#### Ores are Craftable
 
-在空岛世界，战猪进度是无法获得的，因为它需要打开战利品箱（空岛不会生成）。
+Provides _ores_
 
-现在你可以通过击杀猪灵蛮兵来获得这一进度。
+Disable by deleting `skyblock/data/skyblock/recipe/*_ore.json`
+
+All ores can be crafted using a block of the base stone material and four of the ore's material.
+
+The recipe requires ingots, Nether Quartz, Coal, Diamonds, or Emeralds.
+
+_Copper, Redstone, and Lapis Lazuli require blocks._
+
+For example, Nether Gold Ore can be crafted with Netherrack in the center and Gold Ingots on the four sides.
+
+![4 Gold Ingots around Netherrack gives Nether Gold Ore](../screenshots/ore_recipe.png?raw=true "Ore Recipe")
+
+---
+
+#### Horse Armor is Craftable
+
+Provides _Iron Horse Armor_, _Golden Horse Armor_, and _Diamond Horse Armor_
+
+Disable by deleting `skyblock/data/skyblock/recipe/*_horse_armor.json`
+
+Craft Horse Armors with their respective materials in a **H** shape.
+
+---
+
+#### Cats Gift Enchanted Golden Apples
+
+Provides _Enchanted Golden Apples_
+
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/cat_morning_gift.json`
+
+Cats will rarely bring the player an Enchanted Golden Apple as a morning gift.
+
+---
+
+#### Piglins Give Gilded Blackstone
+
+Provides _Gilded Blackstone_
+
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/piglin_bartering.json`
+
+Piglins will rarely give Gilded Blackstone when bartering.
+
+---
+
+#### Creepers Drop Structure Specific Music Discs or Fragments in those Structures
+
+Provides the music discs _Pigstep_, _otherside_, _5_, _Precipice_, and _Creator_
+
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/creeper.json`
+
+When Creepers are killed by Skeletons in the Bastions, they can drop the Music Disc "Pigstep".
+
+When Creepers are killed by Skeletons in the Strongholds, they can drop the Music Disc "otherside".
+
+When Creepers are killed by Skeletons in the Ancient Cities, they can drop Disc Fragment 5.
+
+When Creepers are killed by Skeletons in the Trial Chambers, they can drop the Music Discs "Precipice" or "Creator".
+
+---
+
+#### Zoglins Drop Snout Banner Patterns
+
+Provides _Snout Banner Pattern_
+
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/zoglin.json`
+
+Zoglins will always drop a Snout Banner Pattern when killed by a player.
+
+---
+
+#### Flowering Azalea Leaves Drop Spore Blossoms
+
+Provides _Spore Blossoms_
+
+Disable by deleting `skyblock/data/minecraft/loot_table/blocks/flowering_azaliea_leaves.json`
+
+Flowering Azalea Leaves have a chance to drop Spore Blossoms, increased by Fortune.
+
+---
+
+#### Endermen Can Pick Up Tall Grass and Large Ferns
+
+Provides _Tall Grass and Large Ferns_
+
+Disable by deleting `skyblock/data/minecraft/tags/block/enderman_holdable.json`
+
+Endermen who have picked up Tall Grass and Large Ferns can be killed to retrieve those as an item,
+mimicking pre-1.19.3 behavior.
+
+The mod fixes Endermen's handling of double-tall blocks, allowing them to be correctly placed down without being
+destroyed.
+
+---
+
+#### Netherite Upgrade Smithing Template is Craftable
+
+Provides _Netherite Upgrade Smithing Template_
+
+Disable by deleting `skyblock/data/skyblock/recipe/netherite_upgrade_smithing_template_from_netherite.json`
+
+A Netherite Upgrade Smithing Template is crafted from the duplication recipe
+with the Smithing Template replaced with a Netherite Ingot.
+
+![Netherite Upgrade Smithing Template Crafting Recipe](../screenshots/netherite_upgrade_smithing_template_recipe.png?raw=true "Template Recipe")
+
+---
+
+#### Loot Tables for Trial Vaults are Updated
+
+Provides _Trial Chamber Pottery Sherds_ and the music disc _Creator (Music Box)_
+
+As the trial vaults are easy to find and provides an easy way to get some resources that would make some parts of this mod obsolete, the
+loot tables for the trial vaults has been updated.
+
+Added to regular vaults:
+
+- Flow Pottery Sherd
+- Guster Pottery Sherd
+- Scrape Pottery Sherd
+
+Removed from regular vaults:
+
+- Diamond
+- Diamond Axe
+- Diamond Chestplate
+- Golden Apple
+- Bolt Armor Trim Smithing Template
+- Music Disc (Precipice)
+- Trident
+
+Added to ominous vaults:
+
+- Music Disc (Creator (Music Box))
+
+Removed from ominous vaults:
+
+- Diamond
+- Golden Apple
+- Diamond Axe
+- Diamond Chestplate
+- Block of Diamond
+- Enchanted Golden Apple
+- Flow Armor Trim Smithing Template
+- Music Disc (Creator)
+
+---
+
+### Advancements
+
+The datapack adds numerous advancements to guide progression.
+
+It also adds multiple challenge advancements that provide Armor Trim Smithing Templates as rewards upon completion.
+
+The challenge advancements are documented below.
+
+#### Seeing Patterns Everywhere
+
+Completing rewards _Sentry Armor Trim Smithing Template_
+
+Granted upon obtaining all Banner Patterns.
+
+---
+
+#### Let There Be Light
+
+Completing rewards _Eye Armor Trim Smithing Template_
+
+Granted upon obtaining all Light Sources in the following list:
+
+- Torch and Soul Torch
+- Lantern and Soul Lantern
+- Campfire and Soul Campfire
+- Candle and all Colored Candles
+- Glowstone
+- Jack o'Lantern
+- Shroomlight
+- Sea Lantern
+- All Froglights
+- Lava Bucket
+- Redstone Lamp
+- Glow Berries
+- Glow Lichen
+- Sea Pickle
+- End Rod
+- Furnace, Blast Furnace, and Smoker
+- Brewing Stand
+- Crying Obsidian
+- Respawn Anchor
+- Redstone Ore and Deepslate Redstone Ore
+- Enchanting Table
+- Ender Chest
+- Redstone Torch
+- Sculk Sensor and Calibrated Sculk Sensor
+- Sculk Catalyst
+- Amethyst Cluster and all sized Buds
+- Magma Block
+- Brown Mushroom
+- Beacon
+- Conduit
+- Dragon Egg
+- All variants of Copper Bulb
+
+---
+
+#### End City Builder
+
+Completing rewards _Spire Armor Trim Smithing Template_
+
+Granted upon crafting or stonecutting all Purpur Blocks, Pillars, Stairs, and Slabs while levitated.
+
+---
+
+#### Treasure Map to Nowhere
+
+Completing rewards _Vex Armor Trim Smithing Template_
+
+Granted upon entering a Woodland Mansion bounding box.
+
+The spirit of this challenge is to follow a treasure map from a villager,
+but looking up the coordinates would work too.
+
+---
+
+#### Wither Art Thou
+
+Completing rewards _Rib Armor Trim Smithing Template_
+
+Granted upon killing a Wither within the (small) bounding box of a Nether Fortress.
+
+---
+
+#### Air Tunes
+
+Completing rewards _Silence Armor Trim Smithing Template_
+
+Granted upon playing all music discs in a Jukebox.
+
+Music discs must be clicked onto a Jukebox, not hoppered in.
+
+---
+
+#### Way of the Ancients
+
+Completing rewards _Dune Armor Trim Smithing Template_
+
+An exact replica Desert Pyramid must be built as described [here](https://minecraft.fandom.com/wiki/Desert_pyramid/Structure).
+The structure can face any direction. Only layers from the Blue Terracotta layer to the top matter.
+
+The advancement is granted when a Husk is sacrificed on the Blue Terracotta in the center of the pyramid.
+
+---
+
+#### Sky Pirate
+
+Completing rewards _Coast Armor Trim Smithing Template_
+
+Granted upon traveling 30km in a boat.
+
+---
+
+#### War Pigs
+
+Completing rewards _Snout Armor Trim Smithing Template_
+
+Granted upon killing a Piglin Brute while riding a Pig and wearing a Piglin Head.
+
+The vanilla War Pigs advancement is impossible; this serves as its replacement.
+
+---
+
+#### Resistance Isn't Futile
+
+Completing rewards _Ward Armor Trim Smithing Template_
+
+Granted upon getting hit by a Warden while wearing full Protection 4 Netherite Armor
+and affected by Resistance 4.
+
+---
+
+#### Spy in the Sky
+
+Completing rewards _Wild Armor Trim Smithing Template_
+
+Granted after looking through a Spyglass at all animals in the following list:
+
+- Axolotl
+- Armadillo
+- Bat
+- Bee
+- Camel
+- Cat
+- Spider and Cave Spider
+- Chicken
+- Cod, Salmon, Pufferfish, and Tropical Fish
+- Cow
+- Dolphin
+- Horse, Donkey, and Mule
+- Endermite
+- Fox
+- Frog and Tadpole
+- Squid and Glow Squid
+- Goat
+- Hoglin
+- Llama
+- Mooshroom
+- Ocelot
+- Panda
+- Parrot
+- Pig
+- Polar Bear
+- Rabbit
+- Sheep
+- Silverfish
+- Sniffer
+- Strider
+- Turtle
+- Wolf
+
+---
+
+#### Lightning Conqueror
+
+Completing rewards _Bolt Armor Trim Smithing Template_
+
+Granted after using a channeling trident to take down creepers, guardians, mooshrooms, zombified piglins, and witches during a thunderstorm
+
+---
+
+#### Harnessing the Flow
+
+Completing rewards _Flow Armor Trim Smithing Template_
+
+Granted after using a riptide trident under the influence of a conduit during rain.
