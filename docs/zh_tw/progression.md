@@ -75,3 +75,11 @@ Light the portal with Lightning or using Lava to set wood on fire adjacent to th
 
 Obtain Blaze Powder by killing Blazes that spawn in Nether Fortresses.
 You can then craft Eyes of Ender, complete an End Portal, and kill the Ender Dragon.
+
+---
+
+Below is a progression chart translate from Chinese using ChatGPT:
+
+![progression chart](../charts/progression_chart_en_us.svg)
+
+© 2025 SilianZ
