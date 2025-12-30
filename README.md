@@ -1,5 +1,6 @@
 <img width="128" height="128" alt="image" src="https://github.com/user-attachments/assets/5e8be161-1902-48cb-97b8-8ec7c4192789" />
 
+English | [简体中文](./docs/zh_cn/README.md)
 
 # Carpet Sky Additions Reborn
 
@@ -33,7 +34,7 @@ a platform without any tree.
 
 All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
 
-For custom or server installations, follow the [Detailed Installation Instructions](docs/en_us/installation.md)
+For custom or server installations, follow the [Detailed Installation Instructions](docs/en_us/installation.md).
 
 ## Features
 

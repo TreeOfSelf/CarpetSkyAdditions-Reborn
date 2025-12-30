@@ -38,7 +38,7 @@ The mod is only required server-side.
 
 The mod has a config file: `carpetskyadditions.toml`
 
-#### defaultToSkyBlockWorld
+#### `defaultToSkyBlockWorld`
 
 *Defaults to false*
 
@@ -46,7 +46,7 @@ When `true`, the `SkyBlock` world type is selected by default when creating a ne
 
 ---
 
-#### enableDatapackByDefault
+#### `enableDatapackByDefault`
 
 *Defaults to false*
 
@@ -54,7 +54,7 @@ When `true`, the `skyblock` datapack is enabled by default when creating a new w
 
 ---
 
-#### initialTreeType
+#### `initialTreeType`
 
 *Defaults to OAK*
 
@@ -64,7 +64,7 @@ Only takes effect when `enableDatapackByDefault` is `true`
 
 ---
 
-#### autoEnableDefaultSettings
+#### `autoEnableDefaultSettings`
 
 *Defaults to true*
 

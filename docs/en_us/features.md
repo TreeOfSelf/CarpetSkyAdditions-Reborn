@@ -1,6 +1,6 @@
 ## Mod Features
 
-#### Dead Coral and Coral Fans Erode into Sand ####
+#### Dead Coral and Coral Fans Erode into Sand
 
 Provides additional *Sand* and *Red Sand*
 
@@ -21,7 +21,7 @@ This method was added because:
 
 ---
 
-#### Shulkers Spawn On Dragon Kill ####
+#### Shulkers Spawn On Dragon Kill
 
 Provides *Shulkers*
 
@@ -31,7 +31,7 @@ When an Ender Dragon is re-killed, a Shulker spawns on top of the Bedrock pillar
 
 ---
 
-#### Goats Break Apart Nether Wart Blocks By Ramming Them ####
+#### Goats Break Apart Nether Wart Blocks By Ramming Them
 
 Provides *Nether Wart*
 
@@ -41,7 +41,7 @@ When a Goat rams a Nether Wart Block, it will break into Nether Wart.
 
 ---
 
-#### Thick Potions Convert Stone into Deepslate ####
+#### Thick Potions Convert Stone into Deepslate
 
 Provides *Deepslate*
 
@@ -59,7 +59,7 @@ A Thick Lingering Potion will continuously convert all Stone blocks in its cloud
 
 ---
 
-#### Netherrack and Nylium Generates with Nether Portal Structures ####
+#### Netherrack and Nylium Generates with Nether Portal Structures
 
 Provides *Netherrack and Nylium*
 
@@ -72,7 +72,7 @@ Netherrack elsewhere.
 
 ---
 
-#### Wandering Traders Sell Tall Flowers ####
+#### Wandering Traders Sell Tall Flowers
 
 Provides *Tall Flowers*
 
@@ -80,7 +80,7 @@ Disable with ```/carpetskyadditions removeDefault tallFlowersFromWanderingTrader
 
 Tall Flowers trades mimic Bedrock.
 
-##### Additional Tier 1 Trades: #####
+##### Additional Tier 1 Trades:
 
 | Item      | Price | Trades until disabled |
 |-----------|-------|-----------------------|
@@ -91,7 +91,7 @@ Tall Flowers trades mimic Bedrock.
 
 ---
 
-#### Vexes Can Be Allayed ####
+#### Vexes Can Be Allayed
 
 Provides *Allays*
 
@@ -107,7 +107,7 @@ The Comparator outputs a value from 0 (corresponding to F#) to 11 (corresponding
 
 ---
 
-#### Foxes Spawn With Sweet Berries ####
+#### Foxes Spawn With Sweet Berries
 
 Provides *Sweet Berries*
 
@@ -120,7 +120,7 @@ spawning, so be quick.
 
 ---
 
-#### Anvils Compact Coal into Diamonds ####
+#### Anvils Compact Coal into Diamonds
 
 Provides *Diamonds*
 
@@ -130,7 +130,7 @@ A Falling Anvil compresses a stack of Coal Blocks into a Diamond.
 
 ---
 
-#### Lightning Electrifies Vines ####
+#### Lightning Electrifies Vines
 
 Provides *Glow Lichen*
 
@@ -141,7 +141,7 @@ Rod on the Glowstone.
 
 ---
 
-#### Chorus Trees Generate on End Islands ####
+#### Chorus Trees Generate on End Islands
 
 Provides *Chorus Fruit* and *Chorus Flowers*
 
@@ -151,7 +151,7 @@ When an End Gateway is taken to a position over the void, the Endstone island ge
 
 ---
 
-#### Dolphins Find Hearts of the Sea ####
+#### Dolphins Find Hearts of the Sea
 
 Provides *Hearts of the Sea*
 
@@ -165,7 +165,7 @@ Must be in an Ocean type biome -- they're Hearts of the Sea, not Hearts of the J
 
 ---
 
-#### Budding Amethysts Can Be Generated ####
+#### Budding Amethysts Can Be Generated
 
 Provides *Budding Amethysts*
 
@@ -174,7 +174,7 @@ Disable with ```/carpetskyadditions removeDefault renewableBuddingAmethysts```
 A lava block surrounded by Calcite which is then surrounded by Smooth Basalt will eventually turn into a Budding
 Amethyst.
 
-##### How to build structure: #####
+##### How to build structure:
 
 ![lava source](../screenshots/amethyst_step_1_240.png?raw=true "Budding Amethyst Generation Step 1")
 ---->
@@ -189,7 +189,7 @@ Amethyst.
 
 ---
 
-#### Saplings Die on Sand ####
+#### Saplings Die on Sand
 
 Provides *Dead Bushes*
 
@@ -201,7 +201,7 @@ After a time, the saplings will die and turn into Dead Bushes.
 
 ---
 
-#### Dead Bush Rehydrated with Water ####
+#### Dead Bush Rehydrated with Water
 
 Provides *Bushes*
 
@@ -211,7 +211,7 @@ Using a water bottle on a deadh bush turns it into a bush.
 
 ---
 
-#### Ender Dragons Can Drop their Head ####
+#### Ender Dragons Can Drop their Head
 
 Provides *Dragon Heads*
 
@@ -221,7 +221,7 @@ When an Ender Dragon is killed by a Charged Creeper, she will drop her head.
 
 ---
 
-#### Huge Mushrooms Spread Mycelium ####
+#### Huge Mushrooms Spread Mycelium
 
 Provides *Mycelium*
 
@@ -231,7 +231,7 @@ When a Huge Mushroom grows, it spreads Mycelium nearby, similar to how Mega Spru
 
 ---
 
-#### Creatures with Echolocation Drop Echo Shards when Killed with Sonic Booms ####
+#### Creatures with Echolocation Drop Echo Shards when Killed with Sonic Booms
 
 Provides *Echo Shards*
 
@@ -241,7 +241,7 @@ Bats and Dolphins drop an Echo Shard when killed by a Warden's Sonic Boom attack
 
 ---
 
-#### Drowneds Foster Sniffer Eggs ####
+#### Drowneds Foster Sniffer Eggs
 
 Provides *Sniffer Eggs*
 
@@ -256,7 +256,7 @@ it will replace the destroyed Egg with the Sniffer Egg.
 
 ---
 
-#### Sniffers are Suspicious ####
+#### Sniffers are Suspicious
 
 Provides *Suspicious Sand* and *Suspicious Gravel*
 
@@ -279,7 +279,7 @@ In a Desert Pyramid, it will have a 20% chance to have a Desert Well loot table.
 
 ---
 
-#### Enchanting Tables Near Wardens can Enchant Items with Swift Sneak ####
+#### Enchanting Tables Near Wardens can Enchant Items with Swift Sneak
 
 Provides *Swift Sneak*
 
@@ -289,7 +289,7 @@ An Enchanting Table placed within 8 blocks of a Warden can enchant items with Sw
 
 ---
 
-#### Poisonous Potatoes Convert Spiders ####
+#### Poisonous Potatoes Convert Spiders
 
 Provides *Cave Spiders*
 
@@ -299,7 +299,7 @@ Use a Poisonous Potato on a Spider to convert it to a Cave Spider.
 
 ---
 
-#### Wandering Traders Can Spawn Riding Camels ####
+#### Wandering Traders Can Spawn Riding Camels
 
 Provides *Camels*
 
@@ -318,7 +318,7 @@ This is client side only, but I recommend not trying to mess with the Trader's C
 
 ---
 
-#### Small Dripleaves Can Propogate ####
+#### Small Dripleaves Can Propogate
 
 Provides additional *Small Dripleaves*
 
@@ -338,7 +338,7 @@ This allows farming and heavier use of them.
 
 ---
 
-#### Coral can Spread to Calcite ####
+#### Coral can Spread to Calcite
 
 Provides additional *Coral Blocks*
 
@@ -374,7 +374,7 @@ This allows farming and heavier use of them.
 
 ---
 
-#### Wandering Traders Sell Lava  ####
+#### Wandering Traders Sell Lava
 
 Provides *Lava*
 
@@ -382,7 +382,7 @@ Enable with ```/carpetskyadditions setDefault lavaFromWanderingTrader true```
 
 *** Not automatically enabled in SkyBlock — Get Lava from a Hero of the Village Gift Instead***
 
-##### Additional Tier 2 Trade: #####
+##### Additional Tier 2 Trade:
 
 | Item        | Price | Input Item | Trades until disabled |
 |-------------|-------|------------|-----------------------|
@@ -390,7 +390,7 @@ Enable with ```/carpetskyadditions setDefault lavaFromWanderingTrader true```
 
 ---
 
-#### Blaze turn into Breeze when Brought to Overworld ####
+#### Blaze turn into Breeze when Brought to Overworld
 
 Provides *Breeze Rods*
 
@@ -401,7 +401,7 @@ This does not affect entities with a custom name tag.
 
 ---
 
-#### Using a Breeze Rod on an Unactivated Trial Spawner Makes It a Breeze Trial Spawner ####
+#### Using a Breeze Rod on an Unactivated Trial Spawner Makes It a Breeze Trial Spawner
 
 Provides *Trial Chamber Loot*
 
@@ -412,7 +412,7 @@ This is how you obtain the loot from Trial Spawners.
 
 ---
 
-#### Growing a Pale Oak Sapling Near an Open Eye Blossom Produces a Creaking Heart ####
+#### Growing a Pale Oak Sapling Near an Open Eye Blossom Produces a Creaking Heart
 
 Provides *Creaking Heart and Resin*
 
@@ -427,7 +427,7 @@ there are a 10% chance for the pale oak tree to generate a creaking heart.
 
 Default installation will also enable these `fabric-carpet` features.
 
-- [renewableSponges](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#renewablesponges): Guardians struck by lightning turn into elder guardians, which give access to wet sponges and the Tide armor trim smithing template.
+- [`renewableSponges`](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#renewablesponges): Guardians struck by lightning turn into elder guardians, which give access to wet sponges and the Tide armor trim smithing template.
   - run `/carpet removeDefault renewableSponges` to disable
-- [piglinsSpawningInBastions](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#piglinsSpawningInBastions): Piglin brutes respawn in bastion remnants, giving access to ancient debris via a datapack feature.
+- [`piglinsSpawningInBastions`](https://github.com/gnembon/fabric-carpet/wiki/Current-Available-Settings#piglinsSpawningInBastions): Piglin brutes respawn in bastion remnants, giving access to ancient debris via a datapack feature.
   - run `/carpet removeDefault piglinsSpawningInBastions` to disable
