@@ -3,3 +3,5 @@ files:
     translation: /src/main/resources/assets/carpetskyadditions/carpet/lang/%locale%.json
   - source: /src/main/resources/assets/carpetskyadditions/lang/en_us.json
     translation: /src/main/resources/assets/carpetskyadditions/lang/%locale%.json
+  - source: /docs/en_us
+    translation: /docs/%locale%/%original_file_name%
