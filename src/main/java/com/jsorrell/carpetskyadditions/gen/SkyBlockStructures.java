@@ -214,22 +214,14 @@ public class SkyBlockStructures {
                 bounds);
 
             // Place trial spawner
-            BlockPos.MutableBlockPos trialSpawnerPos = addBlock(
+            addBlock(
                 level,
                 Blocks.TRIAL_SPAWNER.defaultBlockState(),
                 10, 0, 0,
                 bounds);
 
             level.getServer().submit(() -> {
-                BlockEntity trialSpawnerEntity = level.getBlockEntity(trialSpawnerPos);
-                if (trialSpawnerEntity instanceof TrialSpawnerBlockEntity spawner) {
-                    CompoundTag configNbt = new CompoundTag();
-                    configNbt.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
-                    configNbt.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
-                    ValueInput valueInput = TagValueInput.create(null, level.registryAccess(), configNbt);
-                    spawner.getTrialSpawner().load(valueInput);
-                    spawner.setChanged();
-                }
+
 
                 BlockEntity vaultEntity = level.getBlockEntity(vaultPos);
 
