@@ -92,6 +92,9 @@ Simply download the mcaselector.jar, place it next to your world folder, and run
 `java -jar mcaselector.jar --mode delete --world 'world' --query 'Palette contains "trial_spawner" OR Palette contains "vault"'`
 *Note: This will completely delete any chunks containing vaults/trial spawners, so they can be regenerated. Use with caution.*
 
+## Translations
+The mod and the datapack are available for translation using [CrowdIn](https://crowdin.com/project/carpet-sky-additions-reborn). If you are able to add translations, your help would be much appreciated.
+
 ## Acknowledgements
 - [@Seigmannen](https://github.com/Seigmannen) Merging his improved datapacks with better balance & more varied starts
 
@@ -111,4 +114,5 @@ This project is licensed under the terms of the MIT license.
 ## Notable Contributors
 - [Seigmannen](https://github.com/Seigmannen) (Code/Datapack/Testing)
 - [XieLong55](https://github.com/XieLong55) (Simplified Chinese Translation Updates)
+- [SilianZ](https://github.com/SilianZ) (Translations and Crowdin setup)
 
