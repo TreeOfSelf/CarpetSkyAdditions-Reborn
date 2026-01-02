@@ -39,7 +39,7 @@ The mod has a config file: `carpetskyadditions.toml`
 
 #### `defaultToSkyBlockWorld`
 
-*Defaults to false*
+_Defaults to false_
 
 When `true`, the `SkyBlock` world type is selected by default when creating a new world.
 
@@ -47,7 +47,7 @@ When `true`, the `SkyBlock` world type is selected by default when creating a ne
 
 #### `enableDatapackByDefault`
 
-*Defaults to false*
+_Defaults to false_
 
 When `true`, the `skyblock` datapack is enabled by default when creating a new world.
 
@@ -55,7 +55,7 @@ When `true`, the `skyblock` datapack is enabled by default when creating a new w
 
 #### `initialTreeType`
 
-*Defaults to OAK*
+_Defaults to OAK_
 
 When set to `ACACIA`, the `skyblock_acacia` datapack is also enabled by default when creating a new world.
 
@@ -65,6 +65,6 @@ Only takes effect when `enableDatapackByDefault` is `true`
 
 #### `autoEnableDefaultSettings`
 
-*Defaults to true*
+_Defaults to true_
 
 When `true`, the default SkyBlock settings are enabled when first starting a world with `SkyBlock` generation.

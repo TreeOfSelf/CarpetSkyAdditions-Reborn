@@ -46,7 +46,7 @@ Fortresses, for example. Even with almost every block removed, you have access t
 
 [More Generation Details](docs/en_us/generation.md)
 
-### Gameplay Changes ###
+### Gameplay Changes
 
 SkyBlock generation does, however, leave a few unobtainable resources.
 In addition to adding SkyBlock generation, this mod also fills in
@@ -66,14 +66,15 @@ The datapack is built into the mod.
 
 SkyBlock advancements were also added to guide progression and document the mod's changes to vanilla.
 
-*When installed with default settings, all blocks, items, mobs, and advancements obtainable in Default generation are
-obtainable in SkyBlock generation.*
+_When installed with default settings, all blocks, items, mobs, and advancements obtainable in Default generation are
+obtainable in SkyBlock generation._
 
 [List of Mod Features](docs/en_us/features.md)
 
 [List of Datapack Features](docs/en_us/datapack.md)
 
 ### Commands
+
 This mod provides a command for generating islands,
 which simplifies having multiple players on the same server with different starting islands.
 
@@ -90,12 +91,10 @@ You can use [mcaselector](https://github.com/Querz/mcaselector) to fix them.
 Simply download the mcaselector.jar, place it next to your world folder, and run it in a command-line using this command:
 
 `java -jar mcaselector.jar --mode delete --world 'world' --query 'Palette contains "trial_spawner" OR Palette contains "vault"'`
-*Note: This will completely delete any chunks containing vaults/trial spawners, so they can be regenerated. Use with caution.*
-
-## Translations
-The mod and the datapack are available for translation using [CrowdIn](https://crowdin.com/project/carpet-sky-additions-reborn). If you are able to add translations, your help would be much appreciated.
+_Note: This will completely delete any chunks containing vaults/trial spawners, so they can be regenerated. Use with caution._
 
 ## Acknowledgements
+
 - [@Seigmannen](https://github.com/Seigmannen) Merging his improved datapacks with better balance & more varied starts
 
 - [@skyrising](https://github.com/skyrising/skyblock) for the initial mod idea
@@ -109,10 +108,11 @@ The mod and the datapack are available for translation using [CrowdIn](https://c
 - All the translators on Crowdin
 
 ## License
+
 This project is licensed under the terms of the MIT license.
 
 ## Notable Contributors
+
 - [Seigmannen](https://github.com/Seigmannen) (Code/Datapack/Testing)
 - [XieLong55](https://github.com/XieLong55) (Simplified Chinese Translation Updates)
-- [SilianZ](https://github.com/SilianZ) (Translations and Crowdin setup)
 

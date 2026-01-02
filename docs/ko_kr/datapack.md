@@ -9,6 +9,7 @@ and edit to your liking.
 Look in either `/resourcepacks` or `/data`.
 
 #### Structures
+
 Configured features can be overridden to replace the default world spawn platform and Sky Island platform.
 
 The world spawn platform uses a configured feature defined in
@@ -19,13 +20,14 @@ at an offset of (-4, -1) at y=63.
 ---
 
 ### Built-In "SkyBlock" Datapack Features
+
 Note that this datapack needs to be explicitly enabled when starting a new world.
 
 #### Villagers Gift Lava Buckets
 
-Provides *Lava*
+Provides _Lava_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/gameplay/hero_of_the_village```
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/hero_of_the_village`
 
 Lava Buckets can be received as a Hero of the Village gift from Armorers, Weaponsmiths, and Toolsmiths.
 
@@ -33,9 +35,9 @@ Lava Buckets can be received as a Hero of the Village gift from Armorers, Weapon
 
 #### Elytra Obtainable from Endermites
 
-Provides *Elytra*
+Provides _Elytra_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/entities/endermite.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/endermite.json`
 
 Player killing an Endermite affected by both Slow Falling and Levitation
 has a chance to drop an Elytra, increased by looting.
@@ -44,9 +46,9 @@ has a chance to drop an Elytra, increased by looting.
 
 #### Piglin Brutes Drop Ancient Debris
 
-Provides *Ancient Debris*
+Provides _Ancient Debris_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/entities/piglin_brute.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/piglin_brute.json`
 
 A Carpet setting enables Piglin Brutes to spawn in bastions. These Brutes have a chance to drop Ancient Debris.
 
@@ -54,9 +56,9 @@ A Carpet setting enables Piglin Brutes to spawn in bastions. These Brutes have a
 
 #### Calcite and Tuff Obtainable
 
-Provides *Calcite* and *Tuff*
+Provides _Calcite_ and _Tuff_
 
-Disable by deleting ```skyblock/data/skyblock/recipe/[tuff_from_blasting_andesite.json + calcite_from_blasting_diorite.json]```
+Disable by deleting `skyblock/data/skyblock/recipe/[tuff_from_blasting_andesite.json + calcite_from_blasting_diorite.json]`
 
 Put Diorite in a Blast Furnace for Calcite.
 
@@ -66,9 +68,9 @@ Put Andesite in a Blast Furnace for Tuff.
 
 #### Glow Berries Craftable
 
-Provides *Glow Berries*
+Provides _Glow Berries_
 
-Disable by deleting ```skyblock/data/skyblock/recipe/glow_berries.json```
+Disable by deleting `skyblock/data/skyblock/recipe/glow_berries.json`
 
 Sweet Berries crafted with Glow Ink Sacs give Glow Berries.
 
@@ -76,9 +78,9 @@ Sweet Berries crafted with Glow Ink Sacs give Glow Berries.
 
 #### Spider Jockeys Drop Cobwebs
 
-Provides *Cobwebs*
+Provides _Cobwebs_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/entities/[skeleton.json + spider.json]```
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/[skeleton.json + spider.json]`
 
 When a player kills a Spider Jockey, the first half killed drops a cobweb.
 
@@ -86,9 +88,9 @@ When a player kills a Spider Jockey, the first half killed drops a cobweb.
 
 #### Cocoa Beans Obtainable by Fishing in Jungles
 
-Provides *Cocoa Beans*
+Provides _Cocoa Beans_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/gameplay/fishing/junk.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/fishing/junk.json`
 
 Matching Bedrock, Cocoa Beans can be obtained as a junk item when fishing in a Jungle.
 
@@ -96,15 +98,15 @@ Matching Bedrock, Cocoa Beans can be obtained as a junk item when fishing in a J
 
 #### Ores are Craftable
 
-Provides *ores*
+Provides _ores_
 
-Disable by deleting ```skyblock/data/skyblock/recipe/*_ore.json```
+Disable by deleting `skyblock/data/skyblock/recipe/*_ore.json`
 
 All ores can be crafted using a block of the base stone material and four of the ore's material.
 
 The recipe requires ingots, Nether Quartz, Coal, Diamonds, or Emeralds.
 
-*Copper, Redstone, and Lapis Lazuli require blocks.*
+_Copper, Redstone, and Lapis Lazuli require blocks._
 
 For example, Nether Gold Ore can be crafted with Netherrack in the center and Gold Ingots on the four sides.
 
@@ -114,9 +116,9 @@ For example, Nether Gold Ore can be crafted with Netherrack in the center and Go
 
 #### Horse Armor is Craftable
 
-Provides *Iron Horse Armor*, *Golden Horse Armor*, and *Diamond Horse Armor*
+Provides _Iron Horse Armor_, _Golden Horse Armor_, and _Diamond Horse Armor_
 
-Disable by deleting ```skyblock/data/skyblock/recipe/*_horse_armor.json```
+Disable by deleting `skyblock/data/skyblock/recipe/*_horse_armor.json`
 
 Craft Horse Armors with their respective materials in a **H** shape.
 
@@ -124,9 +126,9 @@ Craft Horse Armors with their respective materials in a **H** shape.
 
 #### Cats Gift Enchanted Golden Apples
 
-Provides *Enchanted Golden Apples*
+Provides _Enchanted Golden Apples_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/gameplay/cat_morning_gift.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/cat_morning_gift.json`
 
 Cats will rarely bring the player an Enchanted Golden Apple as a morning gift.
 
@@ -134,9 +136,9 @@ Cats will rarely bring the player an Enchanted Golden Apple as a morning gift.
 
 #### Piglins Give Gilded Blackstone
 
-Provides *Gilded Blackstone*
+Provides _Gilded Blackstone_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/gameplay/piglin_bartering.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/gameplay/piglin_bartering.json`
 
 Piglins will rarely give Gilded Blackstone when bartering.
 
@@ -144,9 +146,9 @@ Piglins will rarely give Gilded Blackstone when bartering.
 
 #### Creepers Drop Structure Specific Music Discs or Fragments in those Structures
 
-Provides the music discs *Pigstep*, *otherside*, *5*, *Precipice*, and *Creator*
+Provides the music discs _Pigstep_, _otherside_, _5_, _Precipice_, and _Creator_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/entities/creeper.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/creeper.json`
 
 When Creepers are killed by Skeletons in the Bastions, they can drop the Music Disc "Pigstep".
 
@@ -160,9 +162,9 @@ When Creepers are killed by Skeletons in the Trial Chambers, they can drop the M
 
 #### Zoglins Drop Snout Banner Patterns
 
-Provides *Snout Banner Pattern*
+Provides _Snout Banner Pattern_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/entities/zoglin.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/entities/zoglin.json`
 
 Zoglins will always drop a Snout Banner Pattern when killed by a player.
 
@@ -170,9 +172,9 @@ Zoglins will always drop a Snout Banner Pattern when killed by a player.
 
 #### Flowering Azalea Leaves Drop Spore Blossoms
 
-Provides *Spore Blossoms*
+Provides _Spore Blossoms_
 
-Disable by deleting ```skyblock/data/minecraft/loot_table/blocks/flowering_azaliea_leaves.json```
+Disable by deleting `skyblock/data/minecraft/loot_table/blocks/flowering_azaliea_leaves.json`
 
 Flowering Azalea Leaves have a chance to drop Spore Blossoms, increased by Fortune.
 
@@ -180,9 +182,9 @@ Flowering Azalea Leaves have a chance to drop Spore Blossoms, increased by Fortu
 
 #### Endermen Can Pick Up Tall Grass and Large Ferns
 
-Provides *Tall Grass and Large Ferns*
+Provides _Tall Grass and Large Ferns_
 
-Disable by deleting ```skyblock/data/minecraft/tags/block/enderman_holdable.json```
+Disable by deleting `skyblock/data/minecraft/tags/block/enderman_holdable.json`
 
 Endermen who have picked up Tall Grass and Large Ferns can be killed to retrieve those as an item,
 mimicking pre-1.19.3 behavior.
@@ -194,9 +196,9 @@ destroyed.
 
 #### Netherite Upgrade Smithing Template is Craftable
 
-Provides *Netherite Upgrade Smithing Template*
+Provides _Netherite Upgrade Smithing Template_
 
-Disable by deleting ```skyblock/data/skyblock/recipe/netherite_upgrade_smithing_template_from_netherite.json```
+Disable by deleting `skyblock/data/skyblock/recipe/netherite_upgrade_smithing_template_from_netherite.json`
 
 A Netherite Upgrade Smithing Template is crafted from the duplication recipe
 with the Smithing Template replaced with a Netherite Ingot.
@@ -207,37 +209,41 @@ with the Smithing Template replaced with a Netherite Ingot.
 
 #### Loot Tables for Trial Vaults are Updated
 
-Provides *Trial Chamber Pottery Sherds* and the music disc *Creator (Music Box)*
+Provides _Trial Chamber Pottery Sherds_ and the music disc _Creator (Music Box)_
 
 As the trial vaults are easy to find and provides an easy way to get some resources that would make some parts of this mod obsolete, the
 loot tables for the trial vaults has been updated.
 
 Added to regular vaults:
-* Flow Pottery Sherd
-* Guster Pottery Sherd
-* Scrape Pottery Sherd
+
+- Flow Pottery Sherd
+- Guster Pottery Sherd
+- Scrape Pottery Sherd
 
 Removed from regular vaults:
-* Diamond
-* Diamond Axe
-* Diamond Chestplate
-* Golden Apple
-* Bolt Armor Trim Smithing Template
-* Music Disc (Precipice)
-* Trident
+
+- Diamond
+- Diamond Axe
+- Diamond Chestplate
+- Golden Apple
+- Bolt Armor Trim Smithing Template
+- Music Disc (Precipice)
+- Trident
 
 Added to ominous vaults:
-* Music Disc (Creator (Music Box))
+
+- Music Disc (Creator (Music Box))
 
 Removed from ominous vaults:
-* Diamond
-* Golden Apple
-* Diamond Axe
-* Diamond Chestplate
-* Block of Diamond
-* Enchanted Golden Apple
-* Flow Armor Trim Smithing Template
-* Music Disc (Creator)
+
+- Diamond
+- Golden Apple
+- Diamond Axe
+- Diamond Chestplate
+- Block of Diamond
+- Enchanted Golden Apple
+- Flow Armor Trim Smithing Template
+- Music Disc (Creator)
 
 ---
 
@@ -251,7 +257,7 @@ The challenge advancements are documented below.
 
 #### Seeing Patterns Everywhere
 
-Completing rewards *Sentry Armor Trim Smithing Template*
+Completing rewards _Sentry Armor Trim Smithing Template_
 
 Granted upon obtaining all Banner Patterns.
 
@@ -259,9 +265,10 @@ Granted upon obtaining all Banner Patterns.
 
 #### Let There Be Light
 
-Completing rewards *Eye Armor Trim Smithing Template*
+Completing rewards _Eye Armor Trim Smithing Template_
 
 Granted upon obtaining all Light Sources in the following list:
+
 - Torch and Soul Torch
 - Lantern and Soul Lantern
 - Campfire and Soul Campfire
@@ -299,7 +306,7 @@ Granted upon obtaining all Light Sources in the following list:
 
 #### End City Builder
 
-Completing rewards *Spire Armor Trim Smithing Template*
+Completing rewards _Spire Armor Trim Smithing Template_
 
 Granted upon crafting or stonecutting all Purpur Blocks, Pillars, Stairs, and Slabs while levitated.
 
@@ -307,7 +314,7 @@ Granted upon crafting or stonecutting all Purpur Blocks, Pillars, Stairs, and Sl
 
 #### Treasure Map to Nowhere
 
-Completing rewards *Vex Armor Trim Smithing Template*
+Completing rewards _Vex Armor Trim Smithing Template_
 
 Granted upon entering a Woodland Mansion bounding box.
 
@@ -318,7 +325,7 @@ but looking up the coordinates would work too.
 
 #### Wither Art Thou
 
-Completing rewards *Rib Armor Trim Smithing Template*
+Completing rewards _Rib Armor Trim Smithing Template_
 
 Granted upon killing a Wither within the (small) bounding box of a Nether Fortress.
 
@@ -326,7 +333,7 @@ Granted upon killing a Wither within the (small) bounding box of a Nether Fortre
 
 #### Air Tunes
 
-Completing rewards *Silence Armor Trim Smithing Template*
+Completing rewards _Silence Armor Trim Smithing Template_
 
 Granted upon playing all music discs in a Jukebox.
 
@@ -336,7 +343,7 @@ Music discs must be clicked onto a Jukebox, not hoppered in.
 
 #### Way of the Ancients
 
-Completing rewards *Dune Armor Trim Smithing Template*
+Completing rewards _Dune Armor Trim Smithing Template_
 
 An exact replica Desert Pyramid must be built as described [here](https://minecraft.wiki/w/Desert_Pyramid/Structure).
 The structure can face any direction. Only layers from the Blue Terracotta layer to the top matter.
@@ -347,7 +354,7 @@ The advancement is granted when a Husk is sacrificed on the Blue Terracotta in t
 
 #### Sky Pirate
 
-Completing rewards *Coast Armor Trim Smithing Template*
+Completing rewards _Coast Armor Trim Smithing Template_
 
 Granted upon traveling 30km in a boat.
 
@@ -355,7 +362,7 @@ Granted upon traveling 30km in a boat.
 
 #### War Pigs
 
-Completing rewards *Snout Armor Trim Smithing Template*
+Completing rewards _Snout Armor Trim Smithing Template_
 
 Granted upon killing a Piglin Brute while riding a Pig and wearing a Piglin Head.
 
@@ -365,7 +372,7 @@ The vanilla War Pigs advancement is impossible; this serves as its replacement.
 
 #### Resistance Isn't Futile
 
-Completing rewards *Ward Armor Trim Smithing Template*
+Completing rewards _Ward Armor Trim Smithing Template_
 
 Granted upon getting hit by a Warden while wearing full Protection 4 Netherite Armor
 and affected by Resistance 4.
@@ -374,9 +381,10 @@ and affected by Resistance 4.
 
 #### Spy in the Sky
 
-Completing rewards *Wild Armor Trim Smithing Template*
+Completing rewards _Wild Armor Trim Smithing Template_
 
 Granted after looking through a Spyglass at all animals in the following list:
+
 - Axolotl
 - Armadillo
 - Bat
@@ -414,7 +422,7 @@ Granted after looking through a Spyglass at all animals in the following list:
 
 #### Lightning Conqueror
 
-Completing rewards *Bolt Armor Trim Smithing Template*
+Completing rewards _Bolt Armor Trim Smithing Template_
 
 Granted after using a channeling trident to take down creepers, guardians, mooshrooms, zombified piglins, and witches during a thunderstorm
 
@@ -422,6 +430,6 @@ Granted after using a channeling trident to take down creepers, guardians, moosh
 
 #### Harnessing the Flow
 
-Completing rewards *Flow Armor Trim Smithing Template*
+Completing rewards _Flow Armor Trim Smithing Template_
 
 Granted after using a riptide trident under the influence of a conduit during rain.
