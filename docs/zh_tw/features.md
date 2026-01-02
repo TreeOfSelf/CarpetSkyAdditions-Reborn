@@ -2,9 +2,9 @@
 
 #### Dead Coral and Coral Fans Erode into Sand
 
-Provides additional *Sand* and *Red Sand*
+Provides additional _Sand_ and _Red Sand_
 
-Disable with ```/carpetskyadditions removeDefault coralErosion```
+Disable with `/carpetskyadditions removeDefault coralErosion`
 
 Dead Coral and Dead Coral Fans with water flowing out of them will spawn a Sand item every 16-32 seconds.
 Fire versions spawn Red Sand instead.
@@ -23,9 +23,9 @@ This method was added because:
 
 #### Shulkers Spawn On Dragon Kill
 
-Provides *Shulkers*
+Provides _Shulkers_
 
-Disable with ```/carpetskyadditions removeDefault shulkerSpawning```
+Disable with `/carpetskyadditions removeDefault shulkerSpawning`
 
 When an Ender Dragon is re-killed, a Shulker spawns on top of the Bedrock pillar.
 
@@ -33,9 +33,9 @@ When an Ender Dragon is re-killed, a Shulker spawns on top of the Bedrock pillar
 
 #### Goats Break Apart Nether Wart Blocks By Ramming Them
 
-Provides *Nether Wart*
+Provides _Nether Wart_
 
-Disable with ```/carpetskyadditions removeDefault rammingWart```
+Disable with `/carpetskyadditions removeDefault rammingWart`
 
 When a Goat rams a Nether Wart Block, it will break into Nether Wart.
 
@@ -43,11 +43,11 @@ When a Goat rams a Nether Wart Block, it will break into Nether Wart.
 
 #### Thick Potions Convert Stone into Deepslate
 
-Provides *Deepslate*
+Provides _Deepslate_
 
-Disable with ```/carpetskyadditions removeDefault renewableDeepslate```
+Disable with `/carpetskyadditions removeDefault renewableDeepslate`
 
-Disable only splash/lingering conversion with ```/carpetskyadditions setDefault renewableDeepslate no_splash```
+Disable only splash/lingering conversion with `/carpetskyadditions setDefault renewableDeepslate no_splash`
 
 Right-clicking or dispensing a Thick Potion on Stone converts it to Deepslate.
 
@@ -61,9 +61,9 @@ A Thick Lingering Potion will continuously convert all Stone blocks in its cloud
 
 #### Netherrack and Nylium Generates with Nether Portal Structures
 
-Provides *Netherrack* and *Nylium*
+Provides _Netherrack_ and _Nylium_
 
-Disable with ```/carpetskyadditions removeDefault renewableNetherrack```
+Disable with `/carpetskyadditions removeDefault renewableNetherrack`
 
 When a Nether Portal generates in the void, it generates a few blocks of Netherrack or Nylium around it.
 
@@ -74,16 +74,16 @@ Netherrack elsewhere.
 
 #### Wandering Traders Sell Tall Flowers
 
-Provides *Tall Flowers*
+Provides _Tall Flowers_
 
-Disable with ```/carpetskyadditions removeDefault tallFlowersFromWanderingTrader```
+Disable with `/carpetskyadditions removeDefault tallFlowersFromWanderingTrader`
 
 Tall Flowers trades mimic Bedrock.
 
 ##### Additional Tier 1 Trades:
 
 | Item      | Price | Trades until disabled |
-|-----------|-------|-----------------------|
+| --------- | ----- | --------------------- |
 | Lilac     | 1     | 12                    |
 | Rose Bush | 1     | 12                    |
 | Peony     | 1     | 12                    |
@@ -93,9 +93,9 @@ Tall Flowers trades mimic Bedrock.
 
 #### Vexes Can Be Allayed
 
-Provides *Allays*
+Provides _Allays_
 
-Disable with ```/carpetskyadditions removeDefault allayableVexes```
+Disable with `/carpetskyadditions removeDefault allayableVexes`
 
 Play Vexes the right sequence of 5 Note Block notes to convert them to Allays.
 
@@ -109,11 +109,11 @@ The Comparator outputs a value from 0 (corresponding to F#) to 11 (corresponding
 
 #### Foxes Spawn With Sweet Berries
 
-Provides *Sweet Berries*
+Provides _Sweet Berries_
 
-Disable with ```/carpetskyadditions removeDefault foxesSpawnWithSweetBerriesChance```
+Disable with `/carpetskyadditions removeDefault foxesSpawnWithSweetBerriesChance`
 
-Set the chance with ```/carpetskyadditions setDefault foxesSpawnWithSweetBerriesChance <chance>```.
+Set the chance with `/carpetskyadditions setDefault foxesSpawnWithSweetBerriesChance <chance>`.
 
 When a Fox spawns with an item, there is a 20% chance the item is Sweet Berries. The Fox will eat them soon after
 spawning, so be quick.
@@ -122,9 +122,9 @@ spawning, so be quick.
 
 #### Anvils Compact Coal into Diamonds
 
-Provides *Diamonds*
+Provides _Diamonds_
 
-Disable with ```/carpetskyadditions removeDefault renewableDiamonds```
+Disable with `/carpetskyadditions removeDefault renewableDiamonds`
 
 A Falling Anvil compresses a stack of Coal Blocks into a Diamond.
 
@@ -132,9 +132,9 @@ A Falling Anvil compresses a stack of Coal Blocks into a Diamond.
 
 #### Lightning Electrifies Vines
 
-Provides *Glow Lichen*
+Provides _Glow Lichen_
 
-Disable with ```/carpetskyadditions removeDefault lightningElectrifiesVines```
+Disable with `/carpetskyadditions removeDefault lightningElectrifiesVines`
 
 If lightning strikes Glowstone with vines attached, the vines will turn into Glow Lichen. It can also strike a Lightning
 Rod on the Glowstone.
@@ -143,9 +143,9 @@ Rod on the Glowstone.
 
 #### Chorus Trees Generate on End Islands
 
-Provides *Chorus Fruit* and *Chorus Flowers*
+Provides _Chorus Fruit_ and _Chorus Flowers_
 
-Disable with ```/carpetskyadditions removeDefault gatewaysSpawnChorus```
+Disable with `/carpetskyadditions removeDefault gatewaysSpawnChorus`
 
 When an End Gateway is taken to a position over the void, the Endstone island generated spawns with a Chorus Tree on it.
 
@@ -153,9 +153,9 @@ When an End Gateway is taken to a position over the void, the Endstone island ge
 
 #### Dolphins Find Hearts of the Sea
 
-Provides *Hearts of the Sea*
+Provides _Hearts of the Sea_
 
-Disable with ```/carpetskyadditions removeDefault renewableHeartsOfTheSea```
+Disable with `/carpetskyadditions removeDefault renewableHeartsOfTheSea`
 
 When a Dolphin is fed a fish, they may dig a Heart of the Sea out of Sand or Gravel on the sea floor.
 
@@ -167,9 +167,9 @@ Must be in an Ocean type biome -- they're Hearts of the Sea, not Hearts of the J
 
 #### Budding Amethysts Can Be Generated
 
-Provides *Budding Amethysts*
+Provides _Budding Amethysts_
 
-Disable with ```/carpetskyadditions removeDefault renewableBuddingAmethysts```
+Disable with `/carpetskyadditions removeDefault renewableBuddingAmethysts`
 
 A lava block surrounded by Calcite which is then surrounded by Smooth Basalt will eventually turn into a Budding
 Amethyst.
@@ -177,9 +177,9 @@ Amethyst.
 ##### How to build structure:
 
 ![lava source](../screenshots/amethyst_step_1_240.png?raw=true "Budding Amethyst Generation Step 1")
----->
+\---->
 ![Lava surrounded by calcite](../screenshots/amethyst_step_2_240.png?raw=true "Budding Amethyst Generation Step 2")
----->
+\---->
 ![Calcite surrounded by smooth basalt](../screenshots/amethyst_step_3_240.png?raw=true "Budding Amethyst Generation Step 3")
 
 After some time (1/100 chance on a random tick — ~2 hours on average), the Lava in the center will turn into a Budding
@@ -191,9 +191,9 @@ Amethyst.
 
 #### Saplings Die on Sand
 
-Provides *Dead Bushes*
+Provides _Dead Bushes_
 
-Disable with ```/carpetskyadditions removeDefault saplingsDieOnSand```
+Disable with `/carpetskyadditions removeDefault saplingsDieOnSand`
 
 Saplings can be placed on Sand and Red Sand.
 
@@ -203,9 +203,9 @@ After a time, the saplings will die and turn into Dead Bushes.
 
 #### Dead Bush Rehydrated with Water
 
-Provides *Bushes*
+Provides _Bushes_
 
-Disable with ```/carpetskyadditions removeDefault doDeadBushToBush```
+Disable with `/carpetskyadditions removeDefault doDeadBushToBush`
 
 Using a Water Bottle on a Dead Bush turns it into a Bush.
 
@@ -213,9 +213,9 @@ Using a Water Bottle on a Dead Bush turns it into a Bush.
 
 #### Ender Dragons Can Drop their Head
 
-Provides *Dragon Heads*
+Provides _Dragon Heads_
 
-Disable with ```/carpetskyadditions removeDefault renewableDragonHeads```
+Disable with `/carpetskyadditions removeDefault renewableDragonHeads`
 
 When an Ender Dragon is killed by a Charged Creeper, she will drop her head.
 
@@ -223,9 +223,9 @@ When an Ender Dragon is killed by a Charged Creeper, she will drop her head.
 
 #### Huge Mushrooms Spread Mycelium
 
-Provides *Mycelium*
+Provides _Mycelium_
 
-Disable with ```/carpetskyadditions removeDefault hugeMushroomsSpreadMycelium```
+Disable with `/carpetskyadditions removeDefault hugeMushroomsSpreadMycelium`
 
 When a Huge Mushroom grows, it spreads Mycelium nearby, similar to how Mega Spruces Trees spread Podzol.
 
@@ -233,9 +233,9 @@ When a Huge Mushroom grows, it spreads Mycelium nearby, similar to how Mega Spru
 
 #### Creatures with Echolocation Drop Echo Shards when Killed with Sonic Booms
 
-Provides *Echo Shards*
+Provides _Echo Shards_
 
-Disable with ```/carpetskyadditions removeDefault renewableEchoShards```
+Disable with `/carpetskyadditions removeDefault renewableEchoShards`
 
 Bats and Dolphins drop an Echo Shard when killed by a Warden's Sonic Boom attack.
 
@@ -243,9 +243,9 @@ Bats and Dolphins drop an Echo Shard when killed by a Warden's Sonic Boom attack
 
 #### Drowneds Foster Sniffer Eggs
 
-Provides *Sniffer Eggs*
+Provides _Sniffer Eggs_
 
-Disable with ```/carpetskyadditions removeDefault sniffersFromDrowneds```
+Disable with `/carpetskyadditions removeDefault sniffersFromDrowneds`
 
 Drowneds have a 1% chance to spawn with a Sniffer Egg in their offhand.
 
@@ -258,11 +258,11 @@ it will replace the destroyed Egg with the Sniffer Egg.
 
 #### Sniffers are Suspicious
 
-Provides *Suspicious Sand* and *Suspicious Gravel*
+Provides _Suspicious Sand_ and _Suspicious Gravel_
 
-Disable with ```/carpetskyadditions removeDefault suspiciousSniffers```
+Disable with `/carpetskyadditions removeDefault suspiciousSniffers`
 
-Disable only Iron Nugget drops with ```/carpetskyadditions setDefault suspiciousSniffers no_iron```
+Disable only Iron Nugget drops with `/carpetskyadditions setDefault suspiciousSniffers no_iron`
 
 Sniffers will dig in Sand, Red Sand, Suspicious Sand, Gravel, and Suspicious Gravel.
 
@@ -281,9 +281,9 @@ In a Desert Pyramid, it will have a 20% chance to have a Desert Well loot table.
 
 #### Enchanting Tables Near Wardens can Enchant Items with Swift Sneak
 
-Provides *Swift Sneak*
+Provides _Swift Sneak_
 
-Disable with ```/carpetskyadditions removeDefault renewableSwiftSneak```
+Disable with `/carpetskyadditions removeDefault renewableSwiftSneak`
 
 An Enchanting Table placed within 8 blocks of a Warden can enchant items with Swift Sneak.
 
@@ -291,9 +291,9 @@ An Enchanting Table placed within 8 blocks of a Warden can enchant items with Sw
 
 #### Poisonous Potatoes Convert Spiders
 
-Provides *Cave Spiders*
+Provides _Cave Spiders_
 
-Disable with ```/carpetskyadditions removeDefault poisonousPotatoesConvertSpiders```
+Disable with `/carpetskyadditions removeDefault poisonousPotatoesConvertSpiders`
 
 Use a Poisonous Potato on a Spider to convert it to a Cave Spider.
 
@@ -301,9 +301,9 @@ Use a Poisonous Potato on a Spider to convert it to a Cave Spider.
 
 #### Wandering Traders Can Spawn Riding Camels
 
-Provides *Camels*
+Provides _Camels_
 
-Disable with ```/carpetskyadditions removeDefault traderCamels```
+Disable with `/carpetskyadditions removeDefault traderCamels`
 
 When a Wandering Trader spawns in a Desert or Badlands biome (tag `carpetskyadditions:wandering_trader_spawns_on_camel`),
 it will not have Trader Llamas, but will ride a Camel.
@@ -320,9 +320,9 @@ This is client side only, but I recommend not trying to mess with the Trader's C
 
 #### Small Dripleaves Can Propogate
 
-Provides additional *Small Dripleaves*
+Provides additional _Small Dripleaves_
 
-Disable with ```/carpetskyadditions removeDefault spreadingSmallDripleaves```
+Disable with `/carpetskyadditions removeDefault spreadingSmallDripleaves`
 
 When a Small Dripleaf is planted on Clay such that the bottom half is waterlogged, the top isn't,
 and the top is at exactly light level 5, it can spread. Spreading works similarly to Mushrooms.
@@ -340,9 +340,9 @@ This allows farming and heavier use of them.
 
 #### Coral can Spread to Calcite
 
-Provides additional *Coral Blocks*
+Provides additional _Coral Blocks_
 
-Disable with ```/carpetskyadditions removeDefault spreadingCoral```
+Disable with `/carpetskyadditions removeDefault spreadingCoral`
 
 When a Calcite block has at least 8 of the same type of Coral block within a 3x3 around it,
 it can convert to that Coral block upon a random tick (if it would survive).
@@ -353,6 +353,7 @@ The ideal spot is defined as a temperature of 0.65 and a continentalness of -0.3
 which translates to just off the coast, in warm locations.
 These values are visible on the F3 screen in singleplayer.
 The algorithm is:
+
 ```
 if dimension is not overworld then
     suitability = 0
@@ -376,25 +377,25 @@ This allows farming and heavier use of them.
 
 #### Wandering Traders Sell Lava
 
-Provides *Lava*
+Provides _Lava_
 
-Enable with ```/carpetskyadditions setDefault lavaFromWanderingTrader true```
+Enable with `/carpetskyadditions setDefault lavaFromWanderingTrader true`
 
-*** Not automatically enabled in SkyBlock — Get Lava from a Hero of the Village Gift Instead***
+\*\*\* Not automatically enabled in SkyBlock — Get Lava from a Hero of the Village Gift Instead\*\*\*
 
 ##### Additional Tier 2 Trade:
 
 | Item        | Price | Input Item | Trades until disabled |
-|-------------|-------|------------|-----------------------|
+| ----------- | ----- | ---------- | --------------------- |
 | Lava Bucket | 16    | Bucket     | 1                     |
 
 ---
 
 #### Blaze turn into Breeze when Brought to Overworld
 
-Provides *Breeze Rods*
+Provides _Breeze Rods_
 
-Disable with ```/carpetskyadditions setDefault blazeToBreeze false```
+Disable with `/carpetskyadditions setDefault blazeToBreeze false`
 
 Blaze mobs turn into Breeze when go from the nether into the overworld.
 This does not affect entities with a custom name tag.
@@ -403,9 +404,9 @@ This does not affect entities with a custom name tag.
 
 #### Using a Breeze Rod on an Unactivated Trial Spawner Makes It a Breeze Trial Spawner
 
-Provides *Trial Chamber Loot*
+Provides _Trial Chamber Loot_
 
-Disable generation with ```/carpetskyadditions setDefault generateTrialChambers false```
+Disable generation with `/carpetskyadditions setDefault generateTrialChambers false`
 
 Breeze Rods when used on an unactivated Trial Spawner turns it into a Breeze Trial Spawner.
 This is how you obtain the loot from Trial Spawners.
@@ -414,9 +415,9 @@ This is how you obtain the loot from Trial Spawners.
 
 #### Growing a Pale Oak Sapling Near an Open Eye Blossom Produces a Creaking Heart
 
-Provides *Creaking Heart* and *Resin*
+Provides _Creaking Heart_ and _Resin_
 
-Disable with ```/carpetskyadditions setDefault paleBlossomCreakingHeart false```
+Disable with `/carpetskyadditions setDefault paleBlossomCreakingHeart false`
 
 If four pale oak saplings are placed close to an open eyeblossom in the pale garden biome,
 there are a 10% chance for the pale oak tree to generate a creaking heart.

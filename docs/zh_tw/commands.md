@@ -3,7 +3,8 @@
 ### SkyIsland
 
 ----
-Permissions configured with ```/carpetskyadditions commandSkyIsland```
+
+Permissions configured with `/carpetskyadditions commandSkyIsland`
 
 Generates spawn islands, simplifying having multiple players on the same server with different starting islands.
 
