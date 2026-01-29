@@ -3,6 +3,7 @@ package com.jsorrell.carpetskyadditions.helpers;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GlowLichenBlock;
@@ -15,7 +16,7 @@ public class LightningConverter {
         BlockState rawHitBlock = level.getBlockState(pos);
         BlockPos hitBlockPos;
         BlockState hitBlock;
-        if (rawHitBlock.is(Blocks.LIGHTNING_ROD)) {
+        if (rawHitBlock.is(BlockTags.LIGHTNING_RODS)) {
             hitBlockPos =
                     pos.relative(rawHitBlock.getValue(LightningRodBlock.FACING).getOpposite());
             hitBlock = level.getBlockState(hitBlockPos);
