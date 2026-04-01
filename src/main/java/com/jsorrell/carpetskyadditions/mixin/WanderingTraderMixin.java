@@ -3,8 +3,6 @@ package com.jsorrell.carpetskyadditions.mixin;
 import com.jsorrell.carpetskyadditions.fakes.CamelInterface;
 import com.jsorrell.carpetskyadditions.helpers.TraderCamelHelper;
 import com.jsorrell.carpetskyadditions.helpers.WanderingTraderHelper;
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.*;
@@ -16,7 +14,6 @@ import net.minecraft.world.entity.monster.illager.Pillager;
 import net.minecraft.world.entity.monster.illager.Vindicator;
 import net.minecraft.world.entity.monster.zombie.Zombie;
 import net.minecraft.world.entity.npc.villager.AbstractVillager;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
 import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -24,15 +21,12 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
-import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-
-import java.util.List;
 
 @Mixin(WanderingTrader.class)
 public abstract class WanderingTraderMixin extends AbstractVillager {
@@ -56,17 +50,9 @@ public abstract class WanderingTraderMixin extends AbstractVillager {
         }
     }
 
-    @WrapOperation(
-            method = "updateTrades",
-            at =
-                    @At(
-                            value = "FIELD",
-                            opcode = Opcodes.GETSTATIC,
-                            target =
-                                    "Lnet/minecraft/world/entity/npc/villager/VillagerTrades;WANDERING_TRADER_TRADES:Ljava/util/List;"))
-    private List<org.apache.commons.lang3.tuple.Pair<VillagerTrades.ItemListing[], Integer>> getTrades(
-        Operation<List<org.apache.commons.lang3.tuple.Pair<VillagerTrades.ItemListing[], Integer>>> original) {
-        return WanderingTraderHelper.getTrades();
+    @Inject(method = "updateTrades", at = @At("TAIL"))
+    private void addSkyAdditionsTrades(net.minecraft.server.level.ServerLevel serverLevel, CallbackInfo ci) {
+        WanderingTraderHelper.addSkyAdditionsTrades(asTrader());
     }
 
     @Override

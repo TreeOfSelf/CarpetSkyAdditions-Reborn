@@ -70,7 +70,7 @@ public class SkyIslandCommand {
         ChunkPos chunkPos = SkyIslandPositionContainer.getChunk(islandNum);
         int x = chunkPos.getMiddleBlockX();
         int z = chunkPos.getMiddleBlockZ();
-        ChunkAccess chunk = source.getLevel().getChunk(chunkPos.x, chunkPos.z, ChunkStatus.EMPTY);
+        ChunkAccess chunk = source.getLevel().getChunk(chunkPos.x(), chunkPos.z(), ChunkStatus.EMPTY);
         if (chunk.getPersistedStatus() != ChunkStatus.FULL) {
             throw ISLAND_NOT_CREATED.create();
         }
@@ -95,7 +95,7 @@ public class SkyIslandCommand {
         Optional<ImmutablePair<Integer, ChunkPos>> islandOpt = IntStream.range(1, max)
                 .mapToObj(i -> ImmutablePair.of(i, SkyIslandPositionContainer.getChunk(i)))
                 .filter(i -> {
-                    ChunkAccess chunk = source.getLevel().getChunk(i.right.x, i.right.z, ChunkStatus.EMPTY);
+                    ChunkAccess chunk = source.getLevel().getChunk(i.right.x(), i.right.z(), ChunkStatus.EMPTY);
                     return chunk.getPersistedStatus() == ChunkStatus.EMPTY;
                 })
                 .findFirst();
@@ -115,7 +115,7 @@ public class SkyIslandCommand {
 
         //ConfiguredFeature<?, ?> skyIslandFeature = getIslandFeature(configuredFeatureRegistry);
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
-        random.setLargeFeatureSeed(source.getLevel().getSeed(), chunkPos.x, chunkPos.z);
+        random.setLargeFeatureSeed(source.getLevel().getSeed(), chunkPos.x(), chunkPos.z());
 
         Holder.Reference<ConfiguredFeature<?, ?>> skyIslandFeature = source.getServer().overworld().registryAccess()
             .lookupOrThrow(Registries.CONFIGURED_FEATURE)
@@ -143,8 +143,8 @@ public class SkyIslandCommand {
     private static void joinIsland(CommandSourceStack source, ServerPlayer player, int x, int z)
             throws CommandSyntaxException {
         BlockPos pos = new BlockPos(x, 0, z);
-        ChunkPos chunkPos = new ChunkPos(pos);
-        ChunkAccess chunk = source.getLevel().getChunk(chunkPos.x, chunkPos.z, ChunkStatus.EMPTY);
+        ChunkPos chunkPos = ChunkPos.containing(pos);
+        ChunkAccess chunk = source.getLevel().getChunk(chunkPos.x(), chunkPos.z(), ChunkStatus.EMPTY);
         int y;
         Supplier<Integer> spawnHeight = () -> chunk.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z) + 1;
         if (chunk.getPersistedStatus() != ChunkStatus.FULL || (y = spawnHeight.get()) <= chunk.getMinY()) {

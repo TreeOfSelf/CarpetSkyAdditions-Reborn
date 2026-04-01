@@ -8,7 +8,7 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.Shulker;
-import net.minecraft.world.level.dimension.end.EndDragonFight;
+import net.minecraft.world.level.dimension.end.EnderDragonFight;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.jetbrains.annotations.Nullable;
 import org.objectweb.asm.Opcodes;
@@ -19,26 +19,26 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(EndDragonFight.class)
+@Mixin(EnderDragonFight.class)
 public class EnderDragonFightMixin {
     @Shadow
-    private boolean previouslyKilled;
+    private boolean hasPreviouslyKilledDragon;
 
     @Shadow
     @Final
     private ServerLevel level;
 
     @Shadow
-    private @Nullable BlockPos portalLocation;
+    private @Nullable BlockPos exitPortalLocation;
 
     @Inject(method = "spawnExitPortal", at = @At(value = "HEAD"))
-    private void setExitPortalLocation(boolean previouslyKilled, CallbackInfo ci) {
+    private void setExitPortalLocation(boolean openPortal, CallbackInfo ci) {
         if (level.getChunkSource().getGenerator() instanceof SkyBlockChunkGenerator chunkGenerator) {
-            if (portalLocation == null) {
+            if (exitPortalLocation == null) {
                 int y = chunkGenerator.getBaseHeightInEquivalentNoiseWorld(
                                 0, 0, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, level)
                         - 1;
-                portalLocation = BlockPos.ZERO.atY(y);
+                exitPortalLocation = BlockPos.ZERO.atY(y);
             }
         }
     }
@@ -48,13 +48,12 @@ public class EnderDragonFightMixin {
             at =
                     @At(
                             value = "FIELD",
-                            target = "Lnet/minecraft/world/level/dimension/end/EndDragonFight;previouslyKilled:Z",
+                            target = "Lnet/minecraft/world/level/dimension/end/EnderDragonFight;hasPreviouslyKilledDragon:Z",
                             opcode = Opcodes.PUTFIELD))
     private void spawnShulkerOnDragonReKill(EnderDragon dragon, CallbackInfo ci) {
-        if (SkyAdditionsSettings.shulkerSpawnsOnDragonKill) {
-            // On top of bedrock pillar
-            BlockPos shulkerPosition = portalLocation.offset(0, 4, 0);
-            if (previouslyKilled && level.getBlockState(shulkerPosition).isAir()) {
+        if (SkyAdditionsSettings.shulkerSpawnsOnDragonKill && exitPortalLocation != null) {
+            BlockPos shulkerPosition = exitPortalLocation.offset(0, 4, 0);
+            if (hasPreviouslyKilledDragon && level.getBlockState(shulkerPosition).isAir()) {
                 Shulker shulker = EntityType.SHULKER.create(level, null, shulkerPosition, EntitySpawnReason.EVENT, true, false);
                 if (level.noCollision(shulker)) {
                     level.addFreshEntity(shulker);

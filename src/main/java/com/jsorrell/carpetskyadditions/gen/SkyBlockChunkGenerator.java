@@ -93,7 +93,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
         // Get all surrounding biomes for biome-based structures
         Set<Holder<Biome>> biomeSet = new ObjectArraySet<>();
         ChunkPos.rangeClosed(sectionPos.chunk(), 1).forEach(curChunkPos -> {
-            ChunkAccess curChunk = level.getChunk(curChunkPos.x, curChunkPos.z);
+            ChunkAccess curChunk = level.getChunk(curChunkPos.x(), curChunkPos.z());
             for (LevelChunkSection chunkSection : curChunk.getSections()) {
                 chunkSection.getBiomes().getAll(biomeSet::add);
             }
@@ -320,8 +320,8 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
             CrashReport crashReport = CrashReport.forThrowable(e, "Biome decoration");
             crashReport
                     .addCategory("Generation")
-                    .setDetail("CenterX", chunkPos.x)
-                    .setDetail("CenterZ", chunkPos.z)
+                    .setDetail("CenterX", chunkPos.x())
+                    .setDetail("CenterZ", chunkPos.z())
                     .setDetail("Seed", decorationSeed);
             throw new ReportedException(crashReport);
         }

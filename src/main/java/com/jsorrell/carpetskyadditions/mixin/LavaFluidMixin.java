@@ -39,7 +39,7 @@ public class LavaFluidMixin {
                             SoundEvents.AMETHYST_BLOCK_PLACE,
                             SoundSource.BLOCKS,
                             1.0f,
-                            0.5f + level.random.nextFloat() * 1.2f);
+                            0.5f + level.getRandom().nextFloat() * 1.2f);
 
                     AABB criteriaTriggerBox = new AABB(pos).inflate(50, 20, 50);
                     level.getEntitiesOfClass(ServerPlayer.class, criteriaTriggerBox)

@@ -1,19 +1,17 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
-import com.google.common.collect.ImmutableMap;
 import com.jsorrell.carpetskyadditions.fakes.CamelInterface;
 import com.jsorrell.carpetskyadditions.helpers.TraderCamelHelper;
-import com.mojang.serialization.Dynamic;
-import net.minecraft.nbt.NbtOps;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.camel.Camel;
-import net.minecraft.world.entity.animal.camel.CamelAi;
 import net.minecraft.world.entity.animal.equine.AbstractHorse;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.gen.Invoker;
 import org.spongepowered.asm.mixin.injection.*;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
@@ -23,6 +21,9 @@ public abstract class CamelMixin extends AbstractHorse implements CamelInterface
     protected CamelMixin(EntityType<? extends AbstractHorse> entityType, Level level) {
         super(entityType, level);
     }
+
+    @Invoker("makeBrain")
+    abstract Brain<Camel> carpetSkyAdditions$invokeMakeBrain(Brain.Packed packed);
 
     @Unique
     @SuppressWarnings("ConstantConditions")
@@ -54,21 +55,13 @@ public abstract class CamelMixin extends AbstractHorse implements CamelInterface
     }
 
     @Unique
-    private Dynamic<?> getBlankBrainDynamic() {
-        NbtOps nbtOps = NbtOps.INSTANCE;
-        return new Dynamic<>(
-                nbtOps, nbtOps.createMap(ImmutableMap.of(nbtOps.createString("memories"), nbtOps.emptyMap())));
-    }
-
-    @Unique
     public void carpetSkyAdditions$makeTraderCamel() {
-        brain = TraderCamelHelper.TraderCamelAI.makeBrain(
-                CamelAi.brainProvider().makeBrain(getBlankBrainDynamic()));
+        brain = TraderCamelHelper.TraderCamelAI.makeBrain(carpetSkyAdditions$invokeMakeBrain(Brain.Packed.EMPTY));
     }
 
     @Unique
     public void carpetSkyAdditions$makeStandaloneCamel() {
-        brain = makeBrain(getBlankBrainDynamic());
+        brain = carpetSkyAdditions$invokeMakeBrain(Brain.Packed.EMPTY);
     }
 
 }

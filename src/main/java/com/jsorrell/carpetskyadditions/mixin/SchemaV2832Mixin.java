@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(V2832.class)
 public class SchemaV2832Mixin {
     @ModifyArg(
-            method = "method_38837",
+            method = "registerTypes",
             at =
                     @At(
                             value = "INVOKE",

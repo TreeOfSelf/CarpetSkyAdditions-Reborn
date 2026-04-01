@@ -8,6 +8,7 @@ import com.jsorrell.carpetskyadditions.tags.SkyAdditionsBiomeTags;
 import java.util.EnumSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.ai.ActivityData;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.behavior.*;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -134,15 +135,20 @@ public class TraderCamelHelper {
         }
 
         private static void initCoreActivity(Brain<Camel> brain) {
-            brain.addActivity(
+            ActivityData<Camel> core =
+                ActivityData.create(
                     Activity.CORE,
                     0,
-                ImmutableList.of(
-                    new Swim<>(0.8F),
-                    new CamelAi.CamelPanic(4.0F),
-                    new LookAtTargetSink(45, 90),
-                    new MoveToTargetSink()
-                ));
+                    ImmutableList.of(
+                        new Swim<>(0.8F),
+                        new CamelAi.CamelPanic(4.0F),
+                        new LookAtTargetSink(45, 90),
+                        new MoveToTargetSink()));
+            brain.addActivity(
+                core.activityType(),
+                core.behaviorPriorityPairs(),
+                core.conditions(),
+                core.memoriesToEraseWhenStopped());
         }
     }
 }

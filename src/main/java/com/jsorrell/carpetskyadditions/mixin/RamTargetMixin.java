@@ -65,7 +65,7 @@ public abstract class RamTargetMixin<E extends PathfinderMob> extends Behavior<E
                 if (blockRemoved) {
                     if (!level.isClientSide()) {
                         Block.popResource(
-                                level, wartPos, new ItemStack(Items.NETHER_WART, level.random.nextInt(2) + 1));
+                                level, wartPos, new ItemStack(Items.NETHER_WART, level.getRandom().nextInt(2) + 1));
                     }
                     level.gameEvent(rammer, GameEvent.BLOCK_DESTROY, wartPos);
                     level.playSound(null, wartPos, SoundEvents.WART_BLOCK_BREAK, SoundSource.BLOCKS, 1.0f, 1.0f);

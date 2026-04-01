@@ -44,7 +44,7 @@ public class DeepslateConversionHelper {
             Optional<BlockState> optionalConvertedState = canConvert(state);
             if (optionalConvertedState.isPresent()) {
                 double distance = Math.sqrt(pos.getCenter().distanceToSqr(hitPos));
-                if (level.random.nextDouble() < getSplashConversionChance(distance)) {
+                if (level.getRandom().nextDouble() < getSplashConversionChance(distance)) {
                     level.setBlockAndUpdate(pos, optionalConvertedState.get());
                 }
             }
@@ -67,9 +67,9 @@ public class DeepslateConversionHelper {
                 for (int i = 0; i < 5; ++i) {
                     serverLevel.sendParticles(
                             ParticleTypes.SPLASH,
-                            (double) eventPos.getX() + level.random.nextDouble(),
+                            (double) eventPos.getX() + level.getRandom().nextDouble(),
                             eventPos.getY() + 1,
-                            (double) eventPos.getZ() + level.random.nextDouble(),
+                            (double) eventPos.getZ() + level.getRandom().nextDouble(),
                             1,
                             0.0,
                             0.0,

@@ -63,7 +63,7 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
         Allay spawnedAllay = vex.convertTo(EntityType.ALLAY, ConversionParams.single(vex, true, true), allay -> {
             if (allay != null) {
                 float pitch =
-                    2.6f + (vex.level().random.nextFloat() - vex.level().random.nextFloat()) * 0.8f;
+                    2.6f + (vex.level().getRandom().nextFloat() - vex.level().getRandom().nextFloat()) * 0.8f;
                 vex.level()
                     .playSound(
                         null,
@@ -108,9 +108,9 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
                     vex.getRandomY() + 0.5,
                     vex.getRandomZ(1),
                     5,
-                    level.random.nextGaussian() * 0.02,
-                    level.random.nextGaussian() * 0.02,
-                    level.random.nextGaussian() * 0.02,
+                    level.getRandom().nextGaussian() * 0.02,
+                    level.getRandom().nextGaussian() * 0.02,
+                    level.getRandom().nextGaussian() * 0.02,
                     1);
             level.playSound(
                     null,
@@ -118,7 +118,7 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
                     SoundEvents.ALLAY_AMBIENT_WITHOUT_ITEM,
                     SoundSource.HOSTILE,
                     0.1f * (float) numSuccessfulNotes,
-                    (level.random.nextFloat() - level.random.nextFloat()) * 0.2f + 1.0f);
+                    (level.getRandom().nextFloat() - level.getRandom().nextFloat()) * 0.2f + 1.0f);
 
             if (5 <= numSuccessfulNotes) {
                 vexAllayed = true;
@@ -130,9 +130,9 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
                     vex.getRandomY() + 1,
                     vex.getRandomZ(1),
                     5,
-                    level.random.nextGaussian() * 0.02,
-                    level.random.nextGaussian() * 0.02,
-                    level.random.nextGaussian() * 0.02,
+                    level.getRandom().nextGaussian() * 0.02,
+                    level.getRandom().nextGaussian() * 0.02,
+                    level.getRandom().nextGaussian() * 0.02,
                     0.2);
             numSuccessfulNotes = 0;
         }

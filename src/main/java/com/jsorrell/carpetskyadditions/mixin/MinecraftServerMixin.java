@@ -83,10 +83,10 @@ public abstract class MinecraftServerMixin {
 
         LevelData.RespawnData respawnData = levelData.getRespawnData();
         BlockPos worldSpawn = respawnData.pos();
-        ChunkPos spawnChunk = new ChunkPos(worldSpawn);
+        ChunkPos spawnChunk = ChunkPos.containing(worldSpawn);
 
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
-        random.setLargeFeatureSeed(level.getSeed(), spawnChunk.x, spawnChunk.z);
+        random.setLargeFeatureSeed(level.getSeed(), spawnChunk.x(), spawnChunk.z());
 
         Holder.Reference<ConfiguredFeature<?, ?>> spawnPlatformFeature = level.registryAccess()
             .lookupOrThrow(Registries.CONFIGURED_FEATURE)

@@ -35,9 +35,9 @@ public class DolphinFindHeartGoal extends Goal {
     protected Optional<BlockPos> determineTreasureLocation() {
         // Set Y to -64 to make it swim as low as possible
         BlockPos potentialTarget = new BlockPos(
-            dolphin.getBlockX() + dolphin.level().random.nextInt(16) - 8,
+            dolphin.getBlockX() + dolphin.level().getRandom().nextInt(16) - 8,
             -64,
-            dolphin.getBlockZ() + dolphin.level().random.nextInt(16) - 8);
+            dolphin.getBlockZ() + dolphin.level().getRandom().nextInt(16) - 8);
         if (dolphin.level().getBiome(potentialTarget.atY(dolphin.getBlockY())).is(BiomeTags.IS_OCEAN)) {
             return Optional.of(potentialTarget);
         }
@@ -84,9 +84,9 @@ public class DolphinFindHeartGoal extends Goal {
             dolphin.getRandomY() + 1.6,
             dolphin.getRandomZ(1),
             5,
-            level.random.nextGaussian() * 0.02,
-            level.random.nextGaussian() * 0.02,
-            level.random.nextGaussian() * 0.02,
+            level.getRandom().nextGaussian() * 0.02,
+            level.getRandom().nextGaussian() * 0.02,
+            level.getRandom().nextGaussian() * 0.02,
             0.2);
     }
 
@@ -124,7 +124,7 @@ public class DolphinFindHeartGoal extends Goal {
                         .getBlockState(dolphin.blockPosition().below())));
                 digCounter++;
             } else {
-                if (level.random.nextFloat() < CHANCE_TO_FIND_HEART_OF_THE_SEA) {
+                if (level.getRandom().nextFloat() < CHANCE_TO_FIND_HEART_OF_THE_SEA) {
                     ItemStack heartOfTheSea = new ItemStack(Items.HEART_OF_THE_SEA);
                     if (dolphin.getItemBySlot(EquipmentSlot.MAINHAND).isEmpty() && dolphin.canHoldItem(heartOfTheSea)) {
                         dolphin.setItemSlot(EquipmentSlot.MAINHAND, heartOfTheSea);

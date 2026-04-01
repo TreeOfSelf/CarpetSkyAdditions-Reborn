@@ -24,7 +24,8 @@ import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Mixin(TheEndGatewayBlockEntity.class)
 public class TheEndGatewayBlockEntityMixin {
     @WrapOperation(
-            method = "method_46695",
+            method = "lambda$findOrCreateValidTeleportPos$0",
+            remap = false,
             at =
                     @At(
                             value = "FIELD",

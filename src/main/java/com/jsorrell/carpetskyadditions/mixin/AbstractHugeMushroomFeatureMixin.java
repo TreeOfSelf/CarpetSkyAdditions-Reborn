@@ -6,7 +6,6 @@ import java.util.Set;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -23,7 +22,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(AbstractHugeMushroomFeature.class)
 public class AbstractHugeMushroomFeatureMixin {
     @Unique
-    private void generateMycelium(LevelAccessor level, RandomSource random, BlockPos pos) {
+    private void generateMycelium(WorldGenLevel level, RandomSource random, BlockPos pos) {
         AlterGroundDecorator decorator = new AlterGroundDecorator(BlockStateProvider.simple(Blocks.MYCELIUM));
         decorator.place(
             new TreeDecorator.Context(

@@ -3,9 +3,6 @@ package com.jsorrell.carpetskyadditions.mixin;
 import com.jsorrell.carpetskyadditions.helpers.TraderCamelHelper;
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import java.util.Optional;
-
-import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
-import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -22,8 +19,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.gamerules.GameRules;
-import net.minecraft.world.level.storage.ServerLevelData;
-import org.apache.logging.log4j.core.jmx.Server;
+import net.minecraft.world.level.saveddata.WanderingTraderData;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -40,17 +36,7 @@ public abstract class WanderingTraderSpawnerMixin {
     private int currentSpawnTimer;
 
     @Shadow
-    private int spawnChance;
-
-    @Shadow
     private int tickDelay;
-
-    @Shadow
-    @Final
-    private ServerLevelData serverLevelData;
-
-    @Shadow
-    private int spawnDelay;
 
     @Shadow
     @Final
@@ -59,15 +45,15 @@ public abstract class WanderingTraderSpawnerMixin {
     @Shadow
     protected abstract boolean spawn(ServerLevel level);
 
+    @Shadow
+    private WanderingTraderData getTraderData() {
+        throw new AssertionError();
+    }
+
     @Unique
     private boolean usesDefaultSettings() {
         return SkyAdditionsSettings.wanderingTraderSpawnRate == 24000
             && SkyAdditionsSettings.maxWanderingTraderSpawnChance == 0.075;
-    }
-
-    @WrapOperation(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/util/RandomSource;nextInt(I)I"))
-    private int skipSecondChanceCheck(RandomSource instance, int i, Operation<Integer> original) {
-        return 100 < spawnChance ? 0 : instance.nextInt(i);
     }
 
     @Unique
@@ -108,10 +94,9 @@ public abstract class WanderingTraderSpawnerMixin {
             if (traderCamel != null) {
                 WanderingTrader wanderingTrader = EntityType.WANDERING_TRADER.create(serverLevel, EntitySpawnReason.EVENT);
                 if (wanderingTrader != null) {
-                    serverLevelData.setWanderingTraderId(wanderingTrader.getUUID());
                     wanderingTrader.setDespawnDelay(48000);
 
-                    traderCamel.equipItemIfPossible(serverLevel,Items.SADDLE.getDefaultInstance());
+                    traderCamel.equipItemIfPossible(serverLevel, Items.SADDLE.getDefaultInstance());
                     wanderingTrader.setPos(traderCamel.getX(), traderCamel.getY(), traderCamel.getZ());
                     wanderingTrader.setYRot(traderCamel.getYRot());
                     wanderingTrader.setXRot(0.0F);
@@ -127,23 +112,23 @@ public abstract class WanderingTraderSpawnerMixin {
     }
 
     @Inject(method = "tick", at = @At("HEAD"), cancellable = true)
-    public void tick(
-        ServerLevel level, boolean spawnEnemies, CallbackInfo ci) {
-
+    public void tick(ServerLevel level, boolean spawnEnemies, CallbackInfo ci) {
         if (usesDefaultSettings()) {
             return;
         }
 
         ci.cancel();
 
-        ServerLevel serverLevel = level;
-
-        if (!serverLevel.getGameRules().get(GameRules.SPAWN_WANDERING_TRADERS)) {
+        if (!level.getGameRules().get(GameRules.SPAWN_WANDERING_TRADERS)) {
             return;
         }
 
+        WanderingTraderData data = getTraderData();
+        int spawnDelay = data.spawnDelay();
+
         if (SkyAdditionsSettings.wanderingTraderSpawnRate < spawnDelay) {
             spawnDelay = SkyAdditionsSettings.wanderingTraderSpawnRate;
+            data.setSpawnDelay(spawnDelay);
             currentSpawnTimer = Math.min(1200, spawnDelay);
             tickDelay = currentSpawnTimer;
         }
@@ -159,16 +144,19 @@ public abstract class WanderingTraderSpawnerMixin {
         currentSpawnTimer = Math.min(1200, spawnDelay);
         tickDelay = currentSpawnTimer;
 
-        serverLevelData.setWanderingTraderSpawnDelay(spawnDelay);
+        data.setSpawnDelay(spawnDelay);
 
-        if (trySpawn && serverLevel.getGameRules().get(GameRules.SPAWN_MOBS)) {
+        if (trySpawn && level.getGameRules().get(GameRules.SPAWN_MOBS)) {
+            int spawnChance = data.spawnChance();
             if (random.nextInt(100 < spawnChance ? 1000 : 100) < spawnChance && spawn(level)) {
-                spawnChance = 25;
+                data.setSpawnChance(25);
             } else {
-                spawnChance = Mth.clamp(spawnChance + 25, 25,
-                    (int) Math.round(SkyAdditionsSettings.maxWanderingTraderSpawnChance * 1000d));
+                data.setSpawnChance(
+                    Mth.clamp(
+                        spawnChance + 25,
+                        25,
+                        (int) Math.round(SkyAdditionsSettings.maxWanderingTraderSpawnChance * 1000d)));
             }
-            serverLevelData.setWanderingTraderSpawnChance(spawnChance);
         }
     }
 }

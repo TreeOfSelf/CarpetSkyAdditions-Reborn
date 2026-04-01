@@ -15,7 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SonicBoom.class)
 public class SonicBoomMixin {
-    @Inject(method = "method_43265", at = @At(value = "TAIL"))
+    @Inject(method = "lambda$tick$2", at = @At(value = "TAIL"), remap = false)
     private static void dropEchoShard(Warden warden, ServerLevel level, LivingEntity target, CallbackInfo ci) {
         if (SkyAdditionsSettings.renewableEchoShards) {
             if (target instanceof Dolphin || target instanceof Bat) {

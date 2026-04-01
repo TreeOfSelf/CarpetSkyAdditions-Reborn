@@ -13,7 +13,7 @@ class Versions(properties: ExtraPropertiesExtension) {
 }
 
 plugins {
-  id("fabric-loom")
+  id("net.fabricmc.fabric-loom")
   id("com.modrinth.minotaur") version "latest.release"
 }
 
@@ -41,12 +41,11 @@ repositories {
 
 dependencies {
   minecraft("com.mojang", "minecraft", versions.minecraft)
-  mappings(loom.officialMojangMappings())
-  modImplementation("net.fabricmc", "fabric-loader", versions.fabricLoader)
-  modImplementation("carpet", "fabric-carpet", versions.carpet)
+  implementation("net.fabricmc", "fabric-loader", versions.fabricLoader)
+  implementation("carpet", "fabric-carpet", versions.carpet)
 
   // Add fabric-api
-  modImplementation("net.fabricmc.fabric-api", "fabric-api", versions.fabricApi)
+  implementation("net.fabricmc.fabric-api", "fabric-api", versions.fabricApi)
 
   arrayOf(
     "fabric-object-builder-api-v1",
@@ -54,12 +53,12 @@ dependencies {
     "fabric-resource-loader-v0",
     "fabric-transitive-access-wideners-v1",
     "fabric-lifecycle-events-v1",
-  ).forEach { modImplementation(fabricApi.module(it, versions.fabricApi)) }
+  ).forEach { implementation(fabricApi.module(it, versions.fabricApi)) }
 
-  modImplementation("me.shedaniel.cloth", "cloth-config-fabric", versions.clothConfig) {
+  implementation("me.shedaniel.cloth", "cloth-config-fabric", versions.clothConfig) {
     exclude("net.fabricmc.fabric-api")
   }
-  modImplementation("com.terraformersmc", "modmenu", versions.modmenu)
+  implementation("com.terraformersmc", "modmenu", versions.modmenu)
 }
 
 base {
@@ -82,13 +81,13 @@ tasks {
 
   withType<JavaCompile> {
     options.encoding = "UTF-8"
-    options.release.set(versions.java.ordinal + 1)
   }
 
   java {
+    toolchain {
+      languageVersion.set(JavaLanguageVersion.of(versions.java.majorVersion))
+    }
     withSourcesJar()
-    sourceCompatibility = versions.java
-    targetCompatibility = versions.java
   }
 
   jar {

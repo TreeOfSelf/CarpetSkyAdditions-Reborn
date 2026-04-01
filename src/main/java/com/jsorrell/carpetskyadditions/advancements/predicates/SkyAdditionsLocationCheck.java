@@ -10,7 +10,6 @@ import net.minecraft.core.Vec3i;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
@@ -30,8 +29,9 @@ public record SkyAdditionsLocationCheck(Optional<SkyAdditionsLocationPredicate> 
             .apply(instance, SkyAdditionsLocationCheck::new));
 
     @Override
-    public @NotNull LootItemConditionType getType() {
-        return SkyAdditionsLootItemConditions.LOCATION_CHECK;
+    @SuppressWarnings("unchecked")
+    public @NotNull MapCodec<? extends LootItemCondition> codec() {
+        return (MapCodec<? extends LootItemCondition>) (MapCodec<?>) CODEC;
     }
 
     public boolean test(LootContext lootContext) {

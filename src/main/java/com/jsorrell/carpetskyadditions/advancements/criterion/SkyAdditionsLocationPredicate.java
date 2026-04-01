@@ -8,7 +8,6 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import net.minecraft.ChatFormatting;
 import net.minecraft.advancements.criterion.MinMaxBounds;
@@ -22,6 +21,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
+import net.minecraft.world.level.block.state.properties.Property.Value;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 import net.minecraft.world.phys.AABB;
@@ -85,9 +85,12 @@ public record SkyAdditionsLocationPredicate(
                                 level.getPlayers(serverPlayer -> buildersBox.contains(serverPlayer.position()));
                             MutableComponent message;
                             if (currentState.getBlock() == requiredState.getBlock()) {
-                                Map.Entry<Property<?>, Comparable<?>> incorrectProperty =
-                                    requiredState.getValues().entrySet().stream()
-                                        .filter(e -> currentState.getValue(e.getKey()) != e.getValue())
+                                Value<?> incorrect =
+                                    requiredState
+                                        .getValues()
+                                        .filter(
+                                            v ->
+                                                currentState.getValue(v.property()) != v.value())
                                         .findAny()
                                         .orElseThrow();
                                 message = SkyAdditionsText.translatable(
@@ -95,8 +98,8 @@ public record SkyAdditionsLocationPredicate(
                                     requiredBlock.pos().getX(),
                                     requiredBlock.pos().getY(),
                                     requiredBlock.pos().getZ(),
-                                    incorrectProperty.getKey().getName(),
-                                    incorrectProperty.getValue());
+                                    incorrect.property().getName(),
+                                    incorrect.value());
                             } else {
                                 message = SkyAdditionsText.translatable(
                                     "message.desert_pyramid_incorrect_block",

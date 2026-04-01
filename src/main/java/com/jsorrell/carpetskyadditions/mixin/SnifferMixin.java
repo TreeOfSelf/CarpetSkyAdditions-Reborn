@@ -134,7 +134,7 @@ public abstract class SnifferMixin extends Animal {
         Optional<Function<RandomSource, ResourceKey<LootTable>>> archLootTable = getLootTable(diggedBlockPos);
         if (SkyAdditionsSettings.doSuspiciousSniffers
             && archLootTable.isPresent()
-            && ((ServerLevel)level()).getServer().getWorldData().getGameRules().get(GameRules.MOB_GRIEFING)
+            && ((ServerLevel) level()).getGameRules().get(GameRules.MOB_GRIEFING)
             && level().getRandom().nextFloat() < 0.1) {
             Block susBlock = level().getBlockState(diggedBlockPos).is(Blocks.SAND)
                 ? Blocks.SUSPICIOUS_SAND
@@ -142,7 +142,7 @@ public abstract class SnifferMixin extends Animal {
             level().setBlockAndUpdate(diggedBlockPos, susBlock.defaultBlockState());
             ResourceKey<LootTable> lootTable = archLootTable.get().apply(level().getRandom());
             level().getBlockEntity(diggedBlockPos, BlockEntityType.BRUSHABLE_BLOCK)
-                .ifPresent(e -> e.setLootTable(lootTable, level().random.nextLong()));
+                .ifPresent(e -> e.setLootTable(lootTable, level().getRandom().nextLong()));
         }
         ci.cancel();
     }

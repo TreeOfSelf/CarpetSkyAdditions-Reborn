@@ -11,7 +11,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemConditionType;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
@@ -26,8 +25,9 @@ public record SkyAdditionsLootItemEntityPropertyCondition(Optional<EntityPredica
 	);
 
     @Override
-    public @NotNull LootItemConditionType getType() {
-        return SkyAdditionsLootItemConditions.ENTITY_PROPERTIES;
+    @SuppressWarnings("unchecked")
+    public @NotNull MapCodec<? extends LootItemCondition> codec() {
+        return (MapCodec<? extends LootItemCondition>) (MapCodec<?>) CODEC;
     }
 
     public boolean test(LootContext lootContext) {

@@ -38,8 +38,6 @@
     "RemoveBlockGoalMixin",
     "SaplingBlockMixin",
     "SchemasMixin",
-    "SchemaV2551Mixin",
-    "SchemaV2832Mixin",
     "ServerPropertiesHandlerMixin",
     "SinglePoolElementAccessor",
     "SmallDripleafBlockMixin",

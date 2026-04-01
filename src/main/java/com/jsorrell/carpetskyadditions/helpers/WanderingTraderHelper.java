@@ -1,43 +1,63 @@
 package com.jsorrell.carpetskyadditions.helpers;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import net.minecraft.world.entity.npc.villager.VillagerTrades;
+import java.util.Optional;
+import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import org.apache.commons.lang3.tuple.Pair;
+import net.minecraft.world.item.trading.ItemCost;
+import net.minecraft.world.item.trading.MerchantOffer;
 
 public class WanderingTraderHelper {
-    public static List<Pair<VillagerTrades.ItemListing[], Integer>> getTrades() {
-        List<Pair<VillagerTrades.ItemListing[], Integer>> originalTradeGroups = VillagerTrades.WANDERING_TRADER_TRADES;
-        List<Pair<VillagerTrades.ItemListing[], Integer>> newTrades = new ArrayList<>();
-
-        for (int i = 0; i < originalTradeGroups.size(); i++) {
-            Pair<VillagerTrades.ItemListing[], Integer> currentVanillaPair = originalTradeGroups.get(i);
-            List<VillagerTrades.ItemListing> currentGroupTradeList = new ArrayList<>(Arrays.asList(currentVanillaPair.getLeft()));
-            Integer tradesToPickFromGroup = currentVanillaPair.getRight();
-
-            if (i == 2) {
-                if (SkyAdditionsSettings.tallFlowersFromWanderingTrader) {
-                    currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.SUNFLOWER, 1, 1, 12, 1));
-                    currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.LILAC, 1, 1, 12, 1));
-                    currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.ROSE_BUSH, 1, 1, 12, 1));
-                    currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.PEONY, 1, 1, 12, 1));
-                }
-
-                //currentGroupTradeList.add(new VillagerTrades.ItemsForEmeralds(Items.PINK_PETALS, 1, 16, 12, 1));
-            } else if (i == 1) {
-                if (SkyAdditionsSettings.lavaFromWanderingTrader) {
-                    currentGroupTradeList.add(new VillagerTrades.ItemsAndEmeraldsToItems(Items.BUCKET, 1, 16, Items.LAVA_BUCKET, 1, 1, 1, 1));
-                }
-            }
-
-
-            VillagerTrades.ItemListing[] currentGroupTradeArray = currentGroupTradeList.toArray(new VillagerTrades.ItemListing[0]);
-            newTrades.add(Pair.of(currentGroupTradeArray, tradesToPickFromGroup));
+    public static void addSkyAdditionsTrades(WanderingTrader trader) {
+        if (!SkyAdditionsSettings.tallFlowersFromWanderingTrader
+            && !SkyAdditionsSettings.lavaFromWanderingTrader) {
+            return;
         }
-
-        return newTrades;
+        if (SkyAdditionsSettings.tallFlowersFromWanderingTrader) {
+            trader.getOffers()
+                .add(
+                    new MerchantOffer(
+                        new ItemCost(Items.EMERALD, 1),
+                        new ItemStack(Items.SUNFLOWER, 1),
+                        12,
+                        1,
+                        0.05f));
+            trader.getOffers()
+                .add(
+                    new MerchantOffer(
+                        new ItemCost(Items.EMERALD, 1),
+                        new ItemStack(Items.LILAC, 1),
+                        12,
+                        1,
+                        0.05f));
+            trader.getOffers()
+                .add(
+                    new MerchantOffer(
+                        new ItemCost(Items.EMERALD, 1),
+                        new ItemStack(Items.ROSE_BUSH, 1),
+                        12,
+                        1,
+                        0.05f));
+            trader.getOffers()
+                .add(
+                    new MerchantOffer(
+                        new ItemCost(Items.EMERALD, 1),
+                        new ItemStack(Items.PEONY, 1),
+                        12,
+                        1,
+                        0.05f));
+        }
+        if (SkyAdditionsSettings.lavaFromWanderingTrader) {
+            trader.getOffers()
+                .add(
+                    new MerchantOffer(
+                        new ItemCost(Items.BUCKET, 1),
+                        Optional.of(new ItemCost(Items.EMERALD, 16)),
+                        new ItemStack(Items.LAVA_BUCKET, 1),
+                        1,
+                        1,
+                        0.05f));
+        }
     }
 }

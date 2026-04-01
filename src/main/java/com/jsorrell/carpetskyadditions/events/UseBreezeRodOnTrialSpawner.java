@@ -43,7 +43,7 @@ public class UseBreezeRodOnTrialSpawner {
             BlockEntity tileEntity = player.level().getBlockEntity(blockHitResult.getBlockPos());
             if (tileEntity instanceof TrialSpawnerBlockEntity spawner) {
                 if (spawner.getState() == TrialSpawnerState.INACTIVE) {
-                    spawner.setEntityId(EntityType.BREEZE, player.level().random);
+                    spawner.setEntityId(EntityType.BREEZE, player.level().getRandom());
                     CompoundTag configNbt = new CompoundTag();
                     configNbt.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
                     configNbt.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");
