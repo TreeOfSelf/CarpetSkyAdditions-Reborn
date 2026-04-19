@@ -30,7 +30,8 @@ jobs:
     - name: Upload a Build Artifact 
       uses: actions/upload-artifact@v7.0.1
       with:
-        path: ./build
+        path: ./build/libs/
+        name: carpetskyadditions-build
 
   dependency-submission:
   
