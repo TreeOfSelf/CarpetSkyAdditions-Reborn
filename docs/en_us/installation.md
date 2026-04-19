@@ -1,6 +1,18 @@
-## Installation
+# Installation
 
-### Singleplayer
+Downloads are available in [Release (stable)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) and in [Actions (dev)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml).
+
+To create a new SkyBlock world, choose `World Type: SkyBlock` and enable the datapack `"carpetskyadditions/skyblock"`.
+
+If you want a harder challenge, enable the datapack `"carpetskyadditions/skyblock_acacia"` to start with an Acacia
+tree instead of an Oak tree.
+
+If you want an even harder challenge, enable the datapack `"carpetskyadditions/skyblock_no_tree"` to start with only
+a platform without any tree.
+
+All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
+
+## Singleplayer
 
 - Install [Fabric](https://fabricmc.net/use/installer/)
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
@@ -15,7 +27,7 @@
 - Choose `World Type: SkyBlock`
 - Create the World
 
-### Multiplayer
+## Multiplayer
 
 The mod is only required server-side.
 
@@ -33,11 +45,11 @@ The mod is only required server-side.
 - Optionally move `carpetskyadditions\:skyblock_acacia` (or any other additional packs) from `initial-disabled-packs` to `initial-enabled-packs` for an Acacia Tree start
 - Start the server
 
-### Configuration
+## Configuration
 
 The mod has a config file: `carpetskyadditions.toml`
 
-#### `defaultToSkyBlockWorld`
+### `defaultToSkyBlockWorld`
 
 *Defaults to false*
 
@@ -45,7 +57,7 @@ When `true`, the `SkyBlock` world type is selected by default when creating a ne
 
 ---
 
-#### `enableDatapackByDefault`
+### `enableDatapackByDefault`
 
 *Defaults to false*
 
@@ -53,7 +65,7 @@ When `true`, the `skyblock` datapack is enabled by default when creating a new w
 
 ---
 
-#### `initialTreeType`
+### `initialTreeType`
 
 *Defaults to OAK*
 
@@ -63,7 +75,7 @@ Only takes effect when `enableDatapackByDefault` is `true`
 
 ---
 
-#### `autoEnableDefaultSettings`
+### `autoEnableDefaultSettings`
 
 *Defaults to true*
 
