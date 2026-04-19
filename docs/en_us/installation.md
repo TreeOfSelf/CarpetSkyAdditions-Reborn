@@ -2,7 +2,8 @@
 
 Downloads are available in [Release (stable)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) and in [Actions (dev)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml).
 
-To create a new SkyBlock world, choose `World Type: SkyBlock` and enable the datapack `"carpetskyadditions/skyblock"`.
+
+## Additional Datapacks
 
 If you want a harder challenge, enable the datapack `"carpetskyadditions/skyblock_acacia"` to start with an Acacia
 tree instead of an Oak tree.
@@ -18,7 +19,7 @@ All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
   [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
   [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files/all?filter-game-version=2020709689%3A7499),
-  and [Carpet Sky Additions](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases)
+  and Carpet Sky Additions
 - Place downloaded mods into `<minecraft-directory>/mods/`
 - Start Minecraft and `Create New World`
 - Set Allow Cheats to `ON` so you will be able to enable/disable mod features
@@ -35,7 +36,7 @@ The mod is only required server-side.
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
   [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
   [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files),
-  and [Carpet Sky Additions](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases)
+  and Carpet Sky Additions
 - Place downloaded mods into `<server-directory>/mods/`
 - Start the server to generate a template `server.properties` and `eula.txt` file
 - Agree to the EULA
