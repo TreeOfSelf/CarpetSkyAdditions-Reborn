@@ -21,15 +21,9 @@ Carpet Sky Additions 是 [fabric-carpet](https://github.com/gnembon/fabric-carpe
 
 ## 安装
 
-要创建一个新的空岛世界，请选择 `世界类型：空岛` 并启用数据包 `"carpetskyadditions/skyblock"`。
+Downloads are available in [Release (stable)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) and in [Actions (dev)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml).
 
-如果你想要更大的挑战，请启用数据包 `"carpetskyadditions/skyblock_acacia"`，这样开局将是金合欢树而不是橡树。
-
-如果你想要更难的挑战，请启用数据包 `"carpetskyadditions/skyblock_no_tree"`，这样开局将只有一个平台，没有任何树木。
-
-所有数据包都有 More Mob Heads (Vanilla Tweaks) 变体可供选择。
-
-对于自定义或服务器安装，请遵循 [详细安装说明](installation.md)。
+For more details, follow the [Detailed Installation Instructions](docs/en_us/installation.md).
 
 ## 特性
 
