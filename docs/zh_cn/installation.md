@@ -1,9 +1,24 @@
-## 安装
+# 安装
 
-### 单人游戏
+Downloads are available in [Release (stable)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) and in [Actions (dev)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml).
+
+## Additional Datapacks
+
+If you want a harder challenge, enable the datapack `"carpetskyadditions/skyblock_acacia"` to start with an Acacia
+tree instead of an Oak tree.
+
+If you want an even harder challenge, enable the datapack `"carpetskyadditions/skyblock_no_tree"` to start with only
+a platform without any tree.
+
+All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
+
+## 单人游戏
 
 - 安装 [Fabric](https://fabricmc.net/use/installer/)
-- 下载  [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)，[fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files)，[cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files/all?filter-game-version=2020709689%3A7499)，和 [Carpet Sky Additions](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases)
+- Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
+  [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
+  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files/all?filter-game-version=2020709689%3A7499),
+  and Carpet Sky Additions
 - 将下载的模组放入 `<minecraft-directory>/mods/`
 - 启动 Minecraft 并选择 `创建新的世界`
 - 将允许命令设置为 `开`，以便你能够启用/禁用模组功能
@@ -12,12 +27,15 @@
 - 选择 `世界类型：空岛`
 - 创建世界
 
-### 多人游戏
+## 多人游戏
 
 该模组仅需在服务器端进行配置。
 
 - 创建一个 [Fabric 服务端](https://fabricmc.net/use/server/)
-- 下载  [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)，[fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files)，[cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files)，和 [Carpet Sky Additions](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases)
+- Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
+  [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
+  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files),
+  and Carpet Sky Additions
 - 将下载的模组放入 `<server-directory>/mods/`
 - 启动服务端以生成配置模板 `server.properties` 和 `eula.txt` 文件
 - 同意 EULA（最终用户许可协议）
@@ -27,11 +45,11 @@
 - 可选将 `carpetskyadditions:skyblock_acacia`（或其他附加数据包）从 `initial-disabled-packs` 移动到 `initial-enabled-packs`，以使用金合欢树作为开局
 - 启动服务器
 
-### 配置
+## 配置
 
 该模组有一个配置文件：`carpetskyadditions.toml`
 
-#### `defaultToSkyBlockWorld`
+### `defaultToSkyBlockWorld`
 
 _默认值为 false_
 
@@ -39,7 +57,7 @@ _默认值为 false_
 
 ---
 
-#### `enableDatapackByDefault`
+### `enableDatapackByDefault`
 
 _默认值为 false_
 
@@ -47,7 +65,7 @@ _默认值为 false_
 
 ---
 
-#### `initialTreeType`
+### `initialTreeType`
 
 _默认值为 OAK_
 
@@ -57,7 +75,7 @@ _默认值为 OAK_
 
 ---
 
-#### `autoEnableDefaultSettings`
+### `autoEnableDefaultSettings`
 
 _默认值为 true_
 
