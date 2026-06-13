@@ -25,7 +25,7 @@
 
 提供 _潜影贝_
 
-Disable with `/carpetskyadditions removeDefault shulkerSpawnsOnDragonKill`
+通过指令 `/carpetskyadditions removeDefault shulkerSpawnsOnDragonKill` 可禁用该特性
 
 当末影龙被再次击杀时，一只潜影贝会在基岩祭坛的顶部生成。
 
