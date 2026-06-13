@@ -21,9 +21,9 @@ Carpet Sky Additions 是 [fabric-carpet](https://github.com/gnembon/fabric-carpe
 
 ## 安装
 
-Downloads are available in [Release (stable)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) and in [Actions (dev)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml).
+下载可在以下位置获取：[Release（稳定版）](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) 和 [Actions（开发版）](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml)。
 
-For more details, follow the [Detailed Installation Instructions](docs/en_us/installation.md).
+关于更多详情，请遵循 [详细安装说明](installation.md)。
 
 ## 特性
 
