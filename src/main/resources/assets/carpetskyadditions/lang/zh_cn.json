@@ -21,7 +21,7 @@
   "commands.skyisland.locate.success": "#%d岛屿的位置在%s",
   "commands.skyisland.locate.coordinates": "%d,%d",
   "message.desert_pyramid_incorrect_block": "沙漠神殿中坐标 (%d, %d, %d) 处的方块不正确。\n应为%s。",
-  "message.desert_pyramid_incorrect_state": "沙漠神殿中坐标 (%d, %d, %d)处的方块状态不正确。\n%s应为%s。",
+  "message.desert_pyramid_incorrect_state": "沙漠神殿中坐标 (%d, %d, %d) 处的方块状态不正确。\n%s应为%s。",
   "Arborist": "园艺大师",
   "Buy all saplings from the Wandering Trader": "从流浪商人处交易得到所有种类的树苗",
   "Day Trader": "交易达人",
