@@ -76,7 +76,7 @@
   "carpetskyadditions.rule.suspiciousSniffers.extra.0": "当嗅探兽在可疑的沙子或可疑的沙砾会自然生成的地方挖掘沙子或沙砾时，沙子或沙砾会转化为可疑的沙子和砂砾",
   "carpetskyadditions.rule.suspiciousSniffers.extra.1": "启用no_iron：嗅探兽挖掘的时候将不会掉落铁粒",
   "carpetskyadditions.rule.spreadingSmallDripleaves.name": "小型垂滴叶传播",
-  "carpetskyadditions.rule.spreadingSmallDripleaves.desc": "允许小型垂滴叶在某些情况下可以缓慢地传播到附近的方块上",
+  "carpetskyadditions.rule.spreadingSmallDripleaves.desc": "Allows Small Dripleaves to slowly spread to nearby blocks when in the right conditions",
   "carpetskyadditions.rule.spreadingSmallDripleaves.extra.0": "需要让小型垂滴叶种植在黏土块上，至少一格被水淹没，顶部为5级光照",
   "carpetskyadditions.rule.spreadingCoral.name": "珊瑚传播",
   "carpetskyadditions.rule.spreadingCoral.desc": "允许珊瑚传播到附近的方解石上",
