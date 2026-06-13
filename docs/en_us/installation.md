@@ -34,8 +34,7 @@ The mod is only required server-side.
 - Create a [Fabric Server](https://fabricmc.net/use/server/)
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
   [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
-  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files),
-  and Carpet Sky Additions
+  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files), and Carpet Sky Additions
 - Place downloaded mods into `<server-directory>/mods/`
 - Start the server to generate a template `server.properties` and `eula.txt` file
 - Agree to the EULA
