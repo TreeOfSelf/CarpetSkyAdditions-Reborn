@@ -2,22 +2,18 @@
 
 下载可在以下位置获取：[Release（稳定版）](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) 和 [Actions（开发版）](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml)。
 
-## Additional Datapacks
+## 附加数据包
 
-If you want a harder challenge, enable the datapack `"carpetskyadditions/skyblock_acacia"` to start with an Acacia
-tree instead of an Oak tree.
+如果你想要更难的挑战，请启用数据包 `"carpetskyadditions/skyblock_acacia"`，这样开局生成的将是金合欢树而不是橡树。
 
-If you want an even harder challenge, enable the datapack `"carpetskyadditions/skyblock_no_tree"` to start with only
-a platform without any tree.
+如果你想要最难的挑战，请启用数据包 `"carpetskyadditions/skyblock_no_tree"`，这样开局将只有一个平台，没有任何树。
 
-All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
+所有数据包都有 More Mob Heads (Vanilla Tweaks) 变体可供选择。
 
 ## 单人游戏
 
 - 安装 [Fabric](https://fabricmc.net/use/installer/)
-- Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
-  [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
-  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files), and Carpet Sky Additions
+- 下载 [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)，[fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files)，[cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files)，和 Carpet Sky Additions
 - 将下载的模组放入 `<minecraft-directory>/mods/`
 - 启动 Minecraft 并选择 `创建新的世界`
 - 将允许命令设置为 `开`，以便你能够启用/禁用模组功能
@@ -31,9 +27,7 @@ All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
 该模组仅需在服务器端进行配置。
 
 - 创建一个 [Fabric 服务端](https://fabricmc.net/use/server/)
-- Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
-  [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
-  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files), and Carpet Sky Additions
+- 下载 [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files)，[fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files)，[cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files)，和 Carpet Sky Additions
 - 将下载的模组放入 `<server-directory>/mods/`
 - 启动服务端以生成配置模板 `server.properties` 和 `eula.txt` 文件
 - 同意 EULA（最终用户许可协议）
