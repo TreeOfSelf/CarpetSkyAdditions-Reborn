@@ -17,7 +17,7 @@ All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
 - Install [Fabric](https://fabricmc.net/use/installer/)
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
   [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
-  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files/all?filter-game-version=2020709689%3A7499), and Carpet Sky Additions
+  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files), and Carpet Sky Additions
 - Place downloaded mods into `<minecraft-directory>/mods/`
 - Start Minecraft and `Create New World`
 - Set Allow Cheats to `ON` so you will be able to enable/disable mod features
