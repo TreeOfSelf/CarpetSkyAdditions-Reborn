@@ -77,7 +77,7 @@
   "carpetskyadditions.rule.suspiciousSniffers.extra.1": "启用no_iron：嗅探兽挖掘的时候将不会掉落铁粒",
   "carpetskyadditions.rule.spreadingSmallDripleaves.name": "spreadingSmallDripleaves",
   "carpetskyadditions.rule.spreadingSmallDripleaves.desc": "允许小型垂滴叶在某些情况下可以缓慢地传播到附近的方块上",
-  "carpetskyadditions.rule.spreadingSmallDripleaves.extra.1": "需要让小型垂滴叶种植在黏土块上，至少一格被水淹没，顶部为5级光照",
+  "carpetskyadditions.rule.spreadingSmallDripleaves.extra.0": "Requires them to be on Clay, half-submerged, with the top at light level 5",
   "carpetskyadditions.rule.spreadingCoral.name": "spreadingCoral",
   "carpetskyadditions.rule.spreadingCoral.desc": "允许珊瑚传播到附近的方解石上",
   "carpetskyadditions.rule.spreadingCoral.extra.0": "珊瑚传播到方解石上的概率随坐标的不同而变化",
