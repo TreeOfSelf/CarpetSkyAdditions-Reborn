@@ -76,7 +76,7 @@
   "carpetskyadditions.rule.suspiciousSniffers.extra.0": "When Sniffers dig Sand or Gravel in a structure where Suspicious Sand or Gravel generates, it will be converted",
   "carpetskyadditions.rule.suspiciousSniffers.extra.1": "With no_iron: No Iron Nugget is dropped when Sniffers dig",
   "carpetskyadditions.rule.spreadingSmallDripleaves.name": "spreadingSmallDripleaves",
-  "carpetskyadditions.rule.spreadingSmallDripleaves.desc": "Allows Small Dripleaves to slowly spread to neraby blocks when in the right conditions",
+  "carpetskyadditions.rule.spreadingSmallDripleaves.desc": "Allows Small Dripleaves to slowly spread to nearby blocks when in the right conditions",
   "carpetskyadditions.rule.spreadingSmallDripleaves.extra.0": "Requires them to be on Clay, half-submerged, with the top at light level 5",
   "carpetskyadditions.rule.spreadingCoral.name": "spreadingCoral",
   "carpetskyadditions.rule.spreadingCoral.desc": "Allows Coral to spread to nearby Calcite",
