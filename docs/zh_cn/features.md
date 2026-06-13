@@ -25,7 +25,7 @@
 
 提供 _潜影贝_
 
-通过指令 `/carpetskyadditions removeDefault shulkerSpawning` 可禁用该特性
+通过指令 `/carpetskyadditions removeDefault shulkerSpawnsOnDragonKill` 可禁用该特性
 
 当末影龙被再次击杀时，一只潜影贝会在基岩祭坛的顶部生成。
 
@@ -71,7 +71,7 @@
 
 ---
 
-#### 流浪商人销售高花
+#### 流浪商人出售高花
 
 提供 _高花_
 
@@ -129,7 +129,7 @@
 
 #### 雷击藤蔓使其通电
 
-提供_发光地衣_
+提供 _发光地衣_
 
 通过指令 `/carpetskyadditions removeDefault lightningElectrifiesVines` 可禁用该特性
 
