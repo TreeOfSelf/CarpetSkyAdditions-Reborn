@@ -1,6 +1,6 @@
 # 安装
 
-Downloads are available in [Release (stable)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) and in [Actions (dev)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml).
+下载可在以下位置获取：[Release（稳定版）](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) 和 [Actions（开发版）](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml)。
 
 ## Additional Datapacks
 
@@ -33,8 +33,7 @@ All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
 - 创建一个 [Fabric 服务端](https://fabricmc.net/use/server/)
 - Download [fabric-api](https://www.curseforge.com/minecraft/mc-mods/fabric-api/files),
   [fabric-carpet](https://www.curseforge.com/minecraft/mc-mods/carpet/files),
-  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files),
-  and Carpet Sky Additions
+  [cloth-config](https://www.curseforge.com/minecraft/mc-mods/cloth-config/files), and Carpet Sky Additions
 - 将下载的模组放入 `<server-directory>/mods/`
 - 启动服务端以生成配置模板 `server.properties` 和 `eula.txt` 文件
 - 同意 EULA（最终用户许可协议）
