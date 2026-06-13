@@ -16,31 +16,27 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(DataFixers.class)
 public abstract class SchemasMixin {
     @Inject(
-            method = "addFixers",
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lcom/mojang/datafixers/DataFixerBuilder;addFixer(Lcom/mojang/datafixers/DataFix;)V",
-                            ordinal = 228,
-                            remap = false))
+        method = "addFixers",
+        at = @At(
+            value = "INVOKE",
+            target = "Lcom/mojang/datafixers/DataFixerBuilder;addFixer(Lcom/mojang/datafixers/DataFix;)V",
+            ordinal = 230, // before AddNewChoices(v3081, "Added Warden")
+            remap = false))
     private static void addSkyBlockGeneratorNameFix(
-            DataFixerBuilder builder, FileFixerUpper.Builder fileFixerBuilder, CallbackInfo ci) {
-        Schema schema3079 = builder.addSchema(3079, 1, V3079::new);
-        builder.addFixer(new SkyBlockGeneratorNameFix(schema3079));
+        DataFixerBuilder fixerUpper, FileFixerUpper.Builder fileFixerUpper, CallbackInfo ci) {
+        Schema schema3079 = fixerUpper.addSchema(3079, 1, V3079::new);
+        fixerUpper.addFixer(new SkyBlockGeneratorNameFix(schema3079));
     }
 
     @Inject(
-            method = "addFixers",
-            at =
-                    @At(
-                            value = "INVOKE",
-                            target =
-                                    "Lcom/mojang/datafixers/DataFixerBuilder;addFixer(Lcom/mojang/datafixers/DataFix;)V",
-                            ordinal = 243,
-                            remap = false))
+        method = "addFixers",
+        at = @At(
+            value = "INVOKE",
+            target = "Lcom/mojang/datafixers/DataFixerBuilder;addFixer(Lcom/mojang/datafixers/DataFix;)V",
+            ordinal = 245, // before BlendingDataRemoveFromNetherEndFix(v3108)
+            remap = false))
     private static void addSkyBlockGeneratorNameFix2(
-            DataFixerBuilder builder, FileFixerUpper.Builder fileFixerBuilder, CallbackInfo ci) {
+        DataFixerBuilder builder, FileFixerUpper.Builder fileFixerUpper, CallbackInfo ci) {
         Schema schema3106 = builder.addSchema(3106, V3106::new);
         builder.addFixer(new SkyBlockGeneratorNameFix2(schema3106));
     }

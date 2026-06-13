@@ -29,7 +29,6 @@
     "LavaFluidMixin",
     "LightningBoltMixin",
     "MinecraftServerMixin",
-    "MissingDimensionFixMixin",
     "PaleOakSaplingMixin",
     "PlacementContextMixin",
     "PortalForcerMixin",

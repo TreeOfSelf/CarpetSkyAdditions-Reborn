@@ -1,7 +1,6 @@
 package com.jsorrell.carpetskyadditions.mixin;
 
 import com.jsorrell.carpetskyadditions.SkyAdditionsExtension;
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -25,23 +24,19 @@ public abstract class EnchantmentHelperMixin {
 
     @Inject(
         method = "getAvailableEnchantmentResults",
-        at =
-        @At(
-            value = "INVOKE",
-            target = "Lnet/minecraft/world/item/ItemStack;is(Lnet/minecraft/world/item/Item;)Z")
+        at = @At("RETURN")
     )
     private static void forceAllowSwiftSneak(
         int i, ItemStack stack, Stream<Holder<Enchantment>> stream,
-        CallbackInfoReturnable<List<EnchantmentInstance>> cir, @Local List<EnchantmentInstance> enchantmentList) {
+        CallbackInfoReturnable<List<EnchantmentInstance>> cir) {
         if (SkyAdditionsExtension.minecraftServer != null) {
             Holder.Reference<Enchantment> swiftSneak = SkyAdditionsExtension.minecraftServer.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).get(Enchantments.SWIFT_SNEAK).orElseThrow();
             CustomData customData = stack.getOrDefault(DataComponents.CUSTOM_DATA, CustomData.EMPTY);
-            if (customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").isPresent() && customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").get()  /*EnchantmentHelperContexts.FORCE_ALLOW_SWIFT_SNEAK.get()*/) {
+            if (customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").isPresent() && customData.copyTag().getBoolean("SWIFT_SNEAK_ENCHANTABLE").get()) {
                 if (swiftSneak.value().canEnchant(stack) || stack.is(Items.BOOK)) {
+                    List<EnchantmentInstance> results = cir.getReturnValue();
                     for (int level = 1; level <= 3; level++) {
-                        enchantmentList.add(new EnchantmentInstance(
-                            swiftSneak,
-                            level));
+                        results.add(new EnchantmentInstance(swiftSneak, level));
                     }
                 }
             }
