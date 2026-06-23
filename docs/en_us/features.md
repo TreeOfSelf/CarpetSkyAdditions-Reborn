@@ -25,7 +25,7 @@ This method was added because:
 
 Provides *Shulkers*
 
-Disable with ```/carpetskyadditions removeDefault shulkerSpawning```
+Disable with ```/carpetskyadditions removeDefault shulkerSpawnsOnDragonKill```
 
 When an Ender Dragon is re-killed, a Shulker spawns on top of the Bedrock pillar.
 

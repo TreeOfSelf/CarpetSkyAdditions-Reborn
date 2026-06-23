@@ -25,17 +25,9 @@ client.
 
 ## Installation
 
-To create a new SkyBlock world, choose `World Type: SkyBlock` and enable the datapack `"carpetskyadditions/skyblock"`.
+Downloads are available in [Release (stable)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/releases) and in [Actions (dev)](https://github.com/TreeOfSelf/CarpetSkyAdditions-Reborn/actions/workflows/gradle.yml).
 
-If you want a harder challenge, enable the datapack `"carpetskyadditions/skyblock_acacia"` to start with an Acacia
-tree instead of an Oak tree.
-
-If you want an even harder challenge, enable the datapack `"carpetskyadditions/skyblock_no_tree"` to start with only
-a platform without any tree.
-
-All datapacks are also available with a More Mob Heads (Vanilla Tweaks) variant.
-
-For custom or server installations, follow the [Detailed Installation Instructions](docs/en_us/installation.md).
+For more details, follow the [Detailed Installation Instructions](docs/en_us/installation.md).
 
 ## Features
 
