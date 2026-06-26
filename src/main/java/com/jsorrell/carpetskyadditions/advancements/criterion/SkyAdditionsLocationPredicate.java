@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import net.minecraft.ChatFormatting;
-import net.minecraft.advancements.criterion.MinMaxBounds;
+import net.minecraft.advancements.predicates.MinMaxBounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.server.level.ServerLevel;
@@ -62,8 +62,8 @@ public record SkyAdditionsLocationPredicate(
             placeSettings.setRotation(r);
 
             for (Block block : new Block[] {
-                Blocks.BLUE_TERRACOTTA,
-                Blocks.ORANGE_TERRACOTTA,
+                Blocks.DYED_TERRACOTTA.blue(),
+                Blocks.DYED_TERRACOTTA.orange(),
                 Blocks.SANDSTONE,
                 Blocks.CUT_SANDSTONE,
                 Blocks.CHISELED_SANDSTONE,

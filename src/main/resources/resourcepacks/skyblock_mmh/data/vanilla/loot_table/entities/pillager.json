@@ -8,8 +8,7 @@
           "condition": "minecraft:entity_properties",
           "entity": "this",
           "predicate": {
-            "type_specific": {
-              "type": "minecraft:raider",
+            "minecraft:type_specific/minecraft:raider": {
               "is_captain": true
             }
           }

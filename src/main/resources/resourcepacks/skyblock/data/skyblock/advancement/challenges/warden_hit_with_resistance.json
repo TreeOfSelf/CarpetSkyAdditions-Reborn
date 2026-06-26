@@ -92,7 +92,7 @@
         ],
         "damage": {
           "source_entity": {
-            "type": "minecraft:warden"
+            "minecraft:entity_type": "minecraft:warden"
           }
         }
       }

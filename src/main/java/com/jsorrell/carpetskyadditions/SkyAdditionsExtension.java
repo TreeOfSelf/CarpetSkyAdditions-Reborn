@@ -30,6 +30,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -66,7 +67,7 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
 
         // Restrict Piglin Brute spawning when piglinsSpawningInBastions is true
         SpawnPlacements.register(
-                EntityType.PIGLIN_BRUTE,
+                EntityTypes.PIGLIN_BRUTE,
                 SpawnPlacementTypes.NO_RESTRICTIONS,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 new PiglinBruteSpawnPredicate());
@@ -80,7 +81,7 @@ public class SkyAdditionsExtension implements CarpetExtension, ModInitializer {
         SkyAdditionsFeatures.registerAll();
         SkyAdditionsCriteriaTriggers.registerAll();
         SkyAdditionsLootItemConditions.bootstrap();
-        MinecartComparatorLogicRegistry.register(EntityType.MINECART, new SkyAdditionsMinecartComparatorLogic());
+        MinecartComparatorLogicRegistry.register(EntityTypes.MINECART, new SkyAdditionsMinecartComparatorLogic());
         SkyAdditionsDataPacks.register();
         UseBreezeRodOnTrialSpawner.register();
     }

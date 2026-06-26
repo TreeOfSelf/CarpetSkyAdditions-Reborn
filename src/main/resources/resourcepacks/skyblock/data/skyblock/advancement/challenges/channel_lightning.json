@@ -44,10 +44,16 @@
             "thundering": true
           }
         ],
-        "entity": {
-          "type": "minecraft:creeper",
-          "nbt": "{powered:1b}"
-        }
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "nbt": "{powered:1b}",
+              "minecraft:entity_type": "minecraft:creeper"
+            }
+          }
+        ]
       }
     },
     "lightning_guardian": {
@@ -78,9 +84,15 @@
             "thundering": true
           }
         ],
-        "entity": {
-          "type": "minecraft:elder_guardian"
-        }
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:elder_guardian"
+            }
+          }
+        ]
       }
     },
     "lightning_mooshroom": {
@@ -111,10 +123,16 @@
             "thundering": true
           }
         ],
-        "entity": {
-          "type": "minecraft:mooshroom",
-          "nbt": "{Type:\"brown\"}"
-        }
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "nbt": "{Type:\"brown\"}",
+              "minecraft:entity_type": "minecraft:mooshroom"
+            }
+          }
+        ]
       }
     },
     "lightning_pig": {
@@ -145,9 +163,15 @@
             "thundering": true
           }
         ],
-        "entity": {
-          "type": "minecraft:zombified_piglin"
-        }
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:zombified_piglin"
+            }
+          }
+        ]
       }
     },
     "lightning_villager": {
@@ -178,9 +202,15 @@
             "thundering": true
           }
         ],
-        "entity": {
-          "type": "minecraft:witch"
-        }
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:witch"
+            }
+          }
+        ]
       }
     }
   }

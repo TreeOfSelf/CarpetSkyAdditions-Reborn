@@ -83,7 +83,7 @@
           "entity": "this",
           "predicate": {
             "passenger": {
-              "type": "#minecraft:skeletons"
+              "minecraft:entity_type": "#minecraft:skeletons"
             }
           }
         },

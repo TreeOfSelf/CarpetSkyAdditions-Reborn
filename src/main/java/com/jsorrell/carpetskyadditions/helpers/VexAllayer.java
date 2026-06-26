@@ -12,7 +12,7 @@ import net.minecraft.tags.GameEventTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.ConversionParams;
-import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.allay.Allay;
 import net.minecraft.world.entity.monster.Vex;
 import net.minecraft.world.level.block.Blocks;
@@ -60,7 +60,7 @@ public class VexAllayer implements InstantListener.InstantListenerConfig {
     }
 
     protected void convertToAllay() {
-        Allay spawnedAllay = vex.convertTo(EntityType.ALLAY, ConversionParams.single(vex, true, true), allay -> {
+        Allay spawnedAllay = vex.convertTo(EntityTypes.ALLAY, ConversionParams.single(vex, true, true), allay -> {
             if (allay != null) {
                 float pitch =
                     2.6f + (vex.level().getRandom().nextFloat() - vex.level().getRandom().nextFloat()) * 0.8f;

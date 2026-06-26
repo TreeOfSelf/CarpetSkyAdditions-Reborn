@@ -1,6 +1,7 @@
 package com.jsorrell.carpetskyadditions.advancements.criterion;
 
-import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 
 public class SkyAdditionsCriteriaTriggers {
     public static final GenerateGeodeTrigger GENERATE_GEODE = new GenerateGeodeTrigger();
@@ -12,12 +13,12 @@ public class SkyAdditionsCriteriaTriggers {
 
 
     public static void registerAll() {
-        CriteriaTriggers.register("carpetskyadditions:generate_geode", GENERATE_GEODE);
-        CriteriaTriggers.register("carpetskyadditions:convert_spider", CONVERT_SPIDER);
-        CriteriaTriggers.register("carpetskyadditions:allay_vex", ALLAY_VEX);
-        CriteriaTriggers.register("carpetskyadditions:activate_trial_spawner", ACTIVATE_TRIAL_SPAWNER);
-        CriteriaTriggers.register("carpetskyadditions:creaking_heart", CREAKING_HEART);
-        CriteriaTriggers.register("carpetskyadditions:bush", DEAD_BUSH_TO_BUSH);
+        Registry.register(BuiltInRegistries.TRIGGER_TYPES, "carpetskyadditions:generate_geode", GENERATE_GEODE);
+        Registry.register(BuiltInRegistries.TRIGGER_TYPES, "carpetskyadditions:convert_spider", CONVERT_SPIDER);
+        Registry.register(BuiltInRegistries.TRIGGER_TYPES, "carpetskyadditions:allay_vex", ALLAY_VEX);
+        Registry.register(BuiltInRegistries.TRIGGER_TYPES, "carpetskyadditions:activate_trial_spawner", ACTIVATE_TRIAL_SPAWNER);
+        Registry.register(BuiltInRegistries.TRIGGER_TYPES, "carpetskyadditions:creaking_heart", CREAKING_HEART);
+        Registry.register(BuiltInRegistries.TRIGGER_TYPES, "carpetskyadditions:bush", DEAD_BUSH_TO_BUSH);
 
     }
 }

@@ -5,6 +5,7 @@ import com.jsorrell.carpetskyadditions.helpers.TraderCamelHelper;
 import com.jsorrell.carpetskyadditions.helpers.WanderingTraderHelper;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.monster.*;

@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.monster.piglin.Piglin;
 import net.minecraft.world.entity.monster.piglin.PiglinBrute;
@@ -31,7 +32,7 @@ public class PiglinBruteSpawnPredicate implements SpawnPlacements.SpawnPredicate
             level.getFluidState(aboveBlockPos),
             type)
             // Mimic piglin spawning restrictions b/c that's the closest mob
-            && Piglin.checkPiglinSpawnRules(EntityType.PIGLIN, level, spawnReason, pos, random);
+            && Piglin.checkPiglinSpawnRules(EntityTypes.PIGLIN, level, spawnReason, pos, random);
     }
 
         return true;

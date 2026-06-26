@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.ConversionParams;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.spider.CaveSpider;
 import net.minecraft.world.entity.monster.spider.Spider;
@@ -41,12 +42,12 @@ public abstract class SpiderMixin extends Monster {
     protected @NotNull InteractionResult mobInteract(Player player, InteractionHand hand) {
         if (SkyAdditionsSettings.poisonousPotatoesConvertSpiders) {
             ItemStack handStack = player.getItemInHand(hand);
-            if (handStack.is(Items.POISONOUS_POTATO) && getType() == EntityType.SPIDER) {
+            if (handStack.is(Items.POISONOUS_POTATO) && getType() == EntityTypes.SPIDER) {
                 if (!player.getAbilities().instabuild) {
                     handStack.shrink(1);
                 }
 
-                CaveSpider spawnedSpider = asSpider().convertTo(EntityType.CAVE_SPIDER, ConversionParams.single(asSpider(), true, true), caveSpider -> {
+                CaveSpider spawnedSpider = asSpider().convertTo(EntityTypes.CAVE_SPIDER, ConversionParams.single(asSpider(), true, true), caveSpider -> {
 
                 });
 

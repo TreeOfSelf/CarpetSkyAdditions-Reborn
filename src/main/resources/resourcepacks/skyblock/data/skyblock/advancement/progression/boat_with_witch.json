@@ -26,10 +26,10 @@
             "entity": "this",
             "predicate": {
               "vehicle": {
-                "type": "#minecraft:boat",
                 "passenger": {
-                  "type": "minecraft:witch"
-                }
+                  "minecraft:entity_type": "minecraft:witch"
+                },
+                "minecraft:entity_type": "#minecraft:boat"
               }
             }
           }

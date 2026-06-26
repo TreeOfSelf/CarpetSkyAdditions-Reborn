@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -288,13 +289,13 @@ public class SkyBlockStructures {
 
     public static class SilverfishSpawnerStructure extends SpawnerStructure {
         public SilverfishSpawnerStructure(StructurePiece piece) {
-            super(piece, new BlockPos(5, 3, 9), EntityType.SILVERFISH);
+            super(piece, new BlockPos(5, 3, 9), EntityTypes.SILVERFISH);
         }
     }
 
     public static class MagmaCubeSpawner extends SpawnerStructure {
         public MagmaCubeSpawner(StructurePiece piece) {
-            super(piece, new BlockPos(11, 7, 19), EntityType.MAGMA_CUBE);
+            super(piece, new BlockPos(11, 7, 19), EntityTypes.MAGMA_CUBE);
         }
     }
 }

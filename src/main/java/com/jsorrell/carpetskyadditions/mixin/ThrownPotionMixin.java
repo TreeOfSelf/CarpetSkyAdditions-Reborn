@@ -5,6 +5,7 @@ import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.world.entity.AreaEffectCloud;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.AbstractThrownPotion;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrowableItemProjectile;
 import net.minecraft.world.entity.projectile.throwableitemprojectile.ThrownLingeringPotion;

@@ -13,6 +13,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.sniffer.Sniffer;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -22,6 +23,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityTypes;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gamerules.GameRule;
 import net.minecraft.world.level.gamerules.GameRules;
@@ -141,7 +143,7 @@ public abstract class SnifferMixin extends Animal {
                 : Blocks.SUSPICIOUS_GRAVEL;
             level().setBlockAndUpdate(diggedBlockPos, susBlock.defaultBlockState());
             ResourceKey<LootTable> lootTable = archLootTable.get().apply(level().getRandom());
-            level().getBlockEntity(diggedBlockPos, BlockEntityType.BRUSHABLE_BLOCK)
+            level().getBlockEntity(diggedBlockPos, BlockEntityTypes.BRUSHABLE_BLOCK)
                 .ifPresent(e -> e.setLootTable(lootTable, level().getRandom().nextLong()));
         }
         ci.cancel();

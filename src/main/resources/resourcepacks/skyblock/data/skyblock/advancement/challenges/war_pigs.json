@@ -29,7 +29,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "minecraft:piglin_brute"
+              "minecraft:entity_type": "minecraft:piglin_brute"
             }
           }
         ],
@@ -46,7 +46,7 @@
                 }
               },
               "vehicle": {
-                "type": "minecraft:pig"
+                "minecraft:entity_type": "minecraft:pig"
               }
             }
           }

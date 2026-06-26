@@ -15,6 +15,7 @@ import net.minecraft.util.ProblemReporter;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -43,7 +44,7 @@ public class UseBreezeRodOnTrialSpawner {
             BlockEntity tileEntity = player.level().getBlockEntity(blockHitResult.getBlockPos());
             if (tileEntity instanceof TrialSpawnerBlockEntity spawner) {
                 if (spawner.getState() == TrialSpawnerState.INACTIVE) {
-                    spawner.setEntityId(EntityType.BREEZE, player.level().getRandom());
+                    spawner.setEntityId(EntityTypes.BREEZE, player.level().getRandom());
                     CompoundTag configNbt = new CompoundTag();
                     configNbt.putString("normal_config", "minecraft:trial_chamber/breeze/normal");
                     configNbt.putString("ominous_config", "minecraft:trial_chamber/breeze/ominous");

@@ -6,6 +6,7 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.monster.Blaze;
 import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
@@ -48,7 +49,7 @@ public abstract class BlazeToBreezeMixin {
             if (SkyAdditionsSettings.blazeToBreeze
                 && this.level().dimension() == Level.NETHER
                 && !this.hasCustomName())
-                return Optional.of(EntityType.BREEZE);
+                return Optional.of(EntityTypes.BREEZE);
             return super.carpetskyadditions$getEntityTypeForDimensionChange();
         }
     }

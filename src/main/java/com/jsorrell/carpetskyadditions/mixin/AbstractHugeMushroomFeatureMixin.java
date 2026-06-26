@@ -41,7 +41,7 @@ public class AbstractHugeMushroomFeatureMixin {
             CallbackInfoReturnable<Boolean> cir,
             @Local WorldGenLevel level,
             @Local RandomSource random,
-            @Local BlockPos pos
+            @Local(ordinal = 0) BlockPos pos
     ) {
         if (SkyAdditionsSettings.hugeMushroomsSpreadMycelium) {
             generateMycelium(level, random, pos);

@@ -11,6 +11,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.ai.village.poi.PoiManager;
 import net.minecraft.world.entity.animal.camel.Camel;
 import net.minecraft.world.entity.npc.wanderingtrader.WanderingTrader;
@@ -90,9 +91,9 @@ public abstract class WanderingTraderSpawnerMixin {
                 return;
             }
 
-            Camel traderCamel = EntityType.CAMEL.spawn(serverLevel, spawnPos, EntitySpawnReason.EVENT);
+            Camel traderCamel = EntityTypes.CAMEL.spawn(serverLevel, spawnPos, EntitySpawnReason.EVENT);
             if (traderCamel != null) {
-                WanderingTrader wanderingTrader = EntityType.WANDERING_TRADER.create(serverLevel, EntitySpawnReason.EVENT);
+                WanderingTrader wanderingTrader = EntityTypes.WANDERING_TRADER.create(serverLevel, EntitySpawnReason.EVENT);
                 if (wanderingTrader != null) {
                     wanderingTrader.setDespawnDelay(48000);
 

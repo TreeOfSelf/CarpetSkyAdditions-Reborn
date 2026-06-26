@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypes;
 import net.minecraft.world.entity.boss.enderdragon.EnderDragon;
 import net.minecraft.world.entity.monster.Shulker;
 import net.minecraft.world.level.dimension.end.EnderDragonFight;
@@ -54,7 +55,7 @@ public class EnderDragonFightMixin {
         if (SkyAdditionsSettings.shulkerSpawnsOnDragonKill && exitPortalLocation != null) {
             BlockPos shulkerPosition = exitPortalLocation.offset(0, 4, 0);
             if (hasPreviouslyKilledDragon && level.getBlockState(shulkerPosition).isAir()) {
-                Shulker shulker = EntityType.SHULKER.create(level, null, shulkerPosition, EntitySpawnReason.EVENT, true, false);
+                Shulker shulker = EntityTypes.SHULKER.create(level, null, shulkerPosition, EntitySpawnReason.EVENT, true, false);
                 if (level.noCollision(shulker)) {
                     level.addFreshEntity(shulker);
                 }

@@ -43,7 +43,7 @@ public class DeepslateConversionHelper {
             BlockState state = level.getBlockState(pos);
             Optional<BlockState> optionalConvertedState = canConvert(state);
             if (optionalConvertedState.isPresent()) {
-                double distance = Math.sqrt(pos.getCenter().distanceToSqr(hitPos));
+                double distance = Math.sqrt(Vec3.atCenterOf(pos).distanceToSqr(hitPos));
                 if (level.getRandom().nextDouble() < getSplashConversionChance(distance)) {
                     level.setBlockAndUpdate(pos, optionalConvertedState.get());
                 }

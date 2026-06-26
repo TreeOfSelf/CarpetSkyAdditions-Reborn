@@ -19,9 +19,15 @@
     "kill_shulker": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": {
-          "type": "minecraft:shulker"
-        }
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "minecraft:entity_type": "minecraft:shulker"
+            }
+          }
+        ]
       }
     }
   },

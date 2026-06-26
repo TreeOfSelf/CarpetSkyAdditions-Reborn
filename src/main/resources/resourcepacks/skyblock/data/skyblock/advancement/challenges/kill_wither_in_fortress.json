@@ -24,7 +24,7 @@
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "minecraft:wither",
+              "minecraft:entity_type": "minecraft:wither",
               "location": {
                 "structures": "minecraft:fortress"
               }
