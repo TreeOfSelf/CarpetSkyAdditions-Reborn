@@ -20,7 +20,8 @@ public class AreaEffectCloudMixin {
             AreaEffectCloud cloud = (AreaEffectCloud)(Object)this;
 
             if (this.potionContents.is(DeepslateConversionHelper.CONVERSION_POTION)) {
-                DeepslateConversionHelper.convertDeepslateInCloud(cloud.level(), cloud.getBoundingBox());
+                DeepslateConversionHelper.convertDeepslateInCloud(
+                        cloud.level(), cloud.getBoundingBox().expandTowards(0.0, -1.0, 0.0));
             }
         }
     }
