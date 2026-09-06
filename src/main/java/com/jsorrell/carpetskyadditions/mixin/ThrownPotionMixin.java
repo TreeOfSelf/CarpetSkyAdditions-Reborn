@@ -20,7 +20,6 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
 @Mixin(ThrownPotion.class)
 public abstract class ThrownPotionMixin extends ThrowableItemProjectile {
@@ -37,11 +36,13 @@ public abstract class ThrownPotionMixin extends ThrowableItemProjectile {
         @At(
             value = "INVOKE",
             target =
-                "Lnet/minecraft/world/item/alchemy/PotionContents;getAllEffects()Ljava/lang/Iterable;"),
-        locals = LocalCapture.CAPTURE_FAILSOFT)
-    private void onThickPotionCollision(HitResult result, CallbackInfo ci, ItemStack itemStack, PotionContents potionContents) {
+                "Lnet/minecraft/world/item/alchemy/PotionContents;getColor()I"))
+    private void onThickPotionCollision(HitResult result, CallbackInfo ci) {
         if (SkyAdditionsSettings.renewableDeepslateFromSplash) {
-            if (potionContents.equals(DeepslateConversionHelper.CONVERSION_POTION)) {
+            ItemStack itemStack = this.getItem();
+            PotionContents potionContents =
+                    itemStack.getOrDefault(DataComponents.POTION_CONTENTS, PotionContents.EMPTY);
+            if (potionContents.is(DeepslateConversionHelper.CONVERSION_POTION)) {
                 Vec3 hitPos = result.getType() == HitResult.Type.BLOCK ? result.getLocation() : position();
                 if (isLingering()) {
                     // Create the cloud b/c vanilla doesn't when there are no potion effects
