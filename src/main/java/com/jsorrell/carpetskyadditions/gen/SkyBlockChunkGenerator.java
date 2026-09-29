@@ -30,6 +30,7 @@ import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.chunk.LevelChunkSection;
 import net.minecraft.world.level.levelgen.*;
 import net.minecraft.world.level.levelgen.blending.Blender;
+import net.minecraft.world.level.levelgen.placement.FeaturePlacer;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.levelgen.structure.*;
 import net.minecraft.world.level.levelgen.structure.pieces.StructurePieceType;
@@ -58,22 +59,18 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
     }
 
 
+    // Skyblock has no terrain: 26.3 merged the noise, surface and carver steps into buildTerrain
     @Override
-    public void buildSurface(
-            WorldGenRegion level, StructureManager structureManager, RandomState random, ChunkAccess chunk) {}
-
-    @Override
-    public CompletableFuture<ChunkAccess> fillFromNoise(
+    public CompletableFuture<ChunkAccess> buildTerrain(
+            ChunkAccess chunk,
             Blender blender,
-            RandomState random,
+            RandomState randomState,
             StructureManager structureManager,
-            ChunkAccess chunk) {
+            BiomeManager biomeManager,
+            WorldGenRegion carverBiomeRegion,
+            Set<Holder<Biome>> possibleBiomes) {
         return CompletableFuture.completedFuture(chunk);
     }
-
-    @Override
-    public void applyCarvers(
-        WorldGenRegion worldGenRegion, long l, RandomState randomState, BiomeManager biomeManager, StructureManager structureManager, ChunkAccess chunkAccess) {}
 
     @Override
     public void applyBiomeDecoration(WorldGenLevel level, ChunkAccess chunk, StructureManager structureManager) {
@@ -122,7 +119,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                             || SkyAdditionsSettings.generateSilverfishSpawners)) {
                                 level.setCurrentlyGenerating(structureNameSupplier);
                                 structureManager
-                                        .startsForStructure(sectionPos, structure)
+                                        .startsForStructure(sectionPos.x(), sectionPos.z(), structure)
                                         .forEach(structureStart -> {
                                             for (StructurePiece piece : structureStart.getPieces()) {
                                                 if (piece.isCloseToChunk(chunkPos, 0)
@@ -149,7 +146,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                         && startPool.is(Identifier.withDefaultNamespace("bastion/starts"))) {
                                     level.setCurrentlyGenerating(structureNameSupplier);
                                     structureManager
-                                            .startsForStructure(sectionPos, structure)
+                                            .startsForStructure(sectionPos.x(), sectionPos.z(), structure)
                                             .forEach(structureStart -> {
                                                 for (StructurePiece piece : structureStart.getPieces()) {
                                                     if (piece.isCloseToChunk(chunkPos, 0)
@@ -179,7 +176,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                         && startPool.is(Identifier.withDefaultNamespace("ancient_city/city_center"))) {
                                     level.setCurrentlyGenerating(structureNameSupplier);
                                     structureManager
-                                            .startsForStructure(sectionPos, structure)
+                                            .startsForStructure(sectionPos.x(), sectionPos.z(), structure)
                                             .forEach(structureStart -> {
                                                 for (StructurePiece piece : structureStart.getPieces()) {
                                                     if (piece.isCloseToChunk(chunkPos, 0)
@@ -212,7 +209,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                                 else if (SkyAdditionsSettings.generateTrialChambers && startPool.is(Identifier.withDefaultNamespace("trial_chambers/chamber/end"))){
                                     level.setCurrentlyGenerating(structureNameSupplier);
                                     structureManager
-                                        .startsForStructure(sectionPos, structure)
+                                        .startsForStructure(sectionPos.x(), sectionPos.z(), structure)
                                         .forEach(structureStart -> {
                                             for (StructurePiece piece : structureStart.getPieces()) {
                                                 if (piece.isCloseToChunk(chunkPos, 0)
@@ -306,7 +303,7 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
                         if (SkyAdditionsSettings.generateRandomEndGateways
                                 && placedFeature.feature().is(Identifier.withDefaultNamespace("end_gateway_return"))) {
                             level.setCurrentlyGenerating(placedFeatureNameSupplier);
-                            placedFeature.placeWithBiomeCheck(level, this, random, minChunkPos);
+                            new FeaturePlacer(level, this).placeWithBiomeCheck(placedFeature, random, minChunkPos);
                         }
                     } catch (Exception e) {
                         CrashReport crashReport = CrashReport.forThrowable(e, "Feature placement");
@@ -332,9 +329,9 @@ public class SkyBlockChunkGenerator extends NoiseBasedChunkGenerator {
 
     public int getBaseHeightInEquivalentNoiseWorld(int x, int z, Heightmap.Types heightmap, WorldGenLevel level) {
         RandomState randomState = RandomState.create(
-                generatorSettings().value(),
                 level.registryAccess().lookupOrThrow(Registries.NOISE),
-                level.getSeed());
+                level.getSeed(),
+                generatorSettings().value());
         return super.getBaseHeight(x, z, heightmap, level, randomState);
     }
 }

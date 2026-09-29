@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "skyblock:netherite_upgrade_smithing_template_from_netherite"
+        "recipes": "skyblock:netherite_upgrade_smithing_template_from_netherite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

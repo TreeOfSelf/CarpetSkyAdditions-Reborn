@@ -15,24 +15,22 @@
     "is_low": {
       "trigger": "minecraft:tick",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "predicate": {
-              "location": {
-                "position": {
-                  "y": {
-                    "max": -54
-                  }
+        "player": {
+          "predicate": {
+            "location": {
+              "position": {
+                "y": {
+                  "max": -54
                 }
-              },
-              "flags": {
-                "is_on_ground": true
               }
             },
-            "entity": "this"
-          }
-        ]
+            "flags": {
+              "is_on_ground": true
+            }
+          },
+          "entity": "this",
+          "type": "minecraft:entity_properties"
+        }
       }
     }
   }

@@ -8,15 +8,15 @@
           "type": "minecraft:item",
           "name": "minecraft:emerald",
           "weight": 4,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 2,
                 "max": 4
               },
-              "add": false
+              "add": false,
+              "type": "minecraft:set_count"
             }
           ]
         },

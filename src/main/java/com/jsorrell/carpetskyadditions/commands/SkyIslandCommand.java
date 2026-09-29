@@ -34,7 +34,7 @@ import net.minecraft.world.level.chunk.status.ChunkStatus;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.storage.LevelData;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
@@ -110,15 +110,15 @@ public class SkyIslandCommand {
 
         // Load the target area
         source.getLevel().getChunkSource().addTicketWithRadius(TicketType.UNKNOWN, chunkPos, 2);
-        Registry<ConfiguredFeature<?, ?>> configuredFeatureRegistry =
-                source.getServer().registryAccess().lookupOrThrow(Registries.CONFIGURED_FEATURE);
+        Registry<Feature> configuredFeatureRegistry =
+                source.getServer().registryAccess().lookupOrThrow(Registries.FEATURE);
 
-        //ConfiguredFeature<?, ?> skyIslandFeature = getIslandFeature(configuredFeatureRegistry);
+        //Feature skyIslandFeature = getIslandFeature(configuredFeatureRegistry);
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
         random.setLargeFeatureSeed(source.getLevel().getSeed(), chunkPos.x(), chunkPos.z());
 
-        Holder.Reference<ConfiguredFeature<?, ?>> skyIslandFeature = source.getServer().overworld().registryAccess()
-            .lookupOrThrow(Registries.CONFIGURED_FEATURE)
+        Holder.Reference<Feature> skyIslandFeature = source.getServer().overworld().registryAccess()
+            .lookupOrThrow(Registries.FEATURE)
             .get(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).get();
 
         if (!skyIslandFeature.value().place(source.getServer().overworld(), source.getServer().overworld().getChunkSource().getGenerator(), random, new BlockPos(x, 0, z))) {

@@ -20,20 +20,18 @@
     "riding_boat_with_witch": {
       "trigger": "minecraft:started_riding",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "vehicle": {
-                "passenger": {
-                  "minecraft:entity_type": "minecraft:witch"
-                },
-                "minecraft:entity_type": "#minecraft:boat"
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "vehicle": {
+              "passenger": {
+                "minecraft:entity_type": "minecraft:witch"
+              },
+              "minecraft:entity_type": "#minecraft:boat"
             }
-          }
-        ]
+          },
+          "type": "minecraft:entity_properties"
+        }
       }
     }
   }

@@ -6,7 +6,9 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:arrow",
+          "weight": 5,
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -14,15 +16,15 @@
                 "max": 8,
                 "min": 2
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "minecraft:arrow",
-          "weight": 5
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:tipped_arrow",
+          "weight": 4,
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -30,19 +32,19 @@
                 "max": 4,
                 "min": 1
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             },
             {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:poison"
+              "id": "minecraft:poison",
+              "type": "minecraft:set_potion"
             }
-          ],
-          "name": "minecraft:tipped_arrow",
-          "weight": 4
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:emerald",
+          "weight": 4,
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -50,15 +52,15 @@
                 "max": 2,
                 "min": 1
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "minecraft:emerald",
-          "weight": 4
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:wind_charge",
+          "weight": 3,
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -66,15 +68,15 @@
                 "max": 3,
                 "min": 1
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "minecraft:wind_charge",
-          "weight": 3
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:iron_ingot",
+          "weight": 3,
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -82,15 +84,15 @@
                 "max": 4,
                 "min": 1
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "minecraft:iron_ingot",
-          "weight": 3
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:honey_bottle",
+          "weight": 3,
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -98,19 +100,19 @@
                 "max": 2,
                 "min": 1
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "minecraft:honey_bottle",
-          "weight": 3
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:ominous_bottle",
+          "weight": 2,
+          "modifier": [
             {
               "add": false,
               "count": 1,
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             },
             {
               "amplifier": {
@@ -118,15 +120,14 @@
                 "max": 1,
                 "min": 0
               },
-              "function": "minecraft:set_ominous_bottle_amplifier"
+              "type": "minecraft:set_ominous_bottle_amplifier"
             }
-          ],
-          "name": "minecraft:ominous_bottle",
-          "weight": 2
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:wind_charge",
+          "modifier": [
             {
               "add": false,
               "count": {
@@ -134,10 +135,9 @@
                 "max": 12,
                 "min": 4
               },
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "minecraft:wind_charge"
+          ]
         }
       ],
       "rolls": 1

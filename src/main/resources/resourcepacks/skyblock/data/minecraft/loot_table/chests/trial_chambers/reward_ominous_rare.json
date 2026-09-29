@@ -16,64 +16,64 @@
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:crossbow",
+          "weight": 4,
+          "modifier": [
             {
-              "function": "minecraft:enchant_with_levels",
               "levels": {
                 "type": "minecraft:uniform",
                 "max": 20,
                 "min": 5
               },
-              "options": "#minecraft:on_random_loot"
+              "options": "#minecraft:on_random_loot",
+              "type": "minecraft:enchant_with_levels"
             }
-          ],
-          "name": "minecraft:crossbow",
-          "weight": 4
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:book",
+          "weight": 2,
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
               "options": [
                 "minecraft:knockback",
                 "minecraft:punch",
                 "minecraft:smite",
                 "minecraft:looting",
                 "minecraft:multishot"
-              ]
+              ],
+              "type": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book",
-          "weight": 2
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:book",
+          "weight": 2,
+          "modifier": [
             {
-              "function": "minecraft:enchant_randomly",
               "options": [
                 "minecraft:breach",
                 "minecraft:density"
-              ]
+              ],
+              "type": "minecraft:enchant_randomly"
             }
-          ],
-          "name": "minecraft:book",
-          "weight": 2
+          ]
         },
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:book",
+          "weight": 2,
+          "modifier": [
             {
               "add": false,
               "enchantments": {
                 "minecraft:wind_burst": 1
               },
-              "function": "minecraft:set_enchantments"
+              "type": "minecraft:set_enchantments"
             }
-          ],
-          "name": "minecraft:book",
-          "weight": 2
+          ]
         }
       ],
       "rolls": 1

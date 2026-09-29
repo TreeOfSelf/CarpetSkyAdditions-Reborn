@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "skyblock:glow_berries"
+        "recipes": "skyblock:glow_berries"
       }
     }
   },

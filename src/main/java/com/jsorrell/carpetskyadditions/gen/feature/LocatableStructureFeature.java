@@ -1,41 +1,50 @@
 package com.jsorrell.carpetskyadditions.gen.feature;
 
 import com.jsorrell.carpetskyadditions.settings.SkyAdditionsSettings;
-import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import net.minecraft.world.level.levelgen.feature.FeaturePlaceContext;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructurePlaceSettings;
 import net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplate;
 
-public class LocatableStructureFeature extends Feature<LocatableStructureFeatureConfiguration> {
-    public LocatableStructureFeature(Codec<LocatableStructureFeatureConfiguration> codec) {
-        super(codec);
+public record LocatableStructureFeature(Identifier structure, BlockPos pos) implements Feature {
+    public static final MapCodec<LocatableStructureFeature> CODEC =
+            RecordCodecBuilder.mapCodec(instance -> instance.group(
+                            Identifier.CODEC.fieldOf("structure").forGetter(LocatableStructureFeature::structure),
+                            BlockPos.CODEC.fieldOf("pos").forGetter(LocatableStructureFeature::pos))
+                    .apply(instance, LocatableStructureFeature::new));
+
+    @Override
+    public MapCodec<LocatableStructureFeature> codec() {
+        return CODEC;
     }
 
     @Override
-    public boolean place(FeaturePlaceContext<LocatableStructureFeatureConfiguration> context) {
-        WorldGenLevel level = context.level();
+    public boolean place(WorldGenLevel level, ChunkGenerator chunkGenerator, RandomSource random, BlockPos origin) {
         MinecraftServer server = level.getServer();
         if (server == null) {
             return false;
         }
-        LocatableStructureFeatureConfiguration config = context.config();
-        StructureTemplate structure =
-                server.getStructureManager().get(config.structure()).orElse(null);
-        if (structure == null) {
-            SkyAdditionsSettings.LOG.warn("Missing structure " + config.structure());
+        StructureTemplate template =
+                server.getStructureTemplateManager().get(structure).orElse(null);
+        if (template == null) {
+            SkyAdditionsSettings.LOG.warn("Missing structure " + structure);
             return false;
         }
 
-        return structure.placeInWorld(
+        return template.placeInWorld(
                 level,
-                context.origin().offset(config.pos()),
+                origin.offset(pos),
                 null,
                 new StructurePlaceSettings(),
-                context.random(),
+                random,
                 Block.UPDATE_CLIENTS);
     }
 }

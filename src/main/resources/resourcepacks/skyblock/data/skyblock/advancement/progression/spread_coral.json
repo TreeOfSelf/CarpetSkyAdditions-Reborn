@@ -16,24 +16,27 @@
     "placed_convertible_calcite": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "minecraft:block_state_property",
-            "block": "minecraft:calcite"
-          },
-          {
-            "condition": "minecraft:location_check",
-            "predicate": {
-              "biomes": "minecraft:warm_ocean"
+        "location": {
+          "type": "minecraft:all_of",
+          "terms": [
+            {
+              "type": "minecraft:match_block",
+              "blocks": "minecraft:calcite"
+            },
+            {
+              "predicate": {
+                "biomes": "minecraft:warm_ocean"
+              },
+              "type": "minecraft:location_check"
+            },
+            {
+              "predicate": {
+                "coral_convertible": true
+              },
+              "type": "carpetskyadditions:location_check"
             }
-          },
-          {
-            "condition": "carpetskyadditions:location_check",
-            "predicate": {
-              "coral_convertible": true
-            }
-          }
-        ]
+          ]
+        }
       }
     }
   }

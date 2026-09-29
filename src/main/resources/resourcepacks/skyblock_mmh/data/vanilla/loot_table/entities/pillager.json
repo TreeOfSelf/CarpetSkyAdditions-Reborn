@@ -3,25 +3,15 @@
   "pools": [
     {
       "bonus_rolls": 0,
-      "conditions": [
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "this",
-          "predicate": {
-            "minecraft:type_specific/minecraft:raider": {
-              "is_captain": true
-            }
-          }
-        }
-      ],
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:ominous_bottle",
+          "modifier": [
             {
               "add": false,
               "count": 1,
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             },
             {
               "amplifier": {
@@ -29,13 +19,21 @@
                 "max": 4,
                 "min": 0
               },
-              "function": "minecraft:set_ominous_bottle_amplifier"
+              "type": "minecraft:set_ominous_bottle_amplifier"
             }
-          ],
-          "name": "minecraft:ominous_bottle"
+          ]
         }
       ],
-      "rolls": 1
+      "rolls": 1,
+      "condition": {
+        "entity": "this",
+        "predicate": {
+          "minecraft:type_specific/minecraft:raider": {
+            "is_captain": true
+          }
+        },
+        "type": "minecraft:entity_properties"
+      }
     }
   ],
   "random_sequence": "minecraft:entities/pillager"

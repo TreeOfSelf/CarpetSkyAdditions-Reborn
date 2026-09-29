@@ -3,7 +3,7 @@ package com.jsorrell.carpetskyadditions.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.monster.Enderman;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
-@Mixin(EnderMan.EndermanTakeBlockGoal.class)
+@Mixin(Enderman.EndermanTakeBlockGoal.class)
 public abstract class EnderMan_EndermanTakeBlockGoalMixin {
     @Inject(
             method = "tick",

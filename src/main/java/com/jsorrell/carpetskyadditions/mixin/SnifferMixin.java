@@ -86,7 +86,7 @@ public abstract class SnifferMixin extends Animal {
             .map(e -> {
                 if (((ServerLevel) level())
                     .structureManager()
-                    .getStructureWithPieceAt(diggedBlockPos, structureRegistry.getValue(e.getKey()))
+                    .getStructureWithPieceAt(diggedBlockPos.getX(), diggedBlockPos.getY(), diggedBlockPos.getZ(), structureRegistry.getValue(e.getKey()))
                     .isValid()) {
                     return e.getValue();
                 }

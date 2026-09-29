@@ -24,33 +24,29 @@
     "kill_piglin_brute": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "minecraft:piglin_brute"
-            }
-          }
-        ],
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "equipment": {
-                "head": {
-                  "items": [
-                    "minecraft:piglin_head"
-                  ]
-                }
-              },
-              "vehicle": {
-                "minecraft:entity_type": "minecraft:pig"
+        "entity": {
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:piglin_brute"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "equipment": {
+              "head": {
+                "items": [
+                  "minecraft:piglin_head"
+                ]
               }
+            },
+            "vehicle": {
+              "minecraft:entity_type": "minecraft:pig"
             }
-          }
-        ]
+          },
+          "type": "minecraft:entity_properties"
+        }
       }
     }
   }

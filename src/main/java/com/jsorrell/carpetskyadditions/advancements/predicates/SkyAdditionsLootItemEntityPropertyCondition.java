@@ -31,8 +31,8 @@ public record SkyAdditionsLootItemEntityPropertyCondition(Optional<EntityPredica
     }
 
     public boolean test(LootContext lootContext) {
-        Entity entity = lootContext.getParameter(LootContextParams.THIS_ENTITY);
-        Vec3 origin = lootContext.getParameter(LootContextParams.ORIGIN);
+        Entity entity = lootContext.getOptional(LootContextParams.THIS_ENTITY);
+        Vec3 origin = lootContext.getOptional(LootContextParams.ORIGIN);
         return this.predicate.isPresent() && this.predicate.get().matches(lootContext.getLevel(), origin, entity);
     }
 

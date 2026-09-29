@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "skyblock:calcite_from_blasting_diorite"
+        "recipes": "skyblock:calcite_from_blasting_diorite"
       }
     }
   },

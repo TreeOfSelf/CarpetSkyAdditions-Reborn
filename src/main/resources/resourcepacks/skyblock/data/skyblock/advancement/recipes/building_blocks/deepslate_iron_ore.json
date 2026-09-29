@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "skyblock:deepslate_iron_ore"
+        "recipes": "skyblock:deepslate_iron_ore"
       }
     }
   },

@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "skyblock:copper_horse_armor"
+        "recipes": "skyblock:copper_horse_armor"
       }
     }
   },

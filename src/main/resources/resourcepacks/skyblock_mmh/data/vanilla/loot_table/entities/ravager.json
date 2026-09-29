@@ -6,14 +6,14 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "functions": [
+          "name": "minecraft:saddle",
+          "modifier": [
             {
               "add": false,
               "count": 1,
-              "function": "minecraft:set_count"
+              "type": "minecraft:set_count"
             }
-          ],
-          "name": "minecraft:saddle"
+          ]
         }
       ],
       "rolls": 1

@@ -70,13 +70,12 @@ public abstract class WanderingTraderSpawnerMixin {
         return true;
     }
 
-    @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/npc/wanderingtrader/WanderingTraderSpawner;hasEnoughSpace(Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;)Z"), cancellable = true, locals = LocalCapture.CAPTURE_FAILSOFT)
+    @Inject(method = "spawn", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/entity/npc/wanderingtrader/WanderingTraderSpawner;hasEnoughSpace(Lnet/minecraft/world/level/LevelReader;Lnet/minecraft/core/BlockPos;)Z"), cancellable = true)
     private void spawnTrader(
         ServerLevel serverLevel,
         CallbackInfoReturnable<Boolean> cir,
         @Local Player player,
         @Local(ordinal = 0) BlockPos playerPos,
-        @Local int i,
         @Local PoiManager poiManager,
         @Local Optional<BlockPos> optional,
         @Local(ordinal = 1) BlockPos playerOrMeetingPos,
@@ -103,6 +102,7 @@ public abstract class WanderingTraderSpawnerMixin {
                     wanderingTrader.setXRot(0.0F);
                     wanderingTrader.startRiding(traderCamel);
                     wanderingTrader.setWanderTarget(playerOrMeetingPos);
+                    wanderingTrader.setHomeTo(playerOrMeetingPos, 16);
                     serverLevel.addFreshEntity(wanderingTrader);
                     cir.setReturnValue(true);
                     return;

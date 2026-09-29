@@ -8,24 +8,24 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:gunpowder",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0,
                 "max": 2
               },
-              "add": false
+              "add": false,
+              "type": "minecraft:set_count"
             },
             {
-              "function": "minecraft:enchanted_count_increase",
               "enchantment": "minecraft:looting",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
-              }
+                "min": 0.0,
+                "max": 1.0
+              },
+              "type": "minecraft:enchanted_count_increase"
             }
           ]
         }
@@ -40,73 +40,63 @@
           "children": [
             {
               "type": "minecraft:tag",
-              "name": "skyblock:creeper_drop_music_discs_ancient_city",
               "expand": true,
-              "conditions": [
-                {
-                  "condition": "minecraft:location_check",
-                  "predicate": {
-                    "structures": "minecraft:ancient_city"
-                  }
-                }
-              ]
+              "condition": {
+                "predicate": {
+                  "structures": "minecraft:ancient_city"
+                },
+                "type": "minecraft:location_check"
+              },
+              "items": "#skyblock:creeper_drop_music_discs_ancient_city"
             },
             {
               "type": "minecraft:tag",
-              "name": "skyblock:creeper_drop_music_discs_bastion",
               "expand": true,
-              "conditions": [
-                {
-                  "condition": "minecraft:location_check",
-                  "predicate": {
-                    "structures": "minecraft:bastion_remnant"
-                  }
-                }
-              ]
+              "condition": {
+                "predicate": {
+                  "structures": "minecraft:bastion_remnant"
+                },
+                "type": "minecraft:location_check"
+              },
+              "items": "#skyblock:creeper_drop_music_discs_bastion"
             },
             {
               "type": "minecraft:tag",
-              "name": "skyblock:creeper_drop_music_discs_stronghold",
               "expand": true,
-              "conditions": [
-                {
-                  "condition": "minecraft:location_check",
-                  "predicate": {
-                    "structures": "minecraft:stronghold"
-                  }
-                }
-              ]
+              "condition": {
+                "predicate": {
+                  "structures": "minecraft:stronghold"
+                },
+                "type": "minecraft:location_check"
+              },
+              "items": "#skyblock:creeper_drop_music_discs_stronghold"
             },
             {
               "type": "minecraft:tag",
-              "name": "skyblock:creeper_drop_music_discs_trial_chambers",
               "expand": true,
-              "conditions": [
-                {
-                  "condition": "minecraft:location_check",
-                  "predicate": {
-                    "structures": "minecraft:trial_chambers"
-                  }
-                }
-              ]
+              "condition": {
+                "predicate": {
+                  "structures": "minecraft:trial_chambers"
+                },
+                "type": "minecraft:location_check"
+              },
+              "items": "#skyblock:creeper_drop_music_discs_trial_chambers"
             },
             {
               "type": "minecraft:tag",
-              "name": "minecraft:creeper_drop_music_discs",
-              "expand": true
+              "expand": true,
+              "items": "#minecraft:creeper_drop_music_discs"
             }
           ]
         }
       ],
-      "conditions": [
-        {
-          "condition": "minecraft:entity_properties",
-          "entity": "attacker",
-          "predicate": {
-            "minecraft:entity_type": "#minecraft:skeletons"
-          }
-        }
-      ]
+      "condition": {
+        "entity": "attacker",
+        "predicate": {
+          "minecraft:entity_type": "#minecraft:skeletons"
+        },
+        "type": "minecraft:entity_properties"
+      }
     }
   ],
   "random_sequence": "minecraft:entities/creeper"

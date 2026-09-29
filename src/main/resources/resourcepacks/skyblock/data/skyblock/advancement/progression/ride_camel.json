@@ -16,17 +16,15 @@
     "ride_camel": {
       "trigger": "minecraft:started_riding",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "vehicle": {
-                "minecraft:entity_type": "minecraft:camel"
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "vehicle": {
+              "minecraft:entity_type": "minecraft:camel"
             }
-          }
-        ]
+          },
+          "type": "minecraft:entity_properties"
+        }
       }
     }
   }

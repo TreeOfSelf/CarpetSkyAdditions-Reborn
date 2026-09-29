@@ -3,7 +3,7 @@ package com.jsorrell.carpetskyadditions.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.monster.EnderMan;
+import net.minecraft.world.entity.monster.Enderman;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -23,11 +23,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 @Debug(export = true)
-@Mixin(EnderMan.EndermanLeaveBlockGoal.class)
+@Mixin(Enderman.EndermanLeaveBlockGoal.class)
 public abstract class EnderMan_EndermanLeaveBlockGoalMixin {
     @Shadow
     @Final
-    private EnderMan enderman;
+    private Enderman enderman;
 
     @Inject(
             method = "tick",

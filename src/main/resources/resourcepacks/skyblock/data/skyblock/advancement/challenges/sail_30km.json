@@ -19,25 +19,23 @@
     "trigger": {
       "trigger": "minecraft:location",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:type_specific/player": {
-                "stats": [
-                  {
-                    "type": "minecraft:custom",
-                    "stat": "minecraft:boat_one_cm",
-                    "value": {
-                      "min": 3000000
-                    }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "minecraft:type_specific/player": {
+              "stats": [
+                {
+                  "type": "minecraft:custom",
+                  "stat": "minecraft:boat_one_cm",
+                  "value": {
+                    "min": 3000000
                   }
-                ]
-              }
+                }
+              ]
             }
-          }
-        ]
+          },
+          "type": "minecraft:entity_properties"
+        }
       }
     }
   }

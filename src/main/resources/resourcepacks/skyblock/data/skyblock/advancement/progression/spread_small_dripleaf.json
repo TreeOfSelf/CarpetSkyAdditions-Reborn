@@ -16,14 +16,12 @@
     "place_spreadable_dripleaf": {
       "trigger": "minecraft:placed_block",
       "conditions": {
-        "location": [
-          {
-            "condition": "carpetskyadditions:location_check",
-            "predicate": {
-              "small_dripleaf_spreadable": true
-            }
-          }
-        ]
+        "location": {
+          "predicate": {
+            "small_dripleaf_spreadable": true
+          },
+          "type": "carpetskyadditions:location_check"
+        }
       }
     }
   }

@@ -27,6 +27,11 @@ repositories {
       includeGroup("carpet")
     }
   }
+  maven("https://api.modrinth.com/maven") {
+    content {
+      includeGroup("maven.modrinth")
+    }
+  }
   maven("https://maven.shedaniel.me") {
     content {
       includeGroup("me.shedaniel.cloth")
@@ -42,7 +47,7 @@ repositories {
 dependencies {
   minecraft("com.mojang", "minecraft", versions.minecraft)
   implementation("net.fabricmc", "fabric-loader", versions.fabricLoader)
-  implementation("carpet", "fabric-carpet", versions.carpet)
+  implementation("maven.modrinth", "carpet", versions.carpet)
 
   // Add fabric-api
   implementation("net.fabricmc.fabric-api", "fabric-api", versions.fabricApi)
@@ -81,6 +86,7 @@ tasks {
 
   withType<JavaCompile> {
     options.encoding = "UTF-8"
+    options.compilerArgs.addAll(listOf("-Xmaxerrs", "1000"))
   }
 
   java {

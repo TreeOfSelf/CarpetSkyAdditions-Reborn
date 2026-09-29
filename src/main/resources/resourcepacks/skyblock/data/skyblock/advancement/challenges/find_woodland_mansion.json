@@ -1,10 +1,7 @@
 {
   "display": {
     "icon": {
-      "id": "minecraft:filled_map",
-      "components": {
-        "minecraft:map_color": 5393476
-      }
+      "id": "minecraft:woodland_mansion_map"
     },
     "title": {
       "translate": "Treasure Map to Nowhere"
@@ -19,14 +16,12 @@
     "enter_mansion": {
       "trigger": "minecraft:location",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:location_check",
-            "predicate": {
-              "structures": "minecraft:mansion"
-            }
-          }
-        ]
+        "player": {
+          "predicate": {
+            "structures": "minecraft:mansion"
+          },
+          "type": "minecraft:location_check"
+        }
       }
     }
   },

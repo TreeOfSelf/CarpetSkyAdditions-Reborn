@@ -2,7 +2,8 @@ package com.jsorrell.carpetskyadditions.advancements.criterion;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.advancements.predicates.ContextAwarePredicate;
+import net.minecraft.core.Holder;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.advancements.predicates.entity.EntityPredicate;
 import net.minecraft.advancements.triggers.SimpleCriterionTrigger;
 import net.minecraft.server.level.ServerPlayer;
@@ -20,12 +21,12 @@ public class GenerateGeodeTrigger extends SimpleCriterionTrigger<GenerateGeodeTr
         trigger(player, conditions -> true);
     }
 
-    public static record Conditions(Optional<ContextAwarePredicate> player)
+    public static record Conditions(Optional<Holder<LootItemCondition>> player)
             implements SimpleCriterionTrigger.SimpleInstance {
 
         public static final Codec<GenerateGeodeTrigger.Conditions> CODEC = RecordCodecBuilder.create(
                 instance -> instance.group(
-                        Codec.optionalField("player", EntityPredicate.ADVANCEMENT_CODEC, false)
+                        Codec.optionalField("player", LootItemCondition.CODEC, false)
                                 .forGetter(GenerateGeodeTrigger.Conditions::player))
                         .apply(instance, GenerateGeodeTrigger.Conditions::new));
 

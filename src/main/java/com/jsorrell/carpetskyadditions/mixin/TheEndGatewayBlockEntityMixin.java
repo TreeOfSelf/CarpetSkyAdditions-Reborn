@@ -12,7 +12,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.TheEndGatewayBlockEntity;
 import net.minecraft.world.level.chunk.LevelChunk;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.phys.Vec3;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,7 +32,7 @@ public class TheEndGatewayBlockEntityMixin {
                             opcode = Opcodes.GETSTATIC,
                             target =
                                     "Lnet/minecraft/data/worldgen/features/EndFeatures;END_ISLAND:Lnet/minecraft/resources/ResourceKey;"))
-    private static ResourceKey<ConfiguredFeature<?, ?>> replaceGeneratedEndIslandFeature(Operation<ResourceKey<ConfiguredFeature<?, ?>>> original) {
+    private static ResourceKey<Feature> replaceGeneratedEndIslandFeature(Operation<ResourceKey<Feature>> original) {
         if (SkyAdditionsSettings.gatewaysSpawnChorus) {
             return SkyAdditionsConfiguredFeatures.GATEWAY_ISLAND;
         } else {

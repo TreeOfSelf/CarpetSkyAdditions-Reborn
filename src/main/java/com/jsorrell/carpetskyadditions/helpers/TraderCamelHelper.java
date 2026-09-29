@@ -111,7 +111,7 @@ public class TraderCamelHelper {
                 if (!vehicle.onGround()) return false;
             }
 
-            if (villager.hurtMarked) {
+            if (villager.wasHurtRecently()) {
                 return false;
             } else {
                 Player player = villager.getTradingPlayer();

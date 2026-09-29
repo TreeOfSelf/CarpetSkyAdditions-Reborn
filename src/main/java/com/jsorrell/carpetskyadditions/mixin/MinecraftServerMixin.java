@@ -19,7 +19,7 @@ import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.chunk.ChunkGenerator;
 import net.minecraft.world.level.levelgen.LegacyRandomSource;
 import net.minecraft.world.level.levelgen.WorldgenRandom;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
+import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.storage.LevelData;
 import net.minecraft.world.level.storage.LevelResource;
 import net.minecraft.world.level.storage.ServerLevelData;
@@ -88,8 +88,8 @@ public abstract class MinecraftServerMixin {
         WorldgenRandom random = new WorldgenRandom(new LegacyRandomSource(0));
         random.setLargeFeatureSeed(level.getSeed(), spawnChunk.x(), spawnChunk.z());
 
-        Holder.Reference<ConfiguredFeature<?, ?>> spawnPlatformFeature = level.registryAccess()
-            .lookupOrThrow(Registries.CONFIGURED_FEATURE)
+        Holder.Reference<Feature> spawnPlatformFeature = level.registryAccess()
+            .lookupOrThrow(Registries.FEATURE)
             .get(SkyAdditionsConfiguredFeatures.SPAWN_PLATFORM).get();
 
         if (!spawnPlatformFeature.value().place(level, chunkGenerator, random, worldSpawn)) {

@@ -19,120 +19,106 @@
     "craft_purpur_block": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "effects": {
-                "minecraft:levitation": {}
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "effects": {
+              "minecraft:levitation": {}
             }
-          }
-        ],
-        "recipe_id": "minecraft:purpur_block"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "recipes": "minecraft:purpur_block"
       }
     },
     "craft_purpur_slab": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "effects": {
-                "minecraft:levitation": {}
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "effects": {
+              "minecraft:levitation": {}
             }
-          }
-        ],
-        "recipe_id": "minecraft:purpur_slab"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "recipes": "minecraft:purpur_slab"
       }
     },
     "cut_purpur_slab": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "effects": {
-                "minecraft:levitation": {}
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "effects": {
+              "minecraft:levitation": {}
             }
-          }
-        ],
-        "recipe_id": "minecraft:purpur_slab_from_purpur_block_stonecutting"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "recipes": "minecraft:purpur_slab_from_purpur_block_stonecutting"
       }
     },
     "craft_purpur_pillar": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "effects": {
-                "minecraft:levitation": {}
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "effects": {
+              "minecraft:levitation": {}
             }
-          }
-        ],
-        "recipe_id": "minecraft:purpur_pillar"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "recipes": "minecraft:purpur_pillar"
       }
     },
     "cut_purpur_pillar": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "effects": {
-                "minecraft:levitation": {}
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "effects": {
+              "minecraft:levitation": {}
             }
-          }
-        ],
-        "recipe_id": "minecraft:purpur_pillar_from_purpur_block_stonecutting"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "recipes": "minecraft:purpur_pillar_from_purpur_block_stonecutting"
       }
     },
     "craft_purpur_stairs": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "effects": {
-                "minecraft:levitation": {}
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "effects": {
+              "minecraft:levitation": {}
             }
-          }
-        ],
-        "recipe_id": "minecraft:purpur_stairs"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "recipes": "minecraft:purpur_stairs"
       }
     },
     "cut_purpur_stairs": {
       "trigger": "minecraft:recipe_crafted",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "effects": {
-                "minecraft:levitation": {}
-              }
+        "player": {
+          "entity": "this",
+          "predicate": {
+            "effects": {
+              "minecraft:levitation": {}
             }
-          }
-        ],
-        "recipe_id": "minecraft:purpur_stairs_from_purpur_block_stonecutting"
+          },
+          "type": "minecraft:entity_properties"
+        },
+        "recipes": "minecraft:purpur_stairs_from_purpur_block_stonecutting"
       }
     }
   },

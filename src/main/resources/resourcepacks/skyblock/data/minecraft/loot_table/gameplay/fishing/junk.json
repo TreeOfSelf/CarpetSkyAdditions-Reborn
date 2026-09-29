@@ -14,15 +14,15 @@
           "type": "minecraft:item",
           "name": "minecraft:leather_boots",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 0,
+                "min": 0.0,
                 "max": 0.9
               },
-              "add": false
+              "add": false,
+              "type": "minecraft:set_damage"
             }
           ]
         },
@@ -40,10 +40,10 @@
           "type": "minecraft:item",
           "name": "minecraft:potion",
           "weight": 10,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_potion",
-              "id": "minecraft:water"
+              "id": "minecraft:water",
+              "type": "minecraft:set_potion"
             }
           ]
         },
@@ -56,15 +56,15 @@
           "type": "minecraft:item",
           "name": "minecraft:fishing_rod",
           "weight": 2,
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_damage",
               "damage": {
                 "type": "minecraft:uniform",
-                "min": 0,
+                "min": 0.0,
                 "max": 0.9
               },
-              "add": false
+              "add": false,
+              "type": "minecraft:set_damage"
             }
           ]
         },
@@ -81,11 +81,11 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:ink_sac",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
               "count": 10,
-              "add": false
+              "add": false,
+              "type": "minecraft:set_count"
             }
           ]
         },
@@ -103,35 +103,31 @@
           "type": "minecraft:item",
           "name": "minecraft:bamboo",
           "weight": 10,
-          "conditions": [
-            {
-              "condition": "minecraft:location_check",
-              "predicate": {
-                "biomes": [
-                  "minecraft:jungle",
-                  "minecraft:sparse_jungle",
-                  "minecraft:bamboo_jungle"
-                ]
-              }
-            }
-          ]
+          "condition": {
+            "predicate": {
+              "biomes": [
+                "minecraft:jungle",
+                "minecraft:sparse_jungle",
+                "minecraft:bamboo_jungle"
+              ]
+            },
+            "type": "minecraft:location_check"
+          }
         },
         {
           "type": "minecraft:item",
           "name": "minecraft:cocoa_beans",
           "weight": 10,
-          "conditions": [
-            {
-              "condition": "minecraft:location_check",
-              "predicate": {
-                "biomes": [
-                  "minecraft:jungle",
-                  "minecraft:sparse_jungle",
-                  "minecraft:bamboo_jungle"
-                ]
-              }
-            }
-          ]
+          "condition": {
+            "predicate": {
+              "biomes": [
+                "minecraft:jungle",
+                "minecraft:sparse_jungle",
+                "minecraft:bamboo_jungle"
+              ]
+            },
+            "type": "minecraft:location_check"
+          }
         }
       ]
     }

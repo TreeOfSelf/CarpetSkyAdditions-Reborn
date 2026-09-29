@@ -16,9 +16,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import net.minecraft.world.level.levelgen.NoiseRouter;
+import net.minecraft.world.level.levelgen.RandomState;
 
 public abstract class CoralSpreader {
     public static final double TARGET_TEMP = 0.65;
@@ -33,11 +33,10 @@ public abstract class CoralSpreader {
 
         ServerChunkCache chunkCache = level.getChunkSource();
         if (chunkCache.getGenerator() instanceof NoiseBasedChunkGenerator) {
-            NoiseRouter noiseRouter = chunkCache.randomState().router();
-            DensityFunction.SinglePointContext context =
-                    new DensityFunction.SinglePointContext(pos.getX(), pos.getY(), pos.getZ());
-            double temp = noiseRouter.temperature().compute(context);
-            double continentalness = noiseRouter.continents().compute(context);
+            RandomState randomState = chunkCache.randomState();
+            NoiseRouter noiseRouter = randomState.router;
+            double temp = randomState.sampleBlockValueUncached(noiseRouter.temperature(), pos.getX(), pos.getY(), pos.getZ());
+            double continentalness = randomState.sampleBlockValueUncached(noiseRouter.continents(), pos.getX(), pos.getY(), pos.getZ());
             double squaredDifference =
                     (Mth.square(temp - TARGET_TEMP) + Mth.square(continentalness - TARGET_CONTINENTALNESS));
             return Mth.clamp(1 - squaredDifference, 0, 1);

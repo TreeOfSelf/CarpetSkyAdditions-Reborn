@@ -15,15 +15,13 @@
     "bred_pigs": {
       "trigger": "minecraft:bred_animals",
       "conditions": {
-        "parent": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": "minecraft:pig"
-            }
-          }
-        ]
+        "parent": {
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "minecraft:pig"
+          },
+          "type": "minecraft:entity_properties"
+        }
       }
     }
   }

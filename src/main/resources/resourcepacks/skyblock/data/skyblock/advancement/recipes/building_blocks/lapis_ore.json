@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "skyblock:lapis_ore"
+        "recipes": "skyblock:lapis_ore"
       }
     }
   },

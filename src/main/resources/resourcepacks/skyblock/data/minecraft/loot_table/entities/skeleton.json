@@ -8,24 +8,24 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:arrow",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0,
                 "max": 2
               },
-              "add": false
+              "add": false,
+              "type": "minecraft:set_count"
             },
             {
-              "function": "minecraft:enchanted_count_increase",
               "enchantment": "minecraft:looting",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
-              }
+                "min": 0.0,
+                "max": 1.0
+              },
+              "type": "minecraft:enchanted_count_increase"
             }
           ]
         }
@@ -38,24 +38,24 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:bone",
-          "functions": [
+          "modifier": [
             {
-              "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "min": 0,
                 "max": 2
               },
-              "add": false
+              "add": false,
+              "type": "minecraft:set_count"
             },
             {
-              "function": "minecraft:enchanted_count_increase",
               "enchantment": "minecraft:looting",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 0,
-                "max": 1
-              }
+                "min": 0.0,
+                "max": 1.0
+              },
+              "type": "minecraft:enchanted_count_increase"
             }
           ]
         }
@@ -67,32 +67,35 @@
         {
           "type": "minecraft:item",
           "name": "minecraft:cobweb",
-          "conditions": [
-            {
-              "condition": "minecraft:killed_by_player"
-            },
-            {
-              "condition": "minecraft:entity_properties",
-              "entity": "this",
-              "predicate": {
-                "vehicle": {
-                  "minecraft:entity_type": "minecraft:spider"
-                }
-              }
-            },
-            {
-              "condition": "minecraft:inverted",
-              "term": {
-                "condition": "minecraft:entity_properties",
+          "condition": {
+            "type": "minecraft:all_of",
+            "terms": [
+              {
+                "type": "minecraft:killed_by_player"
+              },
+              {
                 "entity": "this",
                 "predicate": {
                   "vehicle": {
-                    "nbt": "{Health:0f}"
+                    "minecraft:entity_type": "minecraft:spider"
                   }
-                }
+                },
+                "type": "minecraft:entity_properties"
+              },
+              {
+                "term": {
+                  "entity": "this",
+                  "predicate": {
+                    "vehicle": {
+                      "nbt": "{Health:0f}"
+                    }
+                  },
+                  "type": "minecraft:entity_properties"
+                },
+                "type": "minecraft:inverted"
               }
-            }
-          ]
+            ]
+          }
         }
       ]
     }

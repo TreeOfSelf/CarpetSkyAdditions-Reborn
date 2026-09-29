@@ -15,18 +15,16 @@
     "kill_spider": {
       "trigger": "minecraft:player_killed_entity",
       "conditions": {
-        "entity": [
-          {
-            "condition": "minecraft:entity_properties",
-            "entity": "this",
-            "predicate": {
-              "minecraft:entity_type": [
-                "minecraft:spider",
-                "minecraft:cave_spider"
-              ]
-            }
-          }
-        ]
+        "entity": {
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": [
+              "minecraft:spider",
+              "minecraft:cave_spider"
+            ]
+          },
+          "type": "minecraft:entity_properties"
+        }
       }
     }
   }

@@ -19,7 +19,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "skyblock:deepslate_gold_ore"
+        "recipes": "skyblock:deepslate_gold_ore"
       }
     }
   },
