@@ -2,152 +2,145 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:glowstone_dust",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2,
                 "min": 0
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:glowstone_dust"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:sugar",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2,
                 "min": 0
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:sugar"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:spider_eye",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2,
                 "min": 0
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:spider_eye"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:glass_bottle",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2,
                 "min": 0
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:glass_bottle"
         },
         {
           "type": "minecraft:item",
-          "name": "minecraft:gunpowder",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2,
                 "min": 0
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:gunpowder"
         },
         {
           "type": "minecraft:item",
+          "modifier": [
+            {
+              "type": "minecraft:set_count",
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 2,
+                "min": 0
+              }
+            },
+            {
+              "type": "minecraft:enchanted_count_increase",
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "enchantment": "minecraft:looting"
+            }
+          ],
           "name": "minecraft:stick",
-          "weight": 2,
-          "modifier": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 2,
-                "min": 0
-              },
-              "type": "minecraft:set_count"
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
-            }
-          ]
+          "weight": 2
         }
       ],
       "rolls": {
@@ -157,35 +150,32 @@
       }
     },
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:redstone",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 8,
                 "min": 4
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:redstone"
         }
       ],
       "rolls": 1
     }
-  ],
-  "random_sequence": "minecraft:entities/witch"
+  ]
 }

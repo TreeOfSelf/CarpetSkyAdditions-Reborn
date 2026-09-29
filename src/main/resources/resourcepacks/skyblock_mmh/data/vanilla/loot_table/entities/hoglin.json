@@ -2,38 +2,37 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:porkchop",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 4,
                 "min": 2
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
               "type": "minecraft:furnace_smelt",
               "condition": {
+                "type": "minecraft:any_of",
                 "terms": [
                   {
+                    "type": "minecraft:entity_properties",
                     "entity": "this",
                     "predicate": {
-                      "flags": {
+                      "minecraft:flags": {
                         "is_on_fire": true
                       }
-                    },
-                    "type": "minecraft:entity_properties"
+                    }
                   },
                   {
+                    "type": "minecraft:entity_properties",
                     "entity": "direct_attacker",
                     "predicate": {
-                      "equipment": {
+                      "minecraft:equipment": {
                         "mainhand": {
                           "predicates": {
                             "minecraft:enchantments": [
@@ -44,57 +43,53 @@
                           }
                         }
                       }
-                    },
-                    "type": "minecraft:entity_properties"
+                    }
                   }
-                ],
-                "type": "minecraft:any_of"
+                ]
               }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:porkchop"
         }
       ],
       "rolls": 1
     },
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:leather",
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1,
                 "min": 0
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:leather"
         }
       ],
       "rolls": 1
     }
-  ],
-  "random_sequence": "minecraft:entities/hoglin"
+  ]
 }

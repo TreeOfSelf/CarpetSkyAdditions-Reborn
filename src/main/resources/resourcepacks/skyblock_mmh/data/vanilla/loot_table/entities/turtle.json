@@ -2,46 +2,37 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:seagrass",
-          "weight": 3,
           "modifier": [
             {
-              "add": false,
+              "type": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 2,
                 "min": 0
-              },
-              "type": "minecraft:set_count"
+              }
             },
             {
+              "type": "minecraft:enchanted_count_increase",
               "count": {
                 "type": "minecraft:uniform",
                 "max": 1.0,
                 "min": 0.0
               },
-              "enchantment": "minecraft:looting",
-              "type": "minecraft:enchanted_count_increase"
+              "enchantment": "minecraft:looting"
             }
-          ]
+          ],
+          "name": "minecraft:seagrass",
+          "weight": 3
         }
       ],
       "rolls": 1
     },
     {
-      "bonus_rolls": 0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:bowl"
-        }
-      ],
-      "rolls": 1,
       "condition": {
+        "type": "minecraft:damage_source_properties",
         "predicate": {
           "tags": [
             {
@@ -49,10 +40,15 @@
               "id": "#minecraft:is_lightning"
             }
           ]
-        },
-        "type": "minecraft:damage_source_properties"
-      }
+        }
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bowl"
+        }
+      ],
+      "rolls": 1
     }
-  ],
-  "random_sequence": "minecraft:entities/turtle"
+  ]
 }

@@ -2,22 +2,17 @@
   "type": "minecraft:entity",
   "pools": [
     {
-      "bonus_rolls": 0,
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:saddle",
-          "modifier": [
-            {
-              "add": false,
-              "count": 1,
-              "type": "minecraft:set_count"
-            }
-          ]
+          "modifier": {
+            "type": "minecraft:set_count",
+            "count": 1
+          },
+          "name": "minecraft:saddle"
         }
       ],
       "rolls": 1
     }
-  ],
-  "random_sequence": "minecraft:entities/ravager"
+  ]
 }
