@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "skyblock:cinnabar_from_blasting_sulfur"
+    ]
+  },
+  "criteria": {
+    "has_sulfur": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:sulfur"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipes": "skyblock:cinnabar_from_blasting_sulfur"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_sulfur",
+      "has_the_recipe"
+    ]
+  ],
+  "sends_telemetry_event": false
+}
