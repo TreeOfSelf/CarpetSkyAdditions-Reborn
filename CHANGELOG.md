@@ -14,6 +14,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ### Removed
 
 ### Fixed
+- renewableDeepslate: splash and lingering Thick Potions now convert stone to deepslate (backport by sanmajiao)
 
 ## [4.4.1] - 2023-08-21
 
